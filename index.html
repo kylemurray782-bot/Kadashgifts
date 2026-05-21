@@ -495,16 +495,16 @@ const categories = [
 ];
 
 const products = [
-  { id:1,  name:'Personalised Photo Mug',   emoji:'☕', desc:'Custom printed with your photo and message. Dishwasher safe.',              price:180, cats:['birthday-her','birthday-him','mothers-day','fathers-day','christmas'] },
-  { id:2,  name:'Gift Hamper — Her',         emoji:'🎁', desc:'Curated hamper with personalised ribbon, card, and selected treats.',       price:450, cats:['birthday-her','mothers-day','anniversary'] },
-  { id:3,  name:'Dad Survival Kit',          emoji:'🔧', desc:'Personalised toolkit hamper. Because Dad deserves to feel special.',        price:380, cats:['fathers-day','birthday-him'] },
-  { id:4,  name:'Custom Cushion',            emoji:'🛋️', desc:'Photo-printed cushion with personalised text. Soft, vibrant, lasting.',    price:280, cats:['birthday-her','anniversary','mothers-day','christmas'] },
-  { id:5,  name:'Baby Arrival Set',          emoji:'🍼', desc:'Personalised onesie, bib, and keepsake box for the new arrival.',          price:520, cats:['new-baby'] },
-  { id:6,  name:'Corporate Gift Box',        emoji:'📦', desc:'Branded hampers for staff or clients. Minimum order 5 units.',             price:350, cats:['corporate'] },
-  { id:7,  name:'Anniversary Frame',         emoji:'🖼️', desc:'Custom photo frame with your names and date engraved. Ready to hang.',    price:220, cats:['anniversary','birthday-her','birthday-him'] },
-  { id:8,  name:'Christmas Stocking Set',    emoji:'🧦', desc:'Personalised stockings for the whole family — names printed in gold.',     price:160, cats:['christmas'] },
-  { id:9,  name:'Personalised Tumbler',      emoji:'🥤', desc:'Stainless steel tumbler with custom name or quote. 500ml.',               price:200, cats:['birthday-her','birthday-him','fathers-day','corporate'] },
-  { id:10, name:'Mom Pamper Box',            emoji:'🛁', desc:'Luxury pamper set with personalised card and ribbon wrapping.',            price:480, cats:['mothers-day','birthday-her'] },
+  { id:1,  name:'Personalised Photo Mug',   emoji:'☕', img:null, desc:'Custom printed with your photo and message. Dishwasher safe.',              price:180, cats:['birthday-her','birthday-him','mothers-day','fathers-day','christmas'] },
+  { id:2,  name:'Gift Hamper — Her',         emoji:'🎁', img:null, desc:'Curated hamper with personalised ribbon, card, and selected treats.',       price:450, cats:['birthday-her','mothers-day','anniversary'] },
+  { id:3,  name:'Kingdom Kit',              emoji:'🧔', img:'images/Kingdom-kit.jpg', desc:'Personalised beard care gift set. Name printed on the bottle — full kit personalisation available on request.', price:300, cats:['fathers-day','birthday-him'] },
+  { id:4,  name:'Custom Cushion',            emoji:'🛋️', img:null, desc:'Photo-printed cushion with personalised text. Soft, vibrant, lasting.',    price:280, cats:['birthday-her','anniversary','mothers-day','christmas'] },
+  { id:5,  name:'Baby Arrival Set',          emoji:'🍼', img:null, desc:'Personalised onesie, bib, and keepsake box for the new arrival.',          price:520, cats:['new-baby'] },
+  { id:6,  name:'Corporate Gift Box',        emoji:'📦', img:null, desc:'Branded hampers for staff or clients. Minimum order 5 units.',             price:350, cats:['corporate'] },
+  { id:7,  name:'Anniversary Frame',         emoji:'🖼️', img:null, desc:'Custom photo frame with your names and date engraved. Ready to hang.',    price:220, cats:['anniversary','birthday-her','birthday-him'] },
+  { id:8,  name:'Christmas Stocking Set',    emoji:'🧦', img:null, desc:'Personalised stockings for the whole family — names printed in gold.',     price:160, cats:['christmas'] },
+  { id:9,  name:'Personalised Tumbler',      emoji:'🥤', img:null, desc:'Stainless steel tumbler with custom name or quote. 500ml.',               price:200, cats:['birthday-her','birthday-him','fathers-day','corporate'] },
+  { id:10, name:'Mom Pamper Box',            emoji:'🛁', img:null, desc:'Luxury pamper set with personalised card and ribbon wrapping.',            price:480, cats:['mothers-day','birthday-her'] },
 ];
 
 let cart = [];
@@ -558,7 +558,11 @@ function renderProducts() {
     }).join('');
     return `
     <div class="product-card">
-      <div class="product-img">${p.emoji}</div>
+      <div class="product-img">
+        ${p.img
+          ? `<img src="${p.img}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover;">`
+          : p.emoji}
+      </div>
       <div class="product-body">
         <div class="product-tags">${tagNames}</div>
         <div class="product-name">${p.name}</div>
