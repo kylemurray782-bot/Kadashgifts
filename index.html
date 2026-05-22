@@ -448,7 +448,7 @@ const WA_NUMBER = '27738383486';
 const categories = [
   { id:'birthday-her', name:'Birthday for her', emoji:'🎀' },
   { id:'birthday-him', name:'Birthday for him', emoji:'🍺' },
-  { id:'fathers-day',  name:"Father's Day",     emoji:'👨', badge:'Coming Soon' },
+  { id:'fathers-day',  name:"Father's Day",     emoji:'👨' },
   { id:'mothers-day',  name:"Mother's Day",      emoji:'💐' },
   { id:'anniversary',  name:'Anniversary',       emoji:'💍' },
   { id:'new-baby',     name:'New Baby',          emoji:'👶' },
@@ -456,19 +456,70 @@ const categories = [
   { id:'christmas',    name:'Christmas',         emoji:'🎄' },
 ];
 
-// OPTIONS format: array of { name, price } — leave empty [] for single-price products
-// IMAGES format: array of image paths — first image is the hero shown on the card
 const products = [
-  { id:1,  name:'Personalised Photo Mug',  emoji:'☕', images:[], desc:'Custom printed with your photo and message. Dishwasher safe.', price:180, options:[], cats:['birthday-her','birthday-him','mothers-day','fathers-day','christmas'] },
-  { id:2,  name:'Gift Hamper — Her',        emoji:'🎁', images:[], desc:'Curated hamper with personalised ribbon, card, and selected treats.', price:450, options:[], cats:['birthday-her','mothers-day','anniversary'] },
-  { id:3,  name:'Kingdom Kit',             emoji:'🧔', images:['images/kingdom-kit.jpg'], desc:'Personalised beard care gift set. Name printed on the bottle — full kit personalisation available on request.', price:300, options:[], cats:['fathers-day','birthday-him'] },
-  { id:4,  name:'Custom Cushion',           emoji:'🛋️', images:[], desc:'Photo-printed cushion with personalised text. Soft, vibrant, lasting.', price:280, options:[], cats:['birthday-her','anniversary','mothers-day','christmas'] },
-  { id:5,  name:'Baby Arrival Set',         emoji:'🍼', images:[], desc:'Personalised onesie, bib, and keepsake box for the new arrival.', price:520, options:[], cats:['new-baby'] },
-  { id:6,  name:'Corporate Gift Box',       emoji:'📦', images:[], desc:'Branded hampers for staff or clients. Minimum order 5 units.', price:350, options:[], cats:['corporate'] },
-  { id:7,  name:'Anniversary Frame',        emoji:'🖼️', images:[], desc:'Custom photo frame with your names and date engraved. Ready to hang.', price:220, options:[], cats:['anniversary','birthday-her','birthday-him'] },
-  { id:8,  name:'Christmas Stocking Set',   emoji:'🧦', images:[], desc:'Personalised stockings for the whole family — names printed in gold.', price:160, options:[], cats:['christmas'] },
-  { id:9,  name:'Personalised Tumbler',     emoji:'🥤', images:[], desc:'Stainless steel tumbler with custom name or quote. 500ml.', price:200, options:[], cats:['birthday-her','birthday-him','fathers-day','corporate'] },
-  { id:10, name:'Mom Pamper Box',           emoji:'🛁', images:[], desc:'Luxury pamper set with personalised card and ribbon wrapping.', price:480, options:[], cats:['mothers-day','birthday-her'] },
+  {
+    id: 1,
+    name: 'Kingdom Kit',
+    emoji: '🧔',
+    images: ['images/kingdom-kit.jpg'],
+    desc: 'Personalised beard care gift set. Name printed on the bottle — full kit personalisation available on request.',
+    price: 300,
+    options: [],
+    cats: ['fathers-day', 'birthday-him']
+  },
+  {
+    id: 2,
+    name: 'The Urban Gentleman Set',
+    emoji: '👔',
+    images: [
+      'images/Urban-gentlemen-1.jpg',
+      'images/Urban-gentlemen-2.jpg',
+      'images/Urban-gentlemen-3.jpg'
+    ],
+    desc: 'A refined gift set for the man who means business. Choose your tier — from a personalised travel mug up to the full executive bundle.',
+    price: 0,
+    options: [
+      { name: 'Personalised travel mug', price: 200 },
+      { name: 'Personalised travel mug + personalised tie', price: 350 },
+      { name: 'Personalised travel mug + personalised tie + personalised mousepad', price: 450 }
+    ],
+    cats: ['birthday-him', 'fathers-day']
+  },
+  {
+    id: 3,
+    name: 'The Executives Lunch Set',
+    emoji: '💼',
+    images: [
+      'images/The-executives-lunch-set-1.jpg',
+      'images/The-executives-lunch-set-2.jpg'
+    ],
+    desc: 'A smart, personalised lunch set for the working man. Build the bundle that fits your budget.',
+    price: 0,
+    options: [
+      { name: 'Personalised lunch bag', price: 250 },
+      { name: 'Personalised lunch bag + personalised tumbler', price: 500 },
+      { name: 'Personalised lunch bag + personalised tumbler + personalised notebook & pen', price: 650 }
+    ],
+    cats: ['birthday-him', 'fathers-day']
+  },
+  {
+    id: 4,
+    name: 'The Reset Set',
+    emoji: '🛁',
+    images: [
+      'images/The-reset-set-1.jpg',
+      'images/The-reset-set-2.jpg',
+      'images/The-reset-set-3.jpg'
+    ],
+    desc: 'For the dad who deserves to rest. A personalised relaxation set — choose the level of luxury.',
+    price: 0,
+    options: [
+      { name: 'Personalised slippers', price: 270 },
+      { name: 'Personalised slippers + personalised gown', price: 690 },
+      { name: 'Personalised slippers + personalised gown + personalised mug', price: 790 }
+    ],
+    cats: ['birthday-him', 'fathers-day']
+  }
 ];
 
 let cart = [];
@@ -571,31 +622,26 @@ function quickAddToCart(id) {
 function openModal(id) {
   modalProduct = products.find(p => p.id === id);
   modalSlide = 0;
-  selectedOption = modalProduct.options && modalProduct.options.length ? null : null;
+  selectedOption = null;
 
-  // slides
   const slides = modalProduct.images && modalProduct.images.length ? modalProduct.images : [null];
   document.getElementById('modalSlides').innerHTML = slides.map((img, i) => `
     <div class="modal-slide ${i===0?'active':''}" data-index="${i}">
       ${img ? `<img src="${img}" alt="${modalProduct.name}">` : `<span style="font-size:80px">${modalProduct.emoji}</span>`}
     </div>`).join('');
 
-  // dots
   document.getElementById('modalDots').innerHTML = slides.length > 1
     ? slides.map((_, i) => `<button class="modal-dot ${i===0?'active':''}" onclick="goToSlide(${i})"></button>`).join('')
     : '';
 
-  // arrows
   document.getElementById('modalPrev').classList.toggle('hidden', slides.length <= 1);
   document.getElementById('modalNext').classList.toggle('hidden', slides.length <= 1);
 
-  // info
   const tagNames = modalProduct.cats.map(c => { const cat = categories.find(x=>x.id===c); return cat?`<span class="product-tag">${cat.name}</span>`:''; }).join('');
   document.getElementById('modalTags').innerHTML = tagNames;
   document.getElementById('modalName').textContent = modalProduct.name;
   document.getElementById('modalDesc').textContent = modalProduct.desc;
 
-  // pricing
   const pricingEl = document.getElementById('modalPricing');
   if (modalProduct.options && modalProduct.options.length) {
     pricingEl.innerHTML = `
@@ -744,7 +790,6 @@ function checkoutWhatsApp() {
   const msg = `Hi Kadash Gifts! 👋 I'd like to place an order:\n\n${lines}\n\n💰 Total: R${total}\n\n👤 Name: ${name}\n📱 Number: ${phone||'Not provided'}${notes?`\n📝 Notes: ${notes}`:''}\n\nPlease confirm and send payment details. Thank you!`;
   window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
 }
-
 
 // ── SEARCH ──
 let searchQuery = '';
