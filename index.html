@@ -424,22 +424,40 @@ function renderProducts() {
     const heroImg = p.images && p.images.length ? p.images[0] : null;
     const displayPrice = p.options && p.options.length ? `From R${Math.min(...p.options.map(o=>o.price))}` : `R${p.price}`;
     const tagNames = p.cats.slice(0,2).map(c => { const cat = categories.find(x=>x.id===c); return cat?`<span class="product-tag">${cat.name}</span>`:''; }).join('');
+    const inCart = cart.find(i => i.cartKey === `${p.id}-single`);
     return `
-    <div class="product-card" onclick="openModal(${p.id})">
-      <div class="product-img">
+    <div class="product-card">
+      <div class="product-img" onclick="openModal(${p.id})" style="cursor:pointer;">
         ${heroImg ? `<img src="${heroImg}" alt="${p.name}">` : p.emoji}
       </div>
       <div class="product-body">
-        <div class="product-tags">${tagNames}</div>
-        <div class="product-name">${p.name}</div>
-        <div class="product-desc">${p.desc}</div>
+        <div class="product-tags" onclick="openModal(${p.id})" style="cursor:pointer;">${tagNames}</div>
+        <div class="product-name" onclick="openModal(${p.id})" style="cursor:pointer;">${p.name}</div>
+        <div class="product-desc" onclick="openModal(${p.id})" style="cursor:pointer;">${p.desc}</div>
         <div class="product-footer">
           <div class="product-price">${displayPrice}</div>
-          <button class="view-btn" onclick="event.stopPropagation(); openModal(${p.id})">Add to cart</button>
+          <button class="view-btn ${inCart?'added':''}" onclick="quickAddToCart(${p.id})">
+            ${p.options && p.options.length ? 'View options' : (inCart ? '✓ Added' : 'Add to cart')}
+          </button>
         </div>
       </div>
     </div>`;
   }).join('');
+}
+
+// ── QUICK ADD ──
+function quickAddToCart(id) {
+  const product = products.find(p => p.id === id);
+  if (product.options && product.options.length) {
+    openModal(id); return;
+  }
+  const key = `${id}-single`;
+  const existing = cart.find(i => i.cartKey === key);
+  if (existing) { existing.qty++; }
+  else { cart.push({ ...product, cartKey: key, optionName: null, qty: 1 }); }
+  updateCart();
+  renderProducts();
+  toggleCart(true);
 }
 
 // ── MODAL ──
