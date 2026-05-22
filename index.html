@@ -491,7 +491,8 @@ const products = [
     emoji: '💼',
     images: [
       'images/The-executives-lunch-set-1.jpg',
-      'images/The-executives-lunch-set-2.jpg'
+      'images/The-executives-lunch-set-2.jpg',
+      'images/The-executives-lunch-set-3.jpg'
     ],
     desc: 'A smart, personalised lunch set for the working man. Build the bundle that fits your budget.',
     price: 0,
@@ -683,6 +684,9 @@ function selectOption(index) {
   const inCart = cart.find(i => i.id === modalProduct.id && i.optionName === opt.name);
   addBtn.textContent = inCart ? '✓ Added to cart' : `Add to cart — R${opt.price}`;
   addBtn.className = 'modal-add-btn' + (inCart ? ' added' : '');
+  // Sync gallery to selected option
+  const slides = document.querySelectorAll('.modal-slide');
+  if (slides.length > index) goToSlide(index);
 }
 
 function slideModal(dir) {
