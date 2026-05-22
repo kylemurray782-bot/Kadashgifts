@@ -161,6 +161,7 @@
   .cart-item-info { flex: 1; }
   .cart-item-name { font-size: 14px; font-weight: 400; margin-bottom: 2px; }
   .cart-item-option { font-size: 11px; color: var(--gold); letter-spacing: 0.5px; margin-bottom: 2px; }
+  .cart-item-addons { font-size: 11px; color: var(--text-muted); margin-top: 2px; line-height: 1.5; }
   .cart-item-price { font-size: 12px; color: var(--text-muted); }
   .cart-item-qty { display: flex; align-items: center; gap: 10px; margin-top: 8px; }
   .qty-btn { background: var(--warm); border: 1px solid var(--border); width: 26px; height: 26px; border-radius: 2px; cursor: pointer; font-size: 15px; display: flex; align-items: center; justify-content: center; transition: background 0.15s; }
@@ -217,7 +218,6 @@
   .helper-btn { background: var(--wa); color: white; border: none; padding: 15px; border-radius: 2px; font-family: 'Jost', sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: opacity 0.2s; margin-top: 8px; width: 100%; }
   .helper-btn:hover { opacity: 0.88; }
 
-
   /* ADD-ONS */
   .addons-section { margin-bottom: 24px; }
   .addons-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px; display: block; }
@@ -230,7 +230,6 @@
   .addon-btn.selected .addon-check { background: var(--gold); border-color: var(--gold); color: var(--dark); }
   .addon-name { font-size: 13px; color: var(--text); }
   .addon-price { font-family: 'Cormorant Garamond', serif; font-size: 16px; color: var(--text-muted); white-space: nowrap; }
-  .cart-item-addons { font-size: 11px; color: var(--text-muted); margin-top: 2px; line-height: 1.5; }
 
   @media (max-width: 640px) {
     .nav-links { display: none; }
@@ -281,7 +280,6 @@
 <!-- STRIP -->
 <div class="strip">✦ &nbsp; Free personalisation on every order &nbsp; ✦ &nbsp; 2–3 business day turnaround &nbsp; ✦ &nbsp; Delivered nationwide &nbsp; ✦</div>
 
-
 <!-- SEARCH BAR -->
 <div class="search-bar-section">
   <div class="search-wrap">
@@ -328,7 +326,6 @@
     </div>
   </div>
 </div>
-
 
 <!-- GIFT HELPER -->
 <div class="helper-section" id="helper">
@@ -534,14 +531,7 @@ const products = [
       { name: 'Personalised slippers + personalised gown + personalised mug', price: 790 }
     ],
     cats: ['birthday-him', 'fathers-day']
-  }
-];
-
-const addOns = [
-  { id: 'ferrero', name: 'Ferrero Rocher',       price: 50 },
-  { id: 'biltong', name: 'Beef Biltong',          price: 50 },
-  { id: 'cashews', name: 'Honey Glazed Cashews',  price: 50 },
-  { id: 'keyring', name: 'Personalised Key Ring', price: 90 },
+  },
   {
     id: 5,
     name: 'Kingdom Man Bible Set',
@@ -557,7 +547,7 @@ const addOns = [
     name: 'Football Set',
     emoji: '⚽',
     images: ['images/football-set.jpg'],
-    desc: 'Personalised mug, mug box, and flask with matching gift bag — all printed in his favourite team\'s colours.',
+    desc: "Personalised mug, mug box, and flask with matching gift bag — all printed in his favourite team's colours.",
     price: 450,
     options: [],
     cats: ['birthday-him', 'fathers-day']
@@ -572,6 +562,13 @@ const addOns = [
     options: [],
     cats: ['birthday-him', 'fathers-day']
   }
+];
+
+const addOns = [
+  { id: 'ferrero', name: 'Ferrero Rocher',       price: 50 },
+  { id: 'biltong', name: 'Beef Biltong',          price: 50 },
+  { id: 'cashews', name: 'Honey Glazed Cashews',  price: 50 },
+  { id: 'keyring', name: 'Personalised Key Ring', price: 90 },
 ];
 
 let cart = [];
@@ -697,6 +694,20 @@ function openModal(id) {
   document.getElementById('modalDesc').textContent = modalProduct.desc;
 
   const pricingEl = document.getElementById('modalPricing');
+  const addOnsHTML = `
+    <div class="addons-section">
+      <span class="addons-label">Build your gift box</span>
+      <span class="addons-sublabel">Add extras to make it even more special</span>
+      ${addOns.map(a => `
+        <button class="addon-btn" id="addon-${a.id}" onclick="toggleAddOn('${a.id}')">
+          <div class="addon-left">
+            <div class="addon-check" id="addon-check-${a.id}"></div>
+            <span class="addon-name">${a.name}</span>
+          </div>
+          <span class="addon-price">+R${a.price}</span>
+        </button>`).join('')}
+    </div>`;
+
   if (modalProduct.options && modalProduct.options.length) {
     pricingEl.innerHTML = `
       <span class="modal-options-label">Choose your option</span>
@@ -705,33 +716,9 @@ function openModal(id) {
           <span class="option-name">${o.name}</span>
           <span class="option-price">R${o.price}</span>
         </button>`).join('')}
-      <div class="addons-section">
-        <span class="addons-label">Build your gift box</span>
-        <span class="addons-sublabel">Add extras to make it even more special</span>
-        ${addOns.map(a => `
-          <button class="addon-btn" id="addon-${a.id}" onclick="toggleAddOn('${a.id}')">
-            <div class="addon-left">
-              <div class="addon-check" id="addon-check-${a.id}"></div>
-              <span class="addon-name">${a.name}</span>
-            </div>
-            <span class="addon-price">+R${a.price}</span>
-          </button>`).join('')}
-      </div>`;
+      ${addOnsHTML}`;
   } else {
-    pricingEl.innerHTML = `
-      <div class="modal-price-single">R${modalProduct.price}</div>
-      <div class="addons-section">
-        <span class="addons-label">Build your gift box</span>
-        <span class="addons-sublabel">Add extras to make it even more special</span>
-        ${addOns.map(a => `
-          <button class="addon-btn" id="addon-${a.id}" onclick="toggleAddOn('${a.id}')">
-            <div class="addon-left">
-              <div class="addon-check" id="addon-check-${a.id}"></div>
-              <span class="addon-name">${a.name}</span>
-            </div>
-            <span class="addon-price">+R${a.price}</span>
-          </button>`).join('')}
-      </div>`;
+    pricingEl.innerHTML = `<div class="modal-price-single">R${modalProduct.price}</div>${addOnsHTML}`;
   }
 
   const addBtn = document.getElementById('modalAddBtn');
@@ -774,7 +761,6 @@ function selectOption(index) {
   const inCart = cart.find(i => i.id === modalProduct.id && i.optionName === opt.name);
   addBtn.textContent = inCart ? '✓ Added to cart' : `Add to cart — R${opt.price}`;
   addBtn.className = 'modal-add-btn' + (inCart ? ' added' : '');
-  // Sync gallery to selected option
   const slides = document.querySelectorAll('.modal-slide');
   if (slides.length > index) goToSlide(index);
 }
