@@ -218,6 +218,20 @@
   .helper-btn:hover { opacity: 0.88; }
 
 
+  /* ADD-ONS */
+  .addons-section { margin-bottom: 24px; }
+  .addons-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px; display: block; }
+  .addons-sublabel { font-size: 12px; color: var(--text-muted); margin-bottom: 12px; display: block; }
+  .addon-btn { width: 100%; text-align: left; background: var(--cream); border: 1px solid var(--border); border-radius: 3px; padding: 10px 14px; margin-bottom: 8px; cursor: pointer; font-family: 'Jost', sans-serif; transition: all 0.2s; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .addon-btn:hover { border-color: var(--gold); }
+  .addon-btn.selected { border-color: var(--gold); background: #fdf9f2; }
+  .addon-left { display: flex; align-items: center; gap: 10px; }
+  .addon-check { width: 16px; height: 16px; border: 1px solid var(--border); border-radius: 2px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 10px; background: var(--white); transition: all 0.2s; }
+  .addon-btn.selected .addon-check { background: var(--gold); border-color: var(--gold); color: var(--dark); }
+  .addon-name { font-size: 13px; color: var(--text); }
+  .addon-price { font-family: 'Cormorant Garamond', serif; font-size: 16px; color: var(--text-muted); white-space: nowrap; }
+  .cart-item-addons { font-size: 11px; color: var(--text-muted); margin-top: 2px; line-height: 1.5; }
+
   @media (max-width: 640px) {
     .nav-links { display: none; }
     nav { padding: 0 1.5rem; }
@@ -523,11 +537,19 @@ const products = [
   }
 ];
 
+const addOns = [
+  { id: 'ferrero', name: 'Ferrero Rocher',       price: 50 },
+  { id: 'biltong', name: 'Beef Biltong',          price: 50 },
+  { id: 'cashews', name: 'Honey Glazed Cashews',  price: 50 },
+  { id: 'keyring', name: 'Personalised Key Ring', price: 90 },
+];
+
 let cart = [];
 let activeFilter = 'all';
 let modalProduct = null;
 let modalSlide = 0;
 let selectedOption = null;
+let selectedAddOns = [];
 
 // ── CATEGORIES ──
 function renderCategories() {
@@ -624,6 +646,7 @@ function openModal(id) {
   modalProduct = products.find(p => p.id === id);
   modalSlide = 0;
   selectedOption = null;
+  selectedAddOns = [];
 
   const slides = modalProduct.images && modalProduct.images.length ? modalProduct.images : [null];
   document.getElementById('modalSlides').innerHTML = slides.map((img, i) => `
@@ -651,9 +674,34 @@ function openModal(id) {
         <button class="option-btn" data-index="${i}" onclick="selectOption(${i})">
           <span class="option-name">${o.name}</span>
           <span class="option-price">R${o.price}</span>
-        </button>`).join('')}`;
+        </button>`).join('')}
+      <div class="addons-section">
+        <span class="addons-label">Build your gift box</span>
+        <span class="addons-sublabel">Add extras to make it even more special</span>
+        ${addOns.map(a => `
+          <button class="addon-btn" id="addon-${a.id}" onclick="toggleAddOn('${a.id}')">
+            <div class="addon-left">
+              <div class="addon-check" id="addon-check-${a.id}"></div>
+              <span class="addon-name">${a.name}</span>
+            </div>
+            <span class="addon-price">+R${a.price}</span>
+          </button>`).join('')}
+      </div>`;
   } else {
-    pricingEl.innerHTML = `<div class="modal-price-single">R${modalProduct.price}</div>`;
+    pricingEl.innerHTML = `
+      <div class="modal-price-single">R${modalProduct.price}</div>
+      <div class="addons-section">
+        <span class="addons-label">Build your gift box</span>
+        <span class="addons-sublabel">Add extras to make it even more special</span>
+        ${addOns.map(a => `
+          <button class="addon-btn" id="addon-${a.id}" onclick="toggleAddOn('${a.id}')">
+            <div class="addon-left">
+              <div class="addon-check" id="addon-check-${a.id}"></div>
+              <span class="addon-name">${a.name}</span>
+            </div>
+            <span class="addon-price">+R${a.price}</span>
+          </button>`).join('')}
+      </div>`;
   }
 
   const addBtn = document.getElementById('modalAddBtn');
@@ -670,10 +718,22 @@ function closeModal() {
   document.body.style.overflow = '';
   modalProduct = null;
   selectedOption = null;
+  selectedAddOns = [];
 }
 
 function handleModalOverlayClick(e) {
   if (e.target === document.getElementById('modalOverlay')) closeModal();
+}
+
+function toggleAddOn(id) {
+  const idx = selectedAddOns.indexOf(id);
+  if (idx > -1) { selectedAddOns.splice(idx, 1); }
+  else { selectedAddOns.push(id); }
+  const btn = document.getElementById(`addon-${id}`);
+  const check = document.getElementById(`addon-check-${id}`);
+  const isSelected = selectedAddOns.includes(id);
+  btn.classList.toggle('selected', isSelected);
+  check.textContent = isSelected ? '✓' : '';
 }
 
 function selectOption(index) {
@@ -707,17 +767,19 @@ function goToSlide(index) {
 
 function addFromModal() {
   if (!modalProduct) return;
+  const chosenAddOns = addOns.filter(a => selectedAddOns.includes(a.id));
+  const addOnsTotal = chosenAddOns.reduce((s,a) => s+a.price, 0);
   if (modalProduct.options && modalProduct.options.length) {
     if (selectedOption === null) { alert('Please choose an option first.'); return; }
     const opt = modalProduct.options[selectedOption];
     const key = `${modalProduct.id}-${opt.name}`;
     const existing = cart.find(i => i.cartKey === key);
     if (existing) { existing.qty++; }
-    else { cart.push({ ...modalProduct, cartKey: key, optionName: opt.name, price: opt.price, qty: 1 }); }
+    else { cart.push({ ...modalProduct, cartKey: key, optionName: opt.name, price: opt.price + addOnsTotal, basePrice: opt.price, addOns: chosenAddOns, qty: 1 }); }
   } else {
     const existing = cart.find(i => i.cartKey === `${modalProduct.id}-single`);
     if (existing) { existing.qty++; }
-    else { cart.push({ ...modalProduct, cartKey: `${modalProduct.id}-single`, optionName: null, qty: 1 }); }
+    else { cart.push({ ...modalProduct, cartKey: `${modalProduct.id}-single`, optionName: null, price: modalProduct.price + addOnsTotal, basePrice: modalProduct.price, addOns: chosenAddOns, qty: 1 }); }
   }
   updateCart();
   renderProducts();
@@ -761,6 +823,7 @@ function updateCart() {
       <div class="cart-item-info">
         <div class="cart-item-name">${i.name}</div>
         ${i.optionName ? `<div class="cart-item-option">${i.optionName}</div>` : ''}
+        ${i.addOns && i.addOns.length ? `<div class="cart-item-addons">+ ${i.addOns.map(a=>a.name).join(', ')}</div>` : ''}
         <div class="cart-item-price">R${i.price} each</div>
         <div class="cart-item-qty">
           <button class="qty-btn" onclick="changeQty('${i.cartKey}',-1)">−</button>
@@ -790,7 +853,11 @@ function checkoutWhatsApp() {
   const notes = document.getElementById('customerNotes').value.trim();
   if (!name) { alert('Please enter your name before sending.'); return; }
   const total = cart.reduce((s,i) => s+i.price*i.qty, 0);
-  const lines = cart.map(i => `  • ${i.name}${i.optionName?` (${i.optionName})`:''} x${i.qty} — R${i.price*i.qty}`).join('\n');
+  const lines = cart.map(i => {
+    let line = `  • ${i.name}${i.optionName?` (${i.optionName})`:''} x${i.qty} — R${i.price*i.qty}`;
+    if (i.addOns && i.addOns.length) line += `\n    Extras: ${i.addOns.map(a=>a.name).join(', ')}`;
+    return line;
+  }).join('\n');
   const msg = `Hi Kadash Gifts! 👋 I'd like to place an order:\n\n${lines}\n\n💰 Total: R${total}\n\n👤 Name: ${name}\n📱 Number: ${phone||'Not provided'}${notes?`\n📝 Notes: ${notes}`:''}\n\nPlease confirm and send payment details. Thank you!`;
   window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
 }
