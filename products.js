@@ -92,5 +92,108 @@ const products = [
     price: 500,
     options: [],
     cats: ['birthday-him', 'fathers-day']
+  },
+  {
+    id: 8,
+    name: 'Personalised Braai Master Dad Set',
+    emoji: '🔥',
+    images: ['images/braai_master.jpg'],
+    desc: 'His name on the apron, his tools in hand. The ultimate gift for the man who rules the fire.',
+    price: 380,
+    options: [],
+    cats: ['birthday-him', 'fathers-day']
+  },
+  {
+    id: 9,
+    name: 'Personalised Travel & Gym Bag',
+    emoji: '🏋️',
+    images: ['images/travel_gym_sports_bag.jpg'],
+    desc: 'Built for the man always on the move. A quality bag personalised with his name — from the gym to the weekend away.',
+    price: 500,
+    options: [],
+    cats: ['birthday-him', 'fathers-day']
+  },
+  {
+    id: 10,
+    name: 'Personalised Thermo Display Flask',
+    emoji: '🌡️',
+    images: ['images/thermo_display_flask.jpg'],
+    desc: 'Keeps his drink at the right temperature and his name front and centre. Sleek, functional, and entirely his.',
+    price: 250,
+    options: [],
+    cats: ['birthday-him', 'fathers-day']
+  },
+  {
+    id: 11,
+    name: 'Personalised Dad Socks',
+    emoji: '🧦',
+    images: ['images/dad_socks.jpg'],
+    desc: "His favourite scripture, his nickname, or a message only he'll understand — printed on the pair he'll actually wear.",
+    price: 150,
+    options: [],
+    cats: ['birthday-him', 'fathers-day']
+  },
+  {
+    id: 12,
+    name: 'Personalised Wooden Cutting Board',
+    emoji: '🪵',
+    images: ['images/personalised_wooden_cutting-board.jpg'],
+    desc: 'A quality wooden cutting board engraved with his name or a meaningful message. Built to last, made to matter.',
+    price: 250,
+    options: [],
+    cats: ['birthday-him', 'fathers-day']
+  },
+  {
+    id: 13,
+    name: 'Personalised Hip Flask',
+    emoji: '🥃',
+    images: ['images/personalised_hip_flask.jpg'],
+    desc: 'Pocket-sized and personal. Engraved with his name or a message for the man who appreciates the finer things.',
+    price: 200,
+    options: [],
+    cats: ['birthday-him', 'fathers-day']
+  },
+  {
+    id: 14,
+    name: 'Personalised Wallet',
+    emoji: '👛',
+    images: [
+      'images/personalised_wallet_1.jpg',
+      'images/personalised_wallet_2.jpg'
+    ],
+    desc: "A wallet personalised with his favourite scripture or a message that speaks to who he is — carried with him every day.",
+    price: 250,
+    options: [],
+    cats: ['birthday-him', 'fathers-day']
+  },
+  {
+    id: 15,
+    name: 'Personalised Lighter',
+    emoji: '🔥',
+    images: ['images/personalised_lighter.jpg'],
+    desc: 'Small but significant. A personalised lighter engraved with his name or a short message he will always carry.',
+    price: 150,
+    options: [],
+    cats: ['birthday-him', 'fathers-day']
+  },
+  {
+    id: 16,
+    name: 'Personalised Keyring',
+    emoji: '🔑',
+    images: ['images/personalised_keyring.jpg'],
+    desc: 'Every time he reaches for his keys, he carries a piece of you. A simple, lasting personalised token.',
+    price: 90,
+    options: [],
+    cats: ['birthday-him', 'fathers-day']
+  },
+  {
+    id: 17,
+    name: "The Cap & Crew Set",
+    emoji: '🧢',
+    images: ['images/cap_set.jpg'],
+    desc: 'Cap, keyring, coaster, and mug — a full lifestyle set for the man who moves with style. Everything personalised, nothing generic.',
+    price: 580,
+    options: [],
+    cats: ['birthday-him', 'fathers-day']
   }
 ];
