@@ -25,14 +25,24 @@
   html { scroll-behavior: smooth; }
   body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--text); font-weight: 300; }
 
-  /* NAV */
-  nav {
-    position: sticky; top: 0; z-index: 100;
-    background: var(--dark);
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 2.5rem; height: 70px;
-    border-bottom: 1px solid #2e2a26;
+  /* ANNOUNCEMENT BAR */
+  .announcement-bar {
+    background: var(--gold);
+    padding: 11px 2rem;
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--dark);
+    font-weight: 600;
+    position: relative;
+    z-index: 101;
   }
+  .announcement-bar span { margin: 0 12px; }
+  .announcement-divider { opacity: 0.5; margin: 0 4px; }
+
+  /* NAV */
+  nav { position: sticky; top: 0; z-index: 100; background: var(--dark); display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; height: 70px; border-bottom: 1px solid #2e2a26; }
   .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
   .nav-logo img { height: 64px; width: auto; object-fit: contain; }
   .nav-logo-text { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 400; color: var(--gold-light); letter-spacing: 2px; display: none; }
@@ -54,12 +64,12 @@
   .hero-divider-line { height: 1px; width: 60px; background: var(--gold); opacity: 0.5; }
   .hero-divider-dot { width: 5px; height: 5px; background: var(--gold); border-radius: 50%; opacity: 0.7; }
   .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(42px, 7vw, 64px); font-weight: 300; font-style: italic; color: var(--charcoal); line-height: 1.1; margin-bottom: 20px; letter-spacing: 1px; }
-  .hero p { color: var(--text-muted); font-size: 15px; line-height: 1.8; margin-bottom: 40px; font-weight: 300; letter-spacing: 0.5px; }
+  .hero p { color: var(--text-muted); font-size: 15px; line-height: 1.8; margin-bottom: 32px; font-weight: 300; letter-spacing: 0.5px; }
+  .hero-ctas { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
   .hero-cta { display: inline-block; border: 1px solid var(--gold); color: var(--gold); padding: 14px 36px; letter-spacing: 2px; text-decoration: none; font-size: 12px; text-transform: uppercase; transition: all 0.25s; font-family: 'Jost', sans-serif; }
   .hero-cta:hover { background: var(--gold); color: var(--white); }
-
-  /* STRIP */
-  .strip { background: var(--gold); padding: 14px 2rem; text-align: center; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--dark); font-weight: 500; }
+  .hero-helper-btn { display: inline-block; background: none; border: 1px solid rgba(184,150,90,0.4); color: var(--text-muted); padding: 14px 28px; letter-spacing: 1.5px; font-size: 12px; text-transform: uppercase; transition: all 0.25s; font-family: 'Jost', sans-serif; cursor: pointer; border-radius: 2px; }
+  .hero-helper-btn:hover { border-color: var(--gold); color: var(--gold); }
 
   /* SECTIONS */
   .section { padding: 72px 2rem; max-width: 1120px; margin: 0 auto; }
@@ -97,6 +107,22 @@
   .product-price { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 400; color: var(--dark); }
   .view-btn { background: var(--dark); color: var(--white); border: none; padding: 9px 18px; border-radius: 2px; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; font-family: 'Jost', sans-serif; transition: all 0.2s; }
   .view-btn:hover { background: var(--gold); color: var(--dark); }
+
+  /* SHOW MORE */
+  .show-more-wrap { text-align: center; margin-top: 40px; }
+  .show-more-btn { border: 1px solid var(--gold); color: var(--gold); background: none; padding: 14px 40px; font-family: 'Jost', sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.25s; border-radius: 2px; }
+  .show-more-btn:hover { background: var(--gold); color: var(--dark); }
+  .show-more-count { font-size: 12px; color: var(--text-muted); margin-top: 12px; letter-spacing: 0.5px; }
+
+  /* REVIEWS */
+  .reviews-wrap { background: var(--white); padding: 72px 2rem; }
+  .reviews-inner { max-width: 1120px; margin: 0 auto; }
+  .reviews-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
+  .review-card { background: var(--cream); border: 1px solid var(--border); border-radius: 4px; padding: 28px; }
+  .review-stars { color: var(--gold); font-size: 14px; margin-bottom: 14px; letter-spacing: 2px; }
+  .review-text { font-size: 14px; color: var(--text); line-height: 1.8; margin-bottom: 18px; font-style: italic; }
+  .review-author { font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); }
+  .review-product { font-size: 11px; color: var(--gold); letter-spacing: 0.5px; margin-top: 4px; }
 
   /* PRODUCT MODAL */
   .modal-overlay { position: fixed; inset: 0; background: rgba(10,8,6,0.75); z-index: 300; opacity: 0; pointer-events: none; transition: opacity 0.3s; backdrop-filter: blur(3px); }
@@ -148,6 +174,25 @@
   .addon-price { font-family: 'Cormorant Garamond', serif; font-size: 16px; color: var(--text-muted); white-space: nowrap; }
   .cart-item-addons { font-size: 11px; color: var(--text-muted); margin-top: 2px; line-height: 1.5; }
 
+  /* GIFT HELPER MODAL */
+  .helper-modal-overlay { position: fixed; inset: 0; background: rgba(10,8,6,0.75); z-index: 400; opacity: 0; pointer-events: none; transition: opacity 0.3s; backdrop-filter: blur(3px); }
+  .helper-modal-overlay.open { opacity: 1; pointer-events: all; }
+  .helper-modal { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -48%); z-index: 401; width: min(560px, 95vw); max-height: 90vh; background: var(--dark); border-radius: 4px; overflow-y: auto; opacity: 0; transition: opacity 0.3s, transform 0.3s; padding: 48px 40px; }
+  .helper-modal-overlay.open .helper-modal { opacity: 1; transform: translate(-50%, -50%); }
+  .helper-modal-close { position: absolute; top: 16px; right: 20px; background: none; border: none; font-size: 22px; cursor: pointer; color: #6A6460; line-height: 1; }
+  .helper-modal-close:hover { color: var(--gold-light); }
+  .helper-modal .modal-section-label { color: var(--gold); font-size: 10px; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 10px; display: block; }
+  .helper-modal .modal-section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(26px, 4vw, 34px); font-weight: 400; color: var(--white); margin-bottom: 8px; line-height: 1.2; }
+  .helper-modal .helper-sub { color: #5C5650; font-size: 14px; margin-bottom: 28px; line-height: 1.7; }
+  .helper-form { display: flex; flex-direction: column; gap: 14px; }
+  .helper-field label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #6A6460; display: block; margin-bottom: 6px; }
+  .helper-field input, .helper-field select, .helper-field textarea { width: 100%; border: 1px solid #333; border-radius: 2px; padding: 12px 14px; font-family: 'Jost', sans-serif; font-size: 14px; background: #242018; outline: none; color: #ccc; transition: border-color 0.2s; }
+  .helper-field input:focus, .helper-field select:focus, .helper-field textarea:focus { border-color: var(--gold); }
+  .helper-field select option { background: #242018; }
+  .helper-field textarea { resize: vertical; min-height: 80px; }
+  .helper-btn { background: var(--wa); color: white; border: none; padding: 15px; border-radius: 2px; font-family: 'Jost', sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: opacity 0.2s; margin-top: 8px; width: 100%; }
+  .helper-btn:hover { opacity: 0.88; }
+
   /* HOW IT WORKS */
   .how-wrap { background: var(--dark); padding: 72px 2rem; }
   .how-inner { max-width: 1120px; margin: 0 auto; }
@@ -193,6 +238,13 @@
   .wa-btn:hover { opacity: 0.88; }
   .wa-btn:disabled { opacity: 0.35; cursor: not-allowed; }
 
+  /* FLOATING WHATSAPP */
+  .wa-float { position: fixed; bottom: 28px; right: 28px; z-index: 500; background: var(--wa); color: white; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.4); cursor: pointer; transition: all 0.25s; text-decoration: none; }
+  .wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.5); }
+  .wa-float svg { width: 26px; height: 26px; }
+  .wa-float-tooltip { position: absolute; right: 68px; background: var(--dark); color: var(--white); font-size: 12px; letter-spacing: 0.5px; padding: 8px 14px; border-radius: 2px; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.2s; font-family: 'Jost', sans-serif; }
+  .wa-float:hover .wa-float-tooltip { opacity: 1; }
+
   /* FOOTER */
   footer { background: var(--charcoal); color: #5C5650; padding: 48px 2rem 32px; text-align: center; }
   .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--gold-light); letter-spacing: 3px; margin-bottom: 6px; }
@@ -215,31 +267,28 @@
   .search-clear { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 18px; display: none; padding: 0; }
   .search-results-label { font-size: 12px; color: var(--text-muted); margin-bottom: 20px; letter-spacing: 0.5px; display: none; }
 
-  /* GIFT HELPER */
-  .helper-section { background: var(--dark); padding: 64px 2rem; }
-  .helper-inner { max-width: 600px; margin: 0 auto; text-align: center; }
-  .helper-inner .section-label { color: var(--gold); }
-  .helper-inner .section-title { color: var(--white); margin-bottom: 12px; }
-  .helper-sub { color: #5C5650; font-size: 14px; margin-bottom: 36px; line-height: 1.7; }
-  .helper-form { display: flex; flex-direction: column; gap: 14px; text-align: left; }
-  .helper-field label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #6A6460; display: block; margin-bottom: 6px; }
-  .helper-field input, .helper-field select, .helper-field textarea { width: 100%; border: 1px solid #333; border-radius: 2px; padding: 12px 14px; font-family: 'Jost', sans-serif; font-size: 14px; background: #242018; outline: none; color: #ccc; transition: border-color 0.2s; }
-  .helper-field input:focus, .helper-field select:focus, .helper-field textarea:focus { border-color: var(--gold); }
-  .helper-field select option { background: #242018; }
-  .helper-field textarea { resize: vertical; min-height: 80px; }
-  .helper-btn { background: var(--wa); color: white; border: none; padding: 15px; border-radius: 2px; font-family: 'Jost', sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: opacity 0.2s; margin-top: 8px; width: 100%; }
-  .helper-btn:hover { opacity: 0.88; }
-
   @media (max-width: 640px) {
     .nav-links { display: none; }
     nav { padding: 0 1.5rem; }
     .modal-inner { flex-direction: column; }
     .modal-gallery { width: 100%; min-height: 260px; }
     .modal-info { padding: 20px; }
+    .wa-float { bottom: 20px; right: 20px; width: 50px; height: 50px; }
+    .helper-modal { padding: 32px 24px; }
+    .announcement-bar { font-size: 10px; letter-spacing: 1px; padding: 10px 1rem; }
   }
 </style>
 </head>
 <body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announcement-bar">
+  <span>✦ Free personalisation on every order</span>
+  <span class="announcement-divider">|</span>
+  <span>2–3 day turnaround</span>
+  <span class="announcement-divider">|</span>
+  <span>Delivered nationwide ✦</span>
+</div>
 
 <!-- NAV -->
 <nav>
@@ -251,7 +300,6 @@
     <li><a href="#categories">Categories</a></li>
     <li><a href="#products">All Gifts</a></li>
     <li><a href="#how">How It Works</a></li>
-    <li><a href="#helper">Gift Help</a></li>
   </ul>
   <div class="nav-right">
     <button class="cart-btn" onclick="toggleCart()">
@@ -272,12 +320,12 @@
     </div>
     <h1>Never miss a moment</h1>
     <p>Personalised gifts for every occasion — delivered nationwide.</p>
-    <a href="#products" class="hero-cta">Shop All Gifts</a>
+    <div class="hero-ctas">
+      <a href="#products" class="hero-cta">Shop All Gifts</a>
+      <button class="hero-helper-btn" onclick="openHelperModal()">Need help choosing?</button>
+    </div>
   </div>
 </div>
-
-<!-- STRIP -->
-<div class="strip">✦ &nbsp; Free personalisation on every order &nbsp; ✦ &nbsp; 2–3 business day turnaround &nbsp; ✦ &nbsp; Delivered nationwide &nbsp; ✦</div>
 
 <!-- SEARCH BAR -->
 <div class="search-bar-section">
@@ -309,6 +357,38 @@
     <div class="search-results-label" id="searchLabel"></div>
     <div class="filter-bar" id="filterBar"></div>
     <div class="product-grid" id="productGrid"></div>
+    <div class="show-more-wrap" id="showMoreWrap" style="display:none;">
+      <button class="show-more-btn" onclick="showMore()">Load more gifts</button>
+      <div class="show-more-count" id="showMoreCount"></div>
+    </div>
+  </div>
+</div>
+
+<!-- REVIEWS -->
+<div class="reviews-wrap" id="reviews">
+  <div class="reviews-inner">
+    <div class="section-label">Happy customers</div>
+    <div class="section-title" style="margin-bottom:44px;">What they're saying</div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"I ordered the Kingdom Kit for my husband and he absolutely loved it. Everything was personalised perfectly and arrived beautifully packaged. Will definitely be ordering again."</div>
+        <div class="review-author">Thandi M. — Johannesburg</div>
+        <div class="review-product">Kingdom Kit</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Got the Executives Lunch Set for my dad's birthday. He said it was the most thoughtful gift he's ever received. The personalisation made it so special — it didn't feel generic at all."</div>
+        <div class="review-author">Lerato K. — Pretoria</div>
+        <div class="review-product">The Executives Lunch Set</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Fast turnaround, beautiful quality, and the WhatsApp service made ordering so easy. Kadash really went above and beyond. My brother cried when he opened his gift."</div>
+        <div class="review-author">Sipho D. — Cape Town</div>
+        <div class="review-product">Kingdom Man Bible Set</div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -326,12 +406,67 @@
   </div>
 </div>
 
-<!-- GIFT HELPER -->
-<div class="helper-section" id="helper">
-  <div class="helper-inner">
-    <div class="section-label">Not sure what to get?</div>
-    <div class="section-title">We'll help you find it</div>
-    <p class="helper-sub">Tell us a little about who you're buying for and we'll personally recommend the perfect gift — just for them.</p>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Kadash</div>
+  <div class="footer-tag">Never miss a moment</div>
+  <div class="footer-socials">
+    <a href="https://www.instagram.com/kadashgifts/" target="_blank">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      Instagram
+    </a>
+    <a href="https://www.tiktok.com/@kadashgifts" target="_blank">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.77 1.52V6.76a4.85 4.85 0 01-1-.07z"/></svg>
+      TikTok
+    </a>
+    <a href="https://www.facebook.com/Kadash" target="_blank">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      Facebook
+    </a>
+    <a href="https://wa.me/27738383486" target="_blank">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp
+    </a>
+  </div>
+  <div class="footer-divider"></div>
+  <div class="footer-copy">© 2025 Kadash Gifts · Johannesburg · All rights reserved</div>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a class="wa-float" href="https://wa.me/27738383486" target="_blank">
+  <span class="wa-float-tooltip">Chat with us</span>
+  <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- PRODUCT MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="handleModalOverlayClick(event)">
+  <div class="modal" id="productModal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-inner">
+      <div class="modal-gallery">
+        <div class="modal-slides" id="modalSlides"></div>
+        <button class="modal-arrow prev" id="modalPrev" onclick="slideModal(-1)">‹</button>
+        <button class="modal-arrow next" id="modalNext" onclick="slideModal(1)">›</button>
+        <div class="modal-nav" id="modalDots"></div>
+      </div>
+      <div class="modal-info">
+        <div class="modal-tags" id="modalTags"></div>
+        <div class="modal-name" id="modalName"></div>
+        <div class="modal-desc" id="modalDesc"></div>
+        <div id="modalPricing"></div>
+        <button class="modal-add-btn" id="modalAddBtn" onclick="addFromModal()">Add to cart</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- GIFT HELPER MODAL -->
+<div class="helper-modal-overlay" id="helperModalOverlay" onclick="handleHelperOverlayClick(event)">
+  <div class="helper-modal" id="helperModal">
+    <button class="helper-modal-close" onclick="closeHelperModal()">✕</button>
+    <span class="modal-section-label">Not sure what to get?</span>
+    <div class="modal-section-title">We'll find it for you</div>
+    <p class="helper-sub">Tell us who you're buying for and we'll personally recommend the perfect gift.</p>
     <div class="helper-form">
       <div class="helper-field">
         <label>Who is the gift for?</label>
@@ -365,7 +500,7 @@
       </div>
       <div class="helper-field">
         <label>Tell us more (optional)</label>
-        <textarea id="helperNote" placeholder="e.g. He loves the outdoors, she's into skincare, they just had their first baby..."></textarea>
+        <textarea id="helperNote" placeholder="e.g. He loves the outdoors, she's into skincare..."></textarea>
       </div>
       <div class="helper-field">
         <label>Your name</label>
@@ -375,54 +510,6 @@
         <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Chat to us on WhatsApp
       </button>
-    </div>
-  </div>
-</div>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-logo">Kadash</div>
-  <div class="footer-tag">Never miss a moment</div>
-  <div class="footer-socials">
-    <a href="https://www.instagram.com/kadashgifts/" target="_blank">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-      Instagram
-    </a>
-    <a href="https://www.tiktok.com/@kadashgifts" target="_blank">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.77 1.52V6.76a4.85 4.85 0 01-1-.07z"/></svg>
-      TikTok
-    </a>
-    <a href="https://www.facebook.com/Kadash" target="_blank">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-      Facebook
-    </a>
-    <a href="https://wa.me/27738383486" target="_blank">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      WhatsApp
-    </a>
-  </div>
-  <div class="footer-divider"></div>
-  <div class="footer-copy">© 2025 Kadash Gifts · Johannesburg · All rights reserved</div>
-</footer>
-
-<!-- PRODUCT MODAL -->
-<div class="modal-overlay" id="modalOverlay" onclick="handleModalOverlayClick(event)">
-  <div class="modal" id="productModal">
-    <button class="modal-close" onclick="closeModal()">✕</button>
-    <div class="modal-inner">
-      <div class="modal-gallery">
-        <div class="modal-slides" id="modalSlides"></div>
-        <button class="modal-arrow prev" id="modalPrev" onclick="slideModal(-1)">‹</button>
-        <button class="modal-arrow next" id="modalNext" onclick="slideModal(1)">›</button>
-        <div class="modal-nav" id="modalDots"></div>
-      </div>
-      <div class="modal-info">
-        <div class="modal-tags" id="modalTags"></div>
-        <div class="modal-name" id="modalName"></div>
-        <div class="modal-desc" id="modalDesc"></div>
-        <div id="modalPricing"></div>
-        <button class="modal-add-btn" id="modalAddBtn" onclick="addFromModal()">Add to cart</button>
-      </div>
     </div>
   </div>
 </div>
@@ -452,10 +539,11 @@
   </div>
 </div>
 
-<!-- Load product data first, then app logic -->
 <script src="products.js"></script>
 <script>
 const WA_NUMBER = '27738383486';
+const PAGE_SIZE = 8;
+let currentPage = 1;
 
 const categories = [
   { id:'birthday-her', name:'Birthday for her', emoji:'🎀' },
@@ -482,6 +570,18 @@ let modalSlide = 0;
 let selectedOption = null;
 let selectedAddOns = [];
 
+function openHelperModal() {
+  document.getElementById('helperModalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeHelperModal() {
+  document.getElementById('helperModalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function handleHelperOverlayClick(e) {
+  if (e.target === document.getElementById('helperModalOverlay')) closeHelperModal();
+}
+
 function renderCategories() {
   document.getElementById('catGrid').innerHTML = categories.map(c => `
     <div class="cat-card" onclick="filterByCategory('${c.id}')">
@@ -506,11 +606,12 @@ function filterByCategory(id) {
 
 function filterProducts(filter) {
   activeFilter = filter;
+  currentPage = 1;
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b.dataset.filter === filter));
   renderProducts();
 }
 
-function renderProducts() {
+function getFiltered() {
   let filtered = activeFilter === 'all' ? products : products.filter(p => p.cats.includes(activeFilter));
   if (searchQuery) {
     filtered = filtered.filter(p =>
@@ -518,18 +619,27 @@ function renderProducts() {
       p.desc.toLowerCase().includes(searchQuery) ||
       p.cats.some(c => { const cat = categories.find(x => x.id === c); return cat && cat.name.toLowerCase().includes(searchQuery); })
     );
-    const label = document.getElementById('searchLabel');
+  }
+  return filtered;
+}
+
+function renderProducts() {
+  const filtered = getFiltered();
+  const label = document.getElementById('searchLabel');
+  if (searchQuery) {
     label.style.display = 'block';
     label.textContent = filtered.length ? `Showing ${filtered.length} result${filtered.length===1?'':'s'} for "${searchQuery}"` : '';
   } else {
-    const label = document.getElementById('searchLabel');
-    if (label) label.style.display = 'none';
+    label.style.display = 'none';
   }
   if (!filtered.length) {
     document.getElementById('productGrid').innerHTML = '<div class="no-results">No products in this category yet — more coming soon.</div>';
+    document.getElementById('showMoreWrap').style.display = 'none';
     return;
   }
-  document.getElementById('productGrid').innerHTML = filtered.map(p => {
+  const visible = filtered.slice(0, currentPage * PAGE_SIZE);
+  const remaining = filtered.length - visible.length;
+  document.getElementById('productGrid').innerHTML = visible.map(p => {
     const heroImg = p.images && p.images.length ? p.images[0] : null;
     const displayPrice = p.options && p.options.length ? `From R${Math.min(...p.options.map(o=>o.price))}` : `R${p.price}`;
     const tagNames = p.cats.slice(0,2).map(c => { const cat = categories.find(x=>x.id===c); return cat?`<span class="product-tag">${cat.name}</span>`:''; }).join('');
@@ -552,6 +662,18 @@ function renderProducts() {
       </div>
     </div>`;
   }).join('');
+  const showMoreWrap = document.getElementById('showMoreWrap');
+  if (remaining > 0) {
+    showMoreWrap.style.display = 'block';
+    document.getElementById('showMoreCount').textContent = `Showing ${visible.length} of ${filtered.length} gifts`;
+  } else {
+    showMoreWrap.style.display = 'none';
+  }
+}
+
+function showMore() {
+  currentPage++;
+  renderProducts();
 }
 
 function quickAddToCart(id) {
@@ -561,68 +683,49 @@ function quickAddToCart(id) {
   const existing = cart.find(i => i.cartKey === key);
   if (existing) { existing.qty++; }
   else { cart.push({ ...product, cartKey: key, optionName: null, qty: 1 }); }
-  updateCart();
-  renderProducts();
-  toggleCart(true);
+  updateCart(); renderProducts(); toggleCart(true);
 }
 
 function openModal(id) {
   modalProduct = products.find(p => p.id === id);
-  modalSlide = 0;
-  selectedOption = null;
-  selectedAddOns = [];
-
+  modalSlide = 0; selectedOption = null; selectedAddOns = [];
   const slides = modalProduct.images && modalProduct.images.length ? modalProduct.images : [null];
   document.getElementById('modalSlides').innerHTML = slides.map((img, i) => `
     <div class="modal-slide ${i===0?'active':''}" data-index="${i}">
       ${img ? `<img src="${img}" alt="${modalProduct.name}">` : `<span style="font-size:80px">${modalProduct.emoji}</span>`}
     </div>`).join('');
-
   document.getElementById('modalDots').innerHTML = slides.length > 1
-    ? slides.map((_, i) => `<button class="modal-dot ${i===0?'active':''}" onclick="goToSlide(${i})"></button>`).join('')
-    : '';
-
+    ? slides.map((_, i) => `<button class="modal-dot ${i===0?'active':''}" onclick="goToSlide(${i})"></button>`).join('') : '';
   document.getElementById('modalPrev').classList.toggle('hidden', slides.length <= 1);
   document.getElementById('modalNext').classList.toggle('hidden', slides.length <= 1);
-
   const tagNames = modalProduct.cats.map(c => { const cat = categories.find(x=>x.id===c); return cat?`<span class="product-tag">${cat.name}</span>`:''; }).join('');
   document.getElementById('modalTags').innerHTML = tagNames;
   document.getElementById('modalName').textContent = modalProduct.name;
   document.getElementById('modalDesc').textContent = modalProduct.desc;
-
   const addOnsHTML = `
     <div class="addons-section">
       <span class="addons-label">Build your gift box</span>
       <span class="addons-sublabel">Add extras to make it even more special</span>
       ${addOns.map(a => `
         <button class="addon-btn" id="addon-${a.id}" onclick="toggleAddOn('${a.id}')">
-          <div class="addon-left">
-            <div class="addon-check" id="addon-check-${a.id}"></div>
-            <span class="addon-name">${a.name}</span>
-          </div>
+          <div class="addon-left"><div class="addon-check" id="addon-check-${a.id}"></div><span class="addon-name">${a.name}</span></div>
           <span class="addon-price">+R${a.price}</span>
         </button>`).join('')}
     </div>`;
-
   const pricingEl = document.getElementById('modalPricing');
   if (modalProduct.options && modalProduct.options.length) {
-    pricingEl.innerHTML = `
-      <span class="modal-options-label">Choose your option</span>
+    pricingEl.innerHTML = `<span class="modal-options-label">Choose your option</span>
       ${modalProduct.options.map((o,i) => `
         <button class="option-btn" data-index="${i}" onclick="selectOption(${i})">
-          <span class="option-name">${o.name}</span>
-          <span class="option-price">R${o.price}</span>
-        </button>`).join('')}
-      ${addOnsHTML}`;
+          <span class="option-name">${o.name}</span><span class="option-price">R${o.price}</span>
+        </button>`).join('')}${addOnsHTML}`;
   } else {
     pricingEl.innerHTML = `<div class="modal-price-single">R${modalProduct.price}</div>${addOnsHTML}`;
   }
-
   const addBtn = document.getElementById('modalAddBtn');
   const inCart = cart.find(i => i.id === modalProduct.id && !modalProduct.options.length);
   addBtn.textContent = inCart ? '✓ Added to cart' : 'Add to cart';
   addBtn.className = 'modal-add-btn' + (inCart ? ' added' : '');
-
   document.getElementById('modalOverlay').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
@@ -630,9 +733,7 @@ function openModal(id) {
 function closeModal() {
   document.getElementById('modalOverlay').classList.remove('open');
   document.body.style.overflow = '';
-  modalProduct = null;
-  selectedOption = null;
-  selectedAddOns = [];
+  modalProduct = null; selectedOption = null; selectedAddOns = [];
 }
 
 function handleModalOverlayClick(e) {
@@ -641,8 +742,7 @@ function handleModalOverlayClick(e) {
 
 function toggleAddOn(id) {
   const idx = selectedAddOns.indexOf(id);
-  if (idx > -1) { selectedAddOns.splice(idx, 1); }
-  else { selectedAddOns.push(id); }
+  if (idx > -1) { selectedAddOns.splice(idx, 1); } else { selectedAddOns.push(id); }
   const btn = document.getElementById(`addon-${id}`);
   const check = document.getElementById(`addon-check-${id}`);
   const isSelected = selectedAddOns.includes(id);
@@ -694,8 +794,7 @@ function addFromModal() {
     if (existing) { existing.qty++; }
     else { cart.push({ ...modalProduct, cartKey: `${modalProduct.id}-single`, optionName: null, price: modalProduct.price + addOnsTotal, basePrice: modalProduct.price, addOns: chosenAddOns, qty: 1 }); }
   }
-  updateCart();
-  renderProducts();
+  updateCart(); renderProducts();
   const addBtn = document.getElementById('modalAddBtn');
   addBtn.textContent = '✓ Added to cart';
   addBtn.className = 'modal-add-btn added';
@@ -704,8 +803,7 @@ function addFromModal() {
 
 function removeFromCart(cartKey) {
   cart = cart.filter(i => i.cartKey !== cartKey);
-  updateCart();
-  renderProducts();
+  updateCart(); renderProducts();
 }
 
 function changeQty(cartKey, delta) {
@@ -728,9 +826,7 @@ function updateCart() {
     const heroImg = i.images && i.images.length ? i.images[0] : null;
     return `
     <div class="cart-item">
-      <div class="cart-item-thumb">
-        ${heroImg ? `<img src="${heroImg}" alt="${i.name}">` : i.emoji}
-      </div>
+      <div class="cart-item-thumb">${heroImg ? `<img src="${heroImg}" alt="${i.name}">` : i.emoji}</div>
       <div class="cart-item-info">
         <div class="cart-item-name">${i.name}</div>
         ${i.optionName ? `<div class="cart-item-option">${i.optionName}</div>` : ''}
@@ -777,6 +873,7 @@ let searchQuery = '';
 
 function handleSearch(val) {
   searchQuery = val.trim().toLowerCase();
+  currentPage = 1;
   const clearBtn = document.getElementById('searchClear');
   const icon = document.getElementById('searchIcon');
   clearBtn.style.display = searchQuery ? 'block' : 'none';
@@ -787,7 +884,7 @@ function handleSearch(val) {
 
 function clearSearch() {
   document.getElementById('searchInput').value = '';
-  searchQuery = '';
+  searchQuery = ''; currentPage = 1;
   document.getElementById('searchClear').style.display = 'none';
   document.getElementById('searchIcon').style.display = 'block';
   renderProducts();
