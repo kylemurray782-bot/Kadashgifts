@@ -283,6 +283,19 @@
   .search-clear { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 18px; display: none; padding: 0; }
   .search-results-label { font-size: 12px; color: var(--text-muted); margin-bottom: 20px; letter-spacing: 0.5px; display: none; }
 
+  /* DELIVERY OPTIONS */
+  .delivery-options { display: flex; gap: 10px; margin-bottom: 14px; }
+  .delivery-opt { flex: 1; border: 1px solid var(--border); border-radius: 2px; padding: 10px 12px; cursor: pointer; font-family: 'Jost', sans-serif; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; background: var(--cream); color: var(--text-muted); transition: all 0.2s; text-align: center; }
+  .delivery-opt:hover { border-color: var(--gold); color: var(--gold); }
+  .delivery-opt.active { border-color: var(--gold); background: var(--gold); color: var(--dark); font-weight: 500; }
+  .delivery-address-wrap { display: none; margin-bottom: 14px; }
+  .delivery-address-wrap.visible { display: block; }
+  .pickup-info { display: none; background: var(--warm); border: 1px solid var(--border); border-radius: 2px; padding: 12px 14px; margin-bottom: 14px; font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+  .pickup-info.visible { display: block; }
+  .pickup-info strong { color: var(--text); display: block; margin-bottom: 4px; font-weight: 400; letter-spacing: 0.5px; font-size: 11px; text-transform: uppercase; }
+  .delivery-fee-line { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--text-muted); margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  .delivery-fee-line span:last-child { font-family: 'Cormorant Garamond', serif; font-size: 16px; color: var(--dark); }
+
   @media (max-width: 640px) {
     .nav-links { display: none; }
     .hamburger { display: flex; }
@@ -559,6 +572,33 @@
     <div class="cart-field"><label>Your name</label><input type="text" id="customerName" placeholder="e.g. Kyle Murray"></div>
     <div class="cart-field"><label>Your WhatsApp number</label><input type="text" id="customerPhone" placeholder="e.g. 073 838 3486"></div>
     <div class="cart-field"><label>Personalisation / notes</label><input type="text" id="customerNotes" placeholder="e.g. Print 'Happy Birthday Sarah'"></div>
+
+    <div class="cart-field">
+      <label>Collection or delivery?</label>
+      <div class="delivery-options">
+        <button class="delivery-opt active" id="optPickup" onclick="selectDelivery('pickup')">🏠 Collect</button>
+        <button class="delivery-opt" id="optDelivery" onclick="selectDelivery('delivery')">🚚 Delivery +R150</button>
+      </div>
+    </div>
+
+    <div class="pickup-info visible" id="pickupInfo">
+      <strong>Collection address</strong>
+      1 Carina Ave, Morehill, Benoni, 1501<br>
+      We'll confirm a collection time via WhatsApp.
+    </div>
+
+    <div class="delivery-address-wrap" id="deliveryAddressWrap">
+      <div class="cart-field">
+        <label>Delivery address</label>
+        <input type="text" id="customerAddress" placeholder="e.g. 12 Main St, Sandton, Johannesburg, 2196">
+      </div>
+    </div>
+
+    <div class="delivery-fee-line" id="deliveryFeeLine" style="display:none;">
+      <span>Courier fee</span>
+      <span>R150</span>
+    </div>
+
     <div class="cart-total">
       <span class="cart-total-label">Total</span>
       <span class="cart-total-amount" id="cartTotal">R0</span>
@@ -600,6 +640,17 @@ let modalProduct = null;
 let modalSlide = 0;
 let selectedOption = null;
 let selectedAddOns = [];
+let deliveryMethod = 'pickup'; // 'pickup' or 'delivery'
+
+function selectDelivery(method) {
+  deliveryMethod = method;
+  document.getElementById('optPickup').classList.toggle('active', method === 'pickup');
+  document.getElementById('optDelivery').classList.toggle('active', method === 'delivery');
+  document.getElementById('pickupInfo').classList.toggle('visible', method === 'pickup');
+  document.getElementById('deliveryAddressWrap').classList.toggle('visible', method === 'delivery');
+  document.getElementById('deliveryFeeLine').style.display = method === 'delivery' ? 'flex' : 'none';
+  updateCart();
+}
 
 function toggleMobileMenu() {
   const menu = document.getElementById('mobileMenu');
@@ -859,10 +910,11 @@ function changeQty(cartKey, delta) {
 function updateCart() {
   const count = cart.reduce((s,i) => s+i.qty, 0);
   const total = cart.reduce((s,i) => s+i.price*i.qty, 0);
+  const deliveryFee = deliveryMethod === 'delivery' ? 150 : 0;
   const countEl = document.getElementById('cartCount');
   countEl.textContent = count;
   countEl.classList.toggle('visible', count > 0);
-  document.getElementById('cartTotal').textContent = `R${total}`;
+  document.getElementById('cartTotal').textContent = `R${total + deliveryFee}`;
   document.getElementById('checkoutBtn').disabled = cart.length === 0;
   const el = document.getElementById('cartItems');
   if (!cart.length) { el.innerHTML = '<div class="cart-empty">Your cart is empty</div>'; return; }
@@ -902,14 +954,21 @@ function checkoutWhatsApp() {
   const name  = document.getElementById('customerName').value.trim();
   const phone = document.getElementById('customerPhone').value.trim();
   const notes = document.getElementById('customerNotes').value.trim();
+  const address = document.getElementById('customerAddress').value.trim();
   if (!name) { alert('Please enter your name before sending.'); return; }
-  const total = cart.reduce((s,i) => s+i.price*i.qty, 0);
+  if (deliveryMethod === 'delivery' && !address) { alert('Please enter your delivery address.'); return; }
+  const itemsTotal = cart.reduce((s,i) => s+i.price*i.qty, 0);
+  const deliveryFee = deliveryMethod === 'delivery' ? 150 : 0;
+  const total = itemsTotal + deliveryFee;
   const lines = cart.map(i => {
     let line = `  • ${i.name}${i.optionName?` (${i.optionName})`:''} x${i.qty} — R${i.price*i.qty}`;
     if (i.addOns && i.addOns.length) line += `\n    Extras: ${i.addOns.map(a=>a.name).join(', ')}`;
     return line;
   }).join('\n');
-  const msg = `Hi Kadash Gifts! 👋 I'd like to place an order:\n\n${lines}\n\n💰 Total: R${total}\n\n👤 Name: ${name}\n📱 Number: ${phone||'Not provided'}${notes?`\n📝 Notes: ${notes}`:''}\n\nPlease confirm and send payment details. Thank you!`;
+  const deliveryLine = deliveryMethod === 'delivery'
+    ? `\n🚚 Delivery: R150\n📍 Address: ${address}`
+    : `\n🏠 Collection: 1 Carina Ave, Morehill, Benoni, 1501`;
+  const msg = `Hi Kadash Gifts! 👋 I'd like to place an order:\n\n${lines}\n\n💰 Items total: R${itemsTotal}${deliveryMethod === 'delivery' ? `\n🚚 Courier fee: R150` : ''}\n💳 Order total: R${total}${deliveryLine}\n\n👤 Name: ${name}\n📱 Number: ${phone||'Not provided'}${notes?`\n📝 Notes: ${notes}`:''}\n\nPlease confirm and send payment details. Thank you!`;
   window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
 }
 
