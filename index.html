@@ -80,11 +80,16 @@
   .mobile-menu ul li:last-child a { border-bottom: none; }
   .mobile-menu ul li a:hover { color: var(--gold-light); }
 
-  /* HERO */
-  .hero { background: var(--cream); padding: 100px 2rem 90px; text-align: center; position: relative; overflow: hidden; }
-  .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 0%, var(--sand) 0%, var(--cream) 65%); }
-  .hero-deco { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: radial-gradient(circle at 15% 50%, rgba(184,150,90,0.09) 0%, transparent 50%), radial-gradient(circle at 85% 30%, rgba(184,150,90,0.07) 0%, transparent 50%); }
-  .hero-content { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; animation: heroFadeUp 900ms var(--ease-out) both; }
+  /* HERO SLIDER */
+  .hero-slider { position: relative; overflow: hidden; height: 560px; }
+  .hero-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 850ms var(--ease-out); pointer-events: none; }
+  .hero-slide.active { opacity: 1; pointer-events: auto; }
+
+  /* Slide 1 — Brand centred */
+  .slide-1 { background: var(--cream); display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 2rem; }
+  .slide-1::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 0%, var(--sand) 0%, var(--cream) 65%); pointer-events: none; }
+  .slide-1-deco { position: absolute; inset: 0; background-image: radial-gradient(circle at 15% 50%, rgba(184,150,90,0.09) 0%, transparent 50%), radial-gradient(circle at 85% 30%, rgba(184,150,90,0.07) 0%, transparent 50%); pointer-events: none; }
+  .hero-content { position: relative; z-index: 1; max-width: 600px; }
   .hero-logo { height: 140px; width: auto; margin: 0 auto 32px; object-fit: contain; display: block; }
   .hero-divider { display: flex; align-items: center; gap: 16px; justify-content: center; margin-bottom: 28px; }
   .hero-divider-line { height: 1px; width: 60px; background: var(--gold); opacity: 0.5; }
@@ -97,9 +102,47 @@
   .hero-helper-btn { display: inline-block; background: none; border: 1px solid rgba(184,150,90,0.4); color: var(--text-muted); padding: 14px 28px; letter-spacing: 1.5px; font-size: 12px; text-transform: uppercase; transition: border-color 200ms var(--ease-out), color 200ms var(--ease-out), transform 120ms var(--ease-out); font-family: 'Jost', sans-serif; cursor: pointer; border-radius: 2px; }
   .hero-helper-btn:active { transform: scale(0.97); }
 
-  @keyframes heroFadeUp {
-    from { opacity: 0; transform: translateY(32px); }
-    to   { opacity: 1; transform: translateY(0); }
+  /* Slides 2 & 3 — Split layout */
+  .slide-split { display: grid; grid-template-columns: 1fr 1fr; height: 100%; }
+  .slide-text { display: flex; flex-direction: column; justify-content: center; padding: 0 64px; }
+  .slide-media { position: relative; overflow: hidden; }
+  .slide-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .slide-badge { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; display: block; }
+  .slide-2 { background: var(--dark); }
+  .slide-2 h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 3.2vw, 48px); font-weight: 300; font-style: italic; color: #fff; line-height: 1.15; margin-bottom: 16px; letter-spacing: 0.5px; }
+  .slide-2 p { color: #9A9089; font-size: 14px; line-height: 1.9; margin-bottom: 32px; font-weight: 300; letter-spacing: 0.4px; }
+  .slide-3 { background: var(--warm); }
+  .slide-3 h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 3.2vw, 48px); font-weight: 300; font-style: italic; color: var(--charcoal); line-height: 1.15; margin-bottom: 16px; letter-spacing: 0.5px; }
+  .slide-3 p { color: var(--text-muted); font-size: 14px; line-height: 1.9; margin-bottom: 32px; font-weight: 300; letter-spacing: 0.4px; }
+  .slide-cta { display: inline-block; border: 1px solid var(--gold); color: var(--gold); padding: 13px 34px; letter-spacing: 2px; font-size: 12px; text-transform: uppercase; font-family: 'Jost', sans-serif; border-radius: 2px; cursor: pointer; background: none; text-decoration: none; transition: background 200ms var(--ease-out), color 200ms var(--ease-out), transform 120ms var(--ease-out); }
+  .slide-cta:active { transform: scale(0.97); }
+
+  /* Slider controls */
+  .slider-controls { position: absolute; bottom: 20px; left: 0; right: 0; display: flex; align-items: center; justify-content: center; gap: 10px; z-index: 10; }
+  .slider-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(184,150,90,0.3); border: 1px solid rgba(184,150,90,0.5); cursor: pointer; padding: 0; flex-shrink: 0; transition: background 240ms var(--ease-out), transform 240ms var(--ease-out), border-color 240ms var(--ease-out); }
+  .slider-dot.active { background: var(--gold); border-color: var(--gold); transform: scale(1.4); }
+  .slider-arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(26,23,20,0.42); border: 1px solid rgba(184,150,90,0.28); color: var(--gold); width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 22px; line-height: 1; backdrop-filter: blur(6px); transition: background 200ms var(--ease-out), border-color 200ms var(--ease-out); z-index: 10; }
+  .slider-arrow:active { transform: translateY(-50%) scale(0.92); }
+  .slider-arrow.prev { left: 20px; }
+  .slider-arrow.next { right: 20px; }
+
+  @media (max-width: 768px) {
+    .hero-slider { height: auto; }
+    .hero-slide { position: relative; inset: auto; display: none; opacity: 1; transition: none; pointer-events: none; }
+    .hero-slide.active { display: block; pointer-events: auto; }
+    .slide-1 { min-height: 440px; padding: 64px 2rem 60px; }
+    .slide-split { grid-template-columns: 1fr; height: auto; }
+    .slide-media { height: 260px; }
+    .slide-2 .slide-media { order: -1; }
+    .slide-text { padding: 40px 28px; }
+    .slider-arrow { display: none; }
+    .slider-controls { position: relative; padding: 16px 0 12px; bottom: auto; background: transparent; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-logo { height: 100px; margin-bottom: 18px; }
+    .hero-divider { margin-bottom: 16px; }
+    .slide-media { height: 220px; }
   }
 
   /* SECTIONS */
@@ -417,23 +460,69 @@
   </ul>
 </div>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-deco"></div>
-  <div class="hero-content">
-    <img src="logo.png" alt="Kadash Gifts" class="hero-logo" onerror="this.style.display='none'">
-    <div class="hero-divider">
-      <div class="hero-divider-line"></div>
-      <div class="hero-divider-dot"></div>
-      <div class="hero-divider-line"></div>
-    </div>
-    <h1>Never miss a moment</h1>
-    <p>Personalised gifts for every occasion — delivered nationwide.</p>
-    <div class="hero-ctas">
-      <a href="#products" class="hero-cta">Shop All Gifts</a>
-      <button class="hero-helper-btn" onclick="openHelperModal()">Need help choosing?</button>
+<!-- HERO SLIDER -->
+<div class="hero-slider" id="heroSlider"
+     onmouseenter="heroStopAuto()" onmouseleave="heroStartAuto()">
+
+  <!-- Slide 1: Brand -->
+  <div class="hero-slide slide-1 active">
+    <div class="slide-1-deco"></div>
+    <div class="hero-content">
+      <img src="logo.png" alt="Kadash Gifts" class="hero-logo" onerror="this.style.display='none'">
+      <div class="hero-divider">
+        <div class="hero-divider-line"></div>
+        <div class="hero-divider-dot"></div>
+        <div class="hero-divider-line"></div>
+      </div>
+      <h1>Never miss a moment</h1>
+      <p>Personalised gifts for every occasion — delivered nationwide.</p>
+      <div class="hero-ctas">
+        <a href="#products" class="hero-cta">Shop All Gifts</a>
+        <button class="hero-helper-btn" onclick="openHelperModal()">Need help choosing?</button>
+      </div>
     </div>
   </div>
+
+  <!-- Slide 2: For Him -->
+  <div class="hero-slide slide-2">
+    <div class="slide-split">
+      <div class="slide-text">
+        <span class="slide-badge">For Him</span>
+        <h2>Thoughtfully crafted<br>for the men in your life</h2>
+        <p>From executives to dads — our personalised gift sets are built to impress and made to last a lifetime.</p>
+        <button class="slide-cta" onclick="filterProducts('birthday-him');document.getElementById('products').scrollIntoView({behavior:'smooth'})">Shop For Him</button>
+      </div>
+      <div class="slide-media">
+        <img src="images/The-executives-lunch-set-1.jpg" alt="Executives Lunch Set" loading="lazy">
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 3: For Her -->
+  <div class="hero-slide slide-3">
+    <div class="slide-split">
+      <div class="slide-media">
+        <img src="images/notebook_tumbler_sweet_choc_gift_box.jpg" alt="Personalised Gift Box" loading="lazy">
+      </div>
+      <div class="slide-text">
+        <span class="slide-badge">For Her</span>
+        <h2>Made with love,<br>given with care</h2>
+        <p>Beautiful personalised gifts for the women who deserve the world — celebrate her in style this season.</p>
+        <button class="slide-cta" onclick="filterProducts('birthday-her');document.getElementById('products').scrollIntoView({behavior:'smooth'})">Shop For Her</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation dots -->
+  <div class="slider-controls">
+    <button class="slider-dot active" onclick="heroGoTo(0)" aria-label="Slide 1"></button>
+    <button class="slider-dot" onclick="heroGoTo(1)" aria-label="Slide 2"></button>
+    <button class="slider-dot" onclick="heroGoTo(2)" aria-label="Slide 3"></button>
+  </div>
+
+  <!-- Prev / Next arrows -->
+  <button class="slider-arrow prev" onclick="heroPrev()" aria-label="Previous slide">&#8249;</button>
+  <button class="slider-arrow next" onclick="heroNext()" aria-label="Next slide">&#8250;</button>
 </div>
 
 <!-- SEARCH BAR -->
@@ -1070,6 +1159,36 @@ function sendHelperMessage() {
   const msg = `Hi Kadash Gifts! 👋 I need some help finding the perfect gift.\n\n🎁 Who it's for: ${forWho}\n🎉 Occasion: ${occasion || 'Not specified'}\n💰 Budget: ${budget || 'Not specified'}${note ? `\n💬 More info: ${note}` : ''}\n\n👤 My name: ${name}\n\nCould you help me find something special? Thank you!`;
   window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg), '_blank');
 }
+
+// HERO SLIDER
+let _heroIdx = 0;
+const _heroTotal = 3;
+let _heroTimer = null;
+
+function heroGoTo(n) {
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots   = document.querySelectorAll('.slider-dot');
+  slides[_heroIdx].classList.remove('active');
+  dots[_heroIdx].classList.remove('active');
+  _heroIdx = ((n % _heroTotal) + _heroTotal) % _heroTotal;
+  slides[_heroIdx].classList.add('active');
+  dots[_heroIdx].classList.add('active');
+}
+
+function heroNext() { heroGoTo(_heroIdx + 1); }
+function heroPrev() { heroGoTo(_heroIdx - 1); }
+
+function heroStartAuto() {
+  if (_heroTimer) return;
+  _heroTimer = setInterval(heroNext, 5000);
+}
+
+function heroStopAuto() {
+  clearInterval(_heroTimer);
+  _heroTimer = null;
+}
+
+heroStartAuto();
 
 renderCategories();
 renderFilters();
