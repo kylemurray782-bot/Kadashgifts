@@ -62,29 +62,28 @@
   .cart-count.visible { display: flex; animation: popIn 300ms var(--ease-out); }
 
   @keyframes popIn {
-    from { transform: scale(0.5); opacity: 0; }
-    to   { transform: scale(1);   opacity: 1; }
+    from { transform: scale(0.85); opacity: 0; }
+    to   { transform: scale(1);    opacity: 1; }
   }
 
   /* HAMBURGER */
   .hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
-  .hamburger span { display: block; width: 22px; height: 2px; background: var(--gold-light); border-radius: 2px; transition: all 0.25s; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: var(--gold-light); border-radius: 2px; transition: transform 0.25s var(--ease-out), opacity 0.15s ease; }
   .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .hamburger.open span:nth-child(2) { opacity: 0; }
   .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
   /* MOBILE MENU DRAWER */
-  .mobile-menu { display: none; position: fixed; top: 70px; left: 0; right: 0; background: var(--dark); z-index: 99; border-bottom: 1px solid #2e2a26; padding: 0; overflow: hidden; max-height: 0; transition: max-height 0.3s ease; }
-  .mobile-menu.open { max-height: 300px; }
+  .mobile-menu { display: none; position: fixed; top: 70px; left: 0; right: 0; background: var(--dark); z-index: 99; border-bottom: 1px solid #2e2a26; padding: 0; }
   .mobile-menu ul { list-style: none; padding: 12px 0; }
-  .mobile-menu ul li a { display: block; padding: 14px 2rem; color: #9A9089; text-decoration: none; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; border-bottom: 1px solid #2e2a26; transition: color 0.2s; }
+  .mobile-menu ul li a { display: block; padding: 14px 2rem; color: #9A9089; text-decoration: none; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; border-bottom: 1px solid #2e2a26; transition: color 180ms var(--ease-out); }
   .mobile-menu ul li:last-child a { border-bottom: none; }
   .mobile-menu ul li a:hover { color: var(--gold-light); }
 
   /* HERO */
-  .hero { background: #fffcd5; padding: 100px 2rem 90px; text-align: center; position: relative; overflow: hidden; }
-  .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 60%, #f5f2b8 0%, #fffcd5 70%); }
-  .hero-deco { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: radial-gradient(circle at 20% 50%, rgba(184,150,90,0.06) 0%, transparent 50%), radial-gradient(circle at 80% 30%, rgba(184,150,90,0.06) 0%, transparent 50%); }
+  .hero { background: var(--cream); padding: 100px 2rem 90px; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 0%, var(--sand) 0%, var(--cream) 65%); }
+  .hero-deco { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: radial-gradient(circle at 15% 50%, rgba(184,150,90,0.09) 0%, transparent 50%), radial-gradient(circle at 85% 30%, rgba(184,150,90,0.07) 0%, transparent 50%); }
   .hero-content { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; animation: heroFadeUp 900ms var(--ease-out) both; }
   .hero-logo { height: 140px; width: auto; margin: 0 auto 32px; object-fit: contain; display: block; }
   .hero-divider { display: flex; align-items: center; gap: 16px; justify-content: center; margin-bottom: 28px; }
@@ -93,7 +92,7 @@
   .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(42px, 7vw, 64px); font-weight: 300; font-style: italic; color: var(--charcoal); line-height: 1.1; margin-bottom: 20px; letter-spacing: 1px; }
   .hero p { color: var(--text-muted); font-size: 15px; line-height: 1.8; margin-bottom: 32px; font-weight: 300; letter-spacing: 0.5px; }
   .hero-ctas { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
-  .hero-cta { display: inline-block; border: 1px solid var(--gold); color: var(--gold); padding: 14px 36px; letter-spacing: 2px; text-decoration: none; font-size: 12px; text-transform: uppercase; transition: background 200ms var(--ease-out), color 200ms var(--ease-out), transform 120ms var(--ease-out); font-family: 'Jost', sans-serif; }
+  .hero-cta { display: inline-block; border: 1px solid var(--gold); color: var(--gold); padding: 14px 36px; letter-spacing: 2px; text-decoration: none; font-size: 12px; text-transform: uppercase; transition: background 200ms var(--ease-out), color 200ms var(--ease-out), transform 120ms var(--ease-out); font-family: 'Jost', sans-serif; border-radius: 2px; }
   .hero-cta:active { transform: scale(0.97); }
   .hero-helper-btn { display: inline-block; background: none; border: 1px solid rgba(184,150,90,0.4); color: var(--text-muted); padding: 14px 28px; letter-spacing: 1.5px; font-size: 12px; text-transform: uppercase; transition: border-color 200ms var(--ease-out), color 200ms var(--ease-out), transform 120ms var(--ease-out); font-family: 'Jost', sans-serif; cursor: pointer; border-radius: 2px; }
   .hero-helper-btn:active { transform: scale(0.97); }
@@ -119,7 +118,7 @@
 
   /* FILTER BAR */
   .filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
-  .filter-btn { border: 1px solid var(--border); background: var(--white); padding: 7px 16px; border-radius: 2px; font-size: 12px; cursor: pointer; font-family: 'Jost', sans-serif; color: var(--text-muted); transition: all 0.2s; letter-spacing: 0.5px; }
+  .filter-btn { border: 1px solid var(--border); background: var(--white); padding: 7px 16px; border-radius: 2px; font-size: 12px; cursor: pointer; font-family: 'Jost', sans-serif; color: var(--text-muted); transition: border-color 0.2s var(--ease-out), color 0.2s var(--ease-out), background 0.2s var(--ease-out); letter-spacing: 0.5px; }
   .filter-btn:hover { border-color: var(--gold); color: var(--gold); }
   .filter-btn.active { background: var(--gold); border-color: var(--gold); color: var(--dark); }
 
@@ -151,13 +150,18 @@
 
   /* CARD STAGGER */
   .product-card:nth-child(1)  { animation-delay: 0ms; }
-  .product-card:nth-child(2)  { animation-delay: 80ms; }
-  .product-card:nth-child(3)  { animation-delay: 160ms; }
-  .product-card:nth-child(4)  { animation-delay: 240ms; }
-  .product-card:nth-child(5)  { animation-delay: 320ms; }
-  .product-card:nth-child(6)  { animation-delay: 400ms; }
-  .product-card:nth-child(7)  { animation-delay: 480ms; }
-  .product-card:nth-child(8)  { animation-delay: 560ms; }
+  .product-card:nth-child(2)  { animation-delay: 60ms; }
+  .product-card:nth-child(3)  { animation-delay: 120ms; }
+  .product-card:nth-child(4)  { animation-delay: 180ms; }
+  .product-card:nth-child(5)  { animation-delay: 240ms; }
+  .product-card:nth-child(6)  { animation-delay: 300ms; }
+  .product-card:nth-child(7)  { animation-delay: 360ms; }
+  .product-card:nth-child(8)  { animation-delay: 420ms; }
+  .product-card:nth-child(9)  { animation-delay: 480ms; }
+  .product-card:nth-child(10) { animation-delay: 540ms; }
+  .product-card:nth-child(11) { animation-delay: 600ms; }
+  .product-card:nth-child(12) { animation-delay: 660ms; }
+  .product-card:nth-child(n+13) { animation-delay: 0ms; }
 
   /* HOVER — desktop only */
   @media (hover: hover) and (pointer: fine) {
@@ -239,11 +243,11 @@
   .addons-section { margin-bottom: 24px; }
   .addons-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px; display: block; }
   .addons-sublabel { font-size: 12px; color: var(--text-muted); margin-bottom: 12px; display: block; }
-  .addon-btn { width: 100%; text-align: left; background: var(--cream); border: 1px solid var(--border); border-radius: 3px; padding: 10px 14px; margin-bottom: 8px; cursor: pointer; font-family: 'Jost', sans-serif; transition: all 0.2s; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .addon-btn { width: 100%; text-align: left; background: var(--cream); border: 1px solid var(--border); border-radius: 3px; padding: 10px 14px; margin-bottom: 8px; cursor: pointer; font-family: 'Jost', sans-serif; transition: border-color 0.18s var(--ease-out), background 0.18s var(--ease-out); display: flex; justify-content: space-between; align-items: center; gap: 10px; }
   .addon-btn:hover { border-color: var(--gold); }
   .addon-btn.selected { border-color: var(--gold); background: #fdf9f2; }
   .addon-left { display: flex; align-items: center; gap: 10px; }
-  .addon-check { width: 16px; height: 16px; border: 1px solid var(--border); border-radius: 2px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 10px; background: var(--white); transition: all 0.2s; }
+  .addon-check { width: 16px; height: 16px; border: 1px solid var(--border); border-radius: 2px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 10px; background: var(--white); transition: background 0.15s var(--ease-out), border-color 0.15s var(--ease-out); }
   .addon-btn.selected .addon-check { background: var(--gold); border-color: var(--gold); color: var(--dark); }
   .addon-name { font-size: 13px; color: var(--text); }
   .addon-price { font-family: 'Cormorant Garamond', serif; font-size: 16px; color: var(--text-muted); white-space: nowrap; }
@@ -314,7 +318,7 @@
   .wa-btn:disabled { opacity: 0.35; cursor: not-allowed; }
 
   /* FLOATING WHATSAPP */
-  .wa-float { position: fixed; bottom: 28px; right: 28px; z-index: 500; background: var(--wa); color: white; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.4); cursor: pointer; transition: all 0.25s; text-decoration: none; }
+  .wa-float { position: fixed; bottom: 28px; right: 28px; z-index: 500; background: var(--wa); color: white; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.4); cursor: pointer; transition: transform 250ms var(--ease-out), box-shadow 250ms var(--ease-out); text-decoration: none; }
   .wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.5); }
   .wa-float svg { width: 26px; height: 26px; }
   .wa-float-tooltip { position: absolute; right: 68px; background: var(--dark); color: var(--white); font-size: 12px; letter-spacing: 0.5px; padding: 8px 14px; border-radius: 2px; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.2s; font-family: 'Jost', sans-serif; }
@@ -322,7 +326,8 @@
 
   /* FOOTER */
   footer { background: var(--charcoal); color: #5C5650; padding: 48px 2rem 32px; text-align: center; }
-  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--gold-light); letter-spacing: 3px; margin-bottom: 6px; }
+  .footer-logo-img { height: 64px; width: auto; object-fit: contain; margin-bottom: 4px; opacity: 0.85; }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--gold-light); letter-spacing: 3px; margin-bottom: 6px; display: none; }
   .footer-tag { font-size: 12px; letter-spacing: 2px; color: #5C5650; margin-bottom: 28px; }
   .footer-socials { display: flex; align-items: center; justify-content: center; gap: 24px; margin-bottom: 28px; }
   .footer-socials a { color: #6A6460; text-decoration: none; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; transition: color 0.2s; display: flex; align-items: center; gap: 7px; }
@@ -344,7 +349,7 @@
 
   /* DELIVERY OPTIONS */
   .delivery-options { display: flex; gap: 10px; margin-bottom: 14px; }
-  .delivery-opt { flex: 1; border: 1px solid var(--border); border-radius: 2px; padding: 10px 12px; cursor: pointer; font-family: 'Jost', sans-serif; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; background: var(--cream); color: var(--text-muted); transition: all 0.2s; text-align: center; }
+  .delivery-opt { flex: 1; border: 1px solid var(--border); border-radius: 2px; padding: 10px 12px; cursor: pointer; font-family: 'Jost', sans-serif; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; background: var(--cream); color: var(--text-muted); transition: border-color 0.2s var(--ease-out), color 0.2s var(--ease-out), background 0.2s var(--ease-out); text-align: center; }
   .delivery-opt:hover { border-color: var(--gold); color: var(--gold); }
   .delivery-opt.active { border-color: var(--gold); background: var(--gold); color: var(--dark); font-weight: 500; }
   .delivery-address-wrap { display: none; margin-bottom: 14px; }
@@ -358,7 +363,8 @@
   @media (max-width: 640px) {
     .nav-links { display: none; }
     .hamburger { display: flex; }
-    .mobile-menu { display: block; }
+    .mobile-menu { display: block; opacity: 0; transform: translateY(-8px); pointer-events: none; visibility: hidden; transition: opacity 220ms var(--ease-out), transform 220ms var(--ease-out), visibility 0s 220ms; }
+    .mobile-menu.open { opacity: 1; transform: translateY(0); pointer-events: all; visibility: visible; transition: opacity 220ms var(--ease-out), transform 220ms var(--ease-out), visibility 0s 0s; }
     nav { padding: 0 1.5rem; }
     .modal-inner { flex-direction: column; }
     .modal-gallery { width: 100%; min-height: 260px; }
@@ -511,6 +517,7 @@
 
 <!-- FOOTER -->
 <footer>
+  <img src="logo.png" alt="Kadash Gifts" class="footer-logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
   <div class="footer-logo">Kadash</div>
   <div class="footer-tag">Never miss a moment</div>
   <div class="footer-socials">
