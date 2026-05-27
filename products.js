@@ -188,12 +188,137 @@ const products = [
   },
   {
     id: 17,
-    name: "The Cap & Crew Set",
+    name: 'The Cap & Crew Set',
     emoji: '🧢',
     images: ['images/cap_set.jpg'],
     desc: 'Cap, keyring, coaster, and mug — a full lifestyle set for the man who moves with style. Everything personalised, nothing generic.',
     price: 580,
     options: [],
     cats: ['birthday-him', 'fathers-day']
+  },
+  {
+    id: 18,
+    name: 'The Glam Girl Set',
+    emoji: '💄',
+    images: ['images/make_upset.jpg'],
+    desc: 'She deserves to feel seen. A personalised compact mirror and bamboo sippy cup — because the woman who gives everything should have something made just for her.',
+    price: 550,
+    options: [],
+    cats: ['birthday-her', 'mothers-day']
+  },
+  {
+    id: 19,
+    name: 'The Her Time Set',
+    emoji: '🍷',
+    images: ['images/wine_tumbler.jpg'],
+    desc: 'For the woman who never stops — a wine tumbler, a notebook for her thoughts, and a 40oz tumbler to keep her going. All personalised, all hers.',
+    price: 750,
+    options: [],
+    cats: ['birthday-her', 'mothers-day']
+  },
+  {
+    id: 20,
+    name: 'Personalised Platter Board',
+    emoji: '🧀',
+    images: ['images/platter_board.jpg'],
+    desc: 'She hosts, she feeds, she gathers people together. A personalised platter board engraved with her name — for the woman who makes every table feel like home.',
+    price: 300,
+    options: [],
+    cats: ['birthday-her', 'mothers-day']
+  },
+  {
+    id: 21,
+    name: 'Personalised Wooden Cutting Board',
+    emoji: '🪵',
+    images: ['images/wooden_cutting_board.jpg'],
+    desc: 'In her kitchen, everything is made with love. A personalised wooden cutting board engraved with her name — a daily reminder that she is appreciated.',
+    price: 250,
+    options: [],
+    cats: ['birthday-her', 'mothers-day']
+  },
+  {
+    id: 22,
+    name: 'Personalised Sippy Cup',
+    emoji: '🥤',
+    images: ['images/sippy_cup.jpg'],
+    desc: 'Small gift, big feeling. A personalised bamboo-lid sippy cup carrying her name — because even the smallest things can say exactly the right thing.',
+    price: 160,
+    options: [],
+    cats: ['birthday-her', 'mothers-day']
+  },
+  {
+    id: 23,
+    name: 'The Write Her Off Set',
+    emoji: '📓',
+    images: ['images/notebook_tumbler_set.jpg'],
+    desc: 'A personalised notebook for her dreams and a tumbler for her mornings. For the woman who is always thinking, always planning, always doing.',
+    price: 400,
+    options: [],
+    cats: ['birthday-her', 'mothers-day']
+  },
+  {
+    id: 24,
+    name: 'The Memory Blanket',
+    emoji: '🛋️',
+    images: ['images/personalised_fleece_blanket.jpg'],
+    desc: 'Wrap her in every moment that matters. A personalised fleece blanket printed with photos, kids\' drawings, or memories — 100x160cm of pure love.',
+    price: 350,
+    options: [],
+    cats: ['birthday-her', 'mothers-day']
+  },
+  {
+    id: 25,
+    name: 'The Sweet Treat Set',
+    emoji: '🎁',
+    images: ['images/tote_bag_sippy-cup_set.jpg'],
+    desc: 'A personalised sippy cup, a tote bag she\'ll actually use, and 8-piece chocolates to make her smile. Everything she deserves, nothing she expected.',
+    price: 340,
+    options: [],
+    cats: ['birthday-her', 'mothers-day']
+  },
+  {
+    id: 26,
+    name: 'The Rest Well Set',
+    emoji: '🩴',
+    images: [
+      'images/personalised_slipper_set_1.jpg',
+      'images/personalised_slipper_set_2.jpg',
+      'images/personalised_slipper_set_3.jpg',
+      'images/personalised_slipper_set_4.jpg'
+    ],
+    desc: 'Tell her to put her feet up — literally. Personalised slippers, a mug made for her, and Ferrero Rocher chocolates. For the woman who has earned every second of rest.',
+    price: 450,
+    options: [],
+    cats: ['birthday-her', 'mothers-day']
+  },
+  {
+    id: 27,
+    name: 'The Full Bouquet Experience',
+    emoji: '💐',
+    images: ['images/flowers-sippy-cup_set.jpg'],
+    desc: 'Fresh flowers, a personalised sippy cup, latte sachets, non-alcoholic champagne, dark chocolate, and a keyring. When you want her to feel everything at once.',
+    price: 1050,
+    options: [],
+    cats: ['birthday-her', 'mothers-day']
+  },
+  {
+    id: 28,
+    name: 'The Celebration Board',
+    emoji: '🎉',
+    images: ['images/personalised_charcuterie_board.jpg'],
+    desc: 'A personalised charcuterie board loaded with assorted cheese, crackers, Ferrero Rocher, and nuts. For the woman worth celebrating properly.',
+    price: 700,
+    options: [],
+    cats: ['birthday-her', 'mothers-day']
+  },
+  {
+    id: 29,
+    name: 'The Treat Yourself Set',
+    emoji: '☕',
+    images: ['images/notebook_tumbler_chocolate_set.jpg'],
+    desc: 'A personalised notebook, tumbler, mug, sweets, and chocolates — all in one gift. Because sometimes the best gift is everything she wouldn\'t buy for herself.',
+    price: 650,
+    options: [],
+    cats: ['birthday-her', 'mothers-day']
   }
 ];
