@@ -841,7 +841,7 @@ function renderFilters() {
   document.getElementById('filterBar').innerHTML =
     [`<button class="filter-btn active" data-filter="all" onclick="filterProducts('all')">All</button>`]
     .concat(categories.map(c =>
-      `<button class="filter-btn" data-filter="${c.id}" onclick="filterProducts('${c.id}')">${c.emoji} ${c.name}</button>`
+      `<button class="filter-btn" data-filter="${c.id}" onclick="filterProducts('${c.id}')">${c.name}</button>`
     )).join('');
 }
 
