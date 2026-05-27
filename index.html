@@ -153,10 +153,9 @@
 
   /* CATEGORY GRID */
   .cat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
-  .cat-card { background: var(--white); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; cursor: pointer; transition: border-color 200ms var(--ease-out), box-shadow 200ms var(--ease-out), transform 200ms var(--ease-out); text-align: center; padding-bottom: 16px; }
+  .cat-card { background: var(--white); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; cursor: pointer; transition: border-color 200ms var(--ease-out), box-shadow 200ms var(--ease-out), transform 200ms var(--ease-out); text-align: center; padding: 18px 10px; }
   .cat-card:active { transform: scale(0.97); }
-  .cat-emoji { font-size: 32px; padding: 22px 0 10px; display: block; }
-  .cat-name { font-size: 12px; font-weight: 400; color: var(--charcoal); letter-spacing: 0.5px; padding: 0 10px; }
+  .cat-name { font-size: 12px; font-weight: 400; color: var(--charcoal); letter-spacing: 0.5px; }
   .cat-badge { display: inline-block; font-size: 9px; letter-spacing: 1px; background: var(--gold-pale); color: var(--gold); border-radius: 2px; padding: 2px 6px; margin-top: 5px; text-transform: uppercase; }
 
   /* FILTER BAR */
@@ -833,7 +832,6 @@ function handleHelperOverlayClick(e) {
 function renderCategories() {
   document.getElementById('catGrid').innerHTML = categories.map(c => `
     <div class="cat-card" onclick="filterByCategory('${c.id}')">
-      <span class="cat-emoji">${c.emoji}</span>
       <div class="cat-name">${c.name}</div>
       ${c.badge ? `<div><span class="cat-badge">${c.badge}</span></div>` : ''}
     </div>`).join('');
