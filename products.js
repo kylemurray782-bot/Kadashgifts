@@ -320,5 +320,55 @@ const products = [
     price: 650,
     options: [],
     cats: ['birthday-her', 'mothers-day']
+  },
+  {
+    id: 30,
+    name: 'The Cosy Corner Set',
+    emoji: '🛋️',
+    images: ['images/cushion_mug_set.jpg'],
+    desc: "A personalised cushion and mug, wrapped in a gift bag and ready to make her feel at home. For the woman who deserves her own little corner of comfort.",
+    price: 330,
+    options: [],
+    cats: ['birthday-her']
+  },
+  {
+    id: 31,
+    name: 'The Boss Her Set',
+    emoji: '📋',
+    images: ['images/organiser_set.jpg'],
+    desc: 'Planner, notebook, bamboo sippy cup, door hanger, mat, and pencil case — all personalised. For the woman who runs everything and deserves to look good doing it.',
+    price: 600,
+    options: [],
+    cats: ['birthday-her', 'mothers-day']
+  },
+  {
+    id: 32,
+    name: "The Gift Box She'll Actually Love",
+    emoji: '🎀',
+    images: ['images/notebook_tumbler_sweet_choc_gift_box.jpg'],
+    desc: "A personalised notebook and tumbler paired with sweets and chocolates, boxed and ready to give. No overthinking — just everything she loves in one place.",
+    price: 550,
+    options: [],
+    cats: ['birthday-her', 'mothers-day']
+  },
+  {
+    id: 33,
+    name: 'The Soft Life Set',
+    emoji: '💫',
+    images: ['images/cushion_notebook_set.jpg'],
+    desc: "A personalised cushion and notebook set in a gift bag — for the woman who carries everyone else's world and deserves something made entirely for hers.",
+    price: 450,
+    options: [],
+    cats: ['birthday-her', 'mothers-day']
+  },
+  {
+    id: 34,
+    name: 'The Bold & Blessed Set',
+    emoji: '✨',
+    images: ['images/sequin_notebook.jpg'],
+    desc: "For the woman who shines without apology. A sequin notebook and 40oz tumbler in a gift bag — because her faith is loud, her vision is clear, and she was never meant to blend in.",
+    price: 680,
+    options: [],
+    cats: ['birthday-her', 'mothers-day']
   }
 ];
