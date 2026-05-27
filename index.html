@@ -134,8 +134,10 @@
   .product-desc { font-size: 13px; color: var(--text-muted); margin-bottom: 18px; line-height: 1.6; }
   .product-footer { display: flex; align-items: center; justify-content: space-between; }
   .product-price { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 400; color: var(--dark); }
-  .view-btn { background: var(--dark); color: var(--white); border: none; padding: 9px 18px; border-radius: 2px; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; font-family: 'Jost', sans-serif; transition: background 180ms var(--ease-out), color 180ms var(--ease-out), transform 120ms var(--ease-out); }
+  .view-btn { background: var(--dark); color: var(--white); border: 1px solid var(--dark); padding: 9px 18px; border-radius: 2px; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; font-family: 'Jost', sans-serif; transition: background 180ms var(--ease-out), color 180ms var(--ease-out), border-color 180ms var(--ease-out), transform 120ms var(--ease-out); }
   .view-btn:active { transform: scale(0.96); }
+  .options-btn { background: none; color: var(--gold); border: 1px solid var(--gold); padding: 9px 18px; border-radius: 2px; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; font-family: 'Jost', sans-serif; transition: background 180ms var(--ease-out), color 180ms var(--ease-out), transform 120ms var(--ease-out); }
+  .options-btn:active { transform: scale(0.96); }
 
   @keyframes cardFadeIn {
     from { opacity: 0; transform: translateY(20px); }
@@ -170,7 +172,8 @@
     .cat-card:hover { border-color: var(--gold); box-shadow: 0 6px 24px rgba(184,150,90,0.1); transform: translateY(-2px); }
     .product-card:hover { box-shadow: 0 10px 32px rgba(0,0,0,0.08); transform: translateY(-3px); border-color: var(--gold); }
     .product-card:hover .product-img img { transform: scale(1.04); }
-    .view-btn:hover { background: var(--gold); color: var(--dark); }
+    .view-btn:hover { background: var(--gold); color: var(--dark); border-color: var(--gold); }
+    .options-btn:hover { background: var(--gold); color: var(--dark); }
     .hero-cta:hover { background: var(--gold); color: var(--white); }
     .hero-helper-btn:hover { border-color: var(--gold); color: var(--gold); }
     .option-btn:hover { border-color: var(--gold); }
@@ -814,7 +817,7 @@ function renderProducts() {
         <div class="product-desc" onclick="openModal(${p.id})" style="cursor:pointer;">${p.desc}</div>
         <div class="product-footer">
           <div class="product-price">${displayPrice}</div>
-          <button class="view-btn ${inCart?'added':''}" onclick="quickAddToCart(${p.id})">
+          <button class="${p.options && p.options.length ? 'options-btn' : `view-btn${inCart ? ' added' : ''}`}" onclick="quickAddToCart(${p.id})">
             ${p.options && p.options.length ? 'View options' : (inCart ? '✓ Added' : 'Add to cart')}
           </button>
         </div>
