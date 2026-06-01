@@ -370,5 +370,84 @@ const products = [
     price: 680,
     options: [],
     cats: ['birthday-her', 'mothers-day']
+  },
+  {
+    id: 35,
+    name: 'The Curated Welcome',
+    emoji: '🎁',
+    images: [
+      'images/aesthetic_basket_1.jpg',
+      'images/aesthetic_basket_2.jpg',
+      'images/aesthetic_basket_3.jpg',
+      'images/aesthetic_basket_4.jpg'
+    ],
+    desc: 'Because first impressions are everything. A fully branded corporate basket — personalised mousepad, notebook, tumbler, sweet treats, chocolate, and lotion. The kind of gift that says your company pays attention.',
+    price: 880,
+    options: [],
+    cats: ['corporate']
+  },
+  {
+    id: 36,
+    name: 'The Intentional Desk',
+    emoji: '📋',
+    images: [
+      'images/the_organised_set_1.jpg',
+      'images/the_organised_set_2.jpg'
+    ],
+    desc: 'For the person who builds their day with purpose. A branded mousepad, diary, notebook, and tumbler — everything they reach for every morning, carrying your company\'s name.',
+    price: 850,
+    options: [],
+    cats: ['corporate']
+  },
+  {
+    id: 37,
+    name: 'The Branded Stanley',
+    emoji: '🥤',
+    images: [
+      'images/company_tubler_1.jpg',
+      'images/company_tubler_2.jpg'
+    ],
+    desc: 'They carry it everywhere — to meetings, to the gym, through long days. A 40oz Stanley tumbler branded with your company logo. Useful enough to use daily. Quality enough to mean something.',
+    price: 450,
+    options: [],
+    cats: ['corporate']
+  },
+  {
+    id: 38,
+    name: 'The Boardroom Mug',
+    emoji: '☕',
+    images: [
+      'images/corporate_mug_1.jpg',
+      'images/corporate_mug_2.jpg'
+    ],
+    desc: 'Simple. Sharp. Unmistakably yours. A branded corporate mug presented in a matching gift box — the kind of detail that makes your company look like it cares, because it does.',
+    price: 120,
+    options: [],
+    cats: ['corporate']
+  },
+  {
+    id: 39,
+    name: 'The Beauty Edit',
+    emoji: '💄',
+    images: [
+      'images/beauty_set_1.jpg',
+      'images/beauty_set_2.jpg'
+    ],
+    desc: 'For the woman on your team who holds everything together. A branded tumbler, compact mirror, makeup bag, notebook, and lotion — a corporate gift that finally feels personal.',
+    price: 800,
+    options: [],
+    cats: ['corporate']
+  },
+  {
+    id: 40,
+    name: 'The Signature Pour',
+    emoji: '🍷',
+    images: [
+      'images/corporate_wine_tumblers.jpg'
+    ],
+    desc: 'Your logo on the glass they raise at the end of a hard week. A single branded wine tumbler — understated, elegant, and entirely on brand. The kind of gift that gets noticed without trying.',
+    price: 200,
+    options: [],
+    cats: ['corporate']
   }
 ];
