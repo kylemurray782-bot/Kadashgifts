@@ -449,5 +449,55 @@ const products = [
     price: 200,
     options: [],
     cats: ['corporate']
+  },
+  {
+    id: 41,
+    name: 'The Men\'s Appreciation Box',
+    emoji: '🎖️',
+    images: [
+      'images/mens_appreciation_gift.jpg'
+    ],
+    desc: 'For the man who shows up every day and rarely hears thank you. A branded notebook, tumbler, chocolates, and sweets — packaged to say what words often don\'t. Recognition, done properly.',
+    price: 550,
+    options: [],
+    cats: ['corporate']
+  },
+  {
+    id: 42,
+    name: 'The Glamour Desk Set',
+    emoji: '✨',
+    images: [
+      'images/glamour_set_tumbler.jpg'
+    ],
+    desc: 'She brings beauty to everything she touches — her workspace should be no different. A branded tumbler, sequin mousepad, makeup bag, and notebook. For the woman who works hard and looks good doing it.',
+    price: 780,
+    options: [],
+    cats: ['corporate', 'birthday-her']
+  },
+  {
+    id: 43,
+    name: 'The Executive Lunch Set',
+    emoji: '🍱',
+    images: [
+      'images/lunch_deluxe_set_1.jpg',
+      'images/lunch_deluxe_set_2.jpg'
+    ],
+    desc: 'Everything he needs, monogrammed and ready. A personalised lunch bag, leather notebook, tumbler, stylus pen, and power bank — built for the executive who moves fast and never compromises on detail.',
+    price: 750,
+    options: [],
+    cats: ['corporate']
+  },
+  {
+    id: 44,
+    name: 'The Two-Tone Mug',
+    emoji: '☕',
+    images: [
+      'images/two_toned_mug_1.jpg',
+      'images/two_toned_mug_2.jpg'
+    ],
+    desc: 'The mug on every desk that starts every conversation. A personalised two-tone mug with matching spoon — branded with a name or logo, and impossible to mistake for anyone else\'s.',
+    price: 130,
+    options: [],
+    cats: ['corporate']
   }
 ];
