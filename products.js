@@ -499,5 +499,45 @@ const products = [
     price: 130,
     options: [],
     cats: ['corporate']
+  },
+  {
+    id: 45,
+    name: 'The Welcome Romper',
+    emoji: '👶',
+    images: ['images/baby_romper_long_sleeve.jpg'],
+    desc: 'Their name. Their arrival. Their first piece of something made just for them. A personalised long-sleeve baby romper — soft, warm, and ready to welcome the newest person in your world.',
+    price: 150,
+    options: [],
+    cats: ['new-baby']
+  },
+  {
+    id: 46,
+    name: 'The Little One Set',
+    emoji: '🧢',
+    images: ['images/baby_romper_hat_set.jpg'],
+    desc: 'A short-sleeve romper and matching hat, both personalised with baby\'s name. The kind of gift that gets kept long after they\'ve grown out of it — because it was made for them before they even knew who they were.',
+    price: 230,
+    options: [],
+    cats: ['new-baby']
+  },
+  {
+    id: 47,
+    name: 'The Wrap Them In Love Blanket',
+    emoji: '🛏️',
+    images: ['images/baby_fleece_receiving_blankets_1.jpg'],
+    desc: 'Soft, personalised, and made to be held close. A fleece or receiving blanket printed with baby\'s name — for every feed, every nap, and every moment that deserves to feel like home.',
+    price: 250,
+    options: [],
+    cats: ['new-baby']
+  },
+  {
+    id: 48,
+    name: 'The First Hello Romper',
+    emoji: '🌟',
+    images: ['images/baby_romper.jpg'],
+    desc: 'Simple, soft, and entirely theirs. A personalised baby romper carrying their name from day one — because even the smallest person deserves something made just for them.',
+    price: 130,
+    options: [],
+    cats: ['new-baby']
   }
 ];
