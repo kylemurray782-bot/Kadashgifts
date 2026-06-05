@@ -261,7 +261,7 @@ const products = [
     name: 'The Memory Blanket',
     emoji: '🛋️',
     images: ['images/personalised_fleece_blanket.jpg'],
-    desc: 'Wrap her in every moment that matters. A personalised fleece blanket printed with photos, kids\' drawings, or memories — 100x160cm of pure love.',
+    desc: 'Wrap her in every moment that matters. A personalised fleece blanket printed with photos, kids\'s drawings, or memories — 100x160cm of pure love.',
     price: 350,
     options: [],
     cats: ['birthday-her', 'mothers-day']
@@ -442,9 +442,7 @@ const products = [
     id: 40,
     name: 'The Signature Pour',
     emoji: '🍷',
-    images: [
-      'images/corporate_wine_tumblers.jpg'
-    ],
+    images: ['images/corporate_wine_tumblers.jpg'],
     desc: 'Your logo on the glass they raise at the end of a hard week. A single branded wine tumbler — understated, elegant, and entirely on brand. The kind of gift that gets noticed without trying.',
     price: 200,
     options: [],
@@ -452,11 +450,9 @@ const products = [
   },
   {
     id: 41,
-    name: 'The Men\'s Appreciation Box',
+    name: "The Men's Appreciation Box",
     emoji: '🎖️',
-    images: [
-      'images/mens_appreciation_gift.jpg'
-    ],
+    images: ['images/mens_appreciation_gift.jpg'],
     desc: 'For the man who shows up every day and rarely hears thank you. A branded notebook, tumbler, chocolates, and sweets — packaged to say what words often don\'t. Recognition, done properly.',
     price: 550,
     options: [],
@@ -466,9 +462,7 @@ const products = [
     id: 42,
     name: 'The Glamour Desk Set',
     emoji: '✨',
-    images: [
-      'images/glamour_set_tumbler.jpg'
-    ],
+    images: ['images/glamour_set_tumbler.jpg'],
     desc: 'She brings beauty to everything she touches — her workspace should be no different. A branded tumbler, sequin mousepad, makeup bag, and notebook. For the woman who works hard and looks good doing it.',
     price: 780,
     options: [],
@@ -524,7 +518,11 @@ const products = [
     id: 47,
     name: 'The Wrap Them In Love Blanket',
     emoji: '🛏️',
-    images: ['images/baby_fleece_receiving_blankets_1.jpg'],
+    images: [
+      'images/baby_fleece_receiving_blankets_1.jpg',
+      'images/baby_fleece_receiving_blankets_2.jpg',
+      'images/baby_fleece_receiving_blankets_3.jpg'
+    ],
     desc: 'Soft, personalised, and made to be held close. A fleece or receiving blanket printed with baby\'s name — for every feed, every nap, and every moment that deserves to feel like home.',
     price: 250,
     options: [],
@@ -537,6 +535,115 @@ const products = [
     images: ['images/baby_romper.jpg'],
     desc: 'Simple, soft, and entirely theirs. A personalised baby romper carrying their name from day one — because even the smallest person deserves something made just for them.',
     price: 130,
+    options: [],
+    cats: ['new-baby']
+  },
+  {
+    id: 49,
+    name: 'The First Sip Cup',
+    emoji: '🍼',
+    images: [
+      'images/baby_feeding_cup_1.jpg',
+      'images/baby_feeding_cup_2.jpg'
+    ],
+    desc: 'Their name on the cup they reach for first. A personalised baby feeding cup — because even the smallest details of their earliest days deserve to be made just for them.',
+    price: 250,
+    options: [],
+    cats: ['new-baby']
+  },
+  {
+    id: 50,
+    name: 'The Little Explorer Pack',
+    emoji: '🎒',
+    images: [
+      'images/kiddies_backpack_1.jpg',
+      'images/kiddies_backpack_2.jpg'
+    ],
+    desc: 'Their name on their back before they even know where they\'re going. A personalised kiddies backpack — for the little one who is already on an adventure.',
+    price: 250,
+    options: [],
+    cats: ['new-baby']
+  },
+  {
+    id: 51,
+    name: 'The Gentle Touch Cloth',
+    emoji: '🤍',
+    images: ['images/burp_cloths.jpg'],
+    desc: 'Soft on their skin, personal from day one. Personalised burp cloths carrying baby\'s name — for every tender moment in those early weeks that go by far too fast.',
+    price: 150,
+    options: [],
+    cats: ['new-baby']
+  },
+  {
+    id: 52,
+    name: 'The Full Arrival Gift',
+    emoji: '🌈',
+    images: [
+      'images/teddy_burp_1.jpg',
+      'images/teddy_burp_2.jpg'
+    ],
+    desc: 'For the family who just changed forever. A teddy, burp cloth, blanket, dummy, feeding cup, beanie, and baby grow — every piece personalised, everything they need for the first days of the rest of their lives.',
+    price: 1150,
+    options: [],
+    cats: ['new-baby']
+  },
+  {
+    id: 53,
+    name: 'The Adventure Starts Here Set',
+    emoji: '🧸',
+    images: ['images/teddy_backpack_set.jpg'],
+    desc: 'A teddy with a personalised top, a personalised blanket, feeding cup, and backpack — because from the very first day, they are going somewhere. Help them arrive in style.',
+    price: 1080,
+    options: [],
+    cats: ['new-baby']
+  },
+  {
+    id: 54,
+    name: 'The Welcome To The World Set',
+    emoji: '⭐',
+    images: [
+      'images/baby_grow_set_1.jpg',
+      'images/baby_grow_set_2.jpg'
+    ],
+    desc: 'A personalised baby grow, beanie, teddy, dummy, feeding cup, and blanket — everything waiting for them the moment they arrive. The gift that says we were ready for you, and we made it just for you.',
+    price: 1050,
+    options: [],
+    cats: ['new-baby']
+  },
+  {
+    id: 55,
+    name: 'Personalised Baby Cushion',
+    emoji: '💛',
+    images: [
+      'images/baby_cushion_1.jpg',
+      'images/baby_cushion_2.jpg',
+      'images/baby_cushion_3.jpg'
+    ],
+    desc: 'Their name, softly printed, on something that holds them close. A personalised baby cushion — a small comfort that becomes a lasting keepsake.',
+    price: 160,
+    options: [],
+    cats: ['new-baby']
+  },
+  {
+    id: 56,
+    name: 'The Tiny Traveller Set',
+    emoji: '🌍',
+    images: [
+      'images/backpack_teddy_1.jpg',
+      'images/backpack_teddy_2.jpg'
+    ],
+    desc: 'A personalised backpack, teddy, blanket, and feeding cup — for the little one who hasn\'t gone anywhere yet but is already going everywhere. The complete set for their very first chapter.',
+    price: 980,
+    options: [],
+    cats: ['new-baby']
+  },
+  {
+    id: 57,
+    name: 'The Welcomed With Love Basket',
+    emoji: '🧴',
+    images: ['images/baby_lotion_powder_set.jpg'],
+    desc: 'Baby lotion, powder, and wash. A personalised outfit with vest, a personalised basket, dummy, and feeding cup — a full welcome, wrapped in care. For the baby who is already so loved, and the parents who want to show it.',
+    price: 850,
     options: [],
     cats: ['new-baby']
   }
