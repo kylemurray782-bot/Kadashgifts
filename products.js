@@ -709,5 +709,112 @@ const products = [
     price: 950,
     options: [],
     cats: ['new-baby']
+  },
+  {
+    id: 63,
+    name: 'The Adventure Bottle',
+    emoji: '🍶',
+    images: [
+      'images/kids_stainless_steel_bottle_1.jpg',
+      'images/kids_stainless_steel_bottle_2.jpg'
+    ],
+    desc: "Their name on the bottle they carry everywhere. A personalised stainless steel kids bottle — built for school bags, sports days, and every adventure in between.",
+    price: 200,
+    options: [],
+    cats: ['kids']
+  },
+  {
+    id: 64,
+    name: 'The Ready For Anything Set',
+    emoji: '🎒',
+    images: ['images/kids_backpack_bottle_set_1.jpg'],
+    desc: "A personalised backpack and matching bottle — because every big day starts with having everything you need. Made for the little one who is always on the go.",
+    price: 430,
+    options: [],
+    cats: ['kids']
+  },
+  {
+    id: 65,
+    name: 'The Little Legend Pack',
+    emoji: '🎒',
+    images: ['images/kids_backpack.jpg'],
+    desc: "Their name on their back, their whole world inside. A personalised kids backpack — for the child who shows up ready for whatever the day brings.",
+    price: 250,
+    options: [],
+    cats: ['kids']
+  },
+  {
+    id: 66,
+    name: 'The Lunchtime Set',
+    emoji: '🥪',
+    images: [
+      'images/kids_lunchbox_set_1.jpg',
+      'images/kids_lunchbox_set_2.jpg',
+      'images/kids_lunchbox_set_3.jpg'
+    ],
+    desc: "Lunchtime just got personal. A personalised kids lunchbox set — because the things they use every day should feel like they were made just for them. Because they were.",
+    price: 330,
+    options: [],
+    cats: ['kids']
+  },
+  {
+    id: 67,
+    name: 'The Carry It Proud Bag',
+    emoji: '👜',
+    images: ['images/kids_lunch_bags.jpg'],
+    desc: "Their name on the bag they carry into school every single day. A personalised kids lunch bag — small enough to pack, big enough to matter.",
+    price: 200,
+    options: [],
+    cats: ['kids']
+  },
+  {
+    id: 68,
+    name: 'The Full Pack Set',
+    emoji: '🎁',
+    images: ['images/kids_backpack_puzzle_bottle.jpg'],
+    desc: "A personalised backpack, puzzle, bottle, and gift bag — everything a child needs, wrapped up and ready to give. For the kid who deserves a gift that actually gets used.",
+    price: 600,
+    options: [],
+    cats: ['kids']
+  },
+  {
+    id: 69,
+    name: 'The Complete Lunchtime Kit',
+    emoji: '🍱',
+    images: ['images/lunch_bag.jpg'],
+    desc: "Lunch bag, bottle, and lunchbox — all personalised, all in one. For the child who deserves to open their bag and find something made just for them, every single day.",
+    price: 530,
+    options: [],
+    cats: ['kids']
+  },
+  {
+    id: 70,
+    name: 'The Pampered Little One Set',
+    emoji: '🛁',
+    images: ['images/kids_gown_1.jpg'],
+    desc: "A personalised gown and slippers — because even the little ones deserve to feel completely at home in something made just for them. Wrap them in comfort, wrap them in their name.",
+    price: 550,
+    options: [],
+    cats: ['kids']
+  },
+  {
+    id: 71,
+    name: 'The Big Kid Tumbler',
+    emoji: '🥤',
+    images: ['images/kids_tubler.jpg'],
+    desc: "They grow up fast — give them something that keeps up. A personalised 40oz tumbler for the kid who means business. Their name, their colour, their cup.",
+    price: 400,
+    options: [],
+    cats: ['kids', 'bottles']
+  },
+  {
+    id: 72,
+    name: 'The Two-Tone Explorer',
+    emoji: '🍶',
+    images: ['images/stainless_steel_bottle.jpg'],
+    desc: "Two colours, one name, zero excuses for losing it. A personalised two-tone stainless steel bottle — the one they'll actually want to carry.",
+    price: 230,
+    options: [],
+    cats: ['kids', 'bottles']
   }
 ];
