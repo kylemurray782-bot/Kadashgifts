@@ -646,5 +646,68 @@ const products = [
     price: 850,
     options: [],
     cats: ['new-baby']
+  },
+  {
+    id: 58,
+    name: 'The Comfort Keeper',
+    emoji: '🤍',
+    images: [
+      'images/baby_dummy_1.jpg',
+      'images/baby_dummy_2.jpg',
+      'images/baby_dummy_3.jpg'
+    ],
+    desc: "The thing that quiets the world for them. A personalised dummy — small, soft, and carrying their name before they can even say it.",
+    price: 150,
+    options: [],
+    cats: ['new-baby']
+  },
+  {
+    id: 59,
+    name: 'The Daily Essentials Set',
+    emoji: '🍼',
+    images: [
+      'images/feeding_cup_vest_set_1.jpg',
+      'images/feeding_cup_vest_set_2.jpg'
+    ],
+    desc: "The things they reach for every single day — a personalised feeding cup, vest, blanket, and dummy. Simple gifts that become the rhythm of their earliest life.",
+    price: 650,
+    options: [],
+    cats: ['new-baby']
+  },
+  {
+    id: 60,
+    name: 'The Grand Welcome Basket',
+    emoji: '🧺',
+    images: [
+      'images/basket_hat_blanket_1.jpg',
+      'images/basket_hat_blanket_2.jpg'
+    ],
+    desc: "Everything they could need, all in one place. A personalised basket with hat, blanket, burp cloth, feeding cup, vest, and teddy — the kind of gift that makes a family feel truly celebrated.",
+    price: 1100,
+    options: [],
+    cats: ['new-baby']
+  },
+  {
+    id: 61,
+    name: 'The Soothe & Nourish Set',
+    emoji: '💛',
+    images: ['images/feed_cup_dummy.jpg'],
+    desc: "Two of the most-reached-for things in a new baby's world — a personalised feeding cup and a personalised dummy. Practical, personal, and impossible to mix up with anyone else's.",
+    price: 320,
+    options: [],
+    cats: ['new-baby']
+  },
+  {
+    id: 62,
+    name: 'The Held Close Set',
+    emoji: '🌸',
+    images: [
+      'images/cushion_burp_cloth_set_1.jpg',
+      'images/cushion_burp_cloth_set_2.jpg'
+    ],
+    desc: "A blanket, feeding cup, cushion, burp cloth, teddy, and romper — all personalised. For every moment they are held, fed, and wrapped in love. The gift for the family in the thick of the beautiful, exhausting beginning.",
+    price: 950,
+    options: [],
+    cats: ['new-baby']
   }
 ];
