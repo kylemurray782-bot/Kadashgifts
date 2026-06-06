@@ -816,5 +816,134 @@ const products = [
     price: 230,
     options: [],
     cats: ['kids', 'bottles']
+  },
+  {
+    id: 73,
+    name: 'The Healing Basket',
+    emoji: '🌿',
+    images: ['images/teddy_ginger_tea_set.jpg'],
+    desc: "When words aren't enough, send this. A wooden basket filled with a tumbler, teddy, ginger tea, honey, Ferrero Rocher, nuts, fruit bits, a plant, devotional book, candle, and a card — everything they need to feel held, loved, and on the mend.",
+    price: 1200,
+    options: [],
+    cats: ['get-well-soon']
+  },
+  {
+    id: 74,
+    name: 'The Rest & Restore Set',
+    emoji: '🛁',
+    images: ['images/gown_slipper_sick.jpg'],
+    desc: "Tell them to stop, rest, and let their body do its work. A personalised gown and slippers paired with bath salts, body wash, body scrub, body butter, a candle, and a card — the gift that says slow down, we've got you.",
+    price: 1200,
+    options: [],
+    cats: ['get-well-soon']
+  },
+  {
+    id: 75,
+    name: 'The On The Mend Kit',
+    emoji: '💛',
+    images: ['images/head_rest_tubler.jpg'],
+    desc: "Practical, personal, and full of care. A head rest, tumbler, five fruit and energy bars, toiletry bag, body lotion, nougat, and a card — because getting better is easier when someone thought of everything.",
+    price: 950,
+    options: [],
+    cats: ['get-well-soon']
+  },
+  {
+    id: 76,
+    name: 'The Wooden Handle Mug',
+    emoji: '☕',
+    images: ['images/mug_wooden_handle.jpg'],
+    desc: "Warm hands, warm heart. A personalised mug with a natural wooden handle — the kind of cup that makes every morning feel a little more intentional.",
+    price: 130,
+    options: [],
+    cats: ['mugs']
+  },
+  {
+    id: 77,
+    name: 'The Classic Mug',
+    emoji: '☕',
+    images: [
+      'images/plain_white_mug.jpg',
+      'images/plain_white_mug_with_box.jpg'
+    ],
+    desc: "Clean, classic, and entirely theirs. A personalised white mug — the one they reach for first, every single morning.",
+    price: 0,
+    options: [
+      { name: 'Without box', price: 100 },
+      { name: 'With gift box', price: 120 }
+    ],
+    cats: ['mugs']
+  },
+  {
+    id: 78,
+    name: 'The Black Frame Mug',
+    emoji: '☕',
+    images: ['images/black_frame_mug.jpg'],
+    desc: "Bold framing, personal touch. A personalised black frame mug that turns an everyday cup into a statement — presented in a gift box for the full experience.",
+    price: 0,
+    options: [
+      { name: 'Without box', price: 130 },
+      { name: 'With gift box', price: 150 }
+    ],
+    cats: ['mugs']
+  },
+  {
+    id: 79,
+    name: 'The Spoon & Sip Mug',
+    emoji: '🥄',
+    images: ['images/mug_with_spoon.jpg'],
+    desc: "The matching set they didn't know they needed. A personalised mug with matching spoon — available in Green, Red, Navy, Blue, Yellow, Pink, Orange, and Purple. The perfect finishing touch for any desk or kitchen.",
+    price: 0,
+    options: [
+      { name: 'Without box', price: 120 },
+      { name: 'With gift box', price: 140 }
+    ],
+    cats: ['mugs']
+  },
+  {
+    id: 80,
+    name: 'The Two-Tone Mug',
+    emoji: '☕',
+    images: [
+      'images/two-toned-mug.jpg',
+      'images/two_toned_mug_with_box.jpg'
+    ],
+    desc: "Two colours, one name, zero chance of being mistaken for someone else's. A personalised two-tone mug available in Green, Red, Navy, Blue, Yellow, Pink, Orange, and Purple.",
+    price: 0,
+    options: [
+      { name: 'Without box', price: 110 },
+      { name: 'With gift box', price: 130 }
+    ],
+    cats: ['mugs']
+  },
+  {
+    id: 81,
+    name: 'The Frosted Mug',
+    emoji: '☕',
+    images: [
+      'images/frosted_mug.jpg',
+      'images/frosted_mug_with_box.jpg'
+    ],
+    desc: "Soft finish, strong impression. A personalised frosted mug in Pink, Green, Yellow, Red, or Blue — the kind of gift that looks as good on the shelf as it does in their hands.",
+    price: 0,
+    options: [
+      { name: 'Without box', price: 110 },
+      { name: 'With gift box', price: 120 }
+    ],
+    cats: ['mugs']
+  },
+  {
+    id: 82,
+    name: 'The Cappuccino Mug',
+    emoji: '☕',
+    images: [
+      'images/corp_cuppacino_1.jpg',
+      'images/corp_cuppacino_2.jpg',
+      'images/corp_cuppacino_3.jpg',
+      'images/corp_cuppacino_4.jpg'
+    ],
+    desc: "The mug that belongs in a meeting room and a kitchen table. A personalised cappuccino-style mug — branded or gifted, it always looks the part.",
+    price: 120,
+    options: [],
+    cats: ['mugs']
   }
 ];
