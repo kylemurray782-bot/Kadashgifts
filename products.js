@@ -7,7 +7,8 @@ const products = [
     desc: 'Personalised beard care gift set. Name printed on the bottle — full kit personalisation available on request.',
     price: 300,
     options: [],
-    cats: ['fathers-day', 'birthday-him']
+    cats: ['fathers-day', 'birthday-him'],
+    fathersDay: true
   },
   {
     id: 2,
@@ -25,7 +26,9 @@ const products = [
       { name: 'Personalised travel mug + personalised tie', price: 350 },
       { name: 'Personalised travel mug + personalised tie + personalised mousepad', price: 450 }
     ],
-    cats: ['birthday-him', 'fathers-day']
+    cats: ['birthday-him', 'fathers-day'],
+    fathersDay: true,
+    fathersDayTiered: true
   },
   {
     id: 3,
@@ -43,7 +46,9 @@ const products = [
       { name: 'Personalised lunch bag + personalised tumbler', price: 500 },
       { name: 'Personalised lunch bag + personalised tumbler + personalised notebook & pen', price: 650 }
     ],
-    cats: ['birthday-him', 'fathers-day']
+    cats: ['birthday-him', 'fathers-day'],
+    fathersDay: true,
+    fathersDayTiered: true
   },
   {
     id: 4,
@@ -61,7 +66,9 @@ const products = [
       { name: 'Personalised slippers + personalised gown', price: 690 },
       { name: 'Personalised slippers + personalised gown + personalised mug', price: 790 }
     ],
-    cats: ['birthday-him', 'fathers-day']
+    cats: ['birthday-him', 'fathers-day'],
+    fathersDay: true,
+    fathersDayTiered: true
   },
   {
     id: 5,
@@ -71,7 +78,8 @@ const products = [
     desc: 'Personalised Bible, notebook, mug, and pen — every piece carrying his name.',
     price: 600,
     options: [],
-    cats: ['birthday-him', 'fathers-day']
+    cats: ['birthday-him', 'fathers-day'],
+    fathersDay: true
   },
   {
     id: 6,
@@ -81,7 +89,8 @@ const products = [
     desc: "Personalised mug, mug box, and flask with matching gift bag — all printed in his favourite team's colours.",
     price: 450,
     options: [],
-    cats: ['birthday-him', 'fathers-day']
+    cats: ['birthday-him', 'fathers-day'],
+    fathersDay: true
   },
   {
     id: 7,
@@ -91,7 +100,8 @@ const products = [
     desc: 'A personalised toolbox set — built for the man who fixes everything.',
     price: 500,
     options: [],
-    cats: ['birthday-him', 'fathers-day']
+    cats: ['birthday-him', 'fathers-day'],
+    fathersDay: true
   },
   {
     id: 8,
@@ -101,7 +111,8 @@ const products = [
     desc: 'His name on the apron, his tools in hand. The ultimate gift for the man who rules the fire.',
     price: 380,
     options: [],
-    cats: ['birthday-him', 'fathers-day']
+    cats: ['birthday-him', 'fathers-day'],
+    fathersDay: true
   },
   {
     id: 9,
@@ -111,7 +122,8 @@ const products = [
     desc: 'Built for the man always on the move. A quality bag personalised with his name — from the gym to the weekend away.',
     price: 500,
     options: [],
-    cats: ['birthday-him', 'fathers-day']
+    cats: ['birthday-him', 'fathers-day'],
+    fathersDay: true
   },
   {
     id: 10,
@@ -194,7 +206,8 @@ const products = [
     desc: 'Cap, keyring, coaster, and mug — a full lifestyle set for the man who moves with style. Everything personalised, nothing generic.',
     price: 580,
     options: [],
-    cats: ['birthday-him', 'fathers-day']
+    cats: ['birthday-him', 'fathers-day'],
+    fathersDay: true
   },
   {
     id: 18,
