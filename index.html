@@ -247,6 +247,59 @@
   .toblerone-hint-text { font-size: 12px; color: #4a3800; line-height: 1.55; }
   .toblerone-hint-text strong { font-weight: 500; color: #2e2200; }
 
+  /* TOBLERONE PRODUCT CARD BADGE */
+  .product-img-wrap { position: relative; width: 100%; aspect-ratio: 1/1; overflow: hidden; }
+  .product-img-wrap .product-img { width: 100%; height: 100%; aspect-ratio: unset; }
+  .card-toblerone-badge {
+    position: absolute;
+    top: 12px;
+    right: 0;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+  }
+  .card-toblerone-inner {
+    background: #c8a000;
+    color: #1a1714;
+    font-family: 'Jost', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 5px 10px 5px 9px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    box-shadow: -2px 2px 10px rgba(0,0,0,0.2);
+    border-radius: 2px 0 0 2px;
+    white-space: nowrap;
+    line-height: 1;
+  }
+  .card-toblerone-notch {
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-bottom: 13px solid transparent;
+    border-left: 7px solid #c8a000;
+    flex-shrink: 0;
+  }
+  .card-toblerone-free {
+    background: #1a1714;
+    color: #f5c800;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 2px 5px;
+    border-radius: 1px;
+  }
+  .card-toblerone-asterisk {
+    font-size: 9px;
+    color: #5a4400;
+    letter-spacing: 0;
+    font-weight: 700;
+  }
+
   /* TOBLERONE CART ITEM */
   .cart-item-toblerone {
     display: flex;
@@ -476,6 +529,7 @@
     <div class="search-results-label" id="searchLabel"></div>
     <div class="filter-bar" id="filterBar"></div>
     <div class="product-grid" id="productGrid"></div>
+    <p id="tobleroneFootnote" style="display:none; font-size:11px; color:var(--text-muted); letter-spacing:0.5px; margin-top:16px;">* Free Toblerone applies on selected options (R300+) only.</p>
     <div class="show-more-wrap" id="showMoreWrap" style="display:none;">
       <button class="show-more-btn" onclick="showMore()">Load more gifts</button>
       <div class="show-more-count" id="showMoreCount"></div>
@@ -838,10 +892,21 @@ function renderProducts() {
     const displayPrice = p.options && p.options.length ? `From R${Math.min(...p.options.map(o=>o.price))}` : `R${p.price}`;
     const tagNames = p.cats.slice(0,2).map(c => { const cat = categories.find(x=>x.id===c); return cat?`<span class="product-tag">${cat.name}</span>`:''; }).join('');
     const inCart = cart.find(i => i.cartKey === `${p.id}-single`);
+    const tobBadge = p.fathersDay ? `
+      <div class="card-toblerone-badge">
+        <div class="card-toblerone-inner">
+          <span class="card-toblerone-free">FREE</span>
+          🍫 Toblerone${p.fathersDayTiered ? '<span class="card-toblerone-asterisk">*</span>' : ''}
+        </div>
+        <div class="card-toblerone-notch"></div>
+      </div>` : '';
     return `
     <div class="product-card">
-      <div class="product-img" onclick="openModal(${p.id})" style="cursor:pointer;">
-        ${heroImg ? `<img src="${heroImg}" alt="${p.name}">` : p.emoji}
+      <div class="product-img-wrap" onclick="openModal(${p.id})" style="cursor:pointer;">
+        <div class="product-img">
+          ${heroImg ? `<img src="${heroImg}" alt="${p.name}">` : p.emoji}
+        </div>
+        ${tobBadge}
       </div>
       <div class="product-body">
         <div class="product-tags" onclick="openModal(${p.id})" style="cursor:pointer;">${tagNames}</div>
@@ -857,6 +922,9 @@ function renderProducts() {
     </div>`;
   }).join('');
   const showMoreWrap = document.getElementById('showMoreWrap');
+  const footnote = document.getElementById('tobleroneFootnote');
+  const hasTiered = visible.some(p => p.fathersDayTiered);
+  footnote.style.display = hasTiered ? 'block' : 'none';
   if (remaining > 0) {
     showMoreWrap.style.display = 'block';
     document.getElementById('showMoreCount').textContent = `Showing ${visible.length} of ${filtered.length} gifts`;
