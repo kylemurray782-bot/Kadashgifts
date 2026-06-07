@@ -293,12 +293,6 @@
     padding: 2px 5px;
     border-radius: 1px;
   }
-  .card-toblerone-asterisk {
-    font-size: 9px;
-    color: #5a4400;
-    letter-spacing: 0;
-    font-weight: 700;
-  }
 
   /* TOBLERONE CART ITEM */
   .cart-item-toblerone {
@@ -529,7 +523,6 @@
     <div class="search-results-label" id="searchLabel"></div>
     <div class="filter-bar" id="filterBar"></div>
     <div class="product-grid" id="productGrid"></div>
-    <p id="tobleroneFootnote" style="display:none; font-size:11px; color:var(--text-muted); letter-spacing:0.5px; margin-top:16px;">* Free Toblerone applies on selected options (R300+) only.</p>
     <div class="show-more-wrap" id="showMoreWrap" style="display:none;">
       <button class="show-more-btn" onclick="showMore()">Load more gifts</button>
       <div class="show-more-count" id="showMoreCount"></div>
@@ -892,11 +885,11 @@ function renderProducts() {
     const displayPrice = p.options && p.options.length ? `From R${Math.min(...p.options.map(o=>o.price))}` : `R${p.price}`;
     const tagNames = p.cats.slice(0,2).map(c => { const cat = categories.find(x=>x.id===c); return cat?`<span class="product-tag">${cat.name}</span>`:''; }).join('');
     const inCart = cart.find(i => i.cartKey === `${p.id}-single`);
-    const tobBadge = p.fathersDay ? `
+    const tobBadge = (p.fathersDay && !p.fathersDayTiered) ? `
       <div class="card-toblerone-badge">
         <div class="card-toblerone-inner">
           <span class="card-toblerone-free">FREE</span>
-          🍫 Toblerone${p.fathersDayTiered ? '<span class="card-toblerone-asterisk">*</span>' : ''}
+          🍫 Toblerone
         </div>
         <div class="card-toblerone-notch"></div>
       </div>` : '';
@@ -922,9 +915,6 @@ function renderProducts() {
     </div>`;
   }).join('');
   const showMoreWrap = document.getElementById('showMoreWrap');
-  const footnote = document.getElementById('tobleroneFootnote');
-  const hasTiered = visible.some(p => p.fathersDayTiered);
-  footnote.style.display = hasTiered ? 'block' : 'none';
   if (remaining > 0) {
     showMoreWrap.style.display = 'block';
     document.getElementById('showMoreCount').textContent = `Showing ${visible.length} of ${filtered.length} gifts`;
