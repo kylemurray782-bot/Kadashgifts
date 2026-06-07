@@ -174,6 +174,120 @@
   .addon-price { font-family: 'Cormorant Garamond', serif; font-size: 16px; color: var(--text-muted); white-space: nowrap; }
   .cart-item-addons { font-size: 11px; color: var(--text-muted); margin-top: 2px; line-height: 1.5; }
 
+  /* TOBLERONE PROMO */
+  .toblerone-banner {
+    position: absolute;
+    top: 16px;
+    right: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: opacity 280ms cubic-bezier(0.23, 1, 0.32, 1), transform 280ms cubic-bezier(0.23, 1, 0.32, 1);
+    pointer-events: none;
+  }
+  .toblerone-banner.visible {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: all;
+  }
+  .toblerone-banner-inner {
+    background: #c8a000;
+    color: #1a1714;
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 8px 14px 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: -3px 3px 16px rgba(0,0,0,0.22);
+    white-space: nowrap;
+    border-radius: 3px 0 0 3px;
+  }
+  .toblerone-banner-notch {
+    width: 0;
+    height: 0;
+    border-top: 18px solid transparent;
+    border-bottom: 18px solid transparent;
+    border-left: 10px solid #c8a000;
+    flex-shrink: 0;
+  }
+  .toblerone-banner .free-pill {
+    background: #1a1714;
+    color: #f5c800;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 2px 7px;
+    border-radius: 2px;
+  }
+
+  .toblerone-hint {
+    background: linear-gradient(135deg, #fefae8 0%, #fdf6d6 100%);
+    border: 1px solid #ddb800;
+    border-radius: 3px;
+    padding: 11px 14px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    opacity: 0;
+    transform: translateY(-6px) scale(0.98);
+    transition: opacity 260ms cubic-bezier(0.23, 1, 0.32, 1), transform 260ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .toblerone-hint.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  .toblerone-hint-icon { font-size: 22px; flex-shrink: 0; }
+  .toblerone-hint-text { font-size: 12px; color: #4a3800; line-height: 1.55; }
+  .toblerone-hint-text strong { font-weight: 500; color: #2e2200; }
+
+  /* TOBLERONE CART ITEM */
+  .cart-item-toblerone {
+    display: flex;
+    gap: 14px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: center;
+    animation: tobleroneSlideIn 300ms cubic-bezier(0.23, 1, 0.32, 1) both;
+  }
+  @keyframes tobleroneSlideIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .cart-item-toblerone-thumb {
+    width: 56px;
+    height: 56px;
+    border-radius: 4px;
+    background: linear-gradient(135deg, #fde97a, #c8a000);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+  }
+  .cart-item-toblerone-info { flex: 1; }
+  .cart-item-toblerone-name { font-size: 14px; font-weight: 400; color: var(--text); margin-bottom: 3px; }
+  .cart-item-toblerone-occasion { font-size: 11px; color: var(--gold); letter-spacing: 0.5px; margin-bottom: 5px; }
+  .cart-item-toblerone-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: #c8a000;
+    color: #1a1714;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 3px 9px;
+    border-radius: 2px;
+    text-transform: uppercase;
+  }
+
   /* GIFT HELPER MODAL */
   .helper-modal-overlay { position: fixed; inset: 0; background: rgba(10,8,6,0.75); z-index: 400; opacity: 0; pointer-events: none; transition: opacity 0.3s; backdrop-filter: blur(3px); }
   .helper-modal-overlay.open { opacity: 1; pointer-events: all; }
@@ -266,6 +380,11 @@
   .search-icon { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none; font-size: 16px; }
   .search-clear { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 18px; display: none; padding: 0; }
   .search-results-label { font-size: 12px; color: var(--text-muted); margin-bottom: 20px; letter-spacing: 0.5px; display: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .toblerone-banner, .toblerone-hint { transition: opacity 0.15s; transform: none !important; }
+    .cart-item-toblerone { animation: none; }
+  }
 
   @media (max-width: 640px) {
     .nav-links { display: none; }
@@ -448,12 +567,27 @@
         <button class="modal-arrow prev" id="modalPrev" onclick="slideModal(-1)">‹</button>
         <button class="modal-arrow next" id="modalNext" onclick="slideModal(1)">›</button>
         <div class="modal-nav" id="modalDots"></div>
+        <!-- TOBLERONE BANNER — injected here by JS -->
+        <div class="toblerone-banner" id="tobleroneBanner">
+          <div class="toblerone-banner-inner">
+            <span class="free-pill">FREE</span>
+            🍫 Toblerone included
+          </div>
+          <div class="toblerone-banner-notch"></div>
+        </div>
       </div>
       <div class="modal-info">
         <div class="modal-tags" id="modalTags"></div>
         <div class="modal-name" id="modalName"></div>
         <div class="modal-desc" id="modalDesc"></div>
         <div id="modalPricing"></div>
+        <!-- TOBLERONE HINT — above the add button -->
+        <div class="toblerone-hint" id="tobleroneHint">
+          <span class="toblerone-hint-icon">🍫</span>
+          <div class="toblerone-hint-text">
+            <strong>Father's Day special —</strong> this order includes a free Toblerone, added to your gift.
+          </div>
+        </div>
         <button class="modal-add-btn" id="modalAddBtn" onclick="addFromModal()">Add to cart</button>
       </div>
     </div>
@@ -569,12 +703,66 @@ const addOns = [
   { id: 'keyring', name: 'Personalised Key Ring', price: 90 },
 ];
 
+const TOBLERONE_CART_KEY = '__toblerone_promo__';
+
 let cart = [];
 let activeFilter = 'all';
 let modalProduct = null;
 let modalSlide = 0;
 let selectedOption = null;
 let selectedAddOns = [];
+
+// ─── TOBLERONE HELPERS ───────────────────────────────────────────
+
+function cartHasQualifyingFathersDayItem() {
+  return cart.some(i => {
+    if (i.cartKey === TOBLERONE_CART_KEY) return false;
+    if (!i.fathersDay) return false;
+    // For tiered products, check the selected price
+    if (i.fathersDayTiered) return i.price >= 300;
+    // For flat price products, they're already tagged correctly
+    return true;
+  });
+}
+
+function syncTobleroneCartItem() {
+  const qualifies = cartHasQualifyingFathersDayItem();
+  const alreadyInCart = cart.find(i => i.cartKey === TOBLERONE_CART_KEY);
+  if (qualifies && !alreadyInCart) {
+    cart.push({
+      id: '__toblerone__',
+      cartKey: TOBLERONE_CART_KEY,
+      name: 'Toblerone',
+      emoji: '🍫',
+      images: [],
+      price: 0,
+      qty: 1,
+      optionName: null,
+      addOns: [],
+      isToblerone: true,
+      fathersDay: false,
+    });
+  } else if (!qualifies && alreadyInCart) {
+    cart = cart.filter(i => i.cartKey !== TOBLERONE_CART_KEY);
+  }
+}
+
+function showTobleroneBanner(visible) {
+  const banner = document.getElementById('tobleroneBanner');
+  const hint   = document.getElementById('tobleroneHint');
+  if (visible) {
+    // Small delay so the modal is fully open before sliding in
+    setTimeout(() => {
+      banner.classList.add('visible');
+      hint.classList.add('visible');
+    }, 180);
+  } else {
+    banner.classList.remove('visible');
+    hint.classList.remove('visible');
+  }
+}
+
+// ─── MODAL ───────────────────────────────────────────────────────
 
 function openHelperModal() {
   document.getElementById('helperModalOverlay').classList.add('open');
@@ -689,12 +877,14 @@ function quickAddToCart(id) {
   const existing = cart.find(i => i.cartKey === key);
   if (existing) { existing.qty++; }
   else { cart.push({ ...product, cartKey: key, optionName: null, qty: 1 }); }
+  syncTobleroneCartItem();
   updateCart(); renderProducts(); toggleCart(true);
 }
 
 function openModal(id) {
   modalProduct = products.find(p => p.id === id);
   modalSlide = 0; selectedOption = null; selectedAddOns = [];
+
   const slides = modalProduct.images && modalProduct.images.length ? modalProduct.images : [null];
   document.getElementById('modalSlides').innerHTML = slides.map((img, i) => `
     <div class="modal-slide ${i===0?'active':''}" data-index="${i}">
@@ -704,10 +894,12 @@ function openModal(id) {
     ? slides.map((_, i) => `<button class="modal-dot ${i===0?'active':''}" onclick="goToSlide(${i})"></button>`).join('') : '';
   document.getElementById('modalPrev').classList.toggle('hidden', slides.length <= 1);
   document.getElementById('modalNext').classList.toggle('hidden', slides.length <= 1);
+
   const tagNames = modalProduct.cats.map(c => { const cat = categories.find(x=>x.id===c); return cat?`<span class="product-tag">${cat.name}</span>`:''; }).join('');
   document.getElementById('modalTags').innerHTML = tagNames;
   document.getElementById('modalName').textContent = modalProduct.name;
   document.getElementById('modalDesc').textContent = modalProduct.desc;
+
   const addOnsHTML = `
     <div class="addons-section">
       <span class="addons-label">Build your gift box</span>
@@ -718,6 +910,7 @@ function openModal(id) {
           <span class="addon-price">+R${a.price}</span>
         </button>`).join('')}
     </div>`;
+
   const pricingEl = document.getElementById('modalPricing');
   if (modalProduct.options && modalProduct.options.length) {
     pricingEl.innerHTML = `<span class="modal-options-label">Choose your option</span>
@@ -728,10 +921,19 @@ function openModal(id) {
   } else {
     pricingEl.innerHTML = `<div class="modal-price-single">R${modalProduct.price}</div>${addOnsHTML}`;
   }
+
   const addBtn = document.getElementById('modalAddBtn');
   const inCart = cart.find(i => i.id === modalProduct.id && !modalProduct.options.length);
   addBtn.textContent = inCart ? '✓ Added to cart' : 'Add to cart';
   addBtn.className = 'modal-add-btn' + (inCart ? ' added' : '');
+
+  // Toblerone: show immediately for flat-price qualifying products, hide for tiered (wait for option select)
+  if (modalProduct.fathersDay && !modalProduct.fathersDayTiered) {
+    showTobleroneBanner(true);
+  } else {
+    showTobleroneBanner(false);
+  }
+
   document.getElementById('modalOverlay').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
@@ -740,6 +942,7 @@ function closeModal() {
   document.getElementById('modalOverlay').classList.remove('open');
   document.body.style.overflow = '';
   modalProduct = null; selectedOption = null; selectedAddOns = [];
+  showTobleroneBanner(false);
 }
 
 function handleModalOverlayClick(e) {
@@ -766,6 +969,11 @@ function selectOption(index) {
   addBtn.className = 'modal-add-btn' + (inCart ? ' added' : '');
   const slides = document.querySelectorAll('.modal-slide');
   if (slides.length > index) goToSlide(index);
+
+  // Toblerone: for tiered products, show banner only if this option qualifies
+  if (modalProduct.fathersDayTiered) {
+    showTobleroneBanner(opt.price >= 300);
+  }
 }
 
 function slideModal(dir) {
@@ -800,6 +1008,7 @@ function addFromModal() {
     if (existing) { existing.qty++; }
     else { cart.push({ ...modalProduct, cartKey: `${modalProduct.id}-single`, optionName: null, price: modalProduct.price + addOnsTotal, basePrice: modalProduct.price, addOns: chosenAddOns, qty: 1 }); }
   }
+  syncTobleroneCartItem();
   updateCart(); renderProducts();
   const addBtn = document.getElementById('modalAddBtn');
   addBtn.textContent = '✓ Added to cart';
@@ -809,6 +1018,7 @@ function addFromModal() {
 
 function removeFromCart(cartKey) {
   cart = cart.filter(i => i.cartKey !== cartKey);
+  syncTobleroneCartItem();
   updateCart(); renderProducts();
 }
 
@@ -817,18 +1027,24 @@ function changeQty(cartKey, delta) {
   if (!item) return;
   item.qty += delta;
   if (item.qty <= 0) { removeFromCart(cartKey); return; }
+  syncTobleroneCartItem();
   updateCart();
 }
 
 function updateCart() {
-  const count = cart.reduce((s,i) => s+i.qty, 0);
-  const total = cart.reduce((s,i) => s+i.price*i.qty, 0);
+  const realItems = cart.filter(i => !i.isToblerone);
+  const count = realItems.reduce((s,i) => s+i.qty, 0);
+  const total = realItems.reduce((s,i) => s+i.price*i.qty, 0);
   document.getElementById('cartCount').textContent = count;
   document.getElementById('cartTotal').textContent = `R${total}`;
-  document.getElementById('checkoutBtn').disabled = cart.length === 0;
+  document.getElementById('checkoutBtn').disabled = realItems.length === 0;
+
   const el = document.getElementById('cartItems');
-  if (!cart.length) { el.innerHTML = '<div class="cart-empty">Your cart is empty</div>'; return; }
-  el.innerHTML = cart.map(i => {
+  if (!realItems.length) { el.innerHTML = '<div class="cart-empty">Your cart is empty</div>'; return; }
+
+  const tobleroneItem = cart.find(i => i.isToblerone);
+
+  let html = realItems.map(i => {
     const heroImg = i.images && i.images.length ? i.images[0] : null;
     return `
     <div class="cart-item">
@@ -847,6 +1063,21 @@ function updateCart() {
       <button class="remove-btn" onclick="removeFromCart('${i.cartKey}')">✕</button>
     </div>`;
   }).join('');
+
+  // Append Toblerone line item if present
+  if (tobleroneItem) {
+    html += `
+    <div class="cart-item-toblerone">
+      <div class="cart-item-toblerone-thumb">🍫</div>
+      <div class="cart-item-toblerone-info">
+        <div class="cart-item-toblerone-name">Toblerone</div>
+        <div class="cart-item-toblerone-occasion">Father's Day Special</div>
+        <div class="cart-item-toblerone-badge">✦ Free gift</div>
+      </div>
+    </div>`;
+  }
+
+  el.innerHTML = html;
 }
 
 function toggleCart(forceOpen) {
@@ -865,13 +1096,22 @@ function checkoutWhatsApp() {
   const phone = document.getElementById('customerPhone').value.trim();
   const notes = document.getElementById('customerNotes').value.trim();
   if (!name) { alert('Please enter your name before sending.'); return; }
-  const total = cart.reduce((s,i) => s+i.price*i.qty, 0);
-  const lines = cart.map(i => {
+
+  const realItems = cart.filter(i => !i.isToblerone);
+  const total = realItems.reduce((s,i) => s+i.price*i.qty, 0);
+  const hasToblerone = cart.some(i => i.isToblerone);
+
+  const lines = realItems.map(i => {
     let line = `  • ${i.name}${i.optionName?` (${i.optionName})`:''} x${i.qty} — R${i.price*i.qty}`;
     if (i.addOns && i.addOns.length) line += `\n    Extras: ${i.addOns.map(a=>a.name).join(', ')}`;
     return line;
   }).join('\n');
-  const msg = `Hi Kadash Gifts! 👋 I'd like to place an order:\n\n${lines}\n\n💰 Total: R${total}\n\n👤 Name: ${name}\n📱 Number: ${phone||'Not provided'}${notes?`\n📝 Notes: ${notes}`:''}\n\nPlease confirm and send payment details. Thank you!`;
+
+  const tobleroneLineIfAny = hasToblerone
+    ? `\n  • 🍫 Free Toblerone (Father's Day promo) — R0`
+    : '';
+
+  const msg = `Hi Kadash Gifts! 👋 I'd like to place an order:\n\n${lines}${tobleroneLineIfAny}\n\n💰 Total: R${total}\n\n👤 Name: ${name}\n📱 Number: ${phone||'Not provided'}${notes?`\n📝 Notes: ${notes}`:''}\n\nPlease confirm and send payment details. Thank you!`;
   window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
 }
 
