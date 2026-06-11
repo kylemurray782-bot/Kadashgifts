@@ -301,6 +301,11 @@
     padding: 2px 5px;
     border-radius: 1px;
   }
+  .card-toblerone-inner.card-toblerone-conditional {
+    font-size: 9px;
+    letter-spacing: 0.8px;
+    padding: 5px 9px;
+  }
 
   /* TOBLERONE CART ITEM */
   .cart-item-toblerone {
@@ -1019,8 +1024,15 @@ function getFiltered() {
 /* ═══ PRODUCT GRID ═══ */
 function productEarnsToblerone(p) {
   if (!promoLive() || !p.fathersDay) return false;
-  if (p.options && p.options.length) return p.options.some(o => o.price >= CONFIG.PROMO.minSpend);
+  if (p.options && p.options.length) return p.options.every(o => o.price >= CONFIG.PROMO.minSpend);
   return p.price >= CONFIG.PROMO.minSpend;
+}
+// Tiered product where only SOME options reach R300 → show a conditional badge instead of a flat one
+function productHasConditionalToblerone(p) {
+  if (!promoLive() || !p.fathersDay || !(p.options && p.options.length)) return false;
+  const someQualify = p.options.some(o => o.price >= CONFIG.PROMO.minSpend);
+  const allQualify  = p.options.every(o => o.price >= CONFIG.PROMO.minSpend);
+  return someQualify && !allQualify;
 }
 
 function renderProducts() {
@@ -1051,7 +1063,13 @@ function renderProducts() {
           🍫 Toblerone
         </div>
         <div class="card-toblerone-notch"></div>
-      </div>` : '';
+      </div>` : (productHasConditionalToblerone(p) ? `
+      <div class="card-toblerone-badge">
+        <div class="card-toblerone-inner card-toblerone-conditional">
+          🍫 Free on R${CONFIG.PROMO.minSpend}+ options
+        </div>
+        <div class="card-toblerone-notch"></div>
+      </div>` : '');
     return `
     <div class="product-card">
       <div class="product-img-wrap" onclick="openModal(${p.id})" style="cursor:pointer;">
