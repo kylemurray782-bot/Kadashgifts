@@ -61,6 +61,8 @@
   .cart-btn { background: none; border: 1px solid var(--gold); color: var(--gold); padding: 8px 18px; border-radius: 2px; cursor: pointer; font-family: 'Jost', sans-serif; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; display: flex; align-items: center; gap: 8px; transition: all 0.2s; }
   .cart-btn:hover { background: var(--gold); color: var(--dark); }
   .cart-count { background: var(--gold); color: var(--dark); border-radius: 50%; width: 18px; height: 18px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 500; }
+  .cart-count.empty { display: none; }
+  .cart-btn svg { width: 15px; height: 15px; }
 
   /* HERO */
   .hero { background: #fffcd5; padding: 100px 2rem 90px; text-align: center; position: relative; overflow: hidden; }
@@ -89,7 +91,10 @@
   .cat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
   .cat-card { background: var(--white); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; cursor: pointer; transition: all 0.22s; text-align: center; padding-bottom: 16px; }
   .cat-card:hover { border-color: var(--gold); box-shadow: 0 6px 24px rgba(184,150,90,0.1); transform: translateY(-2px); }
-  .cat-emoji { font-size: 32px; padding: 22px 0 10px; display: block; }
+  .cat-icon { padding: 24px 0 12px; display: flex; align-items: center; justify-content: center; color: var(--gold); }
+  .cat-icon svg { width: 30px; height: 30px; }
+  .cat-card:hover .cat-icon { color: var(--charcoal); }
+  .cat-icon, .cat-card:hover .cat-icon { transition: color 0.22s; }
   .cat-name { font-size: 12px; font-weight: 400; color: var(--charcoal); letter-spacing: 0.5px; padding: 0 10px; }
   .cat-badge { display: inline-block; font-size: 9px; letter-spacing: 1px; background: var(--gold-pale); color: var(--gold); border-radius: 2px; padding: 2px 6px; margin-top: 5px; text-transform: uppercase; }
 
@@ -105,6 +110,8 @@
   .product-card:hover { box-shadow: 0 10px 32px rgba(0,0,0,0.08); transform: translateY(-3px); border-color: var(--gold); }
   .product-img { width: 100%; aspect-ratio: 1/1; background: var(--warm); display: flex; align-items: center; justify-content: center; font-size: 52px; overflow: hidden; }
   .product-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+  .img-placeholder { font-family: 'Cormorant Garamond', serif; font-size: 46px; color: var(--gold); opacity: 0.55; font-style: italic; }
+  .img-placeholder-sm { font-size: 24px; }
   .product-card:hover .product-img img { transform: scale(1.04); }
   .product-body { padding: 18px; }
   .product-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
@@ -233,6 +240,7 @@
     padding: 2px 7px;
     border-radius: 2px;
   }
+  .tob-tri { width: 11px; height: 11px; vertical-align: -1px; }
 
   .toblerone-hint {
     background: linear-gradient(135deg, #fefae8 0%, #fdf6d6 100%);
@@ -491,7 +499,8 @@
   </ul>
   <div class="nav-right">
     <button class="cart-btn" onclick="toggleCart()">
-      🛒 Cart <span class="cart-count" id="cartCount">0</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14l-1.2 10.5a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8L5 7z"/><path d="M9 7V5.5a3 3 0 0 1 6 0V7"/></svg>
+      Cart <span class="cart-count empty" id="cartCount">0</span>
     </button>
   </div>
 </nav>
@@ -520,7 +529,7 @@
   <div class="search-wrap">
     <div class="search-input-wrap">
       <input type="text" class="search-input" id="searchInput" placeholder="Search gifts e.g. mug, hamper, Father's Day..." oninput="handleSearch(this.value)">
-      <span class="search-icon" id="searchIcon">🔍</span>
+      <span class="search-icon" id="searchIcon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
       <button class="search-clear" id="searchClear" onclick="clearSearch()">✕</button>
     </div>
   </div>
@@ -664,7 +673,7 @@
         <div class="toblerone-banner" id="tobleroneBanner">
           <div class="toblerone-banner-inner">
             <span class="free-pill">FREE</span>
-            🍫 Toblerone included
+            <svg class="tob-tri" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l8 16H4z"/></svg> Toblerone included
           </div>
           <div class="toblerone-banner-notch"></div>
         </div>
@@ -676,7 +685,7 @@
         <div id="modalPricing"></div>
         <!-- TOBLERONE HINT — above the add button (text set by JS from CONFIG) -->
         <div class="toblerone-hint" id="tobleroneHint">
-          <span class="toblerone-hint-icon">🍫</span>
+          <span class="toblerone-hint-icon"><svg viewBox="0 0 24 24" fill="#c8a000" width="20" height="20"><path d="M12 4l8 16H4z"/></svg></span>
           <div class="toblerone-hint-text" id="tobleroneHintText"></div>
         </div>
         <button class="modal-add-btn" id="modalAddBtn" onclick="addFromModal()">Add to cart</button>
@@ -813,19 +822,39 @@ function esc(s) {
 }
 
 const categories = [
-  { id:'birthday-her', name:'Birthday for her', emoji:'🎀' },
-  { id:'birthday-him', name:'Birthday for him', emoji:'🍺' },
-  { id:'fathers-day',  name:"Father's Day",     emoji:'👨' },
-  { id:'mothers-day',  name:"Mother's Day",      emoji:'💐' },
-  { id:'anniversary',  name:'Anniversary',       emoji:'💍' },
-  { id:'new-baby',     name:'New Baby',          emoji:'👶' },
-  { id:'corporate',    name:'Corporate',         emoji:'💼' },
-  { id:'christmas',    name:'Christmas',         emoji:'🎄' },
-  { id:'get-well-soon',name:'Get Well Soon',     emoji:'🌿' },
-  { id:'kids',         name:'Kids',              emoji:'🧸' },
-  { id:'mugs',         name:'Mugs',              emoji:'☕' },
-  { id:'bottles',      name:'Bottles',           emoji:'🍼' },
+  { id:'birthday-her', name:'Birthday for her' },
+  { id:'birthday-him', name:'Birthday for him' },
+  { id:'fathers-day',  name:"Father's Day" },
+  { id:'mothers-day',  name:"Mother's Day" },
+  { id:'anniversary',  name:'Anniversary' },
+  { id:'new-baby',     name:'New Baby' },
+  { id:'corporate',    name:'Corporate' },
+  { id:'christmas',    name:'Christmas' },
+  { id:'get-well-soon',name:'Get Well Soon' },
+  { id:'kids',         name:'Kids' },
+  { id:'mugs',         name:'Mugs' },
+  { id:'bottles',      name:'Bottles' },
 ];
+
+// Consistent single-stroke line icons (no emoji). currentColor inherits the tile colour.
+const ICON_ATTRS = 'viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"';
+const catIcons = {
+  'birthday-her': `<rect x="3.5" y="9" width="17" height="11" rx="1"/><path d="M3.5 13h17M12 9v11"/><path d="M12 9C9.5 9 8 7.5 8 6a2 2 0 0 1 4 0 2 2 0 0 1 4 0c0 1.5-1.5 3-4 3z"/>`,
+  'birthday-him': `<rect x="3.5" y="9" width="17" height="11" rx="1"/><path d="M3.5 13h17M12 9v11M9 6l3 3 3-3"/>`,
+  'fathers-day':  `<path d="M10.5 3h3l-1 4 1.5 9-3 4.5-3-4.5L9.5 7z"/>`,
+  'mothers-day':  `<circle cx="12" cy="12" r="2"/><circle cx="12" cy="7" r="2.4"/><circle cx="12" cy="17" r="2.4"/><circle cx="7" cy="12" r="2.4"/><circle cx="17" cy="12" r="2.4"/>`,
+  'anniversary':  `<path d="M4 9l4-5h8l4 5-8 11z"/><path d="M4 9h16M9 4l-1.5 5L12 20M15 4l1.5 5L12 20"/>`,
+  'new-baby':     `<circle cx="9.5" cy="9.5" r="5"/><path d="M13 13l6.5 6.5M9.5 6.5v6M6.5 9.5h6"/>`,
+  'corporate':    `<rect x="3" y="7.5" width="18" height="12" rx="1.5"/><path d="M8.5 7.5V6a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v1.5M3 13h18"/>`,
+  'christmas':    `<path d="M12 3l4.5 6.5h-2.5l4 6H6l4-6H7.5z"/><path d="M10.5 15.5h3V21h-3z"/>`,
+  'get-well-soon':`<path d="M5 19c0-7.5 6-14 14-14 0 7.5-6 14-14 14z"/><path d="M5 19c4-4 8-8 12-11.5"/>`,
+  'kids':         `<ellipse cx="12" cy="9" rx="5" ry="6"/><path d="M12 15c0 1.5-1 1.8-1 3s1 1.5 1 3"/>`,
+  'mugs':         `<path d="M5 6.5h11v9a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3z"/><path d="M16 8.5h2a2 2 0 0 1 2 2v.5a2 2 0 0 1-2 2h-2"/>`,
+  'bottles':      `<path d="M10 3h4v2.5l1 2.5v10a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V8l1-2.5z"/><path d="M9 12h6"/>`,
+};
+function catIcon(id) {
+  return `<svg ${ICON_ATTRS}>${catIcons[id] || ''}</svg>`;
+}
 
 const addOns = [
   { id: 'ferrero', name: 'Ferrero Rocher',       price: 50 },
@@ -899,7 +928,6 @@ function syncTobleroneCartItem() {
       id: '__toblerone__',
       cartKey: TOBLERONE_CART_KEY,
       name: 'Toblerone',
-      emoji: '🍫',
       images: [],
       price: 0,
       qty: count,
@@ -944,16 +972,16 @@ function renderAnnouncementBar() {
   const el = document.getElementById('announcementBar');
   if (promoLive() && beforeCutoff()) {
     el.innerHTML =
-      `<span>🍫 Free Toblerone with every Father's Day gift of R${CONFIG.PROMO.minSpend}+</span>` +
+      `<span>Free Toblerone with every Father's Day gift of R${CONFIG.PROMO.minSpend}+</span>` +
       `<span class="announcement-divider">|</span>` +
-      `<span><span class="countdown-num">⏰ ${countdownText()}</span> Order by ${CONFIG.PROMO.cutoffLabel} for Father's Day delivery</span>`;
+      `<span><span class="countdown-num">${countdownText()}</span> Order by ${CONFIG.PROMO.cutoffLabel} for Father's Day delivery</span>`;
   } else {
     el.innerHTML =
-      `<span>✦ Free personalisation on every order</span>` +
+      `<span>Free personalisation on every order</span>` +
       `<span class="announcement-divider">|</span>` +
       `<span>Delivery R${CONFIG.DELIVERY_FEE} nationwide</span>` +
       `<span class="announcement-divider">|</span>` +
-      `<span>2–3 day turnaround ✦</span>`;
+      `<span>2–3 day turnaround</span>`;
   }
 }
 setInterval(renderAnnouncementBar, 60000); // tick the countdown every minute
@@ -983,7 +1011,7 @@ function handleHelperOverlayClick(e) {
 function renderCategories() {
   document.getElementById('catGrid').innerHTML = categories.map(c => `
     <div class="cat-card" onclick="filterByCategory('${c.id}')">
-      <span class="cat-emoji">${c.emoji}</span>
+      <span class="cat-icon">${catIcon(c.id)}</span>
       <div class="cat-name">${esc(c.name)}</div>
       ${c.badge ? `<div><span class="cat-badge">${esc(c.badge)}</span></div>` : ''}
     </div>`).join('');
@@ -993,7 +1021,7 @@ function renderFilters() {
   document.getElementById('filterBar').innerHTML =
     [`<button class="filter-btn active" data-filter="all" onclick="filterProducts('all')">All</button>`]
     .concat(categories.map(c =>
-      `<button class="filter-btn" data-filter="${c.id}" onclick="filterProducts('${c.id}')">${c.emoji} ${esc(c.name)}</button>`
+      `<button class="filter-btn" data-filter="${c.id}" onclick="filterProducts('${c.id}')">${esc(c.name)}</button>`
     )).join('');
 }
 
@@ -1060,13 +1088,13 @@ function renderProducts() {
       <div class="card-toblerone-badge">
         <div class="card-toblerone-inner">
           <span class="card-toblerone-free">FREE</span>
-          🍫 Toblerone
+          <svg class="tob-tri" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l8 16H4z"/></svg> Toblerone
         </div>
         <div class="card-toblerone-notch"></div>
       </div>` : (productHasConditionalToblerone(p) ? `
       <div class="card-toblerone-badge">
         <div class="card-toblerone-inner card-toblerone-conditional">
-          🍫 Free on R${CONFIG.PROMO.minSpend}+ options
+          <svg class="tob-tri" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l8 16H4z"/></svg> Free on R${CONFIG.PROMO.minSpend}+ options
         </div>
         <div class="card-toblerone-notch"></div>
       </div>` : '');
@@ -1074,7 +1102,7 @@ function renderProducts() {
     <div class="product-card">
       <div class="product-img-wrap" onclick="openModal(${p.id})" style="cursor:pointer;">
         <div class="product-img">
-          ${heroImg ? `<img src="${esc(heroImg)}" alt="${esc(p.name)}" loading="lazy">` : p.emoji}
+          ${heroImg ? `<img src="${esc(heroImg)}" alt="${esc(p.name)}" loading="lazy">` : `<span class="img-placeholder">${esc((p.name||'K').trim().charAt(0).toUpperCase())}</span>`}
         </div>
         ${tobBadge}
       </div>
@@ -1128,7 +1156,7 @@ function openModal(id) {
   const slides = modalProduct.images && modalProduct.images.length ? modalProduct.images : [null];
   document.getElementById('modalSlides').innerHTML = slides.map((img, i) => `
     <div class="modal-slide ${i===0?'active':''}" data-index="${i}">
-      ${img ? `<img src="${esc(img)}" alt="${esc(modalProduct.name)}" loading="lazy">` : `<span style="font-size:80px">${modalProduct.emoji}</span>`}
+      ${img ? `<img src="${esc(img)}" alt="${esc(modalProduct.name)}" loading="lazy">` : `<span class="img-placeholder" style="font-size:72px">${esc((modalProduct.name||'K').trim().charAt(0).toUpperCase())}</span>`}
     </div>`).join('');
   document.getElementById('modalDots').innerHTML = slides.length > 1
     ? slides.map((_, i) => `<button class="modal-dot ${i===0?'active':''}" onclick="goToSlide(${i})"></button>`).join('') : '';
@@ -1295,10 +1323,12 @@ function updateCart() {
   const delivery = deliveryFee(subtotal);
   const total = subtotal + delivery;
 
-  document.getElementById('cartCount').textContent = count;
+  const countEl = document.getElementById('cartCount');
+  countEl.textContent = count;
+  countEl.classList.toggle('empty', count === 0);
   document.getElementById('cartSubtotal').textContent = `R${subtotal}`;
   document.getElementById('cartDelivery').innerHTML =
-    subtotal === 0 ? 'R0' : (delivery === 0 ? '<span class="free-delivery">Free ✦</span>' : `R${delivery}`);
+    subtotal === 0 ? 'R0' : (delivery === 0 ? '<span class="free-delivery">Free</span>' : `R${delivery}`);
   document.getElementById('cartTotal').textContent = `R${total}`;
   document.getElementById('checkoutBtn').disabled = realItems.length === 0;
 
@@ -1306,7 +1336,7 @@ function updateCart() {
   const nudge = document.getElementById('freeDeliveryNudge');
   if (CONFIG.FREE_DELIVERY_OVER > 0 && subtotal > 0 && delivery > 0) {
     nudge.style.display = 'block';
-    nudge.textContent = `🚚 Add R${CONFIG.FREE_DELIVERY_OVER - subtotal} more and delivery is on us`;
+    nudge.textContent = `Add R${CONFIG.FREE_DELIVERY_OVER - subtotal} more and delivery is on us`;
   } else {
     nudge.style.display = 'none';
   }
@@ -1324,7 +1354,7 @@ function updateCart() {
     const heroImg = i.images && i.images.length ? i.images[0] : null;
     return `
     <div class="cart-item">
-      <div class="cart-item-thumb">${heroImg ? `<img src="${esc(heroImg)}" alt="${esc(i.name)}">` : i.emoji}</div>
+      <div class="cart-item-thumb">${heroImg ? `<img src="${esc(heroImg)}" alt="${esc(i.name)}">` : `<span class="img-placeholder img-placeholder-sm">${esc((i.name||'K').trim().charAt(0).toUpperCase())}</span>`}</div>
       <div class="cart-item-info">
         <div class="cart-item-name">${esc(i.name)}</div>
         ${i.optionName ? `<div class="cart-item-option">${esc(i.optionName)}</div>` : ''}
@@ -1343,11 +1373,11 @@ function updateCart() {
   if (tobleroneItem) {
     html += `
     <div class="cart-item-toblerone">
-      <div class="cart-item-toblerone-thumb">🍫</div>
+      <div class="cart-item-toblerone-thumb"><svg viewBox="0 0 24 24" fill="#1a1714" width="24" height="24"><path d="M12 4l8 16H4z"/></svg></div>
       <div class="cart-item-toblerone-info">
         <div class="cart-item-toblerone-name">Toblerone${tobleroneItem.qty > 1 ? ` × ${tobleroneItem.qty}` : ''}</div>
         <div class="cart-item-toblerone-occasion">Father's Day Special</div>
-        <div class="cart-item-toblerone-badge">✦ Free gift</div>
+        <div class="cart-item-toblerone-badge">Free gift</div>
       </div>
     </div>`;
   }
@@ -1387,12 +1417,12 @@ function checkoutWhatsApp() {
   }).join('\n');
 
   const tobleroneLineIfAny = tobleroneItem
-    ? `\n  • 🍫 Free Toblerone x${tobleroneItem.qty} (Father's Day promo) — R0`
+    ? `\n  • Free Toblerone x${tobleroneItem.qty} (Father's Day promo) — R0`
     : '';
 
-  const deliveryLine = delivery === 0 ? 'FREE ✦' : `R${delivery}`;
+  const deliveryLine = delivery === 0 ? 'FREE' : `R${delivery}`;
 
-  const msg = `Hi Kadash Gifts! 👋 I'd like to place an order:\n\n${lines}${tobleroneLineIfAny}\n\n🧾 Subtotal: R${subtotal}\n🚚 Delivery: ${deliveryLine}\n💰 Total: R${total}\n\n👤 Name: ${name}\n📱 Number: ${phone||'Not provided'}${notes?`\n📝 Notes: ${notes}`:''}\n\nPlease confirm and send payment details. Thank you!`;
+  const msg = `Hi Kadash Gifts, I'd like to place an order:\n\n${lines}${tobleroneLineIfAny}\n\nSubtotal: R${subtotal}\nDelivery: ${deliveryLine}\nTotal: R${total}\n\nName: ${name}\nNumber: ${phone||'Not provided'}${notes?`\nNotes: ${notes}`:''}\n\nPlease confirm and send payment details. Thank you!`;
 
   track('begin_checkout', { value: total, currency: 'ZAR', items_count: realItems.length });
 
@@ -1429,7 +1459,7 @@ function sendHelperMessage() {
   const name     = document.getElementById('helperName').value.trim();
   if (!forWho) { alert('Please tell us who the gift is for.'); return; }
   if (!name)   { alert('Please enter your name.'); return; }
-  const msg = `Hi Kadash Gifts! 👋 I need some help finding the perfect gift.\n\n🎁 Who it's for: ${forWho}\n🎉 Occasion: ${occasion || 'Not specified'}\n💰 Budget: ${budget || 'Not specified'}${note ? `\n💬 More info: ${note}` : ''}\n\n👤 My name: ${name}\n\nCould you help me find something special? Thank you!`;
+  const msg = `Hi Kadash Gifts, I need some help finding the perfect gift.\n\nWho it's for: ${forWho}\nOccasion: ${occasion || 'Not specified'}\nBudget: ${budget || 'Not specified'}${note ? `\nMore info: ${note}` : ''}\n\nMy name: ${name}\n\nCould you help me find something special? Thank you!`;
   track('gift_helper_submit', { occasion: occasion || 'none' });
   window.open('https://wa.me/' + CONFIG.WA_NUMBER + '?text=' + encodeURIComponent(msg), '_blank');
 }
