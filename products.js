@@ -973,7 +973,7 @@ const products = [
     id: 84,
     name: 'The Keyring They Keep',
     emoji: '🔑',
-    images: ['images/corporate_keyring.jpg'],
+    images: ['images/corporate_key_ring.jpg'],
     desc: "Small, branded, and impossible to misplace. Your company's name in their pocket and in their hand, every time they reach for their keys.",
     price: 100,
     options: [],
