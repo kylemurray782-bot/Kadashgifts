@@ -958,5 +958,65 @@ const products = [
     price: 120,
     options: [],
     cats: ['mugs']
+  },
+  {
+    id: 83,
+    name: 'The Daily Carry',
+    emoji: '👜',
+    images: ['images/corporate_lunch_bag.jpg'],
+    desc: 'A branded lunch bag they actually reach for — to the office, to site, to wherever the day takes them. Your logo, carried every single day.',
+    price: 130,
+    options: [],
+    cats: ['corporate']
+  },
+  {
+    id: 84,
+    name: 'The Keyring They Keep',
+    emoji: '🔑',
+    images: ['images/corporate_keyring.jpg'],
+    desc: "Small, branded, and impossible to misplace. Your company's name in their pocket and in their hand, every time they reach for their keys.",
+    price: 100,
+    options: [],
+    cats: ['corporate']
+  },
+  {
+    id: 85,
+    name: 'The Signature Pen',
+    emoji: '🖊️',
+    images: ['images/branded_pen.jpg'],
+    desc: 'The pen that ends up in every meeting and on every signature. Branded with your logo — understated, useful, and always within reach.',
+    price: 80,
+    options: [],
+    cats: ['corporate']
+  },
+  {
+    id: 86,
+    name: 'The Carry-All Case',
+    emoji: '✏️',
+    images: ['images/branded_pencil_case.jpg'],
+    desc: 'Branded and built to hold the everyday essentials. The kind of detail that makes your company look like it pays attention — because it does.',
+    price: 130,
+    options: [],
+    cats: ['corporate']
+  },
+  {
+    id: 87,
+    name: 'The Blank Page',
+    emoji: '📓',
+    images: ['images/branded_note_book.jpg'],
+    desc: 'Every good idea starts on a blank page. A branded notebook for the meetings, the plans, and the thinking that moves work forward — your logo on every one.',
+    price: 150,
+    options: [],
+    cats: ['corporate']
+  },
+  {
+    id: 88,
+    name: 'The Desk Mark',
+    emoji: '🖋️',
+    images: ['images/branded_pen_holder.jpg'],
+    desc: 'Branded and built to sit front and centre on their desk. A small daily reminder of who they work with — keeping their pens in place and your name in view.',
+    price: 90,
+    options: [],
+    cats: ['corporate']
   }
 ];
