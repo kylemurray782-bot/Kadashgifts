@@ -57,11 +57,30 @@
   .nav-links a { color: #9A9089; text-decoration: none; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; transition: color 0.2s; }
   .nav-links a:hover { color: var(--gold-light); }
   .nav-right { display: flex; align-items: center; gap: 16px; }
-  .cart-btn { background: none; border: 1px solid var(--gold); color: var(--gold); padding: 8px 18px; border-radius: 2px; cursor: pointer; font-family: 'Jost', sans-serif; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; display: flex; align-items: center; gap: 8px; transition: all 0.2s; }
+  .cart-btn { position: relative; background: none; border: 1px solid var(--gold); color: var(--gold); width: 42px; height: 42px; border-radius: 2px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
   .cart-btn:hover { background: var(--gold); color: var(--dark); }
-  .cart-count { background: var(--gold); color: var(--dark); border-radius: 50%; width: 18px; height: 18px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 500; }
+  .cart-count { position: absolute; top: -7px; right: -7px; background: var(--gold); color: var(--dark); border-radius: 50%; min-width: 18px; height: 18px; padding: 0 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600; font-family: 'Jost', sans-serif; border: 1.5px solid var(--dark); }
   .cart-count.empty { display: none; }
-  .cart-btn svg { width: 15px; height: 15px; }
+  .cart-btn svg { width: 19px; height: 19px; }
+  .hamburger-btn { display: none; background: none; border: none; color: var(--gold-light); cursor: pointer; padding: 6px; margin-right: 4px; align-items: center; justify-content: center; }
+  .hamburger-btn svg { width: 24px; height: 24px; }
+  .hamburger-btn:hover { color: var(--gold); }
+
+  /* SLIDE-OUT DRAWER */
+  .drawer-overlay { position: fixed; inset: 0; background: rgba(26,23,20,0.5); opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; z-index: 200; }
+  .drawer-overlay.open { opacity: 1; visibility: visible; }
+  .drawer { position: fixed; top: 0; left: 0; height: 100%; width: 84%; max-width: 330px; background: var(--cream); transform: translateX(-100%); transition: transform 0.32s cubic-bezier(0.4,0,0.2,1); z-index: 201; overflow-y: auto; -webkit-overflow-scrolling: touch; box-shadow: 4px 0 30px rgba(26,23,20,0.25); }
+  .drawer.open { transform: translateX(0); }
+  .drawer-header { display: flex; align-items: center; justify-content: space-between; padding: 20px 22px; background: var(--dark); }
+  .drawer-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--gold-light); letter-spacing: 1px; }
+  .drawer-close { background: none; border: none; color: var(--gold-light); font-size: 20px; cursor: pointer; line-height: 1; padding: 4px; }
+  .drawer-section { padding: 18px 0 8px; border-bottom: 1px solid var(--border); }
+  .drawer-section:last-child { border-bottom: none; }
+  .drawer-section-title { font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); padding: 0 22px 8px; }
+  .drawer-cat, .drawer-link { display: flex; align-items: center; justify-content: space-between; width: 100%; text-align: left; padding: 13px 22px; font-family: 'Jost', sans-serif; font-size: 15px; color: var(--text); text-decoration: none; background: none; border: none; cursor: pointer; transition: background 0.15s, color 0.15s; }
+  .drawer-cat:hover, .drawer-link:hover { background: var(--warm); color: var(--gold); }
+  .drawer-cat svg { width: 16px; height: 16px; color: var(--gold); flex-shrink: 0; }
+  .drawer-link-btn { font-size: 15px; }
 
   /* HERO SLIDER — mobile-first (portrait base, desktop widens via min-width below) */
   .hero-slider { position: relative; width: 100%; aspect-ratio: 4 / 5; max-height: 78vh; overflow: hidden; background: var(--cream); }
@@ -355,6 +374,7 @@
 
   @media (max-width: 640px) {
     .nav-links { display: none; }
+    .hamburger-btn { display: flex; }
     nav { padding: 0 1.5rem; }
     .modal-inner { flex-direction: column; }
     .modal-gallery { width: 100%; min-height: 260px; }
@@ -372,6 +392,9 @@
 
 <!-- NAV -->
 <nav>
+  <button class="hamburger-btn" onclick="openDrawer()" aria-label="Open menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
   <a href="#" class="nav-logo">
     <img src="logo.png" alt="Kadash Gifts" onerror="this.style.display='none'; document.querySelector('.nav-logo-text').style.display='block'">
     <span class="nav-logo-text">Kadash</span>
@@ -383,12 +406,32 @@
     <li><a href="#faq">FAQ</a></li>
   </ul>
   <div class="nav-right">
-    <button class="cart-btn" onclick="toggleCart()">
+    <button class="cart-btn" onclick="toggleCart()" aria-label="Open cart">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14l-1.2 10.5a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8L5 7z"/><path d="M9 7V5.5a3 3 0 0 1 6 0V7"/></svg>
-      Cart <span class="cart-count empty" id="cartCount">0</span>
+      <span class="cart-count empty" id="cartCount">0</span>
     </button>
   </div>
 </nav>
+
+<!-- SLIDE-OUT DRAWER -->
+<div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
+<aside class="drawer" id="drawer" aria-label="Menu">
+  <div class="drawer-header">
+    <span class="drawer-title">Menu</span>
+    <button class="drawer-close" onclick="closeDrawer()" aria-label="Close menu">✕</button>
+  </div>
+  <div class="drawer-section">
+    <div class="drawer-section-title">Shop by category</div>
+    <div id="drawerCategories"></div>
+  </div>
+  <div class="drawer-section">
+    <div class="drawer-section-title">Browse</div>
+    <a class="drawer-link" href="#products" onclick="closeDrawer()">All Gifts</a>
+    <a class="drawer-link" href="#how" onclick="closeDrawer()">How It Works</a>
+    <a class="drawer-link" href="#faq" onclick="closeDrawer()">FAQ</a>
+    <button class="drawer-link drawer-link-btn" onclick="closeDrawer(); openHelperModal();">Need help choosing?</button>
+  </div>
+</aside>
 
 <!-- HERO SLIDER -->
 <div class="hero-slider" id="heroSlider">
@@ -1020,6 +1063,30 @@ function renderCategories() {
     </div>`).join('');
 }
 
+/* ═══ SLIDE-OUT DRAWER ═══ */
+function renderDrawerCategories() {
+  const el = document.getElementById('drawerCategories');
+  if (!el) return;
+  const chevron = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>`;
+  el.innerHTML = categories.map(c =>
+    `<button class="drawer-cat" onclick="drawerPickCategory('${c.id}')">${esc(c.name)} ${chevron}</button>`
+  ).join('');
+}
+function openDrawer() {
+  document.getElementById('drawerOverlay').classList.add('open');
+  document.getElementById('drawer').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeDrawer() {
+  document.getElementById('drawerOverlay').classList.remove('open');
+  document.getElementById('drawer').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function drawerPickCategory(id) {
+  closeDrawer();
+  filterByCategory(id);
+}
+
 function renderFilters() {
   document.getElementById('filterBar').innerHTML =
     [`<button class="filter-btn active" data-filter="all" onclick="filterProducts('all')">All</button>`]
@@ -1413,6 +1480,7 @@ function sendHelperMessage() {
 renderAnnouncementBar();
 renderDeliveryCopy();
 renderCategories();
+renderDrawerCategories();
 renderFilters();
 initHeroSlider();
 renderTrustBar();
