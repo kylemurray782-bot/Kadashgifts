@@ -774,19 +774,19 @@ const HERO_SLIDES = [
     desktop:  'images/heroes/slide-1-desktop.jpg',
     mobile:   'images/heroes/slide-1-mobile.jpg',
     alt:      'Personalised gifts for men',
-    headline: 'Thoughtful Gifts for the Men Who Matter Most',
-    subhead:  'Discover meaningful gifts that celebrate every occasion and every milestone.',
+    headline: 'Personalized Gifts for Him That Stand Out',
+    subhead:  'Create a one-of-a-kind gift for dads, husbands, boyfriends, grandfathers, and every special man in your life.',
     cta:      'Shop for him',
-    link:     '#products',
+    filter:   'birthday-him',
   },
   {
     desktop:  'images/heroes/slide-2-desktop.jpg',
     mobile:   'images/heroes/slide-2-mobile.jpg',
     alt:      'Personalised new baby gifts',
-    headline: 'Every Little Name Tells a Beautiful Story',
+    headline: "Shop Personalized Baby Shower Gifts They'll Treasure Forever",
     subhead:  "Create heartfelt, personalized gifts that celebrate life's newest and most precious arrivals.",
     cta:      'Shop Now',
-    link:     '#products',
+    filter:   'new-baby',
   },
   {
     desktop:  'images/heroes/slide-3-desktop.jpg',
@@ -809,6 +809,9 @@ function renderHeroSlides() {
         <h1 class="hero-slide-headline">${esc(s.headline)}</h1>
         ${s.subhead ? `<p class="hero-slide-subhead">${esc(s.subhead)}</p>` : ''}
       </div>` : '';
+    const cta = s.filter
+      ? `<a href="#products" class="hero-slide-cta" onclick="filterByCategory('${esc(s.filter)}'); return false;">${esc(s.cta || 'Shop Now')}</a>`
+      : `<a href="${esc(s.link || '#products')}" class="hero-slide-cta">${esc(s.cta || 'Shop Now')}</a>`;
     return `
     <div class="hero-slide ${i===0?'active':''}" data-index="${i}">
       <picture>
@@ -816,7 +819,7 @@ function renderHeroSlides() {
         <img class="hero-slide-img" src="${esc(s.desktop)}" alt="${esc(s.alt || 'Kadash gift')}" onerror="this.style.display='none'">
       </picture>${textBlock}
       <div class="hero-slide-content">
-        <a href="${esc(s.link || '#products')}" class="hero-slide-cta">${esc(s.cta || 'Shop Now')}</a>
+        ${cta}
       </div>
     </div>`;
   }).join('');
