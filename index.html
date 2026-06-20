@@ -363,12 +363,17 @@
   .no-results { text-align: center; color: var(--text-muted); padding: 48px 0; grid-column: 1/-1; font-size: 14px; }
 
   /* SEARCH */
-  .search-bar-section { background: var(--white); border-bottom: 1px solid var(--border); padding: 16px 0; position: sticky; top: 70px; z-index: 90; }
+  .nav-icon-btn { background: none; border: none; color: var(--gold-light); cursor: pointer; width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; transition: color 0.2s; }
+  .nav-icon-btn:hover { color: var(--gold); }
+  .nav-icon-btn svg { width: 20px; height: 20px; }
+  .nav-icon-btn.active { color: var(--gold); }
+  .search-panel { position: sticky; top: 70px; z-index: 90; background: var(--white); border-bottom: 1px solid var(--border); max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; padding: 0; }
+  .search-panel.open { max-height: 90px; padding: 14px 0; }
   .search-wrap { max-width: 1120px; margin: 0 auto; padding: 0 2rem; position: relative; }
   .search-input-wrap { position: relative; }
-  .search-input { width: 100%; border: 1px solid var(--border); border-radius: 2px; padding: 12px 44px 12px 16px; font-family: 'Jost', sans-serif; font-size: 14px; background: var(--cream); outline: none; color: var(--text); transition: border-color 0.2s; }
+  .search-input { width: 100%; border: 1px solid var(--border); border-radius: 2px; padding: 12px 44px 12px 44px; font-family: 'Jost', sans-serif; font-size: 14px; background: var(--cream); outline: none; color: var(--text); transition: border-color 0.2s; }
   .search-input:focus { border-color: var(--gold); }
-  .search-icon { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none; font-size: 16px; }
+  .search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none; display: flex; }
   .search-clear { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 18px; display: none; padding: 0; }
   .search-results-label { font-size: 12px; color: var(--text-muted); margin-bottom: 20px; letter-spacing: 0.5px; display: none; }
 
@@ -406,6 +411,9 @@
     <li><a href="#faq">FAQ</a></li>
   </ul>
   <div class="nav-right">
+    <button class="nav-icon-btn" onclick="toggleSearch()" aria-label="Search" id="searchToggle">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    </button>
     <button class="cart-btn" onclick="toggleCart()" aria-label="Open cart">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14l-1.2 10.5a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8L5 7z"/><path d="M9 7V5.5a3 3 0 0 1 6 0V7"/></svg>
       <span class="cart-count empty" id="cartCount">0</span>
@@ -448,12 +456,12 @@
   <button class="hero-helper-btn" onclick="openHelperModal()">Need help choosing?</button>
 </div>
 
-<!-- SEARCH BAR -->
-<div class="search-bar-section">
+<!-- EXPANDING SEARCH PANEL -->
+<div class="search-panel" id="searchPanel">
   <div class="search-wrap">
     <div class="search-input-wrap">
-      <input type="text" class="search-input" id="searchInput" placeholder="Search gifts e.g. mug, hamper, Father's Day..." oninput="handleSearch(this.value)">
-      <span class="search-icon" id="searchIcon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+      <span class="search-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+      <input type="text" class="search-input" id="searchInput" placeholder="Search gifts e.g. mug, hamper, keyring..." oninput="handleSearch(this.value)">
       <button class="search-clear" id="searchClear" onclick="clearSearch()">✕</button>
     </div>
   </div>
@@ -1442,13 +1450,20 @@ function checkoutWhatsApp() {
 }
 
 /* ═══ SEARCH ═══ */
+function toggleSearch() {
+  const panel = document.getElementById('searchPanel');
+  const toggle = document.getElementById('searchToggle');
+  const isOpen = panel.classList.toggle('open');
+  toggle.classList.toggle('active', isOpen);
+  if (isOpen) {
+    setTimeout(() => document.getElementById('searchInput').focus(), 280);
+  }
+}
+
 function handleSearch(val) {
   searchQuery = val.trim().toLowerCase();
   currentPage = 1;
-  const clearBtn = document.getElementById('searchClear');
-  const icon = document.getElementById('searchIcon');
-  clearBtn.style.display = searchQuery ? 'block' : 'none';
-  icon.style.display = searchQuery ? 'none' : 'block';
+  document.getElementById('searchClear').style.display = searchQuery ? 'block' : 'none';
   renderProducts();
   if (searchQuery.length >= 3) track('search', { search_term: searchQuery });
   if (searchQuery) document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
@@ -1458,7 +1473,6 @@ function clearSearch() {
   document.getElementById('searchInput').value = '';
   searchQuery = ''; currentPage = 1;
   document.getElementById('searchClear').style.display = 'none';
-  document.getElementById('searchIcon').style.display = 'block';
   renderProducts();
 }
 
