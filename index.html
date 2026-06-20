@@ -73,6 +73,13 @@
   .hero-slide-text { position: absolute; left: 0; right: 0; top: 0; padding: 30px 1.25rem 0; text-align: center; z-index: 2; }
   .hero-slide-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 7vw, 40px); font-weight: 600; color: #000; line-height: 1.14; letter-spacing: 0.5px; max-width: 90%; margin: 0 auto 12px; }
   .hero-slide-subhead { font-family: 'Jost', sans-serif; font-size: clamp(13px, 3.6vw, 15px); color: #52341f; line-height: 1.55; max-width: 340px; margin: 0 auto; }
+  /* Card layout (slide 3) — grouped panel over the image */
+  .hero-card-wrap { position: absolute; inset: 0; z-index: 2; display: flex; align-items: flex-end; justify-content: center; padding: 0 16px 30px; }
+  .hero-card { background: rgba(250,247,242,0.94); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); border: 1px solid rgba(184,150,90,0.35); border-radius: 6px; padding: 22px 22px 24px; text-align: center; max-width: 380px; width: 100%; box-shadow: 0 8px 30px rgba(26,23,20,0.18); }
+  .hero-card-kicker { font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+  .hero-card-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(24px, 6.2vw, 30px); font-weight: 600; color: var(--dark); line-height: 1.18; letter-spacing: 0.3px; margin: 0 0 12px; }
+  .hero-card-subhead { font-family: 'Jost', sans-serif; font-size: 13px; color: #52341f; line-height: 1.55; margin: 0 0 18px; }
+  .hero-card .hero-slide-cta { display: inline-block; }
   .hero-slide-cta { display: inline-block; background: var(--gold); color: var(--dark); padding: 15px 40px; letter-spacing: 2px; text-decoration: none; font-size: 12px; text-transform: uppercase; font-family: 'Jost', sans-serif; border-radius: 2px; transition: all 0.25s; }
   .hero-slide-cta:hover { background: var(--gold-light); }
   .hero-arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(26,23,20,0.45); border: 1px solid rgba(255,255,255,0.45); color: #fff; width: 34px; height: 34px; border-radius: 50%; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; transition: all 0.2s; z-index: 3; }
@@ -85,6 +92,31 @@
   .hero-helper-wrap { text-align: center; padding: 18px 2rem; background: var(--cream); }
   .hero-helper-btn { display: inline-block; background: none; border: 1px solid rgba(184,150,90,0.4); color: var(--text-muted); padding: 14px 28px; letter-spacing: 1.5px; font-size: 12px; text-transform: uppercase; transition: all 0.25s; font-family: 'Jost', sans-serif; cursor: pointer; border-radius: 2px; }
   .hero-helper-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* TRUST BAR */
+  .trust-bar { background: var(--dark); display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+  .trust-item { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 6px; padding: 18px 14px; border-bottom: 1px solid rgba(255,255,255,0.08); border-right: 1px solid rgba(255,255,255,0.08); }
+  .trust-item:nth-child(even) { border-right: none; }
+  .trust-icon { color: var(--gold-light); display: flex; align-items: center; justify-content: center; }
+  .trust-icon svg { width: 22px; height: 22px; }
+  .trust-text { color: var(--white); font-family: 'Jost', sans-serif; font-size: 12.5px; line-height: 1.35; letter-spacing: 0.3px; }
+  .trust-text strong { display: block; font-weight: 600; color: var(--gold-light); font-size: 13.5px; margin-bottom: 1px; }
+  .trust-google { text-decoration: none; transition: opacity 0.2s; }
+  .trust-google:hover { opacity: 0.82; }
+  .trust-stars { color: var(--gold-light); font-size: 15px; letter-spacing: 2px; line-height: 1; }
+  .trust-google-label { display: inline-flex; align-items: center; gap: 4px; }
+  .trust-google-g { font-weight: 700; font-family: 'Jost', sans-serif; }
+  .trust-google-g .g-blue { color: #4285F4; } .trust-google-g .g-red { color: #EA4335; }
+  .trust-google-g .g-yellow { color: #FBBC05; } .trust-google-g .g-green { color: #34A853; }
+
+  @media (min-width: 701px) {
+    .trust-bar { grid-template-columns: repeat(4, 1fr); }
+    .trust-item { border-bottom: none; padding: 22px 18px; flex-direction: row; gap: 11px; }
+    .trust-item:nth-child(even) { border-right: 1px solid rgba(255,255,255,0.08); }
+    .trust-item:last-child { border-right: none; }
+    .trust-text { text-align: left; font-size: 13px; }
+    .trust-icon svg { width: 24px; height: 24px; }
+  }
   /* Desktop widens the hero into a landscape band */
   @media (min-width: 701px) {
     .hero-slider { aspect-ratio: auto; height: clamp(440px, 56vh, 600px); max-height: none; }
@@ -92,6 +124,11 @@
     .hero-slide-text { padding: 44px 2rem 0; }
     .hero-slide-headline { font-size: clamp(36px, 5vw, 52px); max-width: 620px; }
     .hero-slide-subhead { font-size: 16px; max-width: 460px; }
+    .hero-card-wrap { align-items: center; justify-content: flex-start; padding: 0 0 0 6%; }
+    .hero-card { max-width: 400px; padding: 32px 32px 34px; text-align: left; }
+    .hero-card-kicker { margin-bottom: 12px; }
+    .hero-card-headline { font-size: clamp(30px, 3vw, 38px); margin-bottom: 14px; }
+    .hero-card-subhead { font-size: 15px; margin-bottom: 22px; }
     .hero-arrow { width: 40px; height: 40px; font-size: 18px; }
     .hero-arrow.prev { left: 20px; }
     .hero-arrow.next { right: 20px; }
@@ -360,6 +397,10 @@
   <button class="hero-arrow next" onclick="heroNav(1)">›</button>
   <div class="hero-dots" id="heroDots"></div>
 </div>
+
+<!-- TRUST BAR -->
+<div class="trust-bar" id="trustBar"></div>
+
 <div class="hero-helper-wrap">
   <button class="hero-helper-btn" onclick="openHelperModal()">Need help choosing?</button>
 </div>
@@ -758,6 +799,71 @@ function renderDeliveryCopy() {
     : `Delivery is R${CONFIG.DELIVERY_FEE} nationwide via courier.`;
 }
 
+/* ═══ TRUST BAR ═══ */
+/* ─────────────────────────────────────────────────────────────
+   TRUST BAR — concrete proof, shown directly under the hero.
+   Everything here is hardcoded and updated by hand. No API.
+   As your Google reviews grow, just change `rating` and
+   `reviewCount` below. To hide the Google stars entirely until
+   you have enough reviews, set showGoogle: false.
+   ⚠ UPDATE THESE with your real numbers before going live:
+   ───────────────────────────────────────────────────────────── */
+const TRUST = {
+  delivered:    'Over 1 000',                       // ← your REAL two-year figure (e.g. 'Over 800', 'Over 1 200')
+  deliveredSub: 'gifts delivered',
+  since:        'Since 2023',                        // ← year you started
+  sinceSub:     'trusted & growing',
+
+  showGoogle:   true,                                // ← false hides the Google stars until reviews are strong
+  rating:       '4.9',                               // ← your real Google star average
+  reviewCount:  '12',                                // ← update as reviews grow
+  googleUrl:    'https://www.google.com/search?q=Kadash+Gifts',  // ← paste your Google Business review link
+};
+
+function renderTrustBar() {
+  const el = document.getElementById('trustBar');
+  if (!el) return;
+
+  const starIcon = `<span class="trust-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>`;
+  const truckIcon = `<span class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span>`;
+  const waIcon = `<span class="trust-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.5 15.3L2 22l4.8-1.5A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-2.8.9.9-2.8-.2-.3A8 8 0 1112 20zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.1-.3.2-.5.1a6.5 6.5 0 01-3.2-2.8c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.1-.3 0-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3a3 3 0 00-.9 2.2c0 1.3.9 2.5 1.1 2.7.1.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1 0-.1-.2-.2-.4-.3z"/></svg></span>`;
+
+  let html = '';
+
+  if (TRUST.showGoogle) {
+    html += `
+    <a class="trust-item trust-google" href="${esc(TRUST.googleUrl)}" target="_blank" rel="noopener">
+      <div class="trust-stars">★★★★★</div>
+      <div class="trust-text">
+        <strong>${esc(TRUST.rating)} on Google</strong>
+        <span class="trust-google-label">from ${esc(TRUST.reviewCount)} reviews</span>
+      </div>
+    </a>`;
+  } else {
+    html += `
+    <div class="trust-item">
+      ${starIcon}
+      <div class="trust-text"><strong>${esc(TRUST.since)}</strong>${esc(TRUST.sinceSub)}</div>
+    </div>`;
+  }
+
+  html += `
+    <div class="trust-item">
+      ${truckIcon}
+      <div class="trust-text"><strong>Nationwide</strong>courier delivery</div>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v7a2 2 0 01-2 2H6a2 2 0 01-2-2v-7"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/></svg></span>
+      <div class="trust-text"><strong>${esc(TRUST.delivered)}</strong>${esc(TRUST.deliveredSub)}</div>
+    </div>
+    <div class="trust-item">
+      ${waIcon}
+      <div class="trust-text"><strong>Real human</strong>fast WhatsApp replies</div>
+    </div>`;
+
+  el.innerHTML = html;
+}
+
 /* ═══ HERO SLIDER ═══ */
 /* ─────────────────────────────────────────────────────────────
    HERO SLIDES — your hero library lives in /images/heroes/
@@ -774,7 +880,7 @@ const HERO_SLIDES = [
     desktop:  'images/heroes/slide-1-desktop.jpg',
     mobile:   'images/heroes/slide-1-mobile.jpg',
     alt:      'Personalised gifts for men',
-    headline: 'Personalized Gifts for Him That Stand Out',
+    headline: "Personalised Gifts He'll Actually Remember",
     subhead:  'Create a one-of-a-kind gift for dads, husbands, boyfriends, grandfathers, and every special man in your life.',
     cta:      'Shop for him',
     filter:   'birthday-him',
@@ -783,17 +889,21 @@ const HERO_SLIDES = [
     desktop:  'images/heroes/slide-2-desktop.jpg',
     mobile:   'images/heroes/slide-2-mobile.jpg',
     alt:      'Personalised new baby gifts',
-    headline: "Shop Personalized Baby Shower Gifts They'll Treasure Forever",
-    subhead:  "Create heartfelt, personalized gifts that celebrate life's newest and most precious arrivals.",
+    headline: "Personalised Baby Gifts They'll Treasure Forever",
+    subhead:  "Create heartfelt, personalised gifts that celebrate life's newest and most precious arrivals.",
     cta:      'Shop Now',
     filter:   'new-baby',
   },
   {
     desktop:  'images/heroes/slide-3-desktop.jpg',
     mobile:   'images/heroes/slide-3-mobile.jpg',
-    alt:      'Personalised gift, slide 3',
-    cta:      'Shop Now',
-    link:     '#products',
+    alt:      'Personalised mug gift set, boxed',
+    layout:   'card',
+    headline: 'A Personalised Mug, Beautifully Boxed and Ready to Give',
+    subhead:  'Each set includes one custom mug, carefully packaged in a gift box and personalised just for them.',
+    kicker:   'Gift Sets',
+    cta:      'Shop mugs',
+    filter:   'mugs',
   },
 ];
 
@@ -804,22 +914,44 @@ function renderHeroSlides() {
   const wrap = document.getElementById('heroSlides');
   if (!wrap) return;
   wrap.innerHTML = HERO_SLIDES.map((s, i) => {
+    const ctaInner = esc(s.cta || 'Shop Now');
+    const ctaAttrs = s.filter
+      ? `href="#products" onclick="filterByCategory('${esc(s.filter)}'); return false;"`
+      : `href="${esc(s.link || '#products')}"`;
+
+    const picture = `
+      <picture>
+        <source media="(max-width: 700px)" srcset="${esc(s.mobile)}">
+        <img class="hero-slide-img" src="${esc(s.desktop)}" alt="${esc(s.alt || 'Kadash gift')}" onerror="this.style.display='none'">
+      </picture>`;
+
+    // Card layout: kicker + headline + subhead + button grouped in one panel over the image
+    if (s.layout === 'card') {
+      return `
+      <div class="hero-slide ${i===0?'active':''}" data-index="${i}">
+        ${picture}
+        <div class="hero-card-wrap">
+          <div class="hero-card">
+            ${s.kicker ? `<div class="hero-card-kicker">${esc(s.kicker)}</div>` : ''}
+            ${s.headline ? `<h1 class="hero-card-headline">${esc(s.headline)}</h1>` : ''}
+            ${s.subhead ? `<p class="hero-card-subhead">${esc(s.subhead)}</p>` : ''}
+            <a class="hero-slide-cta" ${ctaAttrs}>${ctaInner}</a>
+          </div>
+        </div>
+      </div>`;
+    }
+
+    // Default layout: headline/subhead at top, button at bottom
     const textBlock = s.headline ? `
       <div class="hero-slide-text">
         <h1 class="hero-slide-headline">${esc(s.headline)}</h1>
         ${s.subhead ? `<p class="hero-slide-subhead">${esc(s.subhead)}</p>` : ''}
       </div>` : '';
-    const cta = s.filter
-      ? `<a href="#products" class="hero-slide-cta" onclick="filterByCategory('${esc(s.filter)}'); return false;">${esc(s.cta || 'Shop Now')}</a>`
-      : `<a href="${esc(s.link || '#products')}" class="hero-slide-cta">${esc(s.cta || 'Shop Now')}</a>`;
     return `
     <div class="hero-slide ${i===0?'active':''}" data-index="${i}">
-      <picture>
-        <source media="(max-width: 700px)" srcset="${esc(s.mobile)}">
-        <img class="hero-slide-img" src="${esc(s.desktop)}" alt="${esc(s.alt || 'Kadash gift')}" onerror="this.style.display='none'">
-      </picture>${textBlock}
+      ${picture}${textBlock}
       <div class="hero-slide-content">
-        ${cta}
+        <a class="hero-slide-cta" ${ctaAttrs}>${ctaInner}</a>
       </div>
     </div>`;
   }).join('');
@@ -1283,6 +1415,7 @@ renderDeliveryCopy();
 renderCategories();
 renderFilters();
 initHeroSlider();
+renderTrustBar();
 loadCart();
 updateCart();
 renderProducts();
