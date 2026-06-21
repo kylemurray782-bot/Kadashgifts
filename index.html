@@ -377,8 +377,8 @@
   .nav-icon-btn:hover { color: var(--gold); }
   .nav-icon-btn svg { width: 20px; height: 20px; }
   .nav-icon-btn.active { color: var(--gold); }
-  .search-panel { position: sticky; top: 70px; z-index: 90; background: var(--white); border-bottom: 1px solid var(--border); max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; padding: 0; }
-  .search-panel.open { max-height: 90px; padding: 14px 0; }
+  .search-panel { position: sticky; top: 70px; z-index: 90; background: var(--white); max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; padding: 0; }
+  .search-panel.open { max-height: 90px; padding: 14px 0; border-bottom: 1px solid var(--border); }
   .search-wrap { max-width: 1120px; margin: 0 auto; padding: 0 2rem; position: relative; }
   .search-input-wrap { position: relative; }
   .search-input { width: 100%; border: 1px solid var(--border); border-radius: 2px; padding: 12px 44px 12px 44px; font-family: 'Jost', sans-serif; font-size: 14px; background: var(--cream); outline: none; color: var(--text); transition: border-color 0.2s; }
@@ -906,7 +906,7 @@ function renderTrustBar() {
     </div>
     <div class="trust-item">
       ${waIcon}
-      <div class="trust-text"><strong>Personal service</strong>fast WhatsApp replies</div>
+      <div class="trust-text"><strong>Personal service</strong>easy, fast &amp; secure</div>
     </div>`;
 
   el.innerHTML = html;
