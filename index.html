@@ -1059,20 +1059,27 @@ function handleHelperOverlayClick(e) {
 }
 
 /* ═══ CATEGORIES + FILTERS ═══ */
-// Cover image for a category: explicit c.cover if set, else the first product image in that category.
-function categoryCover(c) {
-  if (c.cover) return c.cover;
-  if (typeof products !== 'undefined' && Array.isArray(products)) {
-    const prod = products.find(p => p.cats && p.cats.includes(c.id) && p.images && p.images.length);
-    if (prod) return prod.images[0];
-  }
-  return null;
-}
-
 function renderCategories() {
+  const used = new Set();
+  // Cover for a category: explicit c.cover if set, else the first product image
+  // in that category that no earlier category already claimed (keeps covers distinct).
+  const pickCover = (c) => {
+    if (c.cover) { used.add(c.cover); return c.cover; }
+    if (typeof products !== 'undefined' && Array.isArray(products)) {
+      const inCat = products.filter(p => p.cats && p.cats.includes(c.id) && p.images && p.images.length);
+      for (const p of inCat) {
+        for (const img of p.images) {
+          if (!used.has(img)) { used.add(img); return img; }
+        }
+      }
+      if (inCat.length) return inCat[0].images[0]; // fallback: reuse if nothing unused is left
+    }
+    return null;
+  };
+
   const arrow = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><polyline points="9 18 15 12 9 6"/></svg>`;
   document.getElementById('catGrid').innerHTML = categories.map(c => {
-    const cover = categoryCover(c);
+    const cover = pickCover(c);
     const media = cover
       ? `<img class="cat-slide-img" src="${esc(cover)}" alt="${esc(c.name)}" loading="lazy">`
       : `<div class="cat-slide-fallback">${catIcon(c.id)}</div>`;
