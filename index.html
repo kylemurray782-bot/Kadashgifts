@@ -294,16 +294,6 @@
   .helper-btn { background: var(--wa); color: white; border: none; padding: 15px; border-radius: 2px; font-family: 'Jost', sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: opacity 0.2s; margin-top: 8px; width: 100%; }
   .helper-btn:hover { opacity: 0.88; }
 
-  /* HOW IT WORKS */
-  .how-wrap { background: var(--dark); padding: 72px 2rem; }
-  .how-inner { max-width: 1120px; margin: 0 auto; }
-  .how-wrap .section-label { color: var(--gold); }
-  .how-wrap .section-title { color: var(--white); }
-  .how-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; margin-top: 48px; }
-  .how-num { font-family: 'Cormorant Garamond', serif; font-size: 56px; color: var(--gold); opacity: 0.25; line-height: 1; margin-bottom: 14px; font-weight: 300; }
-  .how-title { color: var(--white); font-size: 15px; font-weight: 400; margin-bottom: 10px; letter-spacing: 0.5px; }
-  .how-desc { color: #5C5650; font-size: 13px; line-height: 1.7; }
-
   /* FAQ */
   .faq-wrap { background: var(--white); padding: 72px 2rem; }
   .faq-inner { max-width: 760px; margin: 0 auto; }
@@ -436,7 +426,6 @@
   <ul class="nav-links">
     <li><a href="#categories">Categories</a></li>
     <li><a href="#products">All Gifts</a></li>
-    <li><a href="#how">How It Works</a></li>
     <li><a href="#faq">FAQ</a></li>
   </ul>
   <div class="nav-right">
@@ -481,7 +470,6 @@
   <div class="drawer-section">
     <div class="drawer-section-title">Browse</div>
     <a class="drawer-link" href="#products" onclick="closeDrawer()">All Gifts</a>
-    <a class="drawer-link" href="#how" onclick="closeDrawer()">How It Works</a>
     <a class="drawer-link" href="#faq" onclick="closeDrawer()">FAQ</a>
   </div>
 </aside>
@@ -527,25 +515,15 @@
   </div>
 </div>
 
-<!-- HOW IT WORKS -->
-<div class="how-wrap" id="how">
-  <div class="how-inner">
-    <div class="section-label">Simple process</div>
-    <div class="section-title">How it works</div>
-    <div class="how-grid">
-      <div class="how-step"><div class="how-num">01</div><div class="how-title">Browse & add to cart</div><div class="how-desc">Find your gift, choose your option, and add personalisation notes.</div></div>
-      <div class="how-step"><div class="how-num">02</div><div class="how-title">Send via WhatsApp</div><div class="how-desc">Checkout sends your full order directly to us on WhatsApp — no payment portal needed.</div></div>
-      <div class="how-step"><div class="how-num">03</div><div class="how-title">We confirm & invoice</div><div class="how-desc">We confirm your order, send a payment invoice, and collect via EFT or SnapScan.</div></div>
-      <div class="how-step"><div class="how-num">04</div><div class="how-title">Delivered with love</div><div class="how-desc">Your personalised gift is printed, packed beautifully, and dispatched within 2–3 business days.</div></div>
-    </div>
-  </div>
-</div>
-
 <!-- FAQ -->
 <div class="faq-wrap" id="faq">
   <div class="faq-inner">
     <div class="section-label">Good to know</div>
     <div class="section-title" style="margin-bottom:32px;">Questions, answered</div>
+    <details class="faq-item">
+      <summary>How does ordering work?</summary>
+      <div class="faq-a">It's quick, and it all happens on WhatsApp — no online card payments. Browse and add your gift to the cart, choosing any options and adding your personalisation notes. At checkout, your full order is sent straight to us on WhatsApp. We confirm the details and send a payment invoice, payable by EFT or SnapScan. Once payment reflects, your gift is printed, beautifully packed, and dispatched within 2–3 business days.</div>
+    </details>
     <details class="faq-item">
       <summary>How long will my order take?</summary>
       <div class="faq-a">Every gift is made to order. Production takes 2–3 business days, plus courier delivery of 1–3 business days depending on your area. Ordering for a specific date? Mention it in your notes and we'll confirm timing on WhatsApp.</div>
