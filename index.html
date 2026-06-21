@@ -170,16 +170,26 @@
   .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 4vw, 42px); font-weight: 400; color: var(--dark); margin-bottom: 8px; line-height: 1.2; }
   .section-sub { color: var(--text-muted); font-size: 14px; margin-bottom: 44px; letter-spacing: 0.3px; }
 
-  /* CATEGORY GRID */
-  .cat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
-  .cat-card { background: var(--white); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; cursor: pointer; transition: all 0.22s; text-align: center; padding-bottom: 16px; }
-  .cat-card:hover { border-color: var(--gold); box-shadow: 0 6px 24px rgba(184,150,90,0.1); transform: translateY(-2px); }
-  .cat-icon { padding: 24px 0 12px; display: flex; align-items: center; justify-content: center; color: var(--gold); }
-  .cat-icon svg { width: 30px; height: 30px; }
-  .cat-card:hover .cat-icon { color: var(--charcoal); }
-  .cat-icon, .cat-card:hover .cat-icon { transition: color 0.22s; }
-  .cat-name { font-size: 12px; font-weight: 400; color: var(--charcoal); letter-spacing: 0.5px; padding: 0 10px; }
-  .cat-badge { display: inline-block; font-size: 9px; letter-spacing: 1px; background: var(--gold-pale); color: var(--gold); border-radius: 2px; padding: 2px 6px; margin-top: 5px; text-transform: uppercase; }
+  /* CATEGORY SLIDER */
+  .cat-slider-wrap { position: relative; }
+  .cat-slider { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: 4px; }
+  .cat-slider::-webkit-scrollbar { display: none; }
+  .cat-slide { scroll-snap-align: start; flex: 0 0 auto; width: 210px; height: 280px; border-radius: 6px; overflow: hidden; position: relative; cursor: pointer; border: 1px solid var(--border); background: var(--warm); }
+  .cat-slide-img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.35s ease; }
+  .cat-slide:hover .cat-slide-img { transform: scale(1.05); }
+  .cat-slide-fallback { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(160deg, var(--warm), var(--sand)); color: var(--gold); }
+  .cat-slide-fallback svg { width: 56px; height: 56px; }
+  .cat-slide-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,23,20,0.82) 0%, rgba(26,23,20,0.25) 42%, rgba(26,23,20,0) 68%); }
+  .cat-slide-label { position: absolute; left: 0; right: 0; bottom: 0; padding: 18px; }
+  .cat-slide-name { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; color: #fff; line-height: 1.15; margin-bottom: 4px; }
+  .cat-slide-cta { font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold-light); display: flex; align-items: center; gap: 5px; }
+  .cat-arrow { position: absolute; top: 50%; transform: translateY(-50%); z-index: 3; width: 42px; height: 42px; border-radius: 50%; background: var(--white); border: 1px solid var(--border); color: var(--charcoal); font-size: 20px; cursor: pointer; display: none; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(26,23,20,0.12); transition: all 0.2s; }
+  .cat-arrow:hover { border-color: var(--gold); color: var(--gold); }
+  .cat-arrow.prev { left: -16px; }
+  .cat-arrow.next { right: -16px; }
+  @media (min-width: 701px) {
+    .cat-arrow { display: flex; }
+  }
 
   /* FILTER BAR */
   .filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
@@ -214,16 +224,6 @@
   .show-more-btn { border: 1px solid var(--gold); color: var(--gold); background: none; padding: 14px 40px; font-family: 'Jost', sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.25s; border-radius: 2px; }
   .show-more-btn:hover { background: var(--gold); color: var(--dark); }
   .show-more-count { font-size: 12px; color: var(--text-muted); margin-top: 12px; letter-spacing: 0.5px; }
-
-  /* REVIEWS */
-  .reviews-wrap { background: var(--white); padding: 72px 2rem; }
-  .reviews-inner { max-width: 1120px; margin: 0 auto; }
-  .reviews-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
-  .review-card { background: var(--cream); border: 1px solid var(--border); border-radius: 4px; padding: 28px; }
-  .review-stars { color: var(--gold); font-size: 14px; margin-bottom: 14px; letter-spacing: 2px; }
-  .review-text { font-size: 14px; color: var(--text); line-height: 1.8; margin-bottom: 18px; font-style: italic; }
-  .review-author { font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); }
-  .review-product { font-size: 11px; color: var(--gold); letter-spacing: 0.5px; margin-top: 4px; }
 
   /* PRODUCT MODAL */
   .modal-overlay { position: fixed; inset: 0; background: rgba(10,8,6,0.75); z-index: 300; opacity: 0; pointer-events: none; transition: opacity 0.3s; backdrop-filter: blur(3px); }
@@ -489,8 +489,12 @@
   <div class="section">
     <div class="section-label">Browse by occasion</div>
     <div class="section-title">Find the perfect gift</div>
-    <p class="section-sub">Every item made to order — tap a category to explore</p>
-    <div class="cat-grid" id="catGrid"></div>
+    <p class="section-sub">Every item made to order — swipe to explore</p>
+    <div class="cat-slider-wrap">
+      <button class="cat-arrow prev" onclick="scrollCats(-1)" aria-label="Previous">‹</button>
+      <div class="cat-slider" id="catGrid"></div>
+      <button class="cat-arrow next" onclick="scrollCats(1)" aria-label="Next">›</button>
+    </div>
   </div>
 </div>
 
@@ -506,34 +510,6 @@
     <div class="show-more-wrap" id="showMoreWrap" style="display:none;">
       <button class="show-more-btn" onclick="showMore()">Load more gifts</button>
       <div class="show-more-count" id="showMoreCount"></div>
-    </div>
-  </div>
-</div>
-
-<!-- REVIEWS -->
-<div class="reviews-wrap" id="reviews">
-  <div class="reviews-inner">
-    <div class="section-label">Happy customers</div>
-    <div class="section-title" style="margin-bottom:44px;">What they're saying</div>
-    <div class="reviews-grid">
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">"I ordered the Kingdom Kit for my husband and he absolutely loved it. Everything was personalised perfectly and arrived beautifully packaged. Will definitely be ordering again."</div>
-        <div class="review-author">Thandi M. — Johannesburg</div>
-        <div class="review-product">Kingdom Kit</div>
-      </div>
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">"Got the Executives Lunch Set for my dad's birthday. He said it was the most thoughtful gift he's ever received. The personalisation made it so special — it didn't feel generic at all."</div>
-        <div class="review-author">Naledi K. — Pretoria</div>
-        <div class="review-product">The Executives Lunch Set</div>
-      </div>
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">"Fast turnaround, beautiful quality, and the WhatsApp service made ordering so easy. Kadash really went above and beyond. My brother cried when he opened his gift."</div>
-        <div class="review-author">Sipho D. — Cape Town</div>
-        <div class="review-product">Kingdom Man Bible Set</div>
-      </div>
     </div>
   </div>
 </div>
@@ -930,7 +906,7 @@ function renderTrustBar() {
     </div>
     <div class="trust-item">
       ${waIcon}
-      <div class="trust-text"><strong>Real human</strong>fast WhatsApp replies</div>
+      <div class="trust-text"><strong>Personal service</strong>fast WhatsApp replies</div>
     </div>`;
 
   el.innerHTML = html;
@@ -1083,13 +1059,38 @@ function handleHelperOverlayClick(e) {
 }
 
 /* ═══ CATEGORIES + FILTERS ═══ */
+// Cover image for a category: explicit c.cover if set, else the first product image in that category.
+function categoryCover(c) {
+  if (c.cover) return c.cover;
+  if (typeof products !== 'undefined' && Array.isArray(products)) {
+    const prod = products.find(p => p.cats && p.cats.includes(c.id) && p.images && p.images.length);
+    if (prod) return prod.images[0];
+  }
+  return null;
+}
+
 function renderCategories() {
-  document.getElementById('catGrid').innerHTML = categories.map(c => `
-    <div class="cat-card" onclick="filterByCategory('${c.id}')">
-      <span class="cat-icon">${catIcon(c.id)}</span>
-      <div class="cat-name">${esc(c.name)}</div>
-      ${c.badge ? `<div><span class="cat-badge">${esc(c.badge)}</span></div>` : ''}
-    </div>`).join('');
+  const arrow = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><polyline points="9 18 15 12 9 6"/></svg>`;
+  document.getElementById('catGrid').innerHTML = categories.map(c => {
+    const cover = categoryCover(c);
+    const media = cover
+      ? `<img class="cat-slide-img" src="${esc(cover)}" alt="${esc(c.name)}" loading="lazy">`
+      : `<div class="cat-slide-fallback">${catIcon(c.id)}</div>`;
+    return `
+    <div class="cat-slide" onclick="filterByCategory('${c.id}')">
+      ${media}
+      <div class="cat-slide-overlay"></div>
+      <div class="cat-slide-label">
+        <div class="cat-slide-name">${esc(c.name)}</div>
+        <div class="cat-slide-cta">Shop now ${arrow}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function scrollCats(dir) {
+  const el = document.getElementById('catGrid');
+  if (el) el.scrollBy({ left: dir * 240, behavior: 'smooth' });
 }
 
 /* ═══ SLIDE-OUT DRAWER ═══ */
