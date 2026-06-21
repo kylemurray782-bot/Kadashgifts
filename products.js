@@ -66,7 +66,7 @@ const products = [
       { name: 'Personalised slippers + personalised gown', price: 690 },
       { name: 'Personalised slippers + personalised gown + personalised mug', price: 790 }
     ],
-    cats: ['birthday-him', 'fathers-day'],
+    cats: ['best-sellers', 'birthday-him', 'fathers-day'],
     fathersDay: true,
     fathersDayTiered: true
   },
@@ -302,7 +302,7 @@ const products = [
     desc: 'Tell her to put her feet up — literally. Personalised slippers, a mug made for her, and Ferrero Rocher chocolates. For the woman who has earned every second of rest.',
     price: 450,
     options: [],
-    cats: ['birthday-her', 'mothers-day']
+    cats: ['best-sellers', 'birthday-her', 'mothers-day']
   },
   {
     id: 27,
@@ -397,7 +397,7 @@ const products = [
     desc: 'Because first impressions are everything. A fully branded corporate basket — personalised mousepad, notebook, tumbler, sweet treats, chocolate, and lotion. The kind of gift that says your company pays attention.',
     price: 880,
     options: [],
-    cats: ['corporate']
+    cats: ['best-sellers', 'corporate']
   },
   {
     id: 36,
@@ -598,7 +598,7 @@ const products = [
     desc: 'For the family who just changed forever. A teddy, burp cloth, blanket, dummy, feeding cup, beanie, and baby grow — every piece personalised, everything they need for the first days of the rest of their lives.',
     price: 1150,
     options: [],
-    cats: ['new-baby']
+    cats: ['best-sellers', 'new-baby']
   },
   {
     id: 53,
@@ -768,7 +768,7 @@ const products = [
     desc: "Lunchtime just got personal. A personalised kids lunchbox set — because the things they use every day should feel like they were made just for them. Because they were.",
     price: 330,
     options: [],
-    cats: ['kids']
+    cats: ['best-sellers', 'kids']
   },
   {
     id: 67,
@@ -884,7 +884,7 @@ const products = [
       { name: 'Without box', price: 100 },
       { name: 'With gift box', price: 120 }
     ],
-    cats: ['mugs']
+    cats: ['best-sellers', 'mugs']
   },
   {
     id: 78,
