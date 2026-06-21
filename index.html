@@ -389,7 +389,9 @@
   @media (max-width: 640px) {
     .nav-links { display: none; }
     .hamburger-btn { display: flex; }
-    nav { padding: 0 1.5rem; }
+    nav { padding: 0 1.5rem; position: relative; }
+    .nav-logo { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+    .nav-logo img { height: 56px; }
     .modal-inner { flex-direction: column; }
     .modal-gallery { width: 100%; min-height: 260px; }
     .modal-info { padding: 20px; }
@@ -470,6 +472,9 @@
   </div>
 </aside>
 
+<!-- TRUST BAR -->
+<div class="trust-bar" id="trustBar"></div>
+
 <!-- HERO SLIDER -->
 <div class="hero-slider" id="heroSlider">
   <div id="heroSlides"></div>
@@ -477,9 +482,6 @@
   <button class="hero-arrow next" onclick="heroNav(1)">›</button>
   <div class="hero-dots" id="heroDots"></div>
 </div>
-
-<!-- TRUST BAR -->
-<div class="trust-bar" id="trustBar"></div>
 
 <!-- CATEGORIES -->
 <div id="categories">
