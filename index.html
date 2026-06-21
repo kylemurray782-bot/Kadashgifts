@@ -88,7 +88,6 @@
   .drawer-cat, .drawer-link { display: flex; align-items: center; justify-content: space-between; width: 100%; text-align: left; padding: 13px 22px; font-family: 'Jost', sans-serif; font-size: 15px; color: var(--text); text-decoration: none; background: none; border: none; cursor: pointer; transition: background 0.15s, color 0.15s; }
   .drawer-cat:hover, .drawer-link:hover { background: var(--warm); color: var(--gold); }
   .drawer-cat svg { width: 16px; height: 16px; color: var(--gold); flex-shrink: 0; }
-  .drawer-link-btn { font-size: 15px; }
 
   /* HERO SLIDER — mobile-first (portrait base, desktop widens via min-width below) */
   .hero-slider { position: relative; width: 100%; aspect-ratio: 4 / 5; max-height: 78vh; overflow: hidden; background: var(--cream); }
@@ -116,18 +115,20 @@
   .hero-dots { position: absolute; bottom: 18px; left: 0; right: 0; display: flex; justify-content: center; gap: 8px; z-index: 3; }
   .hero-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.4); border: none; cursor: pointer; transition: all 0.2s; padding: 0; }
   .hero-dot.active { background: var(--gold); transform: scale(1.25); }
-  .hero-helper-wrap { text-align: center; padding: 18px 2rem; background: var(--cream); }
-  .hero-helper-btn { display: inline-block; background: none; border: 1px solid rgba(184,150,90,0.4); color: var(--text-muted); padding: 14px 28px; letter-spacing: 1.5px; font-size: 12px; text-transform: uppercase; transition: all 0.25s; font-family: 'Jost', sans-serif; cursor: pointer; border-radius: 2px; }
-  .hero-helper-btn:hover { border-color: var(--gold); color: var(--gold); }
+  .drawer-help { padding: 16px 18px; border-bottom: 1px solid var(--border); }
+  .drawer-help-btn { display: flex; align-items: center; justify-content: center; gap: 9px; width: 100%; background: var(--gold); color: var(--dark); border: none; padding: 14px 16px; border-radius: 3px; font-family: 'Jost', sans-serif; font-size: 12.5px; letter-spacing: 1.2px; text-transform: uppercase; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+  .drawer-help-btn:hover { background: var(--gold-light); }
+  .drawer-help-btn svg { width: 18px; height: 18px; flex-shrink: 0; }
 
   /* TRUST BAR */
-  .trust-bar { background: var(--dark); display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
-  .trust-item { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 6px; padding: 18px 14px; border-bottom: 1px solid rgba(255,255,255,0.08); border-right: 1px solid rgba(255,255,255,0.08); }
+  .trust-bar { background: var(--cream); display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-bottom: 1px solid var(--border); }
+  .trust-item { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 6px; padding: 18px 14px; border-bottom: 1px solid var(--border); border-right: 1px solid var(--border); }
   .trust-item:nth-child(even) { border-right: none; }
-  .trust-icon { color: var(--gold-light); display: flex; align-items: center; justify-content: center; }
+  .trust-item:nth-last-child(-n+2) { border-bottom: none; }
+  .trust-icon { color: var(--gold); display: flex; align-items: center; justify-content: center; }
   .trust-icon svg { width: 22px; height: 22px; }
-  .trust-text { color: var(--white); font-family: 'Jost', sans-serif; font-size: 12.5px; line-height: 1.35; letter-spacing: 0.3px; }
-  .trust-text strong { display: block; font-weight: 600; color: var(--gold-light); font-size: 13.5px; margin-bottom: 1px; }
+  .trust-text { color: var(--text); font-family: 'Jost', sans-serif; font-size: 12.5px; line-height: 1.35; letter-spacing: 0.3px; }
+  .trust-text strong { display: block; font-weight: 600; color: var(--charcoal); font-size: 13.5px; margin-bottom: 1px; }
   .trust-google { text-decoration: none; transition: opacity 0.2s; }
   .trust-google:hover { opacity: 0.82; }
   .trust-stars { color: var(--gold-light); font-size: 15px; letter-spacing: 2px; line-height: 1; }
@@ -139,7 +140,7 @@
   @media (min-width: 701px) {
     .trust-bar { grid-template-columns: repeat(4, 1fr); }
     .trust-item { border-bottom: none; padding: 22px 18px; flex-direction: row; gap: 11px; }
-    .trust-item:nth-child(even) { border-right: 1px solid rgba(255,255,255,0.08); }
+    .trust-item:nth-child(even) { border-right: 1px solid var(--border); }
     .trust-item:last-child { border-right: none; }
     .trust-text { text-align: left; font-size: 13px; }
     .trust-icon svg { width: 24px; height: 24px; }
@@ -451,6 +452,12 @@
     <span class="drawer-title">Menu</span>
     <button class="drawer-close" onclick="closeDrawer()" aria-label="Close menu">✕</button>
   </div>
+  <div class="drawer-help">
+    <button class="drawer-help-btn" onclick="closeDrawer(); openHelperModal();">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M9.2 9a2.8 2.8 0 0 1 5.4 1c0 1.8-2.6 2.2-2.6 4"/><line x1="12" y1="17.5" x2="12" y2="17.5"/></svg>
+      Need help choosing a gift?
+    </button>
+  </div>
   <div class="drawer-section">
     <div class="drawer-section-title">Shop by category</div>
     <div id="drawerCategories"></div>
@@ -460,7 +467,6 @@
     <a class="drawer-link" href="#products" onclick="closeDrawer()">All Gifts</a>
     <a class="drawer-link" href="#how" onclick="closeDrawer()">How It Works</a>
     <a class="drawer-link" href="#faq" onclick="closeDrawer()">FAQ</a>
-    <button class="drawer-link drawer-link-btn" onclick="closeDrawer(); openHelperModal();">Need help choosing?</button>
   </div>
 </aside>
 
@@ -474,10 +480,6 @@
 
 <!-- TRUST BAR -->
 <div class="trust-bar" id="trustBar"></div>
-
-<div class="hero-helper-wrap">
-  <button class="hero-helper-btn" onclick="openHelperModal()">Need help choosing?</button>
-</div>
 
 <!-- CATEGORIES -->
 <div id="categories">
