@@ -57,9 +57,9 @@
   .announce-google:hover .announce-copy { text-decoration: underline; }
 
   /* NAV */
-  nav { position: sticky; top: 0; z-index: 100; background: var(--dark); display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; height: 70px; border-bottom: 1px solid #2e2a26; }
+  nav { position: sticky; top: 0; z-index: 100; background: var(--dark); display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; height: 84px; border-bottom: 1px solid #2e2a26; }
   .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-  .nav-logo img { height: 64px; width: auto; object-fit: contain; }
+  .nav-logo img { height: 76px; width: auto; object-fit: contain; }
   .nav-logo-text { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 400; color: var(--gold-light); letter-spacing: 2px; display: none; }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a { color: #9A9089; text-decoration: none; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; transition: color 0.2s; }
@@ -91,7 +91,7 @@
 
   /* HERO SLIDER — mobile-first (portrait base, desktop widens via min-width below) */
   /* Height = viewport minus header, leaving ~70px so the trust bar peeks above the fold (scroll cue) */
-  .hero-slider { position: relative; width: 100%; height: calc(100vh - 200px); height: calc(100svh - 200px); min-height: 380px; max-height: 600px; overflow: hidden; background: var(--cream); }
+  .hero-slider { position: relative; width: 100%; height: calc(100vh - 214px); height: calc(100svh - 214px); min-height: 380px; max-height: 600px; overflow: hidden; background: var(--cream); }
   .hero-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 0.6s ease; }
   .hero-slide.active { opacity: 1; z-index: 1; }
   .hero-slide picture { display: block; width: 100%; height: 100%; }
@@ -377,7 +377,7 @@
   .nav-icon-btn:hover { color: var(--gold); }
   .nav-icon-btn svg { width: 20px; height: 20px; }
   .nav-icon-btn.active { color: var(--gold); }
-  .search-panel { position: sticky; top: 70px; z-index: 90; background: var(--white); max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; padding: 0; }
+  .search-panel { position: sticky; top: 84px; z-index: 90; background: var(--white); max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; padding: 0; }
   .search-panel.open { max-height: 90px; padding: 14px 0; border-bottom: 1px solid var(--border); }
   .search-wrap { max-width: 1120px; margin: 0 auto; padding: 0 2rem; position: relative; }
   .search-input-wrap { position: relative; }
@@ -392,7 +392,7 @@
     .hamburger-btn { display: flex; }
     nav { padding: 0 1.5rem; position: relative; }
     .nav-logo { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
-    .nav-logo img { height: 56px; }
+    .nav-logo img { height: 70px; }
     .modal-inner { flex-direction: column; }
     .modal-gallery { width: 100%; min-height: 260px; }
     .modal-info { padding: 20px; }
