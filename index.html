@@ -1146,8 +1146,42 @@ function filterProducts(filter) {
   renderProducts();
 }
 
+// "All" view: interleave products across categories so the grid alternates
+// (men's, women's, baby, mug, corporate…) instead of showing each category in a clump.
+// Round-robins one product from each category group per pass. Computed once, then cached.
+let _mixedAll = null;
+function getMixedAll() {
+  if (_mixedAll) return _mixedAll;
+  if (typeof products === 'undefined' || !Array.isArray(products)) return [];
+  const shuffle = (arr) => {
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  };
+  const groups = {};
+  for (const p of products) {
+    const key = (p.cats && p.cats.find(c => c !== 'best-sellers')) || (p.cats && p.cats[0]) || 'other';
+    (groups[key] = groups[key] || []).push(p);
+  }
+  // Shuffle products within each group, and shuffle the group order → fresh mix each visit,
+  // round-robin keeps categories evenly interleaved (never clumped). Cached for this page load.
+  const lists = shuffle(Object.values(groups).map(l => shuffle(l.slice())));
+  const result = [];
+  for (let i = 0; ; i++) {
+    let addedAny = false;
+    for (const list of lists) {
+      if (i < list.length) { result.push(list[i]); addedAny = true; }
+    }
+    if (!addedAny) break;
+  }
+  _mixedAll = result;
+  return _mixedAll;
+}
+
 function getFiltered() {
-  let filtered = activeFilter === 'all' ? products : products.filter(p => p.cats.includes(activeFilter));
+  let filtered = activeFilter === 'all' ? getMixedAll() : products.filter(p => p.cats.includes(activeFilter));
   if (searchQuery) {
     filtered = filtered.filter(p =>
       p.name.toLowerCase().includes(searchQuery) ||
