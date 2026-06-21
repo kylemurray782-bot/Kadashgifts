@@ -350,6 +350,20 @@
   .wa-float-tooltip { position: absolute; right: 68px; background: var(--dark); color: var(--white); font-size: 12px; letter-spacing: 0.5px; padding: 8px 14px; border-radius: 2px; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.2s; font-family: 'Jost', sans-serif; }
   .wa-float:hover .wa-float-tooltip { opacity: 1; }
 
+  /* NEWSLETTER */
+  .newsletter { background: var(--warm); padding: 64px 2rem; text-align: center; border-top: 1px solid var(--border); }
+  .newsletter-inner { max-width: 520px; margin: 0 auto; }
+  .newsletter-label { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+  .newsletter-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(26px, 4vw, 36px); font-weight: 400; color: var(--dark); margin-bottom: 10px; line-height: 1.2; }
+  .newsletter-sub { color: var(--text-muted); font-size: 14px; line-height: 1.6; margin-bottom: 26px; }
+  .newsletter-form { display: flex; gap: 10px; }
+  .newsletter-input { flex: 1; border: 1px solid var(--border); border-radius: 2px; padding: 13px 16px; font-family: 'Jost', sans-serif; font-size: 14px; background: var(--white); outline: none; color: var(--text); transition: border-color 0.2s; }
+  .newsletter-input:focus { border-color: var(--gold); }
+  .newsletter-btn { background: var(--dark); color: var(--white); border: none; padding: 13px 28px; border-radius: 2px; font-family: 'Jost', sans-serif; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
+  .newsletter-btn:hover { background: var(--gold); color: var(--dark); }
+  .newsletter-thanks { display: none; color: var(--dark); font-size: 15px; font-family: 'Cormorant Garamond', serif; font-style: italic; padding: 8px 0; }
+  .newsletter-fineprint { font-size: 11px; color: var(--text-muted); margin-top: 14px; letter-spacing: 0.3px; }
+
   /* FOOTER */
   footer { background: var(--charcoal); color: #5C5650; padding: 48px 2rem 32px; text-align: center; }
   .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--gold-light); letter-spacing: 3px; margin-bottom: 6px; }
@@ -406,6 +420,7 @@
     .product-footer { flex-direction: column; align-items: stretch; gap: 9px; }
     .product-price { font-size: 18px; }
     .view-btn { padding: 9px 10px; font-size: 10px; text-align: center; }
+    .newsletter-form { flex-direction: column; }
   }
 </style>
 </head>
@@ -542,6 +557,24 @@
     </details>
   </div>
 </div>
+
+<!-- NEWSLETTER -->
+<div class="newsletter">
+  <div class="newsletter-inner">
+    <div class="newsletter-label">Stay in touch</div>
+    <div class="newsletter-title">Be the first to know</div>
+    <p class="newsletter-sub">New gifts, seasonal drops, and the occasional special — straight to your inbox.</p>
+    <form id="newsletterForm" method="post" target="newsletterFrame" onsubmit="return handleNewsletter(event)">
+      <div class="newsletter-form">
+        <input type="email" id="newsletterEmail" class="newsletter-input" placeholder="Your email address" required>
+        <button type="submit" class="newsletter-btn">Join</button>
+      </div>
+    </form>
+    <div class="newsletter-thanks" id="newsletterThanks">Thank you — you're on the list.</div>
+    <p class="newsletter-fineprint">No spam, just good gifts. Unsubscribe anytime.</p>
+  </div>
+</div>
+<iframe name="newsletterFrame" style="display:none" title="newsletter"></iframe>
 
 <!-- FOOTER -->
 <footer>
@@ -872,6 +905,41 @@ const TRUST = {
   tagline:      'Trusted by happy customers across South Africa',  // ← trust line shown in the top banner
   googleUrl:    'https://www.google.com/search?q=Kadash+Gifts',  // ← paste your Google Business review link
 };
+
+/* ─────────────────────────────────────────────────────────────
+   MAILING LIST — emails go to your email provider (MailerLite,
+   Mailchimp, Brevo, etc). The form can't store emails by itself.
+   1. Make a free account + an embedded/signup form at your provider.
+   2. Paste that form's POST URL into `action` below.
+   3. Set `emailField` to the email field name your provider expects
+      (MailerLite: 'fields[email]'  ·  Mailchimp: usually 'EMAIL').
+   Until `action` is filled in, the box shows a thank-you but does
+   NOT capture emails — connect it before relying on it.
+   ───────────────────────────────────────────────────────────── */
+const NEWSLETTER = {
+  action:     '',        // ← paste your provider's form POST URL here
+  emailField: 'email',   // ← change to match your provider's email field name
+};
+
+function initNewsletter() {
+  const form = document.getElementById('newsletterForm');
+  const input = document.getElementById('newsletterEmail');
+  if (!form || !input) return;
+  if (NEWSLETTER.action) form.action = NEWSLETTER.action;
+  if (NEWSLETTER.emailField) input.name = NEWSLETTER.emailField;
+}
+
+function handleNewsletter(e) {
+  const input = document.getElementById('newsletterEmail');
+  const val = (input.value || '').trim();
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(val)) return false; // invalid email — let native validation handle it
+  track('newsletter_signup', {});
+  document.getElementById('newsletterForm').style.display = 'none';
+  document.getElementById('newsletterThanks').style.display = 'block';
+  // If connected, let the form POST to the hidden iframe (page stays put). If not, cancel the submit.
+  return !!NEWSLETTER.action;
+}
+
 
 function renderTrustBar() {
   const el = document.getElementById('trustBar');
@@ -1558,6 +1626,7 @@ loadCart();
 updateCart();
 renderProducts();
 handleDeepLink();
+initNewsletter();
 initAnalytics();
 </script>
 </body>
