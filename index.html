@@ -335,6 +335,17 @@
   .cart-field label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px; }
   .cart-field input { width: 100%; border: 1px solid var(--border); border-radius: 2px; padding: 10px 12px; font-family: 'Jost', sans-serif; font-size: 14px; background: var(--cream); outline: none; color: var(--text); transition: border-color 0.2s; }
   .cart-field input:focus { border-color: var(--gold); }
+  .cart-field textarea { width: 100%; border: 1px solid var(--border); border-radius: 2px; padding: 10px 12px; font-family: 'Jost', sans-serif; font-size: 14px; background: var(--cream); outline: none; color: var(--text); transition: border-color 0.2s; resize: vertical; min-height: 56px; line-height: 1.5; }
+  .cart-field textarea:focus { border-color: var(--gold); }
+  .fulfil-group { display: flex; gap: 10px; }
+  .fulfil-btn { flex: 1; text-align: left; background: var(--cream); border: 1px solid var(--border); border-radius: 4px; padding: 11px 12px; cursor: pointer; font-family: 'Jost', sans-serif; transition: all 0.2s; }
+  .fulfil-btn:hover { border-color: var(--gold); }
+  .fulfil-btn.selected { border-color: var(--gold); background: #fdf9f2; }
+  .fulfil-name { display: block; font-size: 13px; color: var(--text); }
+  .fulfil-meta { display: block; font-size: 11.5px; color: var(--text-muted); margin-top: 3px; }
+  .fulfil-btn.selected .fulfil-meta { color: var(--gold); }
+  .pickup-note { font-size: 12px; color: var(--text-muted); background: var(--cream); border: 1px solid var(--border); border-radius: 3px; padding: 9px 12px; margin-bottom: 14px; line-height: 1.5; }
+  .pickup-note strong { color: var(--text); font-weight: 500; }
   .cart-summary { margin: 18px 0 4px; padding-top: 16px; border-top: 1px solid var(--border); }
   .cart-summary-row { display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--text-muted); margin-bottom: 8px; letter-spacing: 0.5px; }
   .cart-summary-row .free-delivery { color: var(--wa); font-weight: 500; letter-spacing: 1px; text-transform: uppercase; font-size: 11px; }
@@ -705,13 +716,31 @@
     <div class="cart-empty">Your cart is empty</div>
   </div>
   <div class="cart-footer">
+    <div class="cart-field">
+      <label>How would you like to receive it?</label>
+      <div class="fulfil-group">
+        <button type="button" class="fulfil-btn selected" id="fulfilDelivery" onclick="selectFulfilment('delivery')">
+          <span class="fulfil-name">Delivery</span>
+          <span class="fulfil-meta" id="fulfilDeliveryMeta">R150 · nationwide courier</span>
+        </button>
+        <button type="button" class="fulfil-btn" id="fulfilPickup" onclick="selectFulfilment('pickup')">
+          <span class="fulfil-name">Pickup</span>
+          <span class="fulfil-meta">Free · Benoni</span>
+        </button>
+      </div>
+    </div>
+    <div class="cart-field" id="addressField">
+      <label>Delivery address</label>
+      <textarea id="customerAddress" rows="2" placeholder="Street, suburb, city, postal code"></textarea>
+    </div>
+    <div class="pickup-note" id="pickupNote" style="display:none">Collect from <strong id="pickupAddr"></strong>. We'll confirm collection times with you on WhatsApp.</div>
     <div class="cart-field"><label>Your name</label><input type="text" id="customerName" placeholder="e.g. Kyle Murray"></div>
     <div class="cart-field"><label>WhatsApp number (optional)</label><input type="text" id="customerPhone" placeholder="e.g. 073 838 3486"></div>
     <div class="cart-field"><label>Personalisation / notes</label><input type="text" id="customerNotes" placeholder="e.g. Print 'Happy Birthday Sarah'"></div>
     <div class="free-delivery-nudge" id="freeDeliveryNudge"></div>
     <div class="cart-summary">
       <div class="cart-summary-row"><span>Subtotal</span><span id="cartSubtotal">R0</span></div>
-      <div class="cart-summary-row"><span>Delivery</span><span id="cartDelivery">R0</span></div>
+      <div class="cart-summary-row"><span id="cartDeliveryLabel">Delivery</span><span id="cartDelivery">R0</span></div>
     </div>
     <div class="cart-total">
       <span class="cart-total-label">Total</span>
@@ -738,6 +767,7 @@ const CONFIG = {
   DELIVERY_FEE: 150,         // flat nationwide courier rate (R)
   FULFILMENT_DAYS: 4,        // business days, order to delivery (production + courier). Powers the "receive by" date on cards.
   FREE_DELIVERY_OVER: 0,     // no free-delivery threshold (set a rand value here to enable one later)
+  PICKUP_ADDRESS: 'Benoni, Johannesburg',  // ⚠ KYLE: replace with your exact collection street address
 
   GA4_ID: '',                // ← paste your GA4 Measurement ID (e.g. 'G-XXXXXXXXXX') to enable analytics. Blank = off.
 };
@@ -801,6 +831,7 @@ let modalSlide = 0;
 let selectedOption = null;
 let selectedAddOns = [];
 let searchQuery = '';
+let fulfilment = 'delivery'; // 'delivery' (R150 courier) or 'pickup' (free, Benoni)
 
 /* ═══ CART PERSISTENCE ═══ */
 function saveCart() {
@@ -835,8 +866,30 @@ function cartSubtotal() {
 }
 function deliveryFee(subtotal) {
   if (subtotal <= 0) return 0;
+  if (fulfilment === 'pickup') return 0;
   if (CONFIG.FREE_DELIVERY_OVER > 0 && subtotal >= CONFIG.FREE_DELIVERY_OVER) return 0;
   return CONFIG.DELIVERY_FEE;
+}
+
+function applyFulfilmentUI() {
+  const isPickup = fulfilment === 'pickup';
+  document.getElementById('fulfilDelivery').classList.toggle('selected', !isPickup);
+  document.getElementById('fulfilPickup').classList.toggle('selected', isPickup);
+  document.getElementById('addressField').style.display = isPickup ? 'none' : 'block';
+  document.getElementById('pickupNote').style.display = isPickup ? 'block' : 'none';
+  document.getElementById('cartDeliveryLabel').textContent = isPickup ? 'Pickup' : 'Delivery';
+}
+
+function selectFulfilment(mode) {
+  fulfilment = (mode === 'pickup') ? 'pickup' : 'delivery';
+  applyFulfilmentUI();
+  updateCart();
+}
+
+function renderFulfilment() {
+  document.getElementById('fulfilDeliveryMeta').textContent = `R${CONFIG.DELIVERY_FEE} · nationwide courier`;
+  document.getElementById('pickupAddr').textContent = CONFIG.PICKUP_ADDRESS;
+  applyFulfilmentUI();
 }
 
 
@@ -1583,7 +1636,9 @@ function checkoutWhatsApp() {
   const name  = document.getElementById('customerName').value.trim();
   const phone = document.getElementById('customerPhone').value.trim();
   const notes = document.getElementById('customerNotes').value.trim();
+  const address = document.getElementById('customerAddress').value.trim();
   if (!name) { alert('Please enter your name before sending.'); return; }
+  if (fulfilment === 'delivery' && !address) { alert('Please enter your delivery address, or switch to Pickup.'); return; }
 
   const subtotal = cartSubtotal();
   const delivery = deliveryFee(subtotal);
@@ -1595,9 +1650,11 @@ function checkoutWhatsApp() {
     return line;
   }).join('\n');
 
-  const deliveryLine = delivery === 0 ? 'FREE' : `R${delivery}`;
+  const fulfilmentBlock = fulfilment === 'pickup'
+    ? `Collection: Pickup from ${CONFIG.PICKUP_ADDRESS} (FREE)`
+    : `Delivery: ${delivery === 0 ? 'FREE' : `R${delivery}`}\nDelivery address: ${address}`;
 
-  const msg = `Hi Kadash Gifts, I'd like to place an order:\n\n${lines}\n\nSubtotal: R${subtotal}\nDelivery: ${deliveryLine}\nTotal: R${total}\n\nName: ${name}\nNumber: ${phone||'Not provided'}${notes?`\nNotes: ${notes}`:''}\n\nPlease confirm and send payment details. Thank you!`;
+  const msg = `Hi Kadash Gifts, I'd like to place an order:\n\n${lines}\n\nSubtotal: R${subtotal}\n${fulfilmentBlock}\nTotal: R${total}\n\nName: ${name}\nNumber: ${phone||'Not provided'}${notes?`\nNotes: ${notes}`:''}\n\nPlease confirm and send payment details. Thank you!`;
 
   track('begin_checkout', { value: total, currency: 'ZAR', items_count: cart.length });
 
@@ -1654,6 +1711,7 @@ renderFilters();
 initHeroSlider();
 renderTrustBar();
 loadCart();
+renderFulfilment();
 updateCart();
 renderProducts();
 handleDeepLink();
