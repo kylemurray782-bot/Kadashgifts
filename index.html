@@ -369,6 +369,7 @@
 
   /* FOOTER */
   footer { background: var(--charcoal); color: #B5A893; padding: 48px 2rem 32px; text-align: center; }
+  .footer-logo-img { height: 52px; width: auto; display: block; margin: 0 auto 10px; }
   .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--gold-light); letter-spacing: 3px; margin-bottom: 6px; }
   .footer-tag { font-size: 12px; letter-spacing: 2px; color: #B5A893; margin-bottom: 28px; }
   .footer-socials { display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 28px; }
@@ -584,7 +585,8 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">Kadash</div>
+  <img src="logo-cropped.png" alt="Kadash Gifts" class="footer-logo-img" onerror="this.style.display='none'; document.getElementById('footerLogoText').style.display='block'">
+  <div class="footer-logo" id="footerLogoText" style="display:none">Kadash</div>
   <div class="footer-tag">Never miss a moment</div>
   <div class="footer-socials">
     <a href="https://www.instagram.com/kadashgifts/" target="_blank" aria-label="Instagram">
