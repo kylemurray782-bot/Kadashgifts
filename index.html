@@ -121,8 +121,22 @@
   .drawer-help-btn:hover { background: var(--gold-light); }
   .drawer-help-btn svg { width: 18px; height: 18px; flex-shrink: 0; }
 
-  /* TRUST BAR */
-  .trust-bar { background: var(--cream); display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-bottom: 1px solid var(--border); }
+  /* SOCIAL PROOF STRIP */
+  .proof-section { padding: 44px 0 48px; background: var(--warm); border-bottom: 1px solid var(--border); overflow: hidden; }
+  .proof-heading { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; letter-spacing: 1px; text-align: center; color: var(--dark); margin-bottom: 28px; padding: 0 1.5rem; }
+  .proof-track-wrap { position: relative; }
+  .proof-track { display: flex; gap: 14px; padding: 0 1.5rem; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; cursor: grab; user-select: none; }
+  .proof-track::-webkit-scrollbar { display: none; }
+  .proof-track.grabbing { cursor: grabbing; }
+  .proof-card { flex: 0 0 200px; scroll-snap-align: start; border-radius: 6px; overflow: hidden; background: var(--white); box-shadow: 0 2px 12px rgba(26,23,20,0.08); position: relative; }
+  .proof-card img { width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block; }
+  .proof-caption { font-family: 'Jost', sans-serif; font-size: 11.5px; letter-spacing: 0.5px; color: #5C5650; padding: 8px 12px 10px; text-align: center; }
+  @media (min-width: 600px) {
+    .proof-card { flex: 0 0 220px; }
+    .proof-heading { font-size: 26px; }
+  }
+
+ background: var(--cream); display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-bottom: 1px solid var(--border); }
   .trust-item { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 6px; padding: 18px 14px; border-bottom: 1px solid var(--border); border-right: 1px solid var(--border); }
   .trust-item:nth-child(even) { border-right: none; }
   .trust-item:nth-last-child(-n+2) { border-bottom: none; }
@@ -517,6 +531,9 @@
 
 <!-- TRUST BAR -->
 <div class="trust-bar" id="trustBar"></div>
+
+<!-- SOCIAL PROOF STRIP -->
+<div id="proofSection"></div>
 
 <!-- CATEGORIES -->
 <div id="categories">
@@ -943,7 +960,36 @@ function renderDeliveryCopy() {
     : `Delivery is R${CONFIG.DELIVERY_FEE} nationwide via courier.`;
 }
 
-/* ═══ TRUST BAR ═══ */
+/* ═══ SOCIAL PROOF STRIP ═══ */
+function renderProof() {
+  const el = document.getElementById('proofSection');
+  if (!el || !SOCIAL_PROOF.show || !SOCIAL_PROOF.items.length) return;
+  const cards = SOCIAL_PROOF.items.map(p => `
+    <div class="proof-card">
+      <img src="${esc(p.src)}" alt="${esc(p.alt)}" loading="lazy" onerror="this.closest('.proof-card').style.display='none'">
+      ${p.caption ? `<div class="proof-caption">${esc(p.caption)}</div>` : ''}
+    </div>`).join('');
+  el.innerHTML = `
+    <section class="proof-section">
+      <div class="proof-heading">${esc(SOCIAL_PROOF.heading)}</div>
+      <div class="proof-track-wrap">
+        <div class="proof-track" id="proofTrack">${cards}</div>
+      </div>
+    </section>`;
+  initProofDrag();
+}
+
+function initProofDrag() {
+  const track = document.getElementById('proofTrack');
+  if (!track) return;
+  let isDown = false, startX = 0, scrollLeft = 0;
+  track.addEventListener('mousedown', e => { isDown = true; track.classList.add('grabbing'); startX = e.pageX - track.offsetLeft; scrollLeft = track.scrollLeft; });
+  track.addEventListener('mouseleave', () => { isDown = false; track.classList.remove('grabbing'); });
+  track.addEventListener('mouseup', () => { isDown = false; track.classList.remove('grabbing'); });
+  track.addEventListener('mousemove', e => { if (!isDown) return; e.preventDefault(); const x = e.pageX - track.offsetLeft; track.scrollLeft = scrollLeft - (x - startX) * 1.5; });
+}
+
+
 /* ─────────────────────────────────────────────────────────────
    TRUST BAR — concrete proof, shown directly under the hero.
    Everything here is hardcoded and updated by hand. No API.
@@ -964,6 +1010,26 @@ const TRUST = {
   reviewCount:  '12',                                // ← update as reviews grow
   tagline:      'Trusted by happy customers across South Africa',  // ← trust line shown in the top banner
   googleUrl:    'https://www.google.com/search?q=Kadash+Gifts',  // ← paste your Google Business review link
+};
+
+/* ─────────────────────────────────────────────────────────────
+   SOCIAL PROOF STRIP — appears between the trust bar and categories.
+   Add your WhatsApp screenshot / unboxing images to images/proof/.
+   Each item: { src, alt, caption (optional) }
+   Set `heading` to whatever feels most Kadash.
+   Set `show: false` to hide the section until you have images ready.
+   ───────────────────────────────────────────────────────────── */
+const SOCIAL_PROOF = {
+  show:    true,
+  heading: 'Gifts they didn\'t see coming',
+  items: [
+    // ← Kyle: replace these with your real image paths + captions
+    { src: 'images/proof/proof-1.jpg', alt: 'Happy customer unboxing', caption: 'Lerato, Johannesburg' },
+    { src: 'images/proof/proof-2.jpg', alt: 'WhatsApp review', caption: '' },
+    { src: 'images/proof/proof-3.jpg', alt: 'Gift delivery', caption: 'Sipho, Pretoria' },
+    { src: 'images/proof/proof-4.jpg', alt: 'Happy customer', caption: '' },
+    { src: 'images/proof/proof-5.jpg', alt: 'WhatsApp message', caption: 'Zanele, Durban' },
+  ],
 };
 
 /* ─────────────────────────────────────────────────────────────
@@ -1716,6 +1782,7 @@ renderDrawerCategories();
 renderFilters();
 initHeroSlider();
 renderTrustBar();
+renderProof();
 loadCart();
 renderFulfilment();
 updateCart();
