@@ -1149,5 +1149,68 @@ const products = [
     price: 800,
     options: [],
     cats: ['celebrating-love']
+  },
+  {
+    id: 103,
+    name: 'The Cappuccino Ritual',
+    emoji: '☕',
+    images: ['images/corporate_capacino_mug.jpg'],
+    desc: "The mid-morning moment, personalised. A branded cappuccino mug with nuts and dried fruit — a considered desk gift that keeps your name in their hands, cup after cup.",
+    price: 480,
+    options: [],
+    cats: ['corporate']
+  },
+  {
+    id: 104,
+    name: 'The Executive Standard',
+    emoji: '💼',
+    images: [
+      'images/pen_bottle_notebook.jpg',
+      'images/pen_bottle_notebook_2.jpg'
+    ],
+    desc: "Everything the working day asks for, all personalised. A pen, bottle, lunch bag, and notebook — a complete corporate set that puts your brand to work every day.",
+    price: 700,
+    options: [],
+    cats: ['corporate']
+  },
+  {
+    id: 105,
+    name: 'The Midday Carry',
+    emoji: '🥪',
+    images: ['images/lunch_bags.jpg'],
+    desc: "A personalised lunch bag that moves from desk to boardroom and back. Practical, branded, and used daily — corporate gifting that earns its keep.",
+    price: 300,
+    options: [],
+    cats: ['corporate']
+  },
+  {
+    id: 106,
+    name: 'The Considered Trio',
+    emoji: '🕯️',
+    images: ['images/keyring_bottle_candle.jpg'],
+    desc: "Three thoughtful pieces — a personalised keyring, bottle, and candle. Understated and genuinely useful, for staff appreciation or client thank-yous.",
+    price: 500,
+    options: [],
+    cats: ['corporate']
+  },
+  {
+    id: 107,
+    name: 'The Field Set',
+    emoji: '🖊️',
+    images: ['images/flask_notebook_pen.jpg'],
+    desc: "For the team that takes the work on the road. A personalised flask and notebook with a pen and Ferrero Rocher — a premium gift that travels well.",
+    price: 600,
+    options: [],
+    cats: ['corporate']
+  },
+  {
+    id: 108,
+    name: 'The Living Desk',
+    emoji: '🪴',
+    images: ['images/plant_flask_notebook_pen.jpg'],
+    desc: "A corporate gift that keeps growing. A personalised plant alongside a flask, notebook, and pen — a fresh, lasting addition to any desk.",
+    price: 700,
+    options: [],
+    cats: ['corporate']
   }
 ];
