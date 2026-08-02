@@ -237,7 +237,7 @@ const products = [
     desc: 'She hosts, she feeds, she gathers people together. A personalised platter board engraved with her name — for the woman who makes every table feel like home.',
     price: 300,
     options: [],
-    cats: ['birthday-her', 'mothers-day']
+    cats: ['birthday-her', 'mothers-day', 'celebrating-love']
   },
   {
     id: 21,
@@ -247,7 +247,7 @@ const products = [
     desc: 'In her kitchen, everything is made with love. A personalised wooden cutting board engraved with her name — a daily reminder that she is appreciated.',
     price: 250,
     options: [],
-    cats: ['birthday-her', 'mothers-day']
+    cats: ['birthday-her', 'mothers-day', 'celebrating-love']
   },
   {
     id: 22,
@@ -277,7 +277,7 @@ const products = [
     desc: 'Wrap her in every moment that matters. A personalised fleece blanket printed with photos, kids\'s drawings, or memories — 100x160cm of pure love.',
     price: 350,
     options: [],
-    cats: ['birthday-her', 'mothers-day']
+    cats: ['birthday-her', 'mothers-day', 'celebrating-love']
   },
   {
     id: 25,
