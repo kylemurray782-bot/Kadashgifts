@@ -1049,5 +1049,105 @@ const products = [
     price: 300,
     options: [],
     cats: ['kids']
+  },
+  {
+    id: 93,
+    name: 'The Mr & Mrs Home Set',
+    emoji: '🕰️',
+    images: ['images/coaster_mug_clock.jpg'],
+    desc: "For the two who built a home together. A personalised ceramic clock, Mr & Mrs mugs, and a matching Mr & Mrs coaster — every piece marking the life you share.",
+    price: 650,
+    options: [],
+    cats: ['celebrating-love']
+  },
+  {
+    id: 94,
+    name: 'The Time Together Set',
+    emoji: '🧩',
+    images: ['images/clock_with_puzzle.jpg'],
+    desc: "Every moment with them is worth keeping. A personalised ceramic clock paired with a personalised puzzle — a gift about the time you've spent and the pieces that make you, you.",
+    price: 450,
+    options: [],
+    cats: ['celebrating-love']
+  },
+  {
+    id: 95,
+    name: 'The Keepsake Clock',
+    emoji: '⏰',
+    images: ['images/ceremic_clock.jpg'],
+    desc: "A personalised ceramic clock made to mark what matters — their names, your date, a moment you'll never let slip. Simple, lasting, entirely yours.",
+    price: 300,
+    options: [],
+    cats: ['celebrating-love']
+  },
+  {
+    id: 96,
+    name: 'The His & Hers Towel Set',
+    emoji: '🛁',
+    images: ['images/personlised_towels_set.jpg'],
+    desc: "For the couple who share everything — including the bathroom. A personalised Mr & Mrs towel set, his and hers, each carrying their name.",
+    price: 500,
+    options: [],
+    cats: ['celebrating-love']
+  },
+  {
+    id: 97,
+    name: 'The Grand Gesture Set',
+    emoji: '🎈',
+    images: ['images/bag_balloons_flower_set.jpg'],
+    desc: "When you want to say it loudly. A gift bag loaded with balloons, fresh flowers, Kit Kat and Ferrero Rocher, finished with a personalised keyring — the whole celebration in one.",
+    price: 750,
+    options: [],
+    cats: ['celebrating-love']
+  },
+  {
+    id: 98,
+    name: "The Gentleman's Bouquet",
+    emoji: '💐',
+    images: ['images/mens_bouquet.jpg'],
+    desc: "A bouquet built for him. A personalised cap, Kit Kat and Ferrero Rocher, two pairs of socks, a personalised iPhone cover, and a personalised pen — everything he'd never buy himself.",
+    price: 550,
+    options: [],
+    cats: ['celebrating-love']
+  },
+  {
+    id: 99,
+    name: 'The Piece by Piece Set',
+    emoji: '🍷',
+    images: ['images/piece_by_piece.jpg'],
+    desc: "Because you fell for them piece by piece. A personalised puzzle with wine, a candle, Ferrero Rocher, and a heart chocolate — a slow, sweet celebration of the two of you.",
+    price: 600,
+    options: [],
+    cats: ['celebrating-love']
+  },
+  {
+    id: 100,
+    name: 'The Table for Two Set',
+    emoji: '🧀',
+    images: ['images/platter_mugs.jpg'],
+    desc: "For the couple who host with heart. A personalised platter board, personalised mugs, personalised coasters, and a personalised gift bag — set the table and let love do the rest.",
+    price: 700,
+    options: [],
+    cats: ['celebrating-love']
+  },
+  {
+    id: 101,
+    name: 'The Cosy Couple Set',
+    emoji: '🛋️',
+    images: ['images/mug_cushion_set.jpg'],
+    desc: "Slow mornings and shared blankets. A personalised mug and cushion set made for the couple who love staying in.",
+    price: 640,
+    options: [],
+    cats: ['celebrating-love']
+  },
+  {
+    id: 102,
+    name: 'The Whole Heart Set',
+    emoji: '🎁',
+    images: ['images/cushion_mug_coaster.jpg'],
+    desc: "Everything, all at once. A personalised cushion, personalised mugs, personalised coasters, a personalised ceramic clock, and a gift box to hold it all — the fullest way to say how much they mean to you.",
+    price: 800,
+    options: [],
+    cats: ['celebrating-love']
   }
 ];
