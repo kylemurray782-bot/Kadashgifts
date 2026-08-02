@@ -729,12 +729,13 @@ const products = [
     emoji: '🍶',
     images: [
       'images/kids_stainless_steel_bottle_1.jpg',
-      'images/kids_stainless_steel_bottle_2.jpg'
+      'images/kids_stainless_steel_bottle_2.jpg',
+      'images/kids_sippy_bottle.jpg'
     ],
-    desc: "Their name on the bottle they carry everywhere. A personalised stainless steel kids bottle — built for school bags, sports days, and every adventure in between.",
+    desc: "Their name on the bottle they carry everywhere. A personalised kids bottle — built for school bags, sports days, and every adventure in between.",
     price: 200,
     options: [],
-    cats: ['kids']
+    cats: ['kids', 'bottles']
   },
   {
     id: 64,
@@ -761,12 +762,11 @@ const products = [
     name: 'The Lunchtime Set',
     emoji: '🥪',
     images: [
-      'images/kids_lunchbox_set_1.jpg',
-      'images/kids_lunchbox_set_2.jpg',
-      'images/kids_lunchbox_set_3.jpg'
+      'images/lunch_box_and_bottle.jpg',
+      'images/lunch_box_and_bottle_2.jpg'
     ],
-    desc: "Lunchtime just got personal. A personalised kids lunchbox set — because the things they use every day should feel like they were made just for them. Because they were.",
-    price: 330,
+    desc: "Lunchtime just got personal. A personalised kids lunch box and matching bottle — because the things they use every day should feel like they were made just for them. Because they were.",
+    price: 350,
     options: [],
     cats: ['best-sellers', 'kids']
   },
@@ -774,9 +774,13 @@ const products = [
     id: 67,
     name: 'The Carry It Proud Bag',
     emoji: '👜',
-    images: ['images/kids_lunch_bags.jpg'],
-    desc: "Their name on the bag they carry into school every single day. A personalised kids lunch bag — small enough to pack, big enough to matter.",
-    price: 200,
+    images: [
+      'images/kids_bag.jpg',
+      'images/kids_bag_2.jpg',
+      'images/kids_lunch_bags.jpg'
+    ],
+    desc: "Their name on the bag they carry into school every single day. A personalised kids school bag — big enough for everything they need, made to feel like theirs.",
+    price: 300,
     options: [],
     cats: ['kids']
   },
@@ -814,7 +818,11 @@ const products = [
     id: 71,
     name: 'The Big Kid Tumbler',
     emoji: '🥤',
-    images: ['images/kids_tubler.jpg'],
+    images: [
+      'images/kids_tubler.jpg',
+      'images/40oz_tumbler.jpg',
+      'images/40oz_tumbler_2.jpg'
+    ],
     desc: "They grow up fast — give them something that keeps up. A personalised 40oz tumbler for the kid who means business. Their name, their colour, their cup.",
     price: 400,
     options: [],
@@ -824,9 +832,12 @@ const products = [
     id: 72,
     name: 'The Two-Tone Explorer',
     emoji: '🍶',
-    images: ['images/stainless_steel_bottle.jpg'],
+    images: [
+      'images/kids_two_toned_bottle.jpg',
+      'images/kids_two_toned_bottle_2.jpg'
+    ],
     desc: "Two colours, one name, zero excuses for losing it. A personalised two-tone stainless steel bottle — the one they'll actually want to carry.",
-    price: 230,
+    price: 250,
     options: [],
     cats: ['kids', 'bottles']
   },
@@ -1018,5 +1029,45 @@ const products = [
     price: 90,
     options: [],
     cats: ['corporate']
+  },
+  {
+    id: 89,
+    name: 'The Sports Day Bottle',
+    emoji: '🏃',
+    images: ['images/kids_sports_bottle.jpg'],
+    desc: "For the kid who never sits still. A personalised sports bottle built for practice, matches, and everything in between — their name on every sip.",
+    price: 200,
+    options: [],
+    cats: ['kids', 'bottles']
+  },
+  {
+    id: 90,
+    name: 'The Little Scholar Set',
+    emoji: '✏️',
+    images: ['images/pencil_case_pen.jpg'],
+    desc: "Back-to-school, sorted. A personalised pencil case and matching pen — their name on the desk essentials they'll reach for every day.",
+    price: 180,
+    options: [],
+    cats: ['kids']
+  },
+  {
+    id: 91,
+    name: 'The Little Essentials Set',
+    emoji: '🧦',
+    images: ['images/socks_bottle_gift_bag.jpg'],
+    desc: "The little things that make them feel special. Personalised socks and a matching bottle, wrapped in a gift bag and ready to give.",
+    price: 400,
+    options: [],
+    cats: ['kids']
+  },
+  {
+    id: 92,
+    name: 'The Grab & Go Gift Bag',
+    emoji: '🥤',
+    images: ['images/tumbler_gift_bag.jpg'],
+    desc: "A personalised tumbler wrapped and ready to gift. Their name, their colour, packed in a gift bag — thoughtful, done, sorted.",
+    price: 300,
+    options: [],
+    cats: ['kids']
   }
 ];
