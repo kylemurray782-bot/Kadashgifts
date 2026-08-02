@@ -748,16 +748,6 @@ const products = [
     cats: ['kids']
   },
   {
-    id: 65,
-    name: 'The Little Legend Pack',
-    emoji: '🎒',
-    images: ['images/kids_backpack.jpg'],
-    desc: "Their name on their back, their whole world inside. A personalised kids backpack — for the child who shows up ready for whatever the day brings.",
-    price: 250,
-    options: [],
-    cats: ['kids']
-  },
-  {
     id: 66,
     name: 'The Lunchtime Set',
     emoji: '🥪',
@@ -805,23 +795,13 @@ const products = [
     cats: ['kids']
   },
   {
-    id: 70,
-    name: 'The Pampered Little One Set',
-    emoji: '🛁',
-    images: ['images/kids_gown_1.jpg'],
-    desc: "A personalised gown and slippers — because even the little ones deserve to feel completely at home in something made just for them. Wrap them in comfort, wrap them in their name.",
-    price: 550,
-    options: [],
-    cats: ['kids']
-  },
-  {
     id: 71,
     name: 'The Big Kid Tumbler',
     emoji: '🥤',
     images: [
-      'images/kids_tubler.jpg',
       'images/40oz_tumbler.jpg',
-      'images/40oz_tumbler_2.jpg'
+      'images/40oz_tumbler_2.jpg',
+      'images/kids_tubler.jpg'
     ],
     desc: "They grow up fast — give them something that keeps up. A personalised 40oz tumbler for the kid who means business. Their name, their colour, their cup.",
     price: 400,
