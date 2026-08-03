@@ -1365,5 +1365,128 @@ const products = [
     price: 300,
     options: [],
     cats: ['sport']
+  },
+  {
+    id: 124,
+    name: 'The Event Mug & Pen Set',
+    emoji: '☕',
+    images: ['images/mug_pen_events.jpg'],
+    desc: "A personalised mug and matching pen, boxed and ready to hand out. A smart, useful favour for conferences, launches, and celebrations.",
+    price: 170,
+    options: [],
+    cats: ['events']
+  },
+  {
+    id: 125,
+    name: 'The Full Delegate Set',
+    emoji: '📋',
+    images: ['images/mousepad_notebook_pen_events.jpg'],
+    desc: "Everything a guest needs to take notes and take part. A personalised mousepad, notebook, pen, and flask, the complete set for conferences, workshops, and corporate events.",
+    price: 630,
+    options: [],
+    cats: ['events']
+  },
+  {
+    id: 126,
+    name: 'The Event Pencil Bag',
+    emoji: '✏️',
+    images: ['images/packaging_pencil_bag_events.jpg'],
+    desc: "A personalised pencil bag, packaged and ready to give. A neat, practical favour that guests actually keep.",
+    price: 95,
+    options: [],
+    cats: ['events']
+  },
+  {
+    id: 127,
+    name: 'The Compact Mirror Favour',
+    emoji: '🪞',
+    images: ['images/packaging_compact_mirror.jpg'],
+    desc: "A personalised compact mirror in gift packaging. A small, thoughtful touch for weddings, parties, and events.",
+    price: 150,
+    options: [],
+    cats: ['events']
+  },
+  {
+    id: 128,
+    name: 'The Sequin Makeup Bag',
+    emoji: '👜',
+    images: ['images/packaging_sequin_makeup.jpg'],
+    desc: "A personalised sequin makeup bag, packaged to impress. A favour with a bit of sparkle for the guests who love the details.",
+    price: 150,
+    options: [],
+    cats: ['events']
+  },
+  {
+    id: 129,
+    name: 'The Boxed Candle',
+    emoji: '🕯️',
+    images: ['images/box_candle_set.jpg'],
+    desc: "A personalised candle presented in a gift box. A warm, welcoming favour that suits any occasion.",
+    price: 190,
+    options: [],
+    cats: ['events']
+  },
+  {
+    id: 130,
+    name: 'The Charm Keyring Favour',
+    emoji: '🔑',
+    images: ['images/packaging_charm_keyring.jpg'],
+    desc: "A personalised charm keyring in gift packaging. A small keepsake guests carry long after the event.",
+    price: 150,
+    options: [],
+    cats: ['events']
+  },
+  {
+    id: 131,
+    name: 'The Boxed Glass Bottle',
+    emoji: '🍶',
+    images: ['images/box_glass.jpg'],
+    desc: "A personalised glass bottle boxed and ready to give. A clean, useful favour for launches, weddings, and corporate days.",
+    price: 190,
+    options: [],
+    cats: ['events']
+  },
+  {
+    id: 132,
+    name: 'The Succulent Favour',
+    emoji: '🌵',
+    images: ['images/box_succulent_event.jpg'],
+    desc: "A potted succulent presented in a gift box. A living favour that keeps growing well past the event.",
+    price: 200,
+    options: [],
+    cats: ['events']
+  },
+  {
+    id: 133,
+    name: 'The Phone-Stand Pen',
+    emoji: '🖊️',
+    images: ['images/packaging_pen_events.jpg'],
+    desc: "A personalised pen that doubles as a phone stand, packaged and ready to give. A clever little favour guests will actually use at their desk.",
+    price: 65,
+    options: [],
+    cats: ['events']
+  },
+  {
+    id: 134,
+    name: 'The Notebook & Pen Box',
+    emoji: '📓',
+    images: ['images/box_notebook_pen.jpg'],
+    desc: "A personalised notebook and pen in a gift box. A polished favour for delegates, guests, and teams.",
+    price: 200,
+    options: [],
+    cats: ['events']
+  },
+  {
+    id: 135,
+    name: 'The Event Tumbler Set',
+    emoji: '🥤',
+    images: [
+      'images/gift_bag_tumbler_events.jpg',
+      'images/gift_bag_tumbler_events_2.jpg'
+    ],
+    desc: "A personalised 40oz tumbler in a matching gift bag. A premium favour that guests carry everywhere, keeping your event in hand long after.",
+    price: 450,
+    options: [],
+    cats: ['events']
   }
 ];
