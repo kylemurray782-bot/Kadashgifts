@@ -4,7 +4,7 @@ const products = [
     name: 'Kingdom Kit',
     emoji: '🧔',
     images: ['images/kingdom-kit.jpg'],
-    desc: 'Personalised beard care gift set. Name printed on the bottle — full kit personalisation available on request.',
+    desc: 'Personalised beard care gift set. Name printed on the bottle, full kit personalisation available on request.',
     price: 300,
     options: [],
     cats: ['fathers-day', 'birthday-him'],
@@ -19,7 +19,7 @@ const products = [
       'images/Urban-gentlemen-2.jpg',
       'images/Urban-gentlemen-3.jpg'
     ],
-    desc: 'A refined gift set for the man who means business. Choose your tier — from a personalised travel mug up to the full executive bundle.',
+    desc: 'A refined gift set for the man who means business. Choose your tier, from a personalised travel mug up to the full executive bundle.',
     price: 0,
     options: [
       { name: 'Personalised travel mug', price: 200 },
@@ -59,7 +59,7 @@ const products = [
       'images/The-reset-set-2.jpg',
       'images/The-reset-set-3.jpg'
     ],
-    desc: 'For the dad who deserves to rest. A personalised relaxation set — choose the level of luxury.',
+    desc: 'For the dad who deserves to rest. A personalised relaxation set, choose the level of luxury.',
     price: 0,
     options: [
       { name: 'Personalised slippers', price: 270 },
@@ -75,7 +75,7 @@ const products = [
     name: 'Kingdom Man Bible Set',
     emoji: '📖',
     images: ['images/kingdom-man-bible-set.jpg'],
-    desc: 'Personalised Bible, notebook, mug, and pen — every piece carrying his name.',
+    desc: 'Personalised Bible, notebook, mug, and pen, every piece carrying his name.',
     price: 600,
     options: [],
     cats: ['birthday-him', 'fathers-day'],
@@ -86,7 +86,7 @@ const products = [
     name: 'Football Set',
     emoji: '⚽',
     images: ['images/football-set.jpg'],
-    desc: "Personalised mug, mug box, and flask with matching gift bag — all printed in his favourite team's colours.",
+    desc: "Personalised mug, mug box, and flask with matching gift bag, all printed in his favourite team's colours.",
     price: 450,
     options: [],
     cats: ['birthday-him', 'fathers-day'],
@@ -97,7 +97,7 @@ const products = [
     name: 'Personalised Toolbox Set',
     emoji: '🔧',
     images: ['images/toolbox-set.jpg'],
-    desc: 'A personalised toolbox set — built for the man who fixes everything.',
+    desc: 'A personalised toolbox set, built for the man who fixes everything.',
     price: 500,
     options: [],
     cats: ['birthday-him', 'fathers-day'],
@@ -119,10 +119,10 @@ const products = [
     name: 'Personalised Travel & Gym Bag',
     emoji: '🏋️',
     images: ['images/travel_gym_sports_bag.jpg'],
-    desc: 'Built for the man always on the move. A quality bag personalised with his name — from the gym to the weekend away.',
+    desc: 'Built for the man always on the move. A quality bag personalised with his name, from the gym to the weekend away.',
     price: 500,
     options: [],
-    cats: ['birthday-him', 'fathers-day'],
+    cats: ['birthday-him', 'fathers-day', 'sport'],
     fathersDay: true
   },
   {
@@ -140,7 +140,7 @@ const products = [
     name: 'Personalised Dad Socks',
     emoji: '🧦',
     images: ['images/dad_socks.jpg'],
-    desc: "His favourite scripture, his nickname, or a message only he'll understand — printed on the pair he'll actually wear.",
+    desc: "His favourite scripture, his nickname, or a message only he'll understand, printed on the pair he'll actually wear.",
     price: 150,
     options: [],
     cats: ['birthday-him', 'fathers-day']
@@ -173,7 +173,7 @@ const products = [
       'images/personalised_wallet_1.jpg',
       'images/personalised_wallet_2.jpg'
     ],
-    desc: "A wallet personalised with his favourite scripture or a message that speaks to who he is — carried with him every day.",
+    desc: "A wallet personalised with his favourite scripture or a message that speaks to who he is, carried with him every day.",
     price: 250,
     options: [],
     cats: ['birthday-him', 'fathers-day']
@@ -203,7 +203,7 @@ const products = [
     name: 'The Cap & Crew Set',
     emoji: '🧢',
     images: ['images/cap_set.jpg'],
-    desc: 'Cap, keyring, coaster, and mug — a full lifestyle set for the man who moves with style. Everything personalised, nothing generic.',
+    desc: 'Cap, keyring, coaster, and mug, a full lifestyle set for the man who moves with style. Everything personalised, nothing generic.',
     price: 580,
     options: [],
     cats: ['birthday-him', 'fathers-day'],
@@ -214,7 +214,7 @@ const products = [
     name: 'The Glam Girl Set',
     emoji: '💄',
     images: ['images/make_upset.jpg'],
-    desc: 'She deserves to feel seen. A personalised compact mirror and bamboo sippy cup — because the woman who gives everything should have something made just for her.',
+    desc: 'She deserves to feel seen. A personalised compact mirror and bamboo sippy cup, because the woman who gives everything should have something made just for her.',
     price: 550,
     options: [],
     cats: ['birthday-her', 'mothers-day']
@@ -224,7 +224,7 @@ const products = [
     name: 'The Her Time Set',
     emoji: '🍷',
     images: ['images/wine_tumbler.jpg'],
-    desc: 'For the woman who never stops — a wine tumbler, a notebook for her thoughts, and a 40oz tumbler to keep her going. All personalised, all hers.',
+    desc: 'For the woman who never stops, a wine tumbler, a notebook for her thoughts, and a 40oz tumbler to keep her going. All personalised, all hers.',
     price: 750,
     options: [],
     cats: ['birthday-her', 'mothers-day']
@@ -234,7 +234,7 @@ const products = [
     name: 'Personalised Platter Board',
     emoji: '🧀',
     images: ['images/platter_board.jpg'],
-    desc: 'She hosts, she feeds, she gathers people together. A personalised platter board engraved with her name — for the woman who makes every table feel like home.',
+    desc: 'She hosts, she feeds, she gathers people together. A personalised platter board engraved with her name, for the woman who makes every table feel like home.',
     price: 300,
     options: [],
     cats: ['birthday-her', 'mothers-day', 'celebrating-love']
@@ -244,7 +244,7 @@ const products = [
     name: 'Personalised Wooden Cutting Board',
     emoji: '🪵',
     images: ['images/wooden_cutting_board.jpg'],
-    desc: 'In her kitchen, everything is made with love. A personalised wooden cutting board engraved with her name — a daily reminder that she is appreciated.',
+    desc: 'In her kitchen, everything is made with love. A personalised wooden cutting board engraved with her name, a daily reminder that she is appreciated.',
     price: 250,
     options: [],
     cats: ['birthday-her', 'mothers-day', 'celebrating-love']
@@ -254,7 +254,7 @@ const products = [
     name: 'Personalised Sippy Cup',
     emoji: '🥤',
     images: ['images/sippy_cup.jpg'],
-    desc: 'Small gift, big feeling. A personalised bamboo-lid sippy cup carrying her name — because even the smallest things can say exactly the right thing.',
+    desc: 'Small gift, big feeling. A personalised bamboo-lid sippy cup carrying her name, because even the smallest things can say exactly the right thing.',
     price: 160,
     options: [],
     cats: ['birthday-her', 'mothers-day']
@@ -274,7 +274,7 @@ const products = [
     name: 'The Memory Blanket',
     emoji: '🛋️',
     images: ['images/personalised_fleece_blanket.jpg'],
-    desc: 'Wrap her in every moment that matters. A personalised fleece blanket printed with photos, kids\'s drawings, or memories — 100x160cm of pure love.',
+    desc: 'Wrap her in every moment that matters. A personalised fleece blanket printed with photos, kids\'s drawings, or memories, 100x160cm of pure love.',
     price: 350,
     options: [],
     cats: ['birthday-her', 'mothers-day', 'celebrating-love']
@@ -299,7 +299,7 @@ const products = [
       'images/personalised_slipper_set_3.jpg',
       'images/personalised_slipper_set_4.jpg'
     ],
-    desc: 'Tell her to put her feet up — literally. Personalised slippers, a mug made for her, and Ferrero Rocher chocolates. For the woman who has earned every second of rest.',
+    desc: 'Tell her to put her feet up, literally. Personalised slippers, a mug made for her, and Ferrero Rocher chocolates. For the woman who has earned every second of rest.',
     price: 450,
     options: [],
     cats: ['best-sellers', 'birthday-her', 'mothers-day']
@@ -329,7 +329,7 @@ const products = [
     name: 'The Treat Yourself Set',
     emoji: '☕',
     images: ['images/notebook_tumbler_chocolate_set.jpg'],
-    desc: 'A personalised notebook, tumbler, mug, sweets, and chocolates — all in one gift. Because sometimes the best gift is everything she wouldn\'t buy for herself.',
+    desc: 'A personalised notebook, tumbler, mug, sweets, and chocolates, all in one gift. Because sometimes the best gift is everything she wouldn\'t buy for herself.',
     price: 650,
     options: [],
     cats: ['birthday-her', 'mothers-day']
@@ -349,7 +349,7 @@ const products = [
     name: 'The Boss Her Set',
     emoji: '📋',
     images: ['images/organiser_set.jpg'],
-    desc: 'Planner, notebook, bamboo sippy cup, door hanger, mat, and pencil case — all personalised. For the woman who runs everything and deserves to look good doing it.',
+    desc: 'Planner, notebook, bamboo sippy cup, door hanger, mat, and pencil case, all personalised. For the woman who runs everything and deserves to look good doing it.',
     price: 600,
     options: [],
     cats: ['birthday-her', 'mothers-day']
@@ -359,7 +359,7 @@ const products = [
     name: "The Gift Box She'll Actually Love",
     emoji: '🎀',
     images: ['images/notebook_tumbler_sweet_choc_gift_box.jpg'],
-    desc: "A personalised notebook and tumbler paired with sweets and chocolates, boxed and ready to give. No overthinking — just everything she loves in one place.",
+    desc: "A personalised notebook and tumbler paired with sweets and chocolates, boxed and ready to give. No overthinking, just everything she loves in one place.",
     price: 550,
     options: [],
     cats: ['birthday-her', 'mothers-day']
@@ -369,7 +369,7 @@ const products = [
     name: 'The Soft Life Set',
     emoji: '💫',
     images: ['images/cushion_notebook_set.jpg'],
-    desc: "A personalised cushion and notebook set in a gift bag — for the woman who carries everyone else's world and deserves something made entirely for hers.",
+    desc: "A personalised cushion and notebook set in a gift bag. For the woman who carries everyone else's world and deserves something made entirely for hers.",
     price: 450,
     options: [],
     cats: ['birthday-her', 'mothers-day']
@@ -379,7 +379,7 @@ const products = [
     name: 'The Bold & Blessed Set',
     emoji: '✨',
     images: ['images/sequin_notebook.jpg'],
-    desc: "For the woman who shines without apology. A sequin notebook and 40oz tumbler in a gift bag — because her faith is loud, her vision is clear, and she was never meant to blend in.",
+    desc: "For the woman who shines without apology. A sequin notebook and 40oz tumbler in a gift bag, because her faith is loud, her vision is clear, and she was never meant to blend in.",
     price: 680,
     options: [],
     cats: ['birthday-her', 'mothers-day']
@@ -394,7 +394,7 @@ const products = [
       'images/aesthetic_basket_3.jpg',
       'images/aesthetic_basket_4.jpg'
     ],
-    desc: 'Because first impressions are everything. A fully branded corporate basket — personalised mousepad, notebook, tumbler, sweet treats, chocolate, and lotion. The kind of gift that says your company pays attention.',
+    desc: 'Because first impressions are everything. A fully branded corporate basket, personalised mousepad, notebook, tumbler, sweet treats, chocolate, and lotion. The kind of gift that says your company pays attention.',
     price: 880,
     options: [],
     cats: ['best-sellers', 'corporate']
@@ -407,7 +407,7 @@ const products = [
       'images/the_organised_set_1.jpg',
       'images/the_organised_set_2.jpg'
     ],
-    desc: 'For the person who builds their day with purpose. A branded mousepad, diary, notebook, and tumbler — everything they reach for every morning, carrying your company\'s name.',
+    desc: 'For the person who builds their day with purpose. A branded mousepad, diary, notebook, and tumbler, everything they reach for every morning, carrying your company\'s name.',
     price: 850,
     options: [],
     cats: ['corporate']
@@ -420,7 +420,7 @@ const products = [
       'images/company_tubler_1.jpg',
       'images/company_tubler_2.jpg'
     ],
-    desc: 'They carry it everywhere — to meetings, to the gym, through long days. A 40oz Stanley tumbler branded with your company logo. Useful enough to use daily. Quality enough to mean something.',
+    desc: 'They carry it everywhere, to meetings, to the gym, through long days. A 40oz Stanley tumbler branded with your company logo. Useful enough to use daily. Quality enough to mean something.',
     price: 450,
     options: [],
     cats: ['corporate']
@@ -433,7 +433,7 @@ const products = [
       'images/corporate_mug_1.jpg',
       'images/corporate_mug_2.jpg'
     ],
-    desc: 'Simple. Sharp. Unmistakably yours. A branded corporate mug presented in a matching gift box — the kind of detail that makes your company look like it cares, because it does.',
+    desc: 'Simple. Sharp. Unmistakably yours. A branded corporate mug presented in a matching gift box, the kind of detail that makes your company look like it cares, because it does.',
     price: 120,
     options: [],
     cats: ['corporate']
@@ -446,7 +446,7 @@ const products = [
       'images/beauty_set_1.jpg',
       'images/beauty_set_2.jpg'
     ],
-    desc: 'For the woman on your team who holds everything together. A branded tumbler, compact mirror, makeup bag, notebook, and lotion — a corporate gift that finally feels personal.',
+    desc: 'For the woman on your team who holds everything together. A branded tumbler, compact mirror, makeup bag, notebook, and lotion, a corporate gift that finally feels personal.',
     price: 800,
     options: [],
     cats: ['corporate']
@@ -456,7 +456,7 @@ const products = [
     name: 'The Signature Pour',
     emoji: '🍷',
     images: ['images/corporate_wine_tumblers.jpg'],
-    desc: 'Your logo on the glass they raise at the end of a hard week. A single branded wine tumbler — understated, elegant, and entirely on brand. The kind of gift that gets noticed without trying.',
+    desc: 'Your logo on the glass they raise at the end of a hard week. A single branded wine tumbler, understated, elegant, and entirely on brand. The kind of gift that gets noticed without trying.',
     price: 200,
     options: [],
     cats: ['corporate']
@@ -466,7 +466,7 @@ const products = [
     name: "The Men's Appreciation Box",
     emoji: '🎖️',
     images: ['images/mens_appreciation_gift.jpg'],
-    desc: 'For the man who shows up every day and rarely hears thank you. A branded notebook, tumbler, chocolates, and sweets — packaged to say what words often don\'t. Recognition, done properly.',
+    desc: 'For the man who shows up every day and rarely hears thank you. A branded notebook, tumbler, chocolates, and sweets, packaged to say what words often don\'t. Recognition, done properly.',
     price: 550,
     options: [],
     cats: ['corporate']
@@ -476,7 +476,7 @@ const products = [
     name: 'The Glamour Desk Set',
     emoji: '✨',
     images: ['images/glamour_set_tumbler.jpg'],
-    desc: 'She brings beauty to everything she touches — her workspace should be no different. A branded tumbler, sequin mousepad, makeup bag, and notebook. For the woman who works hard and looks good doing it.',
+    desc: 'She brings beauty to everything she touches, her workspace should be no different. A branded tumbler, sequin mousepad, makeup bag, and notebook. For the woman who works hard and looks good doing it.',
     price: 780,
     options: [],
     cats: ['corporate', 'birthday-her']
@@ -489,7 +489,7 @@ const products = [
       'images/lunch_deluxe_set_1.jpg',
       'images/lunch_deluxe_set_2.jpg'
     ],
-    desc: 'Everything he needs, monogrammed and ready. A personalised lunch bag, leather notebook, tumbler, stylus pen, and power bank — built for the executive who moves fast and never compromises on detail.',
+    desc: 'Everything he needs, monogrammed and ready. A personalised lunch bag, leather notebook, tumbler, stylus pen, and power bank, built for the executive who moves fast and never compromises on detail.',
     price: 750,
     options: [],
     cats: ['corporate']
@@ -502,7 +502,7 @@ const products = [
       'images/two_toned_mug_1.jpg',
       'images/two_toned_mug_2.jpg'
     ],
-    desc: 'The mug on every desk that starts every conversation. A personalised two-tone mug with matching spoon — branded with a name or logo, and impossible to mistake for anyone else\'s.',
+    desc: 'The mug on every desk that starts every conversation. A personalised two-tone mug with matching spoon, branded with a name or logo, and impossible to mistake for anyone else\'s.',
     price: 130,
     options: [],
     cats: ['corporate']
@@ -512,7 +512,7 @@ const products = [
     name: 'The Welcome Romper',
     emoji: '👶',
     images: ['images/baby_romper_long_sleeve.jpg'],
-    desc: 'Their name. Their arrival. Their first piece of something made just for them. A personalised long-sleeve baby romper — soft, warm, and ready to welcome the newest person in your world.',
+    desc: 'Their name. Their arrival. Their first piece of something made just for them. A personalised long-sleeve baby romper, soft, warm, and ready to welcome the newest person in your world.',
     price: 150,
     options: [],
     cats: ['new-baby']
@@ -522,7 +522,7 @@ const products = [
     name: 'The Little One Set',
     emoji: '🧢',
     images: ['images/baby_romper_hat_set.jpg'],
-    desc: 'A short-sleeve romper and matching hat, both personalised with baby\'s name. The kind of gift that gets kept long after they\'ve grown out of it — because it was made for them before they even knew who they were.',
+    desc: 'A short-sleeve romper and matching hat, both personalised with baby\'s name. The kind of gift that gets kept long after they\'ve grown out of it, because it was made for them before they even knew who they were.',
     price: 230,
     options: [],
     cats: ['new-baby']
@@ -536,7 +536,7 @@ const products = [
       'images/baby_fleece_receiving_blankets_2.jpg',
       'images/baby_fleece_receiving_blankets_3.jpg'
     ],
-    desc: 'Soft, personalised, and made to be held close. A fleece or receiving blanket printed with baby\'s name — for every feed, every nap, and every moment that deserves to feel like home.',
+    desc: 'Soft, personalised, and made to be held close. A fleece or receiving blanket printed with baby\'s name, for every feed, every nap, and every moment that deserves to feel like home.',
     price: 250,
     options: [],
     cats: ['new-baby']
@@ -546,7 +546,7 @@ const products = [
     name: 'The First Hello Romper',
     emoji: '🌟',
     images: ['images/baby_romper.jpg'],
-    desc: 'Simple, soft, and entirely theirs. A personalised baby romper carrying their name from day one — because even the smallest person deserves something made just for them.',
+    desc: 'Simple, soft, and entirely theirs. A personalised baby romper carrying their name from day one, because even the smallest person deserves something made just for them.',
     price: 130,
     options: [],
     cats: ['new-baby']
@@ -559,7 +559,7 @@ const products = [
       'images/baby_feeding_cup_1.jpg',
       'images/baby_feeding_cup_2.jpg'
     ],
-    desc: 'Their name on the cup they reach for first. A personalised baby feeding cup — because even the smallest details of their earliest days deserve to be made just for them.',
+    desc: 'Their name on the cup they reach for first. A personalised baby feeding cup, because even the smallest details of their earliest days deserve to be made just for them.',
     price: 250,
     options: [],
     cats: ['new-baby']
@@ -572,7 +572,7 @@ const products = [
       'images/kiddies_backpack_1.jpg',
       'images/kiddies_backpack_2.jpg'
     ],
-    desc: 'Their name on their back before they even know where they\'re going. A personalised kiddies backpack — for the little one who is already on an adventure.',
+    desc: 'Their name on their back before they even know where they\'re going. A personalised kiddies backpack, for the little one who is already on an adventure.',
     price: 250,
     options: [],
     cats: ['new-baby']
@@ -582,7 +582,7 @@ const products = [
     name: 'The Gentle Touch Cloth',
     emoji: '🤍',
     images: ['images/burp_cloths.jpg'],
-    desc: 'Soft on their skin, personal from day one. Personalised burp cloths carrying baby\'s name — for every tender moment in those early weeks that go by far too fast.',
+    desc: 'Soft on their skin, personal from day one. Personalised burp cloths carrying baby\'s name, for every tender moment in those early weeks that go by far too fast.',
     price: 150,
     options: [],
     cats: ['new-baby']
@@ -595,7 +595,7 @@ const products = [
       'images/teddy_burp_1.jpg',
       'images/teddy_burp_2.jpg'
     ],
-    desc: 'For the family who just changed forever. A teddy, burp cloth, blanket, dummy, feeding cup, beanie, and baby grow — every piece personalised, everything they need for the first days of the rest of their lives.',
+    desc: 'For the family who just changed forever. A teddy, burp cloth, blanket, dummy, feeding cup, beanie, and baby grow, every piece personalised, everything they need for the first days of the rest of their lives.',
     price: 1150,
     options: [],
     cats: ['best-sellers', 'new-baby']
@@ -605,7 +605,7 @@ const products = [
     name: 'The Adventure Starts Here Set',
     emoji: '🧸',
     images: ['images/teddy_backpack_set.jpg'],
-    desc: 'A teddy with a personalised top, a personalised blanket, feeding cup, and backpack — because from the very first day, they are going somewhere. Help them arrive in style.',
+    desc: 'A teddy with a personalised top, a personalised blanket, feeding cup, and backpack, because from the very first day, they are going somewhere. Help them arrive in style.',
     price: 1080,
     options: [],
     cats: ['new-baby']
@@ -618,7 +618,7 @@ const products = [
       'images/baby_grow_set_1.jpg',
       'images/baby_grow_set_2.jpg'
     ],
-    desc: 'A personalised baby grow, beanie, teddy, dummy, feeding cup, and blanket — everything waiting for them the moment they arrive. The gift that says we were ready for you, and we made it just for you.',
+    desc: 'A personalised baby grow, beanie, teddy, dummy, feeding cup, and blanket, everything waiting for them the moment they arrive. The gift that says we were ready for you, and we made it just for you.',
     price: 1050,
     options: [],
     cats: ['new-baby']
@@ -632,7 +632,7 @@ const products = [
       'images/baby_cushion_2.jpg',
       'images/baby_cushion_3.jpg'
     ],
-    desc: 'Their name, softly printed, on something that holds them close. A personalised baby cushion — a small comfort that becomes a lasting keepsake.',
+    desc: 'Their name, softly printed, on something that holds them close. A personalised baby cushion, a small comfort that becomes a lasting keepsake.',
     price: 160,
     options: [],
     cats: ['new-baby']
@@ -645,7 +645,7 @@ const products = [
       'images/backpack_teddy_1.jpg',
       'images/backpack_teddy_2.jpg'
     ],
-    desc: 'A personalised backpack, teddy, blanket, and feeding cup — for the little one who hasn\'t gone anywhere yet but is already going everywhere. The complete set for their very first chapter.',
+    desc: 'A personalised backpack, teddy, blanket, and feeding cup, for the little one who hasn\'t gone anywhere yet but is already going everywhere. The complete set for their very first chapter.',
     price: 980,
     options: [],
     cats: ['new-baby']
@@ -655,7 +655,7 @@ const products = [
     name: 'The Welcomed With Love Basket',
     emoji: '🧴',
     images: ['images/baby_lotion_powder_set.jpg'],
-    desc: 'Baby lotion, powder, and wash. A personalised outfit with vest, a personalised basket, dummy, and feeding cup — a full welcome, wrapped in care. For the baby who is already so loved, and the parents who want to show it.',
+    desc: 'Baby lotion, powder, and wash. A personalised outfit with vest, a personalised basket, dummy, and feeding cup, a full welcome, wrapped in care. For the baby who is already so loved, and the parents who want to show it.',
     price: 850,
     options: [],
     cats: ['new-baby']
@@ -669,7 +669,7 @@ const products = [
       'images/baby_dummy_2.jpg',
       'images/baby_dummy_3.jpg'
     ],
-    desc: "The thing that quiets the world for them. A personalised dummy — small, soft, and carrying their name before they can even say it.",
+    desc: "The thing that quiets the world for them. A personalised dummy: small, soft, and carrying their name before they can even say it.",
     price: 150,
     options: [],
     cats: ['new-baby']
@@ -682,7 +682,7 @@ const products = [
       'images/feeding_cup_vest_set_1.jpg',
       'images/feeding_cup_vest_set_2.jpg'
     ],
-    desc: "The things they reach for every single day — a personalised feeding cup, vest, blanket, and dummy. Simple gifts that become the rhythm of their earliest life.",
+    desc: "The things they reach for every single day: a personalised feeding cup, vest, blanket, and dummy. Simple gifts that become the rhythm of their earliest life.",
     price: 650,
     options: [],
     cats: ['new-baby']
@@ -695,7 +695,7 @@ const products = [
       'images/basket_hat_blanket_1.jpg',
       'images/basket_hat_blanket_2.jpg'
     ],
-    desc: "Everything they could need, all in one place. A personalised basket with hat, blanket, burp cloth, feeding cup, vest, and teddy — the kind of gift that makes a family feel truly celebrated.",
+    desc: "Everything they could need, all in one place. A personalised basket with hat, blanket, burp cloth, feeding cup, vest, and teddy. The kind of gift that makes a family feel truly celebrated.",
     price: 1100,
     options: [],
     cats: ['new-baby']
@@ -705,7 +705,7 @@ const products = [
     name: 'The Soothe & Nourish Set',
     emoji: '💛',
     images: ['images/feed_cup_dummy.jpg'],
-    desc: "Two of the most-reached-for things in a new baby's world — a personalised feeding cup and a personalised dummy. Practical, personal, and impossible to mix up with anyone else's.",
+    desc: "Two of the most-reached-for things in a new baby's world: a personalised feeding cup and a personalised dummy. Practical, personal, and impossible to mix up with anyone else's.",
     price: 320,
     options: [],
     cats: ['new-baby']
@@ -718,7 +718,7 @@ const products = [
       'images/cushion_burp_cloth_set_1.jpg',
       'images/cushion_burp_cloth_set_2.jpg'
     ],
-    desc: "A blanket, feeding cup, cushion, burp cloth, teddy, and romper — all personalised. For every moment they are held, fed, and wrapped in love. The gift for the family in the thick of the beautiful, exhausting beginning.",
+    desc: "A blanket, feeding cup, cushion, burp cloth, teddy, and romper, all personalised. For every moment they are held, fed, and wrapped in love. The gift for the family in the thick of the beautiful, exhausting beginning.",
     price: 950,
     options: [],
     cats: ['new-baby']
@@ -732,7 +732,7 @@ const products = [
       'images/kids_stainless_steel_bottle_2.jpg',
       'images/kids_sippy_bottle.jpg'
     ],
-    desc: "Their name on the bottle they carry everywhere. A personalised kids bottle — built for school bags, sports days, and every adventure in between.",
+    desc: "Their name on the bottle they carry everywhere. A personalised kids bottle, built for school bags, sports days, and every adventure in between.",
     price: 200,
     options: [],
     cats: ['kids', 'bottles']
@@ -742,7 +742,7 @@ const products = [
     name: 'The Ready For Anything Set',
     emoji: '🎒',
     images: ['images/kids_backpack_bottle_set_1.jpg'],
-    desc: "A personalised backpack and matching bottle — because every big day starts with having everything you need. Made for the little one who is always on the go.",
+    desc: "A personalised backpack and matching bottle, because every big day starts with having everything you need. Made for the little one who is always on the go.",
     price: 430,
     options: [],
     cats: ['kids']
@@ -755,7 +755,7 @@ const products = [
       'images/lunch_box_and_bottle.jpg',
       'images/lunch_box_and_bottle_2.jpg'
     ],
-    desc: "Lunchtime just got personal. A personalised kids lunch box and matching bottle — because the things they use every day should feel like they were made just for them. Because they were.",
+    desc: "Lunchtime just got personal. A personalised kids lunch box and matching bottle, because the things they use every day should feel like they were made just for them. Because they were.",
     price: 350,
     options: [],
     cats: ['best-sellers', 'kids']
@@ -769,7 +769,7 @@ const products = [
       'images/kids_bag_2.jpg',
       'images/kids_lunch_bags.jpg'
     ],
-    desc: "Their name on the bag they carry into school every single day. A personalised kids school bag — big enough for everything they need, made to feel like theirs.",
+    desc: "Their name on the bag they carry into school every single day. A personalised kids school bag, big enough for everything they need, made to feel like theirs.",
     price: 300,
     options: [],
     cats: ['kids']
@@ -779,7 +779,7 @@ const products = [
     name: 'The Full Pack Set',
     emoji: '🎁',
     images: ['images/kids_backpack_puzzle_bottle.jpg'],
-    desc: "A personalised backpack, puzzle, bottle, and gift bag — everything a child needs, wrapped up and ready to give. For the kid who deserves a gift that actually gets used.",
+    desc: "A personalised backpack, puzzle, bottle, and gift bag: everything a child needs, wrapped up and ready to give. For the kid who deserves a gift that actually gets used.",
     price: 600,
     options: [],
     cats: ['kids']
@@ -789,7 +789,7 @@ const products = [
     name: 'The Complete Lunchtime Kit',
     emoji: '🍱',
     images: ['images/lunch_bag.jpg'],
-    desc: "Lunch bag, bottle, and lunchbox — all personalised, all in one. For the child who deserves to open their bag and find something made just for them, every single day.",
+    desc: "Lunch bag, bottle, and lunchbox, all personalised, all in one. For the child who deserves to open their bag and find something made just for them, every single day.",
     price: 530,
     options: [],
     cats: ['kids']
@@ -803,7 +803,7 @@ const products = [
       'images/40oz_tumbler_2.jpg',
       'images/kids_tubler.jpg'
     ],
-    desc: "They grow up fast — give them something that keeps up. A personalised 40oz tumbler for the kid who means business. Their name, their colour, their cup.",
+    desc: "They grow up fast. Give them something that keeps up. A personalised 40oz tumbler for the kid who means business. Their name, their colour, their cup.",
     price: 400,
     options: [],
     cats: ['kids', 'bottles']
@@ -816,7 +816,7 @@ const products = [
       'images/kids_two_toned_bottle.jpg',
       'images/kids_two_toned_bottle_2.jpg'
     ],
-    desc: "Two colours, one name, zero excuses for losing it. A personalised two-tone stainless steel bottle — the one they'll actually want to carry.",
+    desc: "Two colours, one name, zero excuses for losing it. A personalised two-tone stainless steel bottle, the one they'll actually want to carry.",
     price: 250,
     options: [],
     cats: ['kids', 'bottles']
@@ -826,7 +826,7 @@ const products = [
     name: 'The Healing Basket',
     emoji: '🌿',
     images: ['images/teddy_ginger_tea_set.jpg'],
-    desc: "When words aren't enough, send this. A wooden basket filled with a tumbler, teddy, ginger tea, honey, Ferrero Rocher, nuts, fruit bits, a plant, devotional book, candle, and a card — everything they need to feel held, loved, and on the mend.",
+    desc: "When words aren't enough, send this. A wooden basket filled with a tumbler, teddy, ginger tea, honey, Ferrero Rocher, nuts, fruit bits, a plant, devotional book, candle, and a card: everything they need to feel held, loved, and on the mend.",
     price: 1200,
     options: [],
     cats: ['get-well-soon']
@@ -836,7 +836,7 @@ const products = [
     name: 'The Rest & Restore Set',
     emoji: '🛁',
     images: ['images/gown_slipper_sick.jpg'],
-    desc: "Tell them to stop, rest, and let their body do its work. A personalised gown and slippers paired with bath salts, body wash, body scrub, body butter, a candle, and a card — the gift that says slow down, we've got you.",
+    desc: "Tell them to stop, rest, and let their body do its work. A personalised gown and slippers paired with bath salts, body wash, body scrub, body butter, a candle, and a card. The gift that says slow down, we've got you.",
     price: 1200,
     options: [],
     cats: ['get-well-soon']
@@ -846,7 +846,7 @@ const products = [
     name: 'The On The Mend Kit',
     emoji: '💛',
     images: ['images/head_rest_tubler.jpg'],
-    desc: "Practical, personal, and full of care. A head rest, tumbler, five fruit and energy bars, toiletry bag, body lotion, nougat, and a card — because getting better is easier when someone thought of everything.",
+    desc: "Practical, personal, and full of care. A head rest, tumbler, five fruit and energy bars, toiletry bag, body lotion, nougat, and a card, because getting better is easier when someone thought of everything.",
     price: 950,
     options: [],
     cats: ['get-well-soon']
@@ -856,7 +856,7 @@ const products = [
     name: 'The Wooden Handle Mug',
     emoji: '☕',
     images: ['images/mug_wooden_handle.jpg'],
-    desc: "Warm hands, warm heart. A personalised mug with a natural wooden handle — the kind of cup that makes every morning feel a little more intentional.",
+    desc: "Warm hands, warm heart. A personalised mug with a natural wooden handle, the kind of cup that makes every morning feel a little more intentional.",
     price: 130,
     options: [],
     cats: ['mugs']
@@ -869,7 +869,7 @@ const products = [
       'images/plain_white_mug.jpg',
       'images/plain_white_mug_with_box.jpg'
     ],
-    desc: "Clean, classic, and entirely theirs. A personalised white mug — the one they reach for first, every single morning.",
+    desc: "Clean, classic, and entirely theirs. A personalised white mug, the one they reach for first, every single morning.",
     price: 0,
     options: [
       { name: 'Without box', price: 100 },
@@ -882,7 +882,7 @@ const products = [
     name: 'The Black Frame Mug',
     emoji: '☕',
     images: ['images/black_frame_mug.jpg'],
-    desc: "Bold framing, personal touch. A personalised black frame mug that turns an everyday cup into a statement — presented in a gift box for the full experience.",
+    desc: "Bold framing, personal touch. A personalised black frame mug that turns an everyday cup into a statement, presented in a gift box for the full experience.",
     price: 0,
     options: [
       { name: 'Without box', price: 130 },
@@ -895,7 +895,7 @@ const products = [
     name: 'The Spoon & Sip Mug',
     emoji: '🥄',
     images: ['images/mug_with_spoon.jpg'],
-    desc: "The matching set they didn't know they needed. A personalised mug with matching spoon — available in Green, Red, Navy, Blue, Yellow, Pink, Orange, and Purple. The perfect finishing touch for any desk or kitchen.",
+    desc: "The matching set they didn't know they needed. A personalised mug with matching spoon, available in Green, Red, Navy, Blue, Yellow, Pink, Orange, and Purple. The perfect finishing touch for any desk or kitchen.",
     price: 0,
     options: [
       { name: 'Without box', price: 120 },
@@ -927,7 +927,7 @@ const products = [
       'images/frosted_mug.jpg',
       'images/frosted_mug_with_box.jpg'
     ],
-    desc: "Soft finish, strong impression. A personalised frosted mug in Pink, Green, Yellow, Red, or Blue — the kind of gift that looks as good on the shelf as it does in their hands.",
+    desc: "Soft finish, strong impression. A personalised frosted mug in Pink, Green, Yellow, Red, or Blue. The kind of gift that looks as good on the shelf as it does in their hands.",
     price: 0,
     options: [
       { name: 'Without box', price: 110 },
@@ -945,7 +945,7 @@ const products = [
       'images/corp_cuppacino_3.jpg',
       'images/corp_cuppacino_4.jpg'
     ],
-    desc: "The mug that belongs in a meeting room and a kitchen table. A personalised cappuccino-style mug — branded or gifted, it always looks the part.",
+    desc: "The mug that belongs in a meeting room and a kitchen table. A personalised cappuccino-style mug. Branded or gifted, it always looks the part.",
     price: 120,
     options: [],
     cats: ['mugs']
@@ -955,7 +955,7 @@ const products = [
     name: 'The Daily Carry',
     emoji: '👜',
     images: ['images/corporate_lunch_bag.jpg'],
-    desc: 'A branded lunch bag they actually reach for — to the office, to site, to wherever the day takes them. Your logo, carried every single day.',
+    desc: 'A branded lunch bag they actually reach for, to the office, to site, to wherever the day takes them. Your logo, carried every single day.',
     price: 130,
     options: [],
     cats: ['corporate']
@@ -975,7 +975,7 @@ const products = [
     name: 'The Signature Pen',
     emoji: '🖊️',
     images: ['images/branded_pen.jpg'],
-    desc: 'The pen that ends up in every meeting and on every signature. Branded with your logo — understated, useful, and always within reach.',
+    desc: 'The pen that ends up in every meeting and on every signature. Branded with your logo, understated, useful, and always within reach.',
     price: 80,
     options: [],
     cats: ['corporate']
@@ -985,7 +985,7 @@ const products = [
     name: 'The Carry-All Case',
     emoji: '✏️',
     images: ['images/branded_pencil_case.jpg'],
-    desc: 'Branded and built to hold the everyday essentials. The kind of detail that makes your company look like it pays attention — because it does.',
+    desc: 'Branded and built to hold the everyday essentials. The kind of detail that makes your company look like it pays attention, because it does.',
     price: 130,
     options: [],
     cats: ['corporate']
@@ -995,7 +995,7 @@ const products = [
     name: 'The Blank Page',
     emoji: '📓',
     images: ['images/branded_note_book.jpg'],
-    desc: 'Every good idea starts on a blank page. A branded notebook for the meetings, the plans, and the thinking that moves work forward — your logo on every one.',
+    desc: 'Every good idea starts on a blank page. A branded notebook for the meetings, the plans, and the thinking that moves work forward, your logo on every one.',
     price: 150,
     options: [],
     cats: ['corporate']
@@ -1005,7 +1005,7 @@ const products = [
     name: 'The Desk Mark',
     emoji: '🖋️',
     images: ['images/branded_pen_holder.jpg'],
-    desc: 'Branded and built to sit front and centre on their desk. A small daily reminder of who they work with — keeping their pens in place and your name in view.',
+    desc: 'Branded and built to sit front and centre on their desk. A small daily reminder of who they work with, keeping their pens in place and your name in view.',
     price: 90,
     options: [],
     cats: ['corporate']
@@ -1015,7 +1015,7 @@ const products = [
     name: 'The Sports Day Bottle',
     emoji: '🏃',
     images: ['images/kids_sports_bottle.jpg'],
-    desc: "For the kid who never sits still. A personalised sports bottle built for practice, matches, and everything in between — their name on every sip.",
+    desc: "For the kid who never sits still. A personalised sports bottle built for practice, matches, and everything in between. Their name on every sip.",
     price: 200,
     options: [],
     cats: ['kids', 'bottles']
@@ -1025,7 +1025,7 @@ const products = [
     name: 'The Little Scholar Set',
     emoji: '✏️',
     images: ['images/pencil_case_pen.jpg'],
-    desc: "Back-to-school, sorted. A personalised pencil case and matching pen — their name on the desk essentials they'll reach for every day.",
+    desc: "Back-to-school, sorted. A personalised pencil case and matching pen, their name on the desk essentials they'll reach for every day.",
     price: 180,
     options: [],
     cats: ['kids']
@@ -1045,7 +1045,7 @@ const products = [
     name: 'The Grab & Go Gift Bag',
     emoji: '🥤',
     images: ['images/tumbler_gift_bag.jpg'],
-    desc: "A personalised tumbler wrapped and ready to gift. Their name, their colour, packed in a gift bag — thoughtful, done, sorted.",
+    desc: "A personalised tumbler wrapped and ready to gift. Their name, their colour, packed in a gift bag. Thoughtful, done, sorted.",
     price: 300,
     options: [],
     cats: ['kids']
@@ -1055,7 +1055,7 @@ const products = [
     name: 'The Mr & Mrs Home Set',
     emoji: '🕰️',
     images: ['images/coaster_mug_clock.jpg'],
-    desc: "For the two who built a home together. A personalised ceramic clock, Mr & Mrs mugs, and a matching Mr & Mrs coaster — every piece marking the life you share.",
+    desc: "For the two who built a home together. A personalised ceramic clock, Mr & Mrs mugs, and a matching Mr & Mrs coaster, every piece marking the life you share.",
     price: 650,
     options: [],
     cats: ['celebrating-love']
@@ -1065,7 +1065,7 @@ const products = [
     name: 'The Time Together Set',
     emoji: '🧩',
     images: ['images/clock_with_puzzle.jpg'],
-    desc: "Every moment with them is worth keeping. A personalised ceramic clock paired with a personalised puzzle — a gift about the time you've spent and the pieces that make you, you.",
+    desc: "Every moment with them is worth keeping. A personalised ceramic clock paired with a personalised puzzle, a gift about the time you've spent and the pieces that make you, you.",
     price: 450,
     options: [],
     cats: ['celebrating-love']
@@ -1075,7 +1075,7 @@ const products = [
     name: 'The Keepsake Clock',
     emoji: '⏰',
     images: ['images/ceremic_clock.jpg'],
-    desc: "A personalised ceramic clock made to mark what matters — their names, your date, a moment you'll never let slip. Simple, lasting, entirely yours.",
+    desc: "A personalised ceramic clock made to mark what matters: their names, your date, a moment you'll never let slip. Simple, lasting, entirely yours.",
     price: 300,
     options: [],
     cats: ['celebrating-love']
@@ -1085,7 +1085,7 @@ const products = [
     name: 'The His & Hers Towel Set',
     emoji: '🛁',
     images: ['images/personlised_towels_set.jpg'],
-    desc: "For the couple who share everything — including the bathroom. A personalised Mr & Mrs towel set, his and hers, each carrying their name.",
+    desc: "For the couple who share everything, including the bathroom. A personalised Mr & Mrs towel set, his and hers, each carrying their name.",
     price: 500,
     options: [],
     cats: ['celebrating-love']
@@ -1095,7 +1095,7 @@ const products = [
     name: 'The Grand Gesture Set',
     emoji: '🎈',
     images: ['images/bag_balloons_flower_set.jpg'],
-    desc: "When you want to say it loudly. A gift bag loaded with balloons, fresh flowers, Kit Kat and Ferrero Rocher, finished with a personalised keyring — the whole celebration in one.",
+    desc: "When you want to say it loudly. A gift bag loaded with balloons, fresh flowers, Kit Kat and Ferrero Rocher, finished with a personalised keyring, the whole celebration in one.",
     price: 750,
     options: [],
     cats: ['celebrating-love']
@@ -1105,7 +1105,7 @@ const products = [
     name: "The Gentleman's Bouquet",
     emoji: '💐',
     images: ['images/mens_bouquet.jpg'],
-    desc: "A bouquet built for him. A personalised cap, Kit Kat and Ferrero Rocher, two pairs of socks, a personalised iPhone cover, and a personalised pen — everything he'd never buy himself.",
+    desc: "A bouquet built for him. A personalised cap, Kit Kat and Ferrero Rocher, two pairs of socks, a personalised iPhone cover, and a personalised pen: everything he'd never buy himself.",
     price: 550,
     options: [],
     cats: ['celebrating-love']
@@ -1115,7 +1115,7 @@ const products = [
     name: 'The Piece by Piece Set',
     emoji: '🍷',
     images: ['images/piece_by_piece.jpg'],
-    desc: "Because you fell for them piece by piece. A personalised puzzle with wine, a candle, Ferrero Rocher, and a heart chocolate — a slow, sweet celebration of the two of you.",
+    desc: "Because you fell for them piece by piece. A personalised puzzle with wine, a candle, Ferrero Rocher, and a heart chocolate, a slow, sweet celebration of the two of you.",
     price: 600,
     options: [],
     cats: ['celebrating-love']
@@ -1125,7 +1125,7 @@ const products = [
     name: 'The Table for Two Set',
     emoji: '🧀',
     images: ['images/platter_mugs.jpg'],
-    desc: "For the couple who host with heart. A personalised platter board, personalised mugs, personalised coasters, and a personalised gift bag — set the table and let love do the rest.",
+    desc: "For the couple who host with heart. A personalised platter board, personalised mugs, personalised coasters, and a personalised gift bag. Set the table and let love do the rest.",
     price: 700,
     options: [],
     cats: ['celebrating-love']
@@ -1145,7 +1145,7 @@ const products = [
     name: 'The Whole Heart Set',
     emoji: '🎁',
     images: ['images/cushion_mug_coaster.jpg'],
-    desc: "Everything, all at once. A personalised cushion, personalised mugs, personalised coasters, a personalised ceramic clock, and a gift box to hold it all — the fullest way to say how much they mean to you.",
+    desc: "Everything, all at once. A personalised cushion, personalised mugs, personalised coasters, a personalised ceramic clock, and a gift box to hold it all, the fullest way to say how much they mean to you.",
     price: 800,
     options: [],
     cats: ['celebrating-love']
@@ -1155,7 +1155,7 @@ const products = [
     name: 'The Cappuccino Ritual',
     emoji: '☕',
     images: ['images/corporate_capacino_mug.jpg'],
-    desc: "The mid-morning moment, personalised. A branded cappuccino mug with nuts and dried fruit — a considered desk gift that keeps your name in their hands, cup after cup.",
+    desc: "The mid-morning moment, personalised. A branded cappuccino mug with nuts and dried fruit, a considered desk gift that keeps your name in their hands, cup after cup.",
     price: 480,
     options: [],
     cats: ['corporate']
@@ -1168,7 +1168,7 @@ const products = [
       'images/pen_bottle_notebook.jpg',
       'images/pen_bottle_notebook_2.jpg'
     ],
-    desc: "Everything the working day asks for, all personalised. A pen, bottle, lunch bag, and notebook — a complete corporate set that puts your brand to work every day.",
+    desc: "Everything the working day asks for, all personalised. A pen, bottle, lunch bag, and notebook, a complete corporate set that puts your brand to work every day.",
     price: 700,
     options: [],
     cats: ['corporate']
@@ -1178,7 +1178,7 @@ const products = [
     name: 'The Midday Carry',
     emoji: '🥪',
     images: ['images/lunch_bags.jpg'],
-    desc: "A personalised lunch bag that moves from desk to boardroom and back. Practical, branded, and used daily — corporate gifting that earns its keep.",
+    desc: "A personalised lunch bag that moves from desk to boardroom and back. Practical, branded, and used daily. Corporate gifting that earns its keep.",
     price: 300,
     options: [],
     cats: ['corporate']
@@ -1188,7 +1188,7 @@ const products = [
     name: 'The Considered Trio',
     emoji: '🕯️',
     images: ['images/keyring_bottle_candle.jpg'],
-    desc: "Three thoughtful pieces — a personalised keyring, bottle, and candle. Understated and genuinely useful, for staff appreciation or client thank-yous.",
+    desc: "Three thoughtful pieces: a personalised keyring, bottle, and candle. Understated and genuinely useful, for staff appreciation or client thank-yous.",
     price: 500,
     options: [],
     cats: ['corporate']
@@ -1198,7 +1198,7 @@ const products = [
     name: 'The Field Set',
     emoji: '🖊️',
     images: ['images/flask_notebook_pen.jpg'],
-    desc: "For the team that takes the work on the road. A personalised flask and notebook with a pen and Ferrero Rocher — a premium gift that travels well.",
+    desc: "For the team that takes the work on the road. A personalised flask and notebook with a pen and Ferrero Rocher, a premium gift that travels well.",
     price: 600,
     options: [],
     cats: ['corporate']
@@ -1208,7 +1208,7 @@ const products = [
     name: 'The Living Desk',
     emoji: '🪴',
     images: ['images/plant_flask_notebook_pen.jpg'],
-    desc: "A corporate gift that keeps growing. A personalised plant alongside a flask, notebook, and pen — a fresh, lasting addition to any desk.",
+    desc: "A corporate gift that keeps growing. A personalised plant alongside a flask, notebook, and pen, a fresh, lasting addition to any desk.",
     price: 700,
     options: [],
     cats: ['corporate']
@@ -1218,7 +1218,7 @@ const products = [
     name: 'The Comfort & Care Hamper',
     emoji: '🧺',
     images: ['images/glass_display_mug_honey.jpg'],
-    desc: "Everything they need to feel held while they heal. A glass display filled with a personalised mug, honey, biscuits, tea, tissues, a candle, and Ferrero Rocher and Lindt chocolates — comfort, all in one place.",
+    desc: "Everything they need to feel held while they heal. A glass display filled with a personalised mug, honey, biscuits, tea, tissues, a candle, and Ferrero Rocher and Lindt chocolates. Comfort, all in one place.",
     price: 800,
     options: [],
     cats: ['get-well-soon']
@@ -1228,7 +1228,7 @@ const products = [
     name: 'The Proud Graduate Display',
     emoji: '🎓',
     images: ['images/graduation_display.jpg'],
-    desc: "For the milestone worth framing. A personalised graduation display marking their name, their achievement, and the day they earned it — from creche caps to final years.",
+    desc: "For the milestone worth framing. A personalised graduation display marking their name, their achievement, and the day they earned it, from creche caps to final years.",
     price: 200,
     options: [],
     cats: ['school']
@@ -1238,7 +1238,7 @@ const products = [
     name: 'The Class Mug & Box',
     emoji: '☕',
     images: ['images/mug__mugbox_school.jpg'],
-    desc: "A personalised mug boxed and ready to gift — for a favourite teacher, a proud graduate, or a keepsake from the school year.",
+    desc: "A personalised mug boxed and ready to gift, for a favourite teacher, a proud graduate, or a keepsake from the school year.",
     price: 120,
     options: [],
     cats: ['school']
@@ -1248,7 +1248,7 @@ const products = [
     name: 'The School Lunch Box',
     emoji: '🍱',
     images: ['images/lunch_box.jpg'],
-    desc: "A personalised lunch box made for the school run — their name front and centre, built for every packed lunch of the year.",
+    desc: "A personalised lunch box made for the school run, their name front and centre, built for every packed lunch of the year.",
     price: 150,
     options: [],
     cats: ['school']
@@ -1258,7 +1258,7 @@ const products = [
     name: 'The School Keyring',
     emoji: '🔑',
     images: ['images/keyring_school.jpg'],
-    desc: "A small personalised keyring with a school-day feel — an easy, affordable keepsake for class gifts, party packs, or end-of-year thank-yous.",
+    desc: "A small personalised keyring with a school-day feel, an easy, affordable keepsake for class gifts, party packs, or end-of-year thank-yous.",
     price: 100,
     options: [],
     cats: ['school']
@@ -1268,9 +1268,102 @@ const products = [
     name: 'The School Sippy Cup',
     emoji: '🥤',
     images: ['images/sippy_cup_school.jpg'],
-    desc: "A personalised sippy cup in a playful school design — perfect for creche, little graduates, and everything in between.",
+    desc: "A personalised sippy cup in a playful school design, perfect for creche, little graduates, and everything in between.",
     price: 200,
     options: [],
     cats: ['school']
+  },
+  {
+    id: 115,
+    name: 'The School Water Bottle',
+    emoji: '💧',
+    images: ['images/water_bottles_school.jpg'],
+    desc: "A personalised water bottle made for the school day. Their name on the one they carry to class, to practice, and back.",
+    price: 150,
+    options: [],
+    cats: ['school']
+  },
+  {
+    id: 116,
+    name: 'The School Pencil Case',
+    emoji: '✏️',
+    images: ['images/pencil_case_school.jpg'],
+    desc: "A personalised pencil case sized for the school bag. Their name on the one that holds everything they need for class.",
+    price: 90,
+    options: [],
+    cats: ['school']
+  },
+  {
+    id: 117,
+    name: 'The Pencil Case & Crayons Set',
+    emoji: '🖍️',
+    images: [
+      'images/pencil_case_crayons.jpg',
+      'images/pencil_case_crayons_2.jpg'
+    ],
+    desc: "A personalised pencil case packed with crayons, ready for the classroom. Their name on the set they colour, write, and learn with.",
+    price: 150,
+    options: [],
+    cats: ['school']
+  },
+  {
+    id: 118,
+    name: 'The School Stationery Set',
+    emoji: '🖊️',
+    images: ['images/pen_pencil_case_school.jpg'],
+    desc: "A personalised pencil case and matching pen in a school design. Their name on the desk essentials they reach for every day.",
+    price: 180,
+    options: [],
+    cats: ['school']
+  },
+  {
+    id: 119,
+    name: 'The School Arm Sleeves',
+    emoji: '💪',
+    images: ['images/arm_sleeves.jpg'],
+    desc: "A pair of personalised arm sleeves. Their name on a practical extra for school, sports days, and time in the sun.",
+    price: 100,
+    options: [],
+    cats: ['school']
+  },
+  {
+    id: 120,
+    name: 'The Comrades Winner Set',
+    emoji: '🏅',
+    images: ['images/comrades_winner_set.jpg'],
+    desc: "For the runner who conquered the ultimate. A personalised T-shirt, cap, mug, keyring, and coaster, celebrating the medal, the miles, and everything it took to earn them.",
+    price: 640,
+    options: [],
+    cats: ['sport']
+  },
+  {
+    id: 121,
+    name: "The Runner's Overnight Bag",
+    emoji: '🏃',
+    images: ['images/runner_bag_sports.jpg'],
+    desc: "A personalised sports and overnight bag built for the runner always heading somewhere. Race day, training camp, or the weekend away.",
+    price: 600,
+    options: [],
+    cats: ['sport']
+  },
+  {
+    id: 122,
+    name: "The Athlete's Bag Set",
+    emoji: '🎽',
+    images: ['images/bag_towel_set.jpg'],
+    desc: "Everything the athlete needs to train and travel. A personalised bag, towel, and bottle, their name on the kit that goes the distance with them.",
+    price: 1000,
+    options: [],
+    cats: ['sport']
+  },
+  {
+    id: 123,
+    name: 'The Comrades Flask',
+    emoji: '🥤',
+    images: ['images/comrades_flask.jpg'],
+    desc: "A personalised flask for the Comrades runner. Keeps them going through the miles, and marks the achievement long after the finish.",
+    price: 300,
+    options: [],
+    cats: ['sport']
   }
 ];
