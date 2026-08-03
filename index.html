@@ -809,6 +809,7 @@ const categories = [
   { id:'corporate',    name:'Corporate' },
   { id:'get-well-soon',name:'Get Well Soon' },
   { id:'kids',         name:'Kids' },
+  { id:'school',       name:'School & Graduation' },
   { id:'mugs',         name:'Mugs' },
   { id:'bottles',      name:'Bottles' },
 ];
@@ -816,6 +817,7 @@ const categories = [
 // Consistent single-stroke line icons (no emoji). currentColor inherits the tile colour.
 const ICON_ATTRS = 'viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"';
 const catIcons = {
+  'school': `<path d="M12 4 2 8.2l10 4.1 10-4.1L12 4z"/><path d="M6.5 10.8v3.2c0 1.2 2.5 2.4 5.5 2.4s5.5-1.2 5.5-2.4v-3.2"/><path d="M22 8.2v4.4"/>`,
   'best-sellers': `<path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19.2l1-5.8L3.5 9.2l5.9-.9z"/>`,
   'celebrating-love': `<path d="M12 20.5C12 20.5 3.5 15 3.5 8.9A4.4 4.4 0 0 1 12 6.5A4.4 4.4 0 0 1 20.5 8.9C20.5 15 12 20.5 12 20.5Z"/>`,
   'birthday-her': `<rect x="3.5" y="9" width="17" height="11" rx="1"/><path d="M3.5 13h17M12 9v11"/><path d="M12 9C9.5 9 8 7.5 8 6a2 2 0 0 1 4 0 2 2 0 0 1 4 0c0 1.5-1.5 3-4 3z"/>`,
