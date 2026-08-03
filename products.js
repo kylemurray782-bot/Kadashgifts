@@ -1212,5 +1212,65 @@ const products = [
     price: 700,
     options: [],
     cats: ['corporate']
+  },
+  {
+    id: 109,
+    name: 'The Comfort & Care Hamper',
+    emoji: '🧺',
+    images: ['images/glass_display_mug_honey.jpg'],
+    desc: "Everything they need to feel held while they heal. A glass display filled with a personalised mug, honey, biscuits, tea, tissues, a candle, and Ferrero Rocher and Lindt chocolates — comfort, all in one place.",
+    price: 800,
+    options: [],
+    cats: ['get-well-soon']
+  },
+  {
+    id: 110,
+    name: 'The Proud Graduate Display',
+    emoji: '🎓',
+    images: ['images/graduation_display.jpg'],
+    desc: "For the milestone worth framing. A personalised graduation display marking their name, their achievement, and the day they earned it — from creche caps to final years.",
+    price: 200,
+    options: [],
+    cats: ['school']
+  },
+  {
+    id: 111,
+    name: 'The Class Mug & Box',
+    emoji: '☕',
+    images: ['images/mug__mugbox_school.jpg'],
+    desc: "A personalised mug boxed and ready to gift — for a favourite teacher, a proud graduate, or a keepsake from the school year.",
+    price: 120,
+    options: [],
+    cats: ['school']
+  },
+  {
+    id: 112,
+    name: 'The School Lunch Box',
+    emoji: '🍱',
+    images: ['images/lunch_box.jpg'],
+    desc: "A personalised lunch box made for the school run — their name front and centre, built for every packed lunch of the year.",
+    price: 150,
+    options: [],
+    cats: ['school']
+  },
+  {
+    id: 113,
+    name: 'The School Keyring',
+    emoji: '🔑',
+    images: ['images/keyring_school.jpg'],
+    desc: "A small personalised keyring with a school-day feel — an easy, affordable keepsake for class gifts, party packs, or end-of-year thank-yous.",
+    price: 100,
+    options: [],
+    cats: ['school']
+  },
+  {
+    id: 114,
+    name: 'The School Sippy Cup',
+    emoji: '🥤',
+    images: ['images/sippy_cup_school.jpg'],
+    desc: "A personalised sippy cup in a playful school design — perfect for creche, little graduates, and everything in between.",
+    price: 200,
+    options: [],
+    cats: ['school']
   }
 ];
