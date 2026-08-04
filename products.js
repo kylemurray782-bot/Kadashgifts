@@ -735,7 +735,7 @@ const products = [
     desc: "Their name on the bottle they carry everywhere. A personalised kids bottle, built for school bags, sports days, and every adventure in between.",
     price: 200,
     options: [],
-    cats: ['kids', 'bottles']
+    cats: ['kids', 'mugs']
   },
   {
     id: 64,
@@ -806,7 +806,7 @@ const products = [
     desc: "They grow up fast. Give them something that keeps up. A personalised 40oz tumbler for the kid who means business. Their name, their colour, their cup.",
     price: 400,
     options: [],
-    cats: ['kids', 'bottles']
+    cats: ['kids', 'mugs']
   },
   {
     id: 72,
@@ -819,7 +819,7 @@ const products = [
     desc: "Two colours, one name, zero excuses for losing it. A personalised two-tone stainless steel bottle, the one they'll actually want to carry.",
     price: 250,
     options: [],
-    cats: ['kids', 'bottles']
+    cats: ['kids', 'mugs']
   },
   {
     id: 73,
@@ -1018,7 +1018,7 @@ const products = [
     desc: "For the kid who never sits still. A personalised sports bottle built for practice, matches, and everything in between. Their name on every sip.",
     price: 200,
     options: [],
-    cats: ['kids', 'bottles']
+    cats: ['kids', 'mugs']
   },
   {
     id: 90,
