@@ -153,7 +153,7 @@ const products = [
     desc: 'A quality wooden cutting board engraved with his name or a meaningful message. Built to last, made to matter.',
     price: 250,
     options: [],
-    cats: ['birthday-him', 'fathers-day']
+    cats: ['birthday-him', 'fathers-day', 'home']
   },
   {
     id: 13,
@@ -237,7 +237,7 @@ const products = [
     desc: 'She hosts, she feeds, she gathers people together. A personalised platter board engraved with her name, for the woman who makes every table feel like home.',
     price: 300,
     options: [],
-    cats: ['birthday-her', 'mothers-day', 'celebrating-love']
+    cats: ['birthday-her', 'mothers-day', 'celebrating-love', 'home']
   },
   {
     id: 21,
@@ -247,7 +247,7 @@ const products = [
     desc: 'In her kitchen, everything is made with love. A personalised wooden cutting board engraved with her name, a daily reminder that she is appreciated.',
     price: 250,
     options: [],
-    cats: ['birthday-her', 'mothers-day', 'celebrating-love']
+    cats: ['birthday-her', 'mothers-day', 'celebrating-love', 'home']
   },
   {
     id: 22,
@@ -277,7 +277,7 @@ const products = [
     desc: 'Wrap her in every moment that matters. A personalised fleece blanket printed with photos, kids\'s drawings, or memories, 100x160cm of pure love.',
     price: 350,
     options: [],
-    cats: ['birthday-her', 'mothers-day', 'celebrating-love']
+    cats: ['birthday-her', 'mothers-day', 'celebrating-love', 'home']
   },
   {
     id: 25,
@@ -1594,5 +1594,45 @@ const products = [
     price: 480,
     options: [],
     cats: ['christian-gifts']
+  },
+  {
+    id: 146,
+    name: 'The Glass Display Clock',
+    emoji: '🕰️',
+    images: ['images/glass_clock_display.jpg'],
+    desc: "A personalised glass display clock made to mark the moments that matter. Their names, a date, or a message, set in glass for the mantel or the desk.",
+    price: 300,
+    options: [],
+    cats: ['home']
+  },
+  {
+    id: 147,
+    name: 'The Slate Heart Keepsake',
+    emoji: '🖤',
+    images: ['images/slate_stone.jpg'],
+    desc: "A heart-shaped personalised slate stone, engraved with a name, a date, or a few words that say it all. A small, lasting piece for any home.",
+    price: 200,
+    options: [],
+    cats: ['home']
+  },
+  {
+    id: 148,
+    name: 'The Frosted Glass',
+    emoji: '🥂',
+    images: ['images/frosted_glasses.jpg'],
+    desc: "A personalised frosted glass etched with their name or a message. Priced per glass, so build the set that suits your table.",
+    price: 100,
+    options: [],
+    cats: ['home']
+  },
+  {
+    id: 149,
+    name: 'The Personalised Plate',
+    emoji: '🍽️',
+    images: ['images/personalised_plate.jpg'],
+    desc: "A personalised plate made with your own design, ready to bring to the table again and again. Priced per plate.",
+    price: 100,
+    options: [],
+    cats: ['home']
   }
 ];
