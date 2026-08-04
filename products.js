@@ -7,7 +7,7 @@ const products = [
     desc: 'Personalised beard care gift set. Name printed on the bottle, full kit personalisation available on request.',
     price: 300,
     options: [],
-    cats: ['fathers-day', 'birthday-him'],
+    cats: ['fathers-day', 'birthday-him', 'christian-gifts'],
     fathersDay: true
   },
   {
@@ -74,11 +74,11 @@ const products = [
     id: 5,
     name: 'Kingdom Man Bible Set',
     emoji: '📖',
-    images: ['images/kingdom-man-bible-set.jpg'],
+    images: ['images/bible_notebook_pen_mug.jpg'],
     desc: 'Personalised Bible, notebook, mug, and pen, every piece carrying his name.',
     price: 600,
     options: [],
-    cats: ['birthday-him', 'fathers-day'],
+    cats: ['birthday-him', 'fathers-day', 'christian-gifts'],
     fathersDay: true
   },
   {
@@ -143,7 +143,7 @@ const products = [
     desc: "His favourite scripture, his nickname, or a message only he'll understand, printed on the pair he'll actually wear.",
     price: 150,
     options: [],
-    cats: ['birthday-him', 'fathers-day']
+    cats: ['birthday-him', 'fathers-day', 'christian-gifts']
   },
   {
     id: 12,
@@ -176,7 +176,7 @@ const products = [
     desc: "A wallet personalised with his favourite scripture or a message that speaks to who he is, carried with him every day.",
     price: 250,
     options: [],
-    cats: ['birthday-him', 'fathers-day']
+    cats: ['birthday-him', 'fathers-day', 'christian-gifts']
   },
   {
     id: 15,
@@ -382,7 +382,7 @@ const products = [
     desc: "For the woman who shines without apology. A sequin notebook and 40oz tumbler in a gift bag, because her faith is loud, her vision is clear, and she was never meant to blend in.",
     price: 680,
     options: [],
-    cats: ['birthday-her', 'mothers-day']
+    cats: ['birthday-her', 'mothers-day', 'christian-gifts']
   },
   {
     id: 35,
@@ -829,7 +829,7 @@ const products = [
     desc: "When words aren't enough, send this. A wooden basket filled with a tumbler, teddy, ginger tea, honey, Ferrero Rocher, nuts, fruit bits, a plant, devotional book, candle, and a card: everything they need to feel held, loved, and on the mend.",
     price: 1200,
     options: [],
-    cats: ['get-well-soon']
+    cats: ['get-well-soon', 'christian-gifts']
   },
   {
     id: 74,
@@ -1488,5 +1488,108 @@ const products = [
     price: 450,
     options: [],
     cats: ['events']
+  },
+  {
+    id: 136,
+    name: 'The Quiet Time Set',
+    emoji: '📖',
+    images: [
+      'images/bible_notebook_pen.jpg',
+      'images/bible_notebook_pen_2.jpg'
+    ],
+    desc: "For the mornings spent in the Word. A personalised Bible, notebook, and pen, made for prayer, reflection, and the quiet time that shapes everything else.",
+    price: 550,
+    options: [],
+    cats: ['christian-gifts']
+  },
+  {
+    id: 137,
+    name: 'The Kingdom Hoodie & Cap',
+    emoji: '🧥',
+    images: ['images/hoodie_cap.jpg'],
+    desc: "Wear your faith with ease. A personalised hoodie and matching cap for the man who carries the Kingdom into every room he walks.",
+    price: 500,
+    options: [],
+    cats: ['christian-gifts', 'fathers-day']
+  },
+  {
+    id: 138,
+    name: 'The Scripture Tumbler',
+    emoji: '🥤',
+    images: ['images/tumbler_scripture.jpg'],
+    desc: "A personalised 40oz tumbler in a scripture design. Keeps them going through the day with a word to hold onto, right there in their hands.",
+    price: 400,
+    options: [],
+    cats: ['christian-gifts']
+  },
+  {
+    id: 139,
+    name: 'The Carry the Word Set',
+    emoji: '📱',
+    images: ['images/scripture_bag_iphone_case.jpg'],
+    desc: "Faith that goes everywhere they go. A personalised Bible bag, iPhone cover, and flask, so the Word travels with them from the pew to the everyday.",
+    price: 700,
+    options: [],
+    cats: ['christian-gifts']
+  },
+  {
+    id: 140,
+    name: 'The Faithful Essentials Set',
+    emoji: '✒️',
+    images: ['images/christian_notebook_keyring_pen.jpg'],
+    desc: "The everyday tools for a life of faith. A personalised notebook, keyring, pen, and flask, ready for sermons, study, and everything in between.",
+    price: 500,
+    options: [],
+    cats: ['christian-gifts']
+  },
+  {
+    id: 141,
+    name: 'The Bible Bag',
+    emoji: '👜',
+    images: ['images/bible_bag.jpg'],
+    desc: "A personalised bag made to carry the Word. Room for their Bible, notebook, and pen, with their name on the outside.",
+    price: 350,
+    options: [],
+    cats: ['christian-gifts']
+  },
+  {
+    id: 142,
+    name: 'The Word on the Go Set',
+    emoji: '☕',
+    images: ['images/bible_bag_travel_mug.jpg'],
+    desc: "For faith on the move. A personalised Bible bag and travel mug, ready for early services, small groups, and the commute in between.",
+    price: 500,
+    options: [],
+    cats: ['christian-gifts']
+  },
+  {
+    id: 143,
+    name: 'The Complete Kingdom Set',
+    emoji: '✝️',
+    images: ['images/bible_bag_coaster_keyring.jpg'],
+    desc: "Everything for a life rooted in the Word. A personalised Bible bag, keyring, mug, coaster, notebook, and Bible, the full set for the person who lives their faith out loud.",
+    price: 1050,
+    options: [],
+    cats: ['christian-gifts']
+  },
+  {
+    id: 144,
+    name: 'The Walk in Faith Set',
+    emoji: '🧦',
+    images: ['images/bible_pen_socks.jpg'],
+    desc: "For every step of the journey. A personalised Bible, notebook, pen, socks, and keyring, a complete set for the one walking their faith daily.",
+    price: 750,
+    options: [],
+    cats: ['christian-gifts']
+  },
+  {
+    id: 145,
+    name: 'The Blessed & Bright Set',
+    emoji: '✨',
+    images: ['images/sequin_pillow_notebook.jpg'],
+    desc: "For the woman whose faith shines. A personalised sequin cushion and matching sequin notebook in a gift bag, bold, bright, and unapologetically hers.",
+    price: 480,
+    options: [],
+    cats: ['christian-gifts']
   }
 ];
