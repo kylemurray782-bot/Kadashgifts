@@ -125,15 +125,15 @@ const products = [
     cats: ['birthday-him', 'fathers-day', 'sport'],
     fathersDay: true
   },
-  {
+    {
     id: 10,
     name: 'Personalised Thermo Display Flask',
     emoji: '🌡️',
-    images: ['images/thermo_display_flask.jpg'],
-    desc: 'Keeps his drink at the right temperature and his name front and centre. Sleek, functional, and entirely his.',
-    price: 250,
+    images: ['images/flask_thermometer.jpg'],
+    desc: 'A personalised flask with a temperature display built into the lid, so their drink is always just right. Sleek, functional, and entirely theirs.',
+    price: 300,
     options: [],
-    cats: ['birthday-him', 'fathers-day']
+    cats: ['birthday-him', 'fathers-day', 'mugs']
   },
   {
     id: 11,
@@ -794,16 +794,16 @@ const products = [
     options: [],
     cats: ['kids']
   },
-  {
+    {
     id: 71,
-    name: 'The Big Kid Tumbler',
+    name: 'The 40oz Tumbler',
     emoji: '🥤',
     images: [
       'images/40oz_tumbler.jpg',
       'images/40oz_tumbler_2.jpg',
       'images/kids_tubler.jpg'
     ],
-    desc: "They grow up fast. Give them something that keeps up. A personalised 40oz tumbler for the kid who means business. Their name, their colour, their cup.",
+    desc: "A personalised 40oz tumbler that keeps up with the day. Their name, their colour, their cup, from the desk to the drive home.",
     price: 400,
     options: [],
     cats: ['kids', 'mugs']
@@ -1634,5 +1634,55 @@ const products = [
     price: 100,
     options: [],
     cats: ['home']
+  },
+  {
+    id: 151,
+    name: 'The Double-Walled Bottle',
+    emoji: '💧',
+    images: [
+      'images/double_walled_bottle.jpg',
+      'images/double_walled_bottle_2.jpg',
+      'images/double_walled_bottle_3.jpg'
+    ],
+    desc: "A personalised double-walled bottle that keeps drinks hot or cold for hours. Priced per bottle, available in a range of colours.",
+    price: 250,
+    options: [],
+    cats: ['mugs']
+  },
+  {
+    id: 152,
+    name: 'The Can Tumbler',
+    emoji: '🥫',
+    images: ['images/can_tumbler.jpg'],
+    desc: "A personalised can-style tumbler for the drink that travels with them. Sleek, insulated, and entirely theirs.",
+    price: 250,
+    options: [],
+    cats: ['mugs']
+  },
+  {
+    id: 153,
+    name: 'The Travel Mug',
+    emoji: '☕',
+    images: [
+      'images/travel_mug.jpg',
+      'images/travel_mug_2.jpg'
+    ],
+    desc: "A personalised travel mug built for the commute and the coffee run. Their name on the lid, ready for the road.",
+    price: 200,
+    options: [],
+    cats: ['mugs']
+  },
+  {
+    id: 154,
+    name: 'The 20oz Tumbler',
+    emoji: '🥤',
+    images: [
+      'images/20oz_tumbler.jpg',
+      'images/20oz_tumbler_2.jpg'
+    ],
+    desc: "A personalised 20oz tumbler that keeps up with the day. Their name, their colour, from the desk to the drive home.",
+    price: 250,
+    options: [],
+    cats: ['mugs']
   }
 ];
