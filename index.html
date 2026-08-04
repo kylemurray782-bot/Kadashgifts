@@ -814,8 +814,7 @@ const categories = [
   { id:'school',       name:'School & Graduation' },
   { id:'sport',        name:'Sport & Fitness' },
   { id:'home',        name:'Home & Living' },
-  { id:'mugs',         name:'Mugs' },
-  { id:'bottles',      name:'Bottles' },
+  { id:'mugs',         name:'Mugs & Bottles' },
 ];
 
 // Consistent single-stroke line icons (no emoji). currentColor inherits the tile colour.
@@ -839,7 +838,6 @@ const catIcons = {
   'get-well-soon':`<path d="M5 19c0-7.5 6-14 14-14 0 7.5-6 14-14 14z"/><path d="M5 19c4-4 8-8 12-11.5"/>`,
   'kids':         `<ellipse cx="12" cy="9" rx="5" ry="6"/><path d="M12 15c0 1.5-1 1.8-1 3s1 1.5 1 3"/>`,
   'mugs':         `<path d="M5 6.5h11v9a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3z"/><path d="M16 8.5h2a2 2 0 0 1 2 2v.5a2 2 0 0 1-2 2h-2"/>`,
-  'bottles':      `<path d="M10 3h4v2.5l1 2.5v10a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V8l1-2.5z"/><path d="M9 12h6"/>`,
 };
 function catIcon(id) {
   return `<svg ${ICON_ATTRS}>${catIcons[id] || ''}</svg>`;
