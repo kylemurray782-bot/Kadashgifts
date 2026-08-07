@@ -935,7 +935,7 @@ const products = [
     ],
     cats: ['mugs']
   },
-  {
+    {
     id: 82,
     name: 'The Cappuccino Mug',
     emoji: '☕',
@@ -943,10 +943,11 @@ const products = [
       'images/corp_cuppacino_1.jpg',
       'images/corp_cuppacino_2.jpg',
       'images/corp_cuppacino_3.jpg',
-      'images/corp_cuppacino_4.jpg'
+      'images/corp_cuppacino_4.jpg',
+      'images/cuppacino_mug.jpg'
     ],
     desc: "The mug that belongs in a meeting room and a kitchen table. A personalised cappuccino-style mug. Branded or gifted, it always looks the part.",
-    price: 120,
+    price: 250,
     options: [],
     cats: ['mugs']
   },
@@ -1681,6 +1682,36 @@ const products = [
       'images/20oz_tumbler_2.jpg'
     ],
     desc: "A personalised 20oz tumbler that keeps up with the day. Their name, their colour, from the desk to the drive home.",
+    price: 250,
+    options: [],
+    cats: ['mugs']
+  },
+  {
+    id: 155,
+    name: 'The Wine Tumbler',
+    emoji: '🍷',
+    images: ['images/wine_tumbler_design.jpg'],
+    desc: "A personalised wine tumbler for the pour that travels, from the patio to the picnic. Their name, no stem, no spills.",
+    price: 200,
+    options: [],
+    cats: ['mugs']
+  },
+  {
+    id: 156,
+    name: 'The Full-Print Wine Tumbler',
+    emoji: '🍾',
+    images: ['images/wine_tumbler_full_print.jpg'],
+    desc: "A personalised wine tumbler wrapped in a full-print design, bold from top to bottom. Their name on a tumbler that makes a statement.",
+    price: 250,
+    options: [],
+    cats: ['mugs']
+  },
+  {
+    id: 157,
+    name: 'The Sleek Tumbler',
+    emoji: '🥤',
+    images: ['images/sleek_tubler.jpg'],
+    desc: "A personalised sleek tumbler built for the day on the move. Slim, insulated, and entirely theirs.",
     price: 250,
     options: [],
     cats: ['mugs']
