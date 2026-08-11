@@ -192,6 +192,9 @@
 
   /* CATEGORY SLIDER */
   .cat-slider-wrap { position: relative; }
+  .cat-group { margin-bottom: 32px; }
+  .cat-group:last-child { margin-bottom: 0; }
+  .cat-group-head { font-family: 'Jost', sans-serif; font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; padding-left: 2px; }
   .cat-slider { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: 4px; }
   .cat-slider::-webkit-scrollbar { display: none; }
   .cat-slide { scroll-snap-align: start; flex: 0 0 auto; width: 210px; height: 280px; border-radius: 6px; overflow: hidden; position: relative; cursor: pointer; border: 1px solid var(--border); background: var(--warm); }
@@ -544,14 +547,10 @@
 <!-- CATEGORIES -->
 <div id="categories">
   <div class="section">
-    <div class="section-label">Browse by occasion</div>
+    <div class="section-label">Browse the collection</div>
     <div class="section-title">A gift for every moment</div>
-    <p class="section-sub">Curated for birthdays, dads, new babies and more. Swipe to explore</p>
-    <div class="cat-slider-wrap">
-      <button class="cat-arrow prev" onclick="scrollCats(-1)" aria-label="Previous">‹</button>
-      <div class="cat-slider" id="catGrid"></div>
-      <button class="cat-arrow next" onclick="scrollCats(1)" aria-label="Next">›</button>
-    </div>
+    <p class="section-sub">Shop by occasion, recipient, or gift type. Swipe any row to explore.</p>
+    <div id="catGroups"></div>
   </div>
 </div>
 
@@ -804,27 +803,27 @@ function esc(s) {
 }
 
 const categories = [
-  { id:'best-sellers', name:'Best Sellers' },
-  { id:'celebrating-love', name:'Celebrating Love' },
-  { id:'christian-gifts', name:'Christian Gifts' },
-  { id:'birthday-her', name:'Birthday for her' },
-  { id:'birthday-him', name:'Birthday for him' },
-  { id:'fathers-day',  name:"Father's Day" },
-  { id:'mothers-day',  name:"Mother's Day" },
-  { id:'new-baby',     name:'New Baby' },
-  { id:'corporate',    name:'Corporate' },
-  { id:'events',       name:'Events' },
-  { id:'get-well-soon',name:'Get Well Soon' },
-  { id:'kids',         name:'Kids' },
-  { id:'school',       name:'School & Graduation' },
-  { id:'sport',        name:'Sport & Fitness' },
-  { id:'home',        name:'Home & Living' },
-  { id:'mugs',         name:'Mugs & Bottles' },
+  { id:'best-sellers',     name:'Best Sellers',         group:'featured' },
+  { id:'gift-boxes',       name:'Gift Boxes & Hampers', group:'featured' },
+  { id:'celebrating-love', name:'Celebrating Love',     group:'occasion' },
+  { id:'christian-gifts',  name:'Christian Gifts',      group:'occasion' },
+  { id:'fathers-day',      name:"Father's Day",         group:'occasion' },
+  { id:'mothers-day',      name:"Mother's Day",         group:'occasion' },
+  { id:'new-baby',         name:'New Baby',             group:'occasion' },
+  { id:'school',           name:'Graduation & School',  group:'occasion' },
+  { id:'get-well-soon',    name:'Get Well Soon',        group:'occasion' },
+  { id:'for-her',          name:'For Her',              group:'recipient' },
+  { id:'for-him',          name:'For Him',              group:'recipient' },
+  { id:'kids',             name:'For Kids',             group:'recipient' },
+  { id:'mugs',             name:'Mugs & Bottles',       group:'type' },
+  { id:'home',             name:'Home & Living',        group:'type' },
+  { id:'corporate',        name:'Corporate & Events',   group:'business' },
 ];
 
 // Consistent single-stroke line icons (no emoji). currentColor inherits the tile colour.
 const ICON_ATTRS = 'viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"';
 const catIcons = {
+  'gift-boxes': `<rect x="3" y="8" width="18" height="12" rx="1"/><path d="M3 12h18"/><path d="M12 8v12"/><path d="M12 8C10.5 5 7.5 5 7.5 6.8 7.5 8 9.5 8 12 8z"/><path d="M12 8c1.5-3 4.5-3 4.5-1.2C16.5 8 14.5 8 12 8z"/>`,
   'home': `<path d="M4 11l8-6 8 6"/><path d="M6 10v9h12v-9"/><path d="M10 19v-5h4v5"/>`,
   'christian-gifts': `<path d="M10 2h4v5h5v4h-5v11h-4V11H5V7h5z"/>`,
   'events': `<rect x="4.5" y="10" width="15" height="9.5" rx="1"/><rect x="3" y="7" width="18" height="3.5" rx="0.5"/><path d="M12 7v12.5"/><path d="M12 7C10.5 4 7.5 4 7.5 6S10 7 12 7z"/><path d="M12 7c1.5-3 4.5-3 4.5-1S14 7 12 7z"/>`,
@@ -832,8 +831,8 @@ const catIcons = {
   'school': `<path d="M12 4 2 8.2l10 4.1 10-4.1L12 4z"/><path d="M6.5 10.8v3.2c0 1.2 2.5 2.4 5.5 2.4s5.5-1.2 5.5-2.4v-3.2"/><path d="M22 8.2v4.4"/>`,
   'best-sellers': `<path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19.2l1-5.8L3.5 9.2l5.9-.9z"/>`,
   'celebrating-love': `<path d="M12 20.5C12 20.5 3.5 15 3.5 8.9A4.4 4.4 0 0 1 12 6.5A4.4 4.4 0 0 1 20.5 8.9C20.5 15 12 20.5 12 20.5Z"/>`,
-  'birthday-her': `<rect x="3.5" y="9" width="17" height="11" rx="1"/><path d="M3.5 13h17M12 9v11"/><path d="M12 9C9.5 9 8 7.5 8 6a2 2 0 0 1 4 0 2 2 0 0 1 4 0c0 1.5-1.5 3-4 3z"/>`,
-  'birthday-him': `<rect x="3.5" y="9" width="17" height="11" rx="1"/><path d="M3.5 13h17M12 9v11M9 6l3 3 3-3"/>`,
+  'for-her': `<rect x="3.5" y="9" width="17" height="11" rx="1"/><path d="M3.5 13h17M12 9v11"/><path d="M12 9C9.5 9 8 7.5 8 6a2 2 0 0 1 4 0 2 2 0 0 1 4 0c0 1.5-1.5 3-4 3z"/>`,
+  'for-him': `<rect x="3.5" y="9" width="17" height="11" rx="1"/><path d="M3.5 13h17M12 9v11M9 6l3 3 3-3"/>`,
   'fathers-day':  `<path d="M10.5 3h3l-1 4 1.5 9-3 4.5-3-4.5L9.5 7z"/>`,
   'mothers-day':  `<circle cx="12" cy="12" r="2"/><circle cx="12" cy="7" r="2.4"/><circle cx="12" cy="17" r="2.4"/><circle cx="7" cy="12" r="2.4"/><circle cx="17" cy="12" r="2.4"/>`,
   'anniversary':  `<path d="M4 9l4-5h8l4 5-8 11z"/><path d="M4 9h16M9 4l-1.5 5L12 20M15 4l1.5 5L12 20"/>`,
@@ -1268,24 +1267,17 @@ function handleHelperOverlayClick(e) {
 /* ═══ CATEGORIES + FILTERS ═══ */
 function renderCategories() {
   const used = new Set();
-  // Cover for a category: explicit c.cover if set, else the first product image
-  // in that category that no earlier category already claimed (keeps covers distinct).
   const pickCover = (c) => {
     if (c.cover) { used.add(c.cover); return c.cover; }
     if (typeof products !== 'undefined' && Array.isArray(products)) {
       const inCat = products.filter(p => p.cats && p.cats.includes(c.id) && p.images && p.images.length);
-      for (const p of inCat) {
-        for (const img of p.images) {
-          if (!used.has(img)) { used.add(img); return img; }
-        }
-      }
-      if (inCat.length) return inCat[0].images[0]; // fallback: reuse if nothing unused is left
+      for (const p of inCat) { for (const img of p.images) { if (!used.has(img)) { used.add(img); return img; } } }
+      if (inCat.length) return inCat[0].images[0];
     }
     return null;
   };
-
   const arrow = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><polyline points="9 18 15 12 9 6"/></svg>`;
-  document.getElementById('catGrid').innerHTML = categories.map(c => {
+  const tile = (c) => {
     const cover = pickCover(c);
     const media = cover
       ? `<img class="cat-slide-img" src="${esc(cover)}" alt="${esc(c.name)}" loading="lazy">`
@@ -1299,13 +1291,23 @@ function renderCategories() {
         <div class="cat-slide-cta">Shop now ${arrow}</div>
       </div>
     </div>`;
+  };
+  const GROUPS = [
+    { key:'featured',  label:'' },
+    { key:'occasion',  label:'Shop by occasion' },
+    { key:'recipient', label:'Shop by recipient' },
+    { key:'type',      label:'Shop by type' },
+    { key:'business',  label:'For business' }
+  ];
+  const html = GROUPS.map(g => {
+    const cats = categories.filter(c => c.group === g.key);
+    if (!cats.length) return '';
+    const head = g.label ? `<div class="cat-group-head">${g.label}</div>` : '';
+    return `<div class="cat-group">${head}<div class="cat-slider">${cats.map(tile).join('')}</div></div>`;
   }).join('');
+  document.getElementById('catGroups').innerHTML = html;
 }
 
-function scrollCats(dir) {
-  const el = document.getElementById('catGrid');
-  if (el) el.scrollBy({ left: dir * 240, behavior: 'smooth' });
-}
 
 /* ═══ SLIDE-OUT DRAWER ═══ */
 function renderDrawerCategories() {
