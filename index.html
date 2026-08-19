@@ -980,7 +980,9 @@ function renderDeliveryCopy() {
 function renderProof() {
   const el = document.getElementById('proofSection');
   if (!el || !SOCIAL_PROOF.show || !SOCIAL_PROOF.items.length) return;
-  const cards = SOCIAL_PROOF.items.map(p => `
+  const items = SOCIAL_PROOF.items.slice();
+  for (let i = items.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [items[i], items[j]] = [items[j], items[i]]; }
+  const cards = items.map(p => `
     <div class="proof-card">
       <div class="proof-imgwrap">
         ${p.emoji ? `<div class="proof-emoji">${p.emoji}</div>` : `<img src="${esc(p.src)}" alt="${esc(p.alt||'')}" loading="lazy" onerror="this.closest('.proof-card').style.display='none'">`}
@@ -1043,11 +1045,17 @@ const SOCIAL_PROOF = {
   show:    true,   // ← PREVIEW MODE: emoji placeholders. Replace items with real screenshots in images/proof/ before launch.
   heading: 'Real reactions, straight from WhatsApp',
   items: [
-    { src: 'images/proof-1.jpg', caption: 'Florezelle · Johannesburg', stars: 5 },
-    { emoji: '🧔', caption: 'Sipho · Pretoria', stars: 5 },
-    { emoji: '💐', caption: 'Thandi · Durban', stars: 5 },
-    { emoji: '👶', caption: 'Naledi · Sandton', stars: 5 },
-    { emoji: '☕', caption: 'Zanele · Cape Town', stars: 5 },
+    { src: 'images/proof-1.jpg',  caption: 'Florezelle · Johannesburg', stars: 5 },
+    { src: 'images/proof-2.jpg',  caption: 'Thando · Johannesburg', stars: 5 },
+    { src: 'images/proof-3.jpg',  caption: 'Veronica · Johannesburg', stars: 5 },
+    { src: 'images/proof-4.jpg',  caption: 'Joyce · Mpumalanga', stars: 5 },
+    { src: 'images/proof-5.jpg',  caption: 'Dominique · Johannesburg', stars: 5 },
+    { src: 'images/proof-6.jpg',  caption: 'Nicky · Cape Town', stars: 5 },
+    { src: 'images/proof-7.jpg',  caption: 'Patricia · Uitenhage', stars: 5 },
+    { src: 'images/proof-8.jpg',  caption: 'Faith · Sunninghill', stars: 5 },
+    { src: 'images/proof-9.jpg',  caption: 'Verified customer · Benoni', stars: 5 },
+    { src: 'images/proof-10.jpg', caption: 'Verified customer · Durban', stars: 5 },
+    { src: 'images/proof-11.jpg', caption: 'Verified customer · Fourways', stars: 5 },
   ],
 };
 
