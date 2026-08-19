@@ -125,6 +125,11 @@
   .proof-section { padding: 44px 0 48px; background: var(--warm); border-bottom: 1px solid var(--border); overflow: hidden; }
   .proof-heading { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; letter-spacing: 1px; text-align: center; color: var(--dark); margin-bottom: 28px; padding: 0 1.5rem; }
   .proof-track-wrap { position: relative; }
+  .proof-arrow { position: absolute; top: 50%; transform: translateY(-50%); z-index: 3; width: 40px; height: 40px; border-radius: 50%; background: var(--white); border: 1px solid var(--border); color: var(--charcoal); font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(26,23,20,0.12); transition: all 0.2s; padding-bottom: 2px; }
+  .proof-arrow:hover { background: var(--gold); color: var(--white); border-color: var(--gold); }
+  .proof-arrow.prev { left: 6px; }
+  .proof-arrow.next { right: 6px; }
+  @media (max-width: 640px) { .proof-arrow { display: none; } }
   .proof-track { display: flex; gap: 14px; padding: 0 1.5rem; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; cursor: grab; user-select: none; }
   .proof-track::-webkit-scrollbar { display: none; }
   .proof-track.grabbing { cursor: grabbing; }
@@ -977,6 +982,10 @@ function renderDeliveryCopy() {
 }
 
 /* ═══ SOCIAL PROOF STRIP ═══ */
+function scrollProof(dir) {
+  const t = document.getElementById('proofTrack');
+  if (t) t.scrollBy({ left: dir * (t.clientWidth * 0.85), behavior: 'smooth' });
+}
 function renderProof() {
   const el = document.getElementById('proofSection');
   if (!el || !SOCIAL_PROOF.show || !SOCIAL_PROOF.items.length) return;
@@ -995,7 +1004,9 @@ function renderProof() {
     <section class="proof-section">
       <div class="proof-heading">${esc(SOCIAL_PROOF.heading)}</div>
       <div class="proof-track-wrap">
+        <button class="proof-arrow prev" onclick="scrollProof(-1)" aria-label="Previous reviews">‹</button>
         <div class="proof-track" id="proofTrack">${cards}</div>
+        <button class="proof-arrow next" onclick="scrollProof(1)" aria-label="Next reviews">›</button>
       </div>
     </section>`;
   initProofDrag();
