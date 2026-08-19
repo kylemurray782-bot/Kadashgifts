@@ -1,1719 +1,1836 @@
-const products = [
-  {
-    id: 1,
-    name: 'Kingdom Kit',
-    emoji: '🧔',
-    images: ['images/kingdom-kit.jpg'],
-    desc: 'Personalised beard care gift set. Name printed on the bottle, full kit personalisation available on request.',
-    price: 300,
-    options: [],
-    cats: ['christian-gifts', 'fathers-day', 'for-him'],
-    fathersDay: true
-  },
-  {
-    id: 2,
-    name: 'The Urban Gentleman Set',
-    emoji: '👔',
-    images: [
-      'images/Urban-gentlemen-1.jpg',
-      'images/Urban-gentlemen-2.jpg',
-      'images/Urban-gentlemen-3.jpg'
-    ],
-    desc: 'A refined gift set for the man who means business. Choose your tier, from a personalised travel mug up to the full executive bundle.',
-    price: 0,
-    options: [
-      { name: 'Personalised travel mug', price: 200 },
-      { name: 'Personalised travel mug + personalised tie', price: 350 },
-      { name: 'Personalised travel mug + personalised tie + personalised mousepad', price: 450 }
-    ],
-    cats: ['fathers-day', 'for-him'],
-    fathersDay: true,
-    fathersDayTiered: true
-  },
-  {
-    id: 3,
-    name: 'The Executives Lunch Set',
-    emoji: '💼',
-    images: [
-      'images/The-executives-lunch-set-1.jpg',
-      'images/The-executives-lunch-set-2.jpg',
-      'images/The-executives-lunch-set-3.jpg'
-    ],
-    desc: 'A smart, personalised lunch set for the working man. Build the bundle that fits your budget.',
-    price: 0,
-    options: [
-      { name: 'Personalised lunch bag', price: 250 },
-      { name: 'Personalised lunch bag + personalised tumbler', price: 500 },
-      { name: 'Personalised lunch bag + personalised tumbler + personalised notebook & pen', price: 650 }
-    ],
-    cats: ['fathers-day', 'for-him'],
-    fathersDay: true,
-    fathersDayTiered: true
-  },
-  {
-    id: 4,
-    name: 'The Reset Set',
-    emoji: '🛁',
-    images: [
-      'images/The-reset-set-1.jpg',
-      'images/The-reset-set-2.jpg',
-      'images/The-reset-set-3.jpg'
-    ],
-    desc: 'For the dad who deserves to rest. A personalised relaxation set, choose the level of luxury.',
-    price: 0,
-    options: [
-      { name: 'Personalised slippers', price: 270 },
-      { name: 'Personalised slippers + personalised gown', price: 690 },
-      { name: 'Personalised slippers + personalised gown + personalised mug', price: 790 }
-    ],
-    cats: ['best-sellers', 'fathers-day', 'for-him'],
-    fathersDay: true,
-    fathersDayTiered: true
-  },
-  {
-    id: 5,
-    name: 'Kingdom Man Bible Set',
-    emoji: '📖',
-    images: ['images/bible_notebook_pen_mug.jpg'],
-    desc: 'Personalised Bible, notebook, mug, and pen, every piece carrying his name.',
-    price: 600,
-    options: [],
-    cats: ['gift-boxes', 'christian-gifts', 'fathers-day', 'for-him'],
-    fathersDay: true
-  },
-  {
-    id: 6,
-    name: 'Football Set',
-    emoji: '⚽',
-    images: ['images/football-set.jpg'],
-    desc: "Personalised mug, mug box, and flask with matching gift bag, all printed in his favourite team's colours.",
-    price: 450,
-    options: [],
-    cats: ['gift-boxes', 'fathers-day', 'for-him'],
-    fathersDay: true
-  },
-  {
-    id: 7,
-    name: 'Personalised Toolbox Set',
-    emoji: '🔧',
-    images: ['images/toolbox-set.jpg'],
-    desc: 'A personalised toolbox set, built for the man who fixes everything.',
-    price: 500,
-    options: [],
-    cats: ['gift-boxes', 'fathers-day', 'for-him'],
-    fathersDay: true
-  },
-  {
-    id: 8,
-    name: 'Personalised Braai Master Dad Set',
-    emoji: '🔥',
-    images: ['images/braai_master.jpg'],
-    desc: 'His name on the apron, his tools in hand. The ultimate gift for the man who rules the fire.',
-    price: 380,
-    options: [],
-    cats: ['fathers-day', 'for-him'],
-    fathersDay: true
-  },
-  {
-    id: 9,
-    name: 'Personalised Travel & Gym Bag',
-    emoji: '🏋️',
-    images: ['images/travel_gym_sports_bag.jpg'],
-    desc: 'Built for the man always on the move. A quality bag personalised with his name, from the gym to the weekend away.',
-    price: 500,
-    options: [],
-    cats: ['fathers-day', 'for-him'],
-    fathersDay: true
-  },
-    {
-    id: 10,
-    name: 'Personalised Thermo Display Flask',
-    emoji: '🌡️',
-    images: ['images/flask_thermometer.jpg'],
-    desc: 'A personalised flask with a temperature display built into the lid, so their drink is always just right. Sleek, functional, and entirely theirs. Dishwasher safe.',
-    price: 300,
-    options: [],
-    cats: ['fathers-day', 'for-him', 'mugs']
-  },
-  {
-    id: 11,
-    name: 'Personalised Dad Socks',
-    emoji: '🧦',
-    images: ['images/dad_socks.jpg'],
-    desc: "His favourite scripture, his nickname, or a message only he'll understand, sublimation-printed on soft polyester. Moisture-wicking and quick-drying, they pull sweat away two to three times faster than cotton, hard-wearing and colour-fast from the gym to everyday wear.",
-    price: 150,
-    options: [],
-    cats: ['christian-gifts', 'fathers-day', 'for-him']
-  },
-  {
-    id: 12,
-    name: 'Personalised Wooden Cutting Board',
-    emoji: '🪵',
-    images: ['images/personalised_wooden_cutting-board.jpg'],
-    desc: 'A quality wooden cutting board engraved with his name or a meaningful message. Built to last, made to matter.',
-    price: 250,
-    options: [],
-    cats: ['fathers-day', 'for-him', 'home']
-  },
-  {
-    id: 13,
-    name: 'Personalised Hip Flask',
-    emoji: '🥃',
-    images: ['images/personalised_hip_flask.jpg'],
-    desc: 'Pocket-sized and personal. Engraved with his name or a message for the man who appreciates the finer things.',
-    price: 200,
-    options: [],
-    cats: ['fathers-day', 'for-him']
-  },
-  {
-    id: 14,
-    name: 'Personalised Wallet',
-    emoji: '👛',
-    images: [
-      'images/personalised_wallet_1.jpg',
-      'images/personalised_wallet_2.jpg'
-    ],
-    desc: "A wallet personalised with his favourite scripture or a message that speaks to who he is, carried with him every day.",
-    price: 250,
-    options: [],
-    cats: ['christian-gifts', 'fathers-day', 'for-him']
-  },
-  {
-    id: 15,
-    name: 'Personalised Lighter',
-    emoji: '🔥',
-    images: ['images/personalised_lighter.jpg'],
-    desc: 'Small but significant. A personalised lighter engraved with his name or a short message he will always carry.',
-    price: 150,
-    options: [],
-    cats: ['fathers-day', 'for-him']
-  },
-  {
-    id: 16,
-    name: 'Personalised Keyring',
-    emoji: '🔑',
-    images: ['images/personalised_keyring.jpg'],
-    desc: "Every time he reaches for his keys, he carries a piece of you. A lightweight polymer keyring, sublimation-printed to resist cracking, scratching, and fading, so it lasts as long as the sentiment.",
-    price: 90,
-    options: [],
-    cats: ['fathers-day', 'for-him']
-  },
-  {
-    id: 17,
-    name: 'The Cap & Crew Set',
-    emoji: '🧢',
-    images: ['images/cap_set.jpg'],
-    desc: "A durable, flexible trucker cap with a keyring, coaster, and mug, a full lifestyle set for the man who moves with style. Everything personalised, nothing generic.",
-    price: 580,
-    options: [],
-    cats: ['gift-boxes', 'fathers-day', 'for-him'],
-    fathersDay: true
-  },
-  {
-    id: 18,
-    name: 'The Glam Girl Set',
-    emoji: '💄',
-    images: ['images/make_upset.jpg'],
-    desc: 'She deserves to feel seen. A personalised compact mirror and bamboo sippy cup, because the woman who gives everything should have something made just for her.',
-    price: 550,
-    options: [],
-    cats: ['mothers-day', 'for-her']
-  },
-  {
-    id: 19,
-    name: 'The Her Time Set',
-    emoji: '🍷',
-    images: ['images/wine_tumbler.jpg'],
-    desc: "For the woman who never stops, a wine tumbler, a notebook for her thoughts, and a 1.2L tumbler to keep her going. All personalised, all hers.",
-    price: 750,
-    options: [],
-    cats: ['gift-boxes', 'mothers-day', 'for-her']
-  },
-  {
-    id: 20,
-    name: 'Personalised Platter Board',
-    emoji: '🧀',
-    images: ['images/platter_board.jpg'],
-    desc: 'She hosts, she feeds, she gathers people together. A personalised platter board engraved with her name, for the woman who makes every table feel like home.',
-    price: 300,
-    options: [],
-    cats: ['celebrating-love', 'mothers-day', 'for-her', 'home']
-  },
-  {
-    id: 21,
-    name: 'Personalised Wooden Cutting Board',
-    emoji: '🪵',
-    images: ['images/wooden_cutting_board.jpg'],
-    desc: 'In her kitchen, everything is made with love. A personalised wooden cutting board engraved with her name, a daily reminder that she is appreciated.',
-    price: 250,
-    options: [],
-    cats: ['celebrating-love', 'mothers-day', 'for-her', 'home']
-  },
-  {
-    id: 22,
-    name: 'Personalised Sippy Cup',
-    emoji: '🥤',
-    images: ['images/sippy_cup.jpg'],
-    desc: 'Small gift, big feeling. A personalised bamboo-lid sippy cup carrying her name, because even the smallest things can say exactly the right thing. Dishwasher safe.',
-    price: 160,
-    options: [],
-    cats: ['mothers-day', 'for-her']
-  },
-  {
-    id: 23,
-    name: 'The Write Her Off Set',
-    emoji: '📓',
-    images: ['images/notebook_tumbler_set.jpg'],
-    desc: 'A personalised notebook for her dreams and a tumbler for her mornings. For the woman who is always thinking, always planning, always doing.',
-    price: 400,
-    options: [],
-    cats: ['mothers-day', 'for-her']
-  },
-  {
-    id: 24,
-    name: 'The Memory Blanket',
-    emoji: '🛋️',
-    images: ['images/personalised_fleece_blanket.jpg'],
-    desc: 'Wrap her in every moment that matters. A personalised fleece blanket printed with photos, kids\'s drawings, or memories, 100x160cm of pure love.',
-    price: 350,
-    options: [],
-    cats: ['celebrating-love', 'mothers-day', 'for-her', 'home']
-  },
-  {
-    id: 25,
-    name: 'The Sweet Treat Set',
-    emoji: '🎁',
-    images: ['images/tote_bag_sippy-cup_set.jpg'],
-    desc: 'A personalised sippy cup, a tote bag she\'ll actually use, and 8-piece chocolates to make her smile. Everything she deserves, nothing she expected.',
-    price: 340,
-    options: [],
-    cats: ['mothers-day', 'for-her']
-  },
-  {
-    id: 26,
-    name: 'The Rest Well Set',
-    emoji: '🩴',
-    images: [
-      'images/personalised_slipper_set_1.jpg',
-      'images/personalised_slipper_set_2.jpg',
-      'images/personalised_slipper_set_3.jpg',
-      'images/personalised_slipper_set_4.jpg'
-    ],
-    desc: 'Tell her to put her feet up, literally. Personalised slippers, a mug made for her, and Ferrero Rocher chocolates. For the woman who has earned every second of rest.',
-    price: 450,
-    options: [],
-    cats: ['best-sellers', 'gift-boxes', 'mothers-day', 'for-her']
-  },
-  {
-    id: 27,
-    name: 'The Full Bouquet Experience',
-    emoji: '💐',
-    images: ['images/flowers-sippy-cup_set.jpg'],
-    desc: 'Fresh flowers, a personalised sippy cup, latte sachets, non-alcoholic champagne, dark chocolate, and a keyring. When you want her to feel everything at once.',
-    price: 1050,
-    options: [],
-    cats: ['gift-boxes', 'mothers-day', 'for-her']
-  },
-  {
-    id: 28,
-    name: 'The Celebration Board',
-    emoji: '🎉',
-    images: ['images/personalised_charcuterie_board.jpg'],
-    desc: 'A personalised charcuterie board loaded with assorted cheese, crackers, Ferrero Rocher, and nuts. For the woman worth celebrating properly.',
-    price: 700,
-    options: [],
-    cats: ['mothers-day', 'for-her']
-  },
-  {
-    id: 29,
-    name: 'The Treat Yourself Set',
-    emoji: '☕',
-    images: ['images/notebook_tumbler_chocolate_set.jpg'],
-    desc: 'A personalised notebook, tumbler, mug, sweets, and chocolates, all in one gift. Because sometimes the best gift is everything she wouldn\'t buy for herself.',
-    price: 650,
-    options: [],
-    cats: ['gift-boxes', 'mothers-day', 'for-her']
-  },
-  {
-    id: 30,
-    name: 'The Cosy Corner Set',
-    emoji: '🛋️',
-    images: ['images/cushion_mug_set.jpg'],
-    desc: "A personalised cushion and mug, wrapped in a gift bag and ready to make her feel at home. For the woman who deserves her own little corner of comfort.",
-    price: 330,
-    options: [],
-    cats: ['for-her']
-  },
-  {
-    id: 31,
-    name: 'The Boss Her Set',
-    emoji: '📋',
-    images: ['images/organiser_set.jpg'],
-    desc: 'Planner, notebook, bamboo sippy cup, door hanger, mat, and pencil case, all personalised. For the woman who runs everything and deserves to look good doing it.',
-    price: 600,
-    options: [],
-    cats: ['gift-boxes', 'mothers-day', 'for-her']
-  },
-  {
-    id: 32,
-    name: "The Gift Box She'll Actually Love",
-    emoji: '🎀',
-    images: ['images/notebook_tumbler_sweet_choc_gift_box.jpg'],
-    desc: "A personalised notebook and tumbler paired with sweets and chocolates, boxed and ready to give. No overthinking, just everything she loves in one place.",
-    price: 550,
-    options: [],
-    cats: ['gift-boxes', 'mothers-day', 'for-her']
-  },
-  {
-    id: 33,
-    name: 'The Soft Life Set',
-    emoji: '💫',
-    images: ['images/cushion_notebook_set.jpg'],
-    desc: "A personalised cushion and notebook set in a gift bag. For the woman who carries everyone else's world and deserves something made entirely for hers.",
-    price: 450,
-    options: [],
-    cats: ['mothers-day', 'for-her']
-  },
-  {
-    id: 34,
-    name: 'The Bold & Blessed Set',
-    emoji: '✨',
-    images: ['images/sequin_notebook.jpg'],
-    desc: "For the woman who shines without apology. A sequin notebook and 1.2L tumbler in a gift bag, because her faith is loud, her vision is clear, and she was never meant to blend in.",
-    price: 680,
-    options: [],
-    cats: ['gift-boxes', 'christian-gifts', 'mothers-day', 'for-her']
-  },
-  {
-    id: 35,
-    name: 'The Curated Welcome',
-    emoji: '🎁',
-    images: [
-      'images/aesthetic_basket_1.jpg',
-      'images/aesthetic_basket_2.jpg',
-      'images/aesthetic_basket_3.jpg',
-      'images/aesthetic_basket_4.jpg'
-    ],
-    desc: 'Because first impressions are everything. A fully branded corporate basket, personalised mousepad, notebook, tumbler, sweet treats, chocolate, and lotion. The kind of gift that says your company pays attention.',
-    price: 880,
-    options: [],
-    cats: ['best-sellers', 'corporate']
-  },
-  {
-    id: 36,
-    name: 'The Intentional Desk',
-    emoji: '📋',
-    images: [
-      'images/the_organised_set_1.jpg',
-      'images/the_organised_set_2.jpg'
-    ],
-    desc: 'For the person who builds their day with purpose. A branded mousepad, diary, notebook, and tumbler, everything they reach for every morning, carrying your company\'s name.',
-    price: 850,
-    options: [],
-    cats: ['corporate']
-  },
-  {
-    id: 37,
-    name: 'The Branded Tumbler',
-    emoji: '🥤',
-    images: [
-      'images/company_tubler_1.jpg',
-      'images/company_tubler_2.jpg'
-    ],
-    desc: "They carry it everywhere, to meetings, to the gym, through long days. A 1.2L tumbler branded with your company logo. Useful enough to use daily. Quality enough to mean something. Dishwasher safe.",
-    price: 450,
-    options: [],
-    cats: ['corporate']
-  },
-  {
-    id: 38,
-    name: 'The Boardroom Mug',
-    emoji: '☕',
-    images: [
-      'images/corporate_mug_1.jpg',
-      'images/corporate_mug_2.jpg'
-    ],
-    desc: 'Simple. Sharp. Unmistakably yours. A branded corporate mug presented in a matching gift box, the kind of detail that makes your company look like it cares, because it does. Dishwasher safe.',
-    price: 120,
-    options: [],
-    cats: ['corporate']
-  },
-  {
-    id: 39,
-    name: 'The Beauty Edit',
-    emoji: '💄',
-    images: [
-      'images/beauty_set_1.jpg',
-      'images/beauty_set_2.jpg'
-    ],
-    desc: 'For the woman on your team who holds everything together. A branded tumbler, compact mirror, makeup bag, notebook, and lotion, a corporate gift that finally feels personal.',
-    price: 800,
-    options: [],
-    cats: ['corporate']
-  },
-  {
-    id: 40,
-    name: 'The Signature Pour',
-    emoji: '🍷',
-    images: ['images/corporate_wine_tumblers.jpg'],
-    desc: 'Your logo on the glass they raise at the end of a hard week. A single branded wine tumbler, understated, elegant, and entirely on brand. The kind of gift that gets noticed without trying.',
-    price: 200,
-    options: [],
-    cats: ['corporate']
-  },
-  {
-    id: 41,
-    name: "The Men's Appreciation Box",
-    emoji: '🎖️',
-    images: ['images/mens_appreciation_gift.jpg'],
-    desc: 'For the man who shows up every day and rarely hears thank you. A branded notebook, tumbler, chocolates, and sweets, packaged to say what words often don\'t. Recognition, done properly.',
-    price: 550,
-    options: [],
-    cats: ['gift-boxes', 'corporate']
-  },
-  {
-    id: 42,
-    name: 'The Glamour Desk Set',
-    emoji: '✨',
-    images: ['images/glamour_set_tumbler.jpg'],
-    desc: 'She brings beauty to everything she touches, her workspace should be no different. A branded tumbler, sequin mousepad, makeup bag, and notebook. For the woman who works hard and looks good doing it.',
-    price: 780,
-    options: [],
-    cats: ['gift-boxes', 'for-her', 'corporate']
-  },
-  {
-    id: 43,
-    name: 'The Executive Lunch Set',
-    emoji: '🍱',
-    images: [
-      'images/lunch_deluxe_set_1.jpg',
-      'images/lunch_deluxe_set_2.jpg'
-    ],
-    desc: 'Everything he needs, monogrammed and ready. A personalised lunch bag, leather notebook, tumbler, stylus pen, and power bank, built for the executive who moves fast and never compromises on detail.',
-    price: 750,
-    options: [],
-    cats: ['gift-boxes', 'corporate']
-  },
-  {
-    id: 44,
-    name: 'The Two-Tone Mug',
-    emoji: '☕',
-    images: [
-      'images/two_toned_mug_1.jpg',
-      'images/two_toned_mug_2.jpg'
-    ],
-    desc: 'The mug on every desk that starts every conversation. A personalised two-tone mug with matching spoon, branded with a name or logo, and impossible to mistake for anyone else\'s. Dishwasher safe.',
-    price: 130,
-    options: [],
-    cats: ['corporate']
-  },
-  {
-    id: 45,
-    name: 'The Welcome Romper',
-    emoji: '👶',
-    images: ['images/baby_romper_long_sleeve.jpg'],
-    desc: 'Their name. Their arrival. Their first piece of something made just for them. A personalised long-sleeve baby romper, soft, warm, and ready to welcome the newest person in your world.',
-    price: 150,
-    options: [],
-    cats: ['new-baby']
-  },
-  {
-    id: 46,
-    name: 'The Little One Set',
-    emoji: '🧢',
-    images: ['images/baby_romper_hat_set.jpg'],
-    desc: 'A short-sleeve romper and matching hat, both personalised with baby\'s name. The kind of gift that gets kept long after they\'ve grown out of it, because it was made for them before they even knew who they were.',
-    price: 230,
-    options: [],
-    cats: ['new-baby']
-  },
-  {
-    id: 47,
-    name: 'The Wrap Them In Love Blanket',
-    emoji: '🛏️',
-    images: [
-      'images/baby_fleece_receiving_blankets_1.jpg',
-      'images/baby_fleece_receiving_blankets_2.jpg',
-      'images/baby_fleece_receiving_blankets_3.jpg'
-    ],
-    desc: 'Soft, personalised, and made to be held close. A fleece or receiving blanket printed with baby\'s name, for every feed, every nap, and every moment that deserves to feel like home.',
-    price: 250,
-    options: [],
-    cats: ['new-baby']
-  },
-  {
-    id: 48,
-    name: 'The First Hello Romper',
-    emoji: '🌟',
-    images: ['images/baby_romper.jpg'],
-    desc: 'Simple, soft, and entirely theirs. A personalised baby romper carrying their name from day one, because even the smallest person deserves something made just for them.',
-    price: 130,
-    options: [],
-    cats: ['new-baby']
-  },
-  {
-    id: 49,
-    name: 'The First Sip Cup',
-    emoji: '🍼',
-    images: [
-      'images/baby_feeding_cup_1.jpg',
-      'images/baby_feeding_cup_2.jpg'
-    ],
-    desc: "Their name on the cup they reach for first. A 320ml stainless steel baby feeding cup, sublimation-printed and built to last, because even the smallest details of their earliest days deserve to be made just for them. Dishwasher safe.",
-    price: 250,
-    options: [],
-    cats: ['new-baby']
-  },
-  {
-    id: 50,
-    name: 'The Little Explorer Pack',
-    emoji: '🎒',
-    images: [
-      'images/kiddies_backpack_1.jpg',
-      'images/kiddies_backpack_2.jpg'
-    ],
-    desc: 'Their name on their back before they even know where they\'re going. A personalised kiddies backpack, for the little one who is already on an adventure.',
-    price: 250,
-    options: [],
-    cats: ['new-baby']
-  },
-  {
-    id: 51,
-    name: 'The Gentle Touch Cloth',
-    emoji: '🤍',
-    images: ['images/burp_cloths.jpg'],
-    desc: 'Soft on their skin, personal from day one. Personalised burp cloths carrying baby\'s name, for every tender moment in those early weeks that go by far too fast.',
-    price: 150,
-    options: [],
-    cats: ['new-baby']
-  },
-  {
-    id: 52,
-    name: 'The Full Arrival Gift',
-    emoji: '🌈',
-    images: [
-      'images/teddy_burp_1.jpg',
-      'images/teddy_burp_2.jpg'
-    ],
-    desc: 'For the family who just changed forever. A teddy, burp cloth, blanket, dummy, feeding cup, beanie, and baby grow, every piece personalised, everything they need for the first days of the rest of their lives.',
-    price: 1150,
-    options: [],
-    cats: ['best-sellers', 'new-baby']
-  },
-  {
-    id: 53,
-    name: 'The Adventure Starts Here Set',
-    emoji: '🧸',
-    images: ['images/teddy_backpack_set.jpg'],
-    desc: 'A teddy with a personalised top, a personalised blanket, feeding cup, and backpack, because from the very first day, they are going somewhere. Help them arrive in style.',
-    price: 1080,
-    options: [],
-    cats: ['gift-boxes', 'new-baby']
-  },
-  {
-    id: 54,
-    name: 'The Welcome To The World Set',
-    emoji: '⭐',
-    images: [
-      'images/baby_grow_set_1.jpg',
-      'images/baby_grow_set_2.jpg'
-    ],
-    desc: 'A personalised baby grow, beanie, teddy, dummy, feeding cup, and blanket, everything waiting for them the moment they arrive. The gift that says we were ready for you, and we made it just for you.',
-    price: 1050,
-    options: [],
-    cats: ['gift-boxes', 'new-baby']
-  },
-  {
-    id: 55,
-    name: 'Personalised Baby Cushion',
-    emoji: '💛',
-    images: [
-      'images/baby_cushion_1.jpg',
-      'images/baby_cushion_2.jpg',
-      'images/baby_cushion_3.jpg'
-    ],
-    desc: 'Their name, softly printed, on something that holds them close. A personalised baby cushion, a small comfort that becomes a lasting keepsake.',
-    price: 160,
-    options: [],
-    cats: ['new-baby']
-  },
-  {
-    id: 56,
-    name: 'The Tiny Traveller Set',
-    emoji: '🌍',
-    images: [
-      'images/backpack_teddy_1.jpg',
-      'images/backpack_teddy_2.jpg'
-    ],
-    desc: 'A personalised backpack, teddy, blanket, and feeding cup, for the little one who hasn\'t gone anywhere yet but is already going everywhere. The complete set for their very first chapter.',
-    price: 980,
-    options: [],
-    cats: ['gift-boxes', 'new-baby']
-  },
-  {
-    id: 57,
-    name: 'The Welcomed With Love Basket',
-    emoji: '🧴',
-    images: ['images/baby_lotion_powder_set.jpg'],
-    desc: 'Baby lotion, powder, and wash. A personalised outfit with vest, a personalised basket, dummy, and feeding cup, a full welcome, wrapped in care. For the baby who is already so loved, and the parents who want to show it.',
-    price: 850,
-    options: [],
-    cats: ['gift-boxes', 'new-baby']
-  },
-  {
-    id: 58,
-    name: 'The Comfort Keeper',
-    emoji: '🤍',
-    images: [
-      'images/baby_dummy_1.jpg',
-      'images/baby_dummy_2.jpg',
-      'images/baby_dummy_3.jpg'
-    ],
-    desc: "The thing that quiets the world for them. A personalised dummy: small, soft, and carrying their name before they can even say it.",
-    price: 150,
-    options: [],
-    cats: ['new-baby']
-  },
-  {
-    id: 59,
-    name: 'The Daily Essentials Set',
-    emoji: '🍼',
-    images: [
-      'images/feeding_cup_vest_set_1.jpg',
-      'images/feeding_cup_vest_set_2.jpg'
-    ],
-    desc: "The things they reach for every single day: a personalised feeding cup, vest, blanket, and dummy. Simple gifts that become the rhythm of their earliest life.",
-    price: 650,
-    options: [],
-    cats: ['gift-boxes', 'new-baby']
-  },
-  {
-    id: 60,
-    name: 'The Grand Welcome Basket',
-    emoji: '🧺',
-    images: [
-      'images/basket_hat_blanket_1.jpg',
-      'images/basket_hat_blanket_2.jpg'
-    ],
-    desc: "Everything they could need, all in one place. A personalised basket with hat, blanket, burp cloth, feeding cup, vest, and teddy. The kind of gift that makes a family feel truly celebrated.",
-    price: 1100,
-    options: [],
-    cats: ['gift-boxes', 'new-baby']
-  },
-  {
-    id: 61,
-    name: 'The Soothe & Nourish Set',
-    emoji: '💛',
-    images: ['images/feed_cup_dummy.jpg'],
-    desc: "Two of the most-reached-for things in a new baby's world: a personalised feeding cup and a personalised dummy. Practical, personal, and impossible to mix up with anyone else's.",
-    price: 320,
-    options: [],
-    cats: ['new-baby']
-  },
-  {
-    id: 62,
-    name: 'The Held Close Set',
-    emoji: '🌸',
-    images: [
-      'images/cushion_burp_cloth_set_1.jpg',
-      'images/cushion_burp_cloth_set_2.jpg'
-    ],
-    desc: "A blanket, feeding cup, cushion, burp cloth, teddy, and romper, all personalised. For every moment they are held, fed, and wrapped in love. The gift for the family in the thick of the beautiful, exhausting beginning.",
-    price: 950,
-    options: [],
-    cats: ['gift-boxes', 'new-baby']
-  },
-  {
-    id: 63,
-    name: 'The Adventure Bottle',
-    emoji: '🍶',
-    images: [
-      'images/kids_stainless_steel_bottle_1.jpg',
-      'images/kids_stainless_steel_bottle_2.jpg',
-      'images/kids_sippy_bottle.jpg'
-    ],
-    desc: "Their name on the bottle they carry everywhere. A personalised kids bottle, built for school bags, sports days, and every adventure in between. Dishwasher safe.",
-    price: 200,
-    options: [],
-    cats: ['kids', 'mugs']
-  },
-  {
-    id: 64,
-    name: 'The Ready For Anything Set',
-    emoji: '🎒',
-    images: ['images/kids_backpack_bottle_set_1.jpg'],
-    desc: "A personalised backpack and matching bottle, because every big day starts with having everything you need. Made for the little one who is always on the go.",
-    price: 430,
-    options: [],
-    cats: ['kids']
-  },
-  {
-    id: 66,
-    name: 'The Lunchtime Set',
-    emoji: '🥪',
-    images: [
-      'images/lunch_box_and_bottle.jpg',
-      'images/lunch_box_and_bottle_2.jpg'
-    ],
-    desc: "Lunchtime just got personal. A personalised kids lunch box and matching bottle, because the things they use every day should feel like they were made just for them. Because they were.",
-    price: 350,
-    options: [],
-    cats: ['best-sellers', 'kids']
-  },
-  {
-    id: 67,
-    name: 'The Carry It Proud Bag',
-    emoji: '👜',
-    images: [
-      'images/kids_bag.jpg',
-      'images/kids_bag_2.jpg',
-      'images/kids_lunch_bags.jpg'
-    ],
-    desc: "Their name on the bag they carry into school every single day. A personalised kids school bag, big enough for everything they need, made to feel like theirs.",
-    price: 300,
-    options: [],
-    cats: ['kids']
-  },
-  {
-    id: 68,
-    name: 'The Full Pack Set',
-    emoji: '🎁',
-    images: ['images/kids_backpack_puzzle_bottle.jpg'],
-    desc: "A personalised backpack, puzzle, bottle, and gift bag: everything a child needs, wrapped up and ready to give. For the kid who deserves a gift that actually gets used.",
-    price: 600,
-    options: [],
-    cats: ['gift-boxes', 'kids']
-  },
-  {
-    id: 69,
-    name: 'The Complete Lunchtime Kit',
-    emoji: '🍱',
-    images: ['images/lunch_bag.jpg'],
-    desc: "Lunch bag, bottle, and lunchbox, all personalised, all in one. For the child who deserves to open their bag and find something made just for them, every single day.",
-    price: 530,
-    options: [],
-    cats: ['gift-boxes', 'kids']
-  },
-    {
-    id: 71,
-    name: 'The 40oz Tumbler',
-    emoji: '🥤',
-    images: [
-      'images/40oz_tumbler.jpg',
-      'images/40oz_tumbler_2.jpg',
-      'images/kids_tubler.jpg'
-    ],
-    desc: "A 1.2L personalised tumbler that keeps up with the day. Sublimation-printed so the design won't peel or fade, their name, their colour, their cup, from the desk to the drive home. Dishwasher safe.",
-    price: 400,
-    options: [],
-    cats: ['kids', 'mugs']
-  },
-  {
-    id: 72,
-    name: 'The Two-Tone Explorer',
-    emoji: '🍶',
-    images: [
-      'images/kids_two_toned_bottle.jpg',
-      'images/kids_two_toned_bottle_2.jpg'
-    ],
-    desc: "Two colours, one name, zero excuses for losing it. A personalised two-tone stainless steel bottle, the one they'll actually want to carry.",
-    price: 250,
-    options: [],
-    cats: ['kids', 'mugs']
-  },
-  {
-    id: 73,
-    name: 'The Healing Basket',
-    emoji: '🌿',
-    images: ['images/teddy_ginger_tea_set.jpg'],
-    desc: "When words aren't enough, send this. A wooden basket filled with a tumbler, teddy, ginger tea, honey, Ferrero Rocher, nuts, fruit bits, a plant, devotional book, candle, and a card: everything they need to feel held, loved, and on the mend.",
-    price: 1200,
-    options: [],
-    cats: ['gift-boxes', 'christian-gifts', 'get-well-soon']
-  },
-  {
-    id: 74,
-    name: 'The Rest & Restore Set',
-    emoji: '🛁',
-    images: ['images/gown_slipper_sick.jpg'],
-    desc: "Tell them to stop, rest, and let their body do its work. A personalised gown and slippers paired with bath salts, body wash, body scrub, body butter, a candle, and a card. The gift that says slow down, we've got you.",
-    price: 1200,
-    options: [],
-    cats: ['gift-boxes', 'get-well-soon']
-  },
-  {
-    id: 75,
-    name: 'The On The Mend Kit',
-    emoji: '💛',
-    images: ['images/head_rest_tubler.jpg'],
-    desc: "Practical, personal, and full of care. A head rest, tumbler, five fruit and energy bars, toiletry bag, body lotion, nougat, and a card, because getting better is easier when someone thought of everything.",
-    price: 950,
-    options: [],
-    cats: ['gift-boxes', 'get-well-soon']
-  },
-  {
-    id: 76,
-    name: 'The Wooden Handle Mug',
-    emoji: '☕',
-    images: ['images/mug_wooden_handle.jpg'],
-    desc: "Warm hands, warm heart. A personalised mug with a natural wooden handle, the kind of cup that makes every morning feel a little more intentional. Dishwasher safe.",
-    price: 130,
-    options: [],
-    cats: ['mugs']
-  },
-  {
-    id: 77,
-    name: 'The Classic Mug',
-    emoji: '☕',
-    images: [
-      'images/plain_white_mug.jpg',
-      'images/plain_white_mug_with_box.jpg'
-    ],
-    desc: "Clean, classic, and entirely theirs. A personalised white mug, the one they reach for first, every single morning. Dishwasher safe.",
-    price: 0,
-    options: [
-      { name: 'Without box', price: 100 },
-      { name: 'With gift box', price: 120 }
-    ],
-    cats: ['best-sellers', 'mugs']
-  },
-  {
-    id: 78,
-    name: 'The Black Frame Mug',
-    emoji: '☕',
-    images: ['images/black_frame_mug.jpg'],
-    desc: "Bold framing, personal touch. A personalised black frame mug that turns an everyday cup into a statement, presented in a gift box for the full experience. Dishwasher safe.",
-    price: 0,
-    options: [
-      { name: 'Without box', price: 130 },
-      { name: 'With gift box', price: 150 }
-    ],
-    cats: ['mugs']
-  },
-  {
-    id: 79,
-    name: 'The Spoon & Sip Mug',
-    emoji: '🥄',
-    images: ['images/mug_with_spoon.jpg'],
-    desc: "The matching set they didn't know they needed. A personalised mug with matching spoon, available in Green, Red, Navy, Blue, Yellow, Pink, Orange, and Purple. The perfect finishing touch for any desk or kitchen. Dishwasher safe.",
-    price: 0,
-    options: [
-      { name: 'Without box', price: 120 },
-      { name: 'With gift box', price: 140 }
-    ],
-    cats: ['mugs']
-  },
-  {
-    id: 80,
-    name: 'The Two-Tone Mug',
-    emoji: '☕',
-    images: [
-      'images/two-toned-mug.jpg',
-      'images/two_toned_mug_with_box.jpg'
-    ],
-    desc: "Two colours, one name, zero chance of being mistaken for someone else's. A personalised two-tone mug available in Green, Red, Navy, Blue, Yellow, Pink, Orange, and Purple. Dishwasher safe.",
-    price: 0,
-    options: [
-      { name: 'Without box', price: 110 },
-      { name: 'With gift box', price: 130 }
-    ],
-    cats: ['mugs']
-  },
-  {
-    id: 81,
-    name: 'The Frosted Mug',
-    emoji: '☕',
-    images: [
-      'images/frosted_mug.jpg',
-      'images/frosted_mug_with_box.jpg'
-    ],
-    desc: "Soft finish, strong impression. A personalised frosted mug in Pink, Green, Yellow, Red, or Blue. The kind of gift that looks as good on the shelf as it does in their hands. Dishwasher safe.",
-    price: 0,
-    options: [
-      { name: 'Without box', price: 110 },
-      { name: 'With gift box', price: 120 }
-    ],
-    cats: ['mugs']
-  },
-    {
-    id: 82,
-    name: 'The Cappuccino Mug',
-    emoji: '☕',
-    images: [
-      'images/corp_cuppacino_1.jpg',
-      'images/corp_cuppacino_2.jpg',
-      'images/corp_cuppacino_3.jpg',
-      'images/corp_cuppacino_4.jpg',
-      'images/cuppacino_mug.jpg'
-    ],
-    desc: "The mug that belongs in a meeting room and a kitchen table. A personalised cappuccino-style mug. Branded or gifted, it always looks the part. Dishwasher safe.",
-    price: 250,
-    options: [],
-    cats: ['mugs']
-  },
-  {
-    id: 83,
-    name: 'The Daily Carry',
-    emoji: '👜',
-    images: ['images/corporate_lunch_bag.jpg'],
-    desc: 'A branded lunch bag they actually reach for, to the office, to site, to wherever the day takes them. Your logo, carried every single day.',
-    price: 130,
-    options: [],
-    cats: ['corporate']
-  },
-  {
-    id: 84,
-    name: 'The Keyring They Keep',
-    emoji: '🔑',
-    images: ['images/corporate_key_ring.jpg'],
-    desc: "Small, branded, and impossible to misplace. A lightweight polymer keyring that resists cracking, scratching, and fading, your company's name in their pocket and in their hand, every time they reach for their keys.",
-    price: 100,
-    options: [],
-    cats: ['corporate']
-  },
-  {
-    id: 85,
-    name: 'The Signature Pen',
-    emoji: '🖊️',
-    images: ['images/branded_pen.jpg'],
-    desc: 'The pen that ends up in every meeting and on every signature. Branded with your logo, understated, useful, and always within reach.',
-    price: 80,
-    options: [],
-    cats: ['corporate']
-  },
-  {
-    id: 86,
-    name: 'The Carry-All Case',
-    emoji: '✏️',
-    images: ['images/branded_pencil_case.jpg'],
-    desc: 'Branded and built to hold the everyday essentials. The kind of detail that makes your company look like it pays attention, because it does.',
-    price: 130,
-    options: [],
-    cats: ['corporate']
-  },
-  {
-    id: 87,
-    name: 'The Blank Page',
-    emoji: '📓',
-    images: ['images/branded_note_book.jpg'],
-    desc: 'Every good idea starts on a blank page. A branded notebook for the meetings, the plans, and the thinking that moves work forward, your logo on every one.',
-    price: 150,
-    options: [],
-    cats: ['corporate']
-  },
-  {
-    id: 88,
-    name: 'The Desk Mark',
-    emoji: '🖋️',
-    images: ['images/branded_pen_holder.jpg'],
-    desc: 'Branded and built to sit front and centre on their desk. A small daily reminder of who they work with, keeping their pens in place and your name in view.',
-    price: 90,
-    options: [],
-    cats: ['corporate']
-  },
-  {
-    id: 89,
-    name: 'The Sports Day Bottle',
-    emoji: '🏃',
-    images: ['images/kids_sports_bottle.jpg'],
-    desc: "For the kid who never sits still. A personalised sports bottle built for practice, matches, and everything in between. Their name on every sip. Dishwasher safe.",
-    price: 200,
-    options: [],
-    cats: ['kids', 'mugs']
-  },
-  {
-    id: 90,
-    name: 'The Little Scholar Set',
-    emoji: '✏️',
-    images: ['images/pencil_case_pen.jpg'],
-    desc: "Back-to-school, sorted. A personalised pencil case and matching pen, their name on the desk essentials they'll reach for every day.",
-    price: 180,
-    options: [],
-    cats: ['kids']
-  },
-  {
-    id: 91,
-    name: 'The Little Essentials Set',
-    emoji: '🧦',
-    images: ['images/socks_bottle_gift_bag.jpg'],
-    desc: "The little things that make them feel special. Personalised socks and a matching bottle, wrapped in a gift bag and ready to give.",
-    price: 400,
-    options: [],
-    cats: ['kids']
-  },
-  {
-    id: 92,
-    name: 'The Grab & Go Gift Bag',
-    emoji: '🥤',
-    images: ['images/tumbler_gift_bag.jpg'],
-    desc: "A personalised tumbler wrapped and ready to gift. Their name, their colour, packed in a gift bag. Thoughtful, done, sorted.",
-    price: 300,
-    options: [],
-    cats: ['kids']
-  },
-  {
-    id: 93,
-    name: 'The Mr & Mrs Home Set',
-    emoji: '🕰️',
-    images: ['images/coaster_mug_clock.jpg'],
-    desc: "For the two who built a home together. A personalised ceramic clock, Mr & Mrs mugs, and a matching Mr & Mrs coaster, every piece marking the life you share.",
-    price: 650,
-    options: [],
-    cats: ['gift-boxes', 'celebrating-love']
-  },
-  {
-    id: 94,
-    name: 'The Time Together Set',
-    emoji: '🧩',
-    images: ['images/clock_with_puzzle.jpg'],
-    desc: "Every moment with them is worth keeping. A personalised ceramic clock paired with a personalised puzzle, a gift about the time you've spent and the pieces that make you, you.",
-    price: 450,
-    options: [],
-    cats: ['celebrating-love']
-  },
-  {
-    id: 95,
-    name: 'The Keepsake Clock',
-    emoji: '⏰',
-    images: ['images/ceremic_clock.jpg'],
-    desc: "A personalised ceramic clock made to mark what matters: their names, your date, a moment you'll never let slip. Simple, lasting, entirely yours.",
-    price: 300,
-    options: [],
-    cats: ['celebrating-love']
-  },
-  {
-    id: 96,
-    name: 'The His & Hers Towel Set',
-    emoji: '🛁',
-    images: ['images/personlised_towels_set.jpg'],
-    desc: "For the couple who share everything, including the bathroom. A personalised Mr & Mrs towel set, his and hers, each carrying their name.",
-    price: 500,
-    options: [],
-    cats: ['gift-boxes', 'celebrating-love']
-  },
-  {
-    id: 97,
-    name: 'The Grand Gesture Set',
-    emoji: '🎈',
-    images: ['images/bag_balloons_flower_set.jpg'],
-    desc: "When you want to say it loudly. A gift bag loaded with balloons, fresh flowers, Kit Kat and Ferrero Rocher, finished with a personalised keyring, the whole celebration in one.",
-    price: 750,
-    options: [],
-    cats: ['gift-boxes', 'celebrating-love']
-  },
-  {
-    id: 98,
-    name: "The Gentleman's Bouquet",
-    emoji: '💐',
-    images: ['images/mens_bouquet.jpg'],
-    desc: "A bouquet built for him. A personalised cap, Kit Kat and Ferrero Rocher, two pairs of socks, a personalised iPhone cover, and a personalised pen: everything he'd never buy himself.",
-    price: 550,
-    options: [],
-    cats: ['celebrating-love']
-  },
-  {
-    id: 99,
-    name: 'The Piece by Piece Set',
-    emoji: '🍷',
-    images: ['images/piece_by_piece.jpg'],
-    desc: "Because you fell for them piece by piece. A personalised puzzle with wine, a candle, Ferrero Rocher, and a heart chocolate, a slow, sweet celebration of the two of you.",
-    price: 600,
-    options: [],
-    cats: ['gift-boxes', 'celebrating-love']
-  },
-  {
-    id: 100,
-    name: 'The Table for Two Set',
-    emoji: '🧀',
-    images: ['images/platter_mugs.jpg'],
-    desc: "For the couple who host with heart. A personalised platter board, personalised mugs, personalised coasters, and a personalised gift bag. Set the table and let love do the rest.",
-    price: 700,
-    options: [],
-    cats: ['gift-boxes', 'celebrating-love']
-  },
-  {
-    id: 101,
-    name: 'The Cosy Couple Set',
-    emoji: '🛋️',
-    images: ['images/mug_cushion_set.jpg'],
-    desc: "Slow mornings and shared blankets. A personalised mug and cushion set made for the couple who love staying in.",
-    price: 640,
-    options: [],
-    cats: ['celebrating-love']
-  },
-  {
-    id: 102,
-    name: 'The Whole Heart Set',
-    emoji: '🎁',
-    images: ['images/cushion_mug_coaster.jpg'],
-    desc: "Everything, all at once. A personalised cushion, personalised mugs, personalised coasters, a personalised ceramic clock, and a gift box to hold it all, the fullest way to say how much they mean to you.",
-    price: 800,
-    options: [],
-    cats: ['gift-boxes', 'celebrating-love']
-  },
-  {
-    id: 103,
-    name: 'The Cappuccino Ritual',
-    emoji: '☕',
-    images: ['images/corporate_capacino_mug.jpg'],
-    desc: "The mid-morning moment, personalised. A branded cappuccino mug with nuts and dried fruit, a considered desk gift that keeps your name in their hands, cup after cup.",
-    price: 480,
-    options: [],
-    cats: ['corporate']
-  },
-  {
-    id: 104,
-    name: 'The Executive Standard',
-    emoji: '💼',
-    images: [
-      'images/pen_bottle_notebook.jpg',
-      'images/pen_bottle_notebook_2.jpg'
-    ],
-    desc: "Everything the working day asks for, all personalised. A pen, bottle, lunch bag, and notebook, a complete corporate set that puts your brand to work every day.",
-    price: 700,
-    options: [],
-    cats: ['corporate']
-  },
-  {
-    id: 105,
-    name: 'The Midday Carry',
-    emoji: '🥪',
-    images: ['images/lunch_bags.jpg'],
-    desc: "A personalised lunch bag that moves from desk to boardroom and back. Practical, branded, and used daily. Corporate gifting that earns its keep.",
-    price: 300,
-    options: [],
-    cats: ['corporate']
-  },
-  {
-    id: 106,
-    name: 'The Considered Trio',
-    emoji: '🕯️',
-    images: ['images/keyring_bottle_candle.jpg'],
-    desc: "Three thoughtful pieces: a personalised keyring, bottle, and candle. Understated and genuinely useful, for staff appreciation or client thank-yous.",
-    price: 500,
-    options: [],
-    cats: ['corporate']
-  },
-  {
-    id: 107,
-    name: 'The Field Set',
-    emoji: '🖊️',
-    images: ['images/flask_notebook_pen.jpg'],
-    desc: "For the team that takes the work on the road. A personalised flask and notebook with a pen and Ferrero Rocher, a premium gift that travels well.",
-    price: 600,
-    options: [],
-    cats: ['corporate']
-  },
-  {
-    id: 108,
-    name: 'The Living Desk',
-    emoji: '🪴',
-    images: ['images/plant_flask_notebook_pen.jpg'],
-    desc: "A corporate gift that keeps growing. A personalised plant alongside a flask, notebook, and pen, a fresh, lasting addition to any desk.",
-    price: 700,
-    options: [],
-    cats: ['corporate']
-  },
-  {
-    id: 109,
-    name: 'The Comfort & Care Hamper',
-    emoji: '🧺',
-    images: ['images/glass_display_mug_honey.jpg'],
-    desc: "Everything they need to feel held while they heal. A glass display filled with a personalised mug, honey, biscuits, tea, tissues, a candle, and Ferrero Rocher and Lindt chocolates. Comfort, all in one place.",
-    price: 800,
-    options: [],
-    cats: ['gift-boxes', 'get-well-soon']
-  },
-  {
-    id: 110,
-    name: 'The Proud Graduate Display',
-    emoji: '🎓',
-    images: ['images/graduation_display.jpg'],
-    desc: "For the milestone worth framing. A personalised graduation display marking their name, their achievement, and the day they earned it, from creche caps to final years.",
-    price: 200,
-    options: [],
-    cats: ['school']
-  },
-  {
-    id: 111,
-    name: 'The Class Mug & Box',
-    emoji: '☕',
-    images: ['images/mug__mugbox_school.jpg'],
-    desc: "A personalised mug boxed and ready to gift, for a favourite teacher, a proud graduate, or a keepsake from the school year. Dishwasher safe.",
-    price: 120,
-    options: [],
-    cats: ['school']
-  },
-  {
-    id: 112,
-    name: 'The School Lunch Box',
-    emoji: '🍱',
-    images: ['images/lunch_box.jpg'],
-    desc: "A personalised lunch box made for the school run, their name front and centre, built for every packed lunch of the year.",
-    price: 150,
-    options: [],
-    cats: ['school']
-  },
-  {
-    id: 113,
-    name: 'The School Keyring',
-    emoji: '🔑',
-    images: ['images/keyring_school.jpg'],
-    desc: "A small personalised keyring in lightweight, hard-wearing polymer that resists cracking, scratching, and fading. An easy, affordable keepsake for class gifts, party packs, or end-of-year thank-yous.",
-    price: 100,
-    options: [],
-    cats: ['school']
-  },
-  {
-    id: 114,
-    name: 'The School Sippy Cup',
-    emoji: '🥤',
-    images: ['images/sippy_cup_school.jpg'],
-    desc: "A personalised sippy cup in a playful school design, perfect for creche, little graduates, and everything in between. Dishwasher safe.",
-    price: 200,
-    options: [],
-    cats: ['school']
-  },
-  {
-    id: 115,
-    name: 'The School Water Bottle',
-    emoji: '💧',
-    images: ['images/water_bottles_school.jpg'],
-    desc: "A personalised water bottle made for the school day. Their name on the one they carry to class, to practice, and back. Dishwasher safe.",
-    price: 150,
-    options: [],
-    cats: ['school']
-  },
-  {
-    id: 116,
-    name: 'The School Pencil Case',
-    emoji: '✏️',
-    images: ['images/pencil_case_school.jpg'],
-    desc: "A personalised pencil case sized for the school bag. Their name on the one that holds everything they need for class.",
-    price: 90,
-    options: [],
-    cats: ['school']
-  },
-  {
-    id: 117,
-    name: 'The Pencil Case & Crayons Set',
-    emoji: '🖍️',
-    images: [
-      'images/pencil_case_crayons.jpg',
-      'images/pencil_case_crayons_2.jpg'
-    ],
-    desc: "A personalised pencil case packed with crayons, ready for the classroom. Their name on the set they colour, write, and learn with.",
-    price: 150,
-    options: [],
-    cats: ['gift-boxes', 'school']
-  },
-  {
-    id: 118,
-    name: 'The School Stationery Set',
-    emoji: '🖊️',
-    images: ['images/pen_pencil_case_school.jpg'],
-    desc: "A personalised pencil case and matching pen in a school design. Their name on the desk essentials they reach for every day.",
-    price: 180,
-    options: [],
-    cats: ['school']
-  },
-  {
-    id: 119,
-    name: 'The School Arm Sleeves',
-    emoji: '💪',
-    images: ['images/arm_sleeves.jpg'],
-    desc: "A pair of personalised arm sleeves. Their name on a practical extra for school, sports days, and time in the sun.",
-    price: 100,
-    options: [],
-    cats: ['school']
-  },
-  {
-    id: 120,
-    name: 'The Comrades Winner Set',
-    emoji: '🏅',
-    images: ['images/comrades_winner_set.jpg'],
-    desc: "For the runner who conquered the ultimate. A personalised T-shirt, cap, mug, keyring, and coaster, celebrating the medal, the miles, and everything it took to earn them.",
-    price: 640,
-    options: [],
-    cats: ['gift-boxes', 'for-him']
-  },
-  {
-    id: 121,
-    name: "The Runner's Overnight Bag",
-    emoji: '🏃',
-    images: ['images/runner_bag_sports.jpg'],
-    desc: "A personalised sports and overnight bag built for the runner always heading somewhere. Race day, training camp, or the weekend away.",
-    price: 600,
-    options: [],
-    cats: ['for-him']
-  },
-  {
-    id: 122,
-    name: "The Athlete's Bag Set",
-    emoji: '🎽',
-    images: ['images/bag_towel_set.jpg'],
-    desc: "Everything the athlete needs to train and travel. A personalised bag, towel, and bottle, their name on the kit that goes the distance with them.",
-    price: 1000,
-    options: [],
-    cats: ['gift-boxes', 'for-him']
-  },
-  {
-    id: 123,
-    name: 'The Comrades Flask',
-    emoji: '🥤',
-    images: ['images/comrades_flask.jpg'],
-    desc: "A personalised flask for the Comrades runner. Keeps them going through the miles, and marks the achievement long after the finish. Dishwasher safe.",
-    price: 300,
-    options: [],
-    cats: ['for-him']
-  },
-  {
-    id: 124,
-    name: 'The Event Mug & Pen Set',
-    emoji: '☕',
-    images: ['images/mug_pen_events.png'],
-    desc: "A personalised mug and matching pen, boxed and ready to hand out. A smart, useful favour for conferences, launches, and celebrations.",
-    price: 170,
-    options: [],
-    cats: ['gift-boxes', 'corporate']
-  },
-  {
-    id: 125,
-    name: 'The Full Delegate Set',
-    emoji: '📋',
-    images: ['images/mousepad_notebook_pen_events.jpg'],
-    desc: "Everything a guest needs to take notes and take part. A personalised mousepad, notebook, pen, and flask, the complete set for conferences, workshops, and corporate events.",
-    price: 630,
-    options: [],
-    cats: ['gift-boxes', 'corporate']
-  },
-  {
-    id: 126,
-    name: 'The Event Pencil Bag',
-    emoji: '✏️',
-    images: ['images/packaging_pencil_bag_events.jpg'],
-    desc: "A personalised pencil bag, packaged and ready to give. A neat, practical favour that guests actually keep.",
-    price: 95,
-    options: [],
-    cats: ['corporate']
-  },
-  {
-    id: 127,
-    name: 'The Compact Mirror Favour',
-    emoji: '🪞',
-    images: ['images/packaging_compact_mirror.jpg'],
-    desc: "A personalised compact mirror in gift packaging. A small, thoughtful touch for weddings, parties, and events.",
-    price: 150,
-    options: [],
-    cats: ['corporate']
-  },
-  {
-    id: 128,
-    name: 'The Sequin Makeup Bag',
-    emoji: '👜',
-    images: ['images/packaging_sequin_makeup.jpg'],
-    desc: "A personalised sequin makeup bag, packaged to impress. A favour with a bit of sparkle for the guests who love the details.",
-    price: 150,
-    options: [],
-    cats: ['corporate']
-  },
-  {
-    id: 129,
-    name: 'The Boxed Candle',
-    emoji: '🕯️',
-    images: ['images/box_candle_set.jpg'],
-    desc: "A personalised candle presented in a gift box. A warm, welcoming favour that suits any occasion.",
-    price: 190,
-    options: [],
-    cats: ['corporate']
-  },
-  {
-    id: 130,
-    name: 'The Charm Keyring Favour',
-    emoji: '🔑',
-    images: ['images/packaging_charm_keyring.jpg'],
-    desc: "A personalised charm keyring in lightweight, hard-wearing polymer, gift-packaged and ready to hand out. A small keepsake guests carry long after the event.",
-    price: 150,
-    options: [],
-    cats: ['corporate']
-  },
-  {
-    id: 131,
-    name: 'The Boxed Glass Bottle',
-    emoji: '🍶',
-    images: ['images/box_glass.jpg'],
-    desc: "A personalised glass bottle boxed and ready to give. A clean, useful favour for launches, weddings, and corporate days. Dishwasher safe.",
-    price: 190,
-    options: [],
-    cats: ['corporate']
-  },
-  {
-    id: 132,
-    name: 'The Succulent Favour',
-    emoji: '🌵',
-    images: ['images/box_succulent_event.jpg'],
-    desc: "A potted succulent presented in a gift box. A living favour that keeps growing well past the event.",
-    price: 200,
-    options: [],
-    cats: ['corporate']
-  },
-  {
-    id: 133,
-    name: 'The Phone-Stand Pen',
-    emoji: '🖊️',
-    images: ['images/packaging_pen_events.jpg'],
-    desc: "A personalised pen that doubles as a phone stand, packaged and ready to give. A clever little favour guests will actually use at their desk.",
-    price: 65,
-    options: [],
-    cats: ['corporate']
-  },
-  {
-    id: 134,
-    name: 'The Notebook & Pen Box',
-    emoji: '📓',
-    images: ['images/box_notebook_pen.jpg'],
-    desc: "A personalised notebook and pen in a gift box. A polished favour for delegates, guests, and teams.",
-    price: 200,
-    options: [],
-    cats: ['gift-boxes', 'corporate']
-  },
-  {
-    id: 135,
-    name: 'The Event Tumbler Set',
-    emoji: '🥤',
-    images: [
-      'images/gift_bag_tumbler_events.jpg',
-      'images/gift_bag_tumbler_events_2.jpg'
-    ],
-    desc: "A personalised 1.2L tumbler in a matching gift bag. A premium favour that guests carry everywhere, keeping your event in hand long after.",
-    price: 450,
-    options: [],
-    cats: ['corporate']
-  },
-  {
-    id: 136,
-    name: 'The Quiet Time Set',
-    emoji: '📖',
-    images: [
-      'images/bible_notebook_pen.jpg',
-      'images/bible_notebook_pen_2.jpg'
-    ],
-    desc: "For the mornings spent in the Word. A personalised Bible, notebook, and pen, made for prayer, reflection, and the quiet time that shapes everything else.",
-    price: 550,
-    options: [],
-    cats: ['gift-boxes', 'christian-gifts']
-  },
-  {
-    id: 137,
-    name: 'The Kingdom Hoodie & Cap',
-    emoji: '🧥',
-    images: ['images/hoodie_cap.jpg'],
-    desc: "Wear your faith with ease. A personalised hoodie and matching trucker cap, durable and flexible, for the man who carries the Kingdom into every room he walks.",
-    price: 500,
-    options: [],
-    cats: ['christian-gifts', 'fathers-day', 'for-him']
-  },
-  {
-    id: 138,
-    name: 'The Scripture Tumbler',
-    emoji: '🥤',
-    images: ['images/tumbler_scripture.jpg'],
-    desc: "A personalised 1.2L tumbler in a scripture design. Sublimation-printed for colour that lasts, it keeps them going through the day with a word to hold onto, right there in their hands. Dishwasher safe.",
-    price: 400,
-    options: [],
-    cats: ['christian-gifts']
-  },
-  {
-    id: 139,
-    name: 'The Carry the Word Set',
-    emoji: '📱',
-    images: ['images/scripture_bag_iphone_case.jpg'],
-    desc: "Faith that goes everywhere they go. A personalised Bible bag, iPhone cover, and flask, so the Word travels with them from the pew to the everyday.",
-    price: 700,
-    options: [],
-    cats: ['gift-boxes', 'christian-gifts']
-  },
-  {
-    id: 140,
-    name: 'The Faithful Essentials Set',
-    emoji: '✒️',
-    images: ['images/christian_notebook_keyring_pen.jpg'],
-    desc: "The everyday tools for a life of faith. A personalised notebook, keyring, pen, and flask, ready for sermons, study, and everything in between.",
-    price: 500,
-    options: [],
-    cats: ['gift-boxes', 'christian-gifts']
-  },
-  {
-    id: 141,
-    name: 'The Bible Bag',
-    emoji: '👜',
-    images: [
-      'images/bible_bag.jpg',
-      'images/bible_bag_2.jpg'
-    ],
-    desc: "A personalised bag made to carry the Word. Room for their Bible, notebook, and pen, with their name on the outside.",
-    price: 350,
-    options: [],
-    cats: ['christian-gifts']
-  },
-  {
-    id: 142,
-    name: 'The Word on the Go Set',
-    emoji: '☕',
-    images: ['images/bible_bag_travel_mug.jpg'],
-    desc: "For faith on the move. A personalised Bible bag and travel mug, ready for early services, small groups, and the commute in between.",
-    price: 500,
-    options: [],
-    cats: ['gift-boxes', 'christian-gifts']
-  },
-  {
-    id: 143,
-    name: 'The Complete Kingdom Set',
-    emoji: '✝️',
-    images: ['images/bible_bag_coaster_keyring.jpg'],
-    desc: "Everything for a life rooted in the Word. A personalised Bible bag, keyring, mug, coaster, notebook, and Bible, the full set for the person who lives their faith out loud.",
-    price: 1050,
-    options: [],
-    cats: ['gift-boxes', 'christian-gifts']
-  },
-  {
-    id: 144,
-    name: 'The Walk in Faith Set',
-    emoji: '🧦',
-    images: ['images/bible_pen_socks.jpg'],
-    desc: "For every step of the journey. A personalised Bible, notebook, pen, socks, and keyring, a complete set for the one walking their faith daily.",
-    price: 750,
-    options: [],
-    cats: ['gift-boxes', 'christian-gifts']
-  },
-  {
-    id: 145,
-    name: 'The Blessed & Bright Set',
-    emoji: '✨',
-    images: ['images/sequin_pillow_notebook.jpg'],
-    desc: "For the woman whose faith shines. A personalised sequin cushion and matching sequin notebook in a gift bag, bold, bright, and unapologetically hers.",
-    price: 480,
-    options: [],
-    cats: ['gift-boxes', 'christian-gifts']
-  },
-  {
-    id: 146,
-    name: 'The Glass Display Clock',
-    emoji: '🕰️',
-    images: ['images/glass_clock_display.jpg'],
-    desc: "A personalised glass display clock made to mark the moments that matter. Their names, a date, or a message, set in glass for the mantel or the desk.",
-    price: 300,
-    options: [],
-    cats: ['celebrating-love', 'home']
-  },
-  {
-    id: 147,
-    name: 'The Slate Heart Keepsake',
-    emoji: '🖤',
-    images: ['images/slate_stone.jpg'],
-    desc: "A heart-shaped personalised slate stone, engraved with a name, a date, or a few words that say it all. A small, lasting piece for any home.",
-    price: 200,
-    options: [],
-    cats: ['celebrating-love', 'home']
-  },
-  {
-    id: 148,
-    name: 'The Frosted Glass',
-    emoji: '🥂',
-    images: ['images/frosted_glasses.jpg'],
-    desc: "A personalised frosted glass etched with their name or a message. Priced per glass, so build the set that suits your table. Dishwasher safe.",
-    price: 100,
-    options: [],
-    cats: ['home']
-  },
-  {
-    id: 149,
-    name: 'The Personalised Plate',
-    emoji: '🍽️',
-    images: ['images/personalised_plate.jpg'],
-    desc: "A personalised plate made with your own design, ready to bring to the table again and again. Priced per plate. Dishwasher safe.",
-    price: 100,
-    options: [],
-    cats: ['celebrating-love', 'home']
-  },
-  {
-    id: 151,
-    name: 'The Double-Walled Bottle',
-    emoji: '💧',
-    images: [
-      'images/double_walled_bottle.jpg',
-      'images/double_walled_bottle_2.jpg',
-      'images/double_walled_bottle_3.jpg'
-    ],
-    desc: "A personalised double-walled bottle that keeps drinks hot or cold for hours. Priced per bottle, available in a range of colours. Dishwasher safe.",
-    price: 250,
-    options: [],
-    cats: ['mugs']
-  },
-  {
-    id: 152,
-    name: 'The Can Tumbler',
-    emoji: '🥫',
-    images: ['images/can_tumbler.jpg'],
-    desc: "A personalised can-style tumbler for the drink that travels with them. Sleek, insulated, and entirely theirs. Dishwasher safe.",
-    price: 250,
-    options: [],
-    cats: ['mugs']
-  },
-  {
-    id: 153,
-    name: 'The Travel Mug',
-    emoji: '☕',
-    images: [
-      'images/travel_mug.jpg',
-      'images/travel_mug_2.jpg'
-    ],
-    desc: "A personalised travel mug built for the commute and the coffee run. Their name on the lid, ready for the road. Dishwasher safe.",
-    price: 200,
-    options: [],
-    cats: ['mugs']
-  },
-  {
-    id: 154,
-    name: 'The 20oz Tumbler',
-    emoji: '🥤',
-    images: [
-      'images/20oz_tumbler.jpg',
-      'images/20oz_tumbler_2.jpg'
-    ],
-    desc: "A 590ml personalised tumbler that keeps up with the day. Sublimation-printed so it never peels or fades, their name, their colour, from the desk to the drive home. Dishwasher safe.",
-    price: 250,
-    options: [],
-    cats: ['mugs']
-  },
-  {
-    id: 155,
-    name: 'The Wine Tumbler',
-    emoji: '🍷',
-    images: ['images/wine_tumbler_design.jpg'],
-    desc: "A 355ml personalised wine tumbler for the pour that travels, from the patio to the picnic. Sublimation-printed so the design never peels, their name, no stem, no spills. Dishwasher safe.",
-    price: 200,
-    options: [],
-    cats: ['celebrating-love', 'for-her', 'mugs']
-  },
-  {
-    id: 156,
-    name: 'The Full-Print Wine Tumbler',
-    emoji: '🍾',
-    images: ['images/wine_tumbler_full_print.jpg'],
-    desc: "A 355ml personalised wine tumbler wrapped in a full-print, edge-to-edge design. Sublimation-printed for colour that stays vivid wash after wash, bold from top to bottom. Dishwasher safe.",
-    price: 250,
-    options: [],
-    cats: ['celebrating-love', 'for-her', 'mugs']
-  },
-  {
-    id: 157,
-    name: 'The Sleek Tumbler',
-    emoji: '🥤',
-    images: ['images/sleek_tubler.jpg'],
-    desc: "A personalised sleek tumbler built for the day on the move. Slim, insulated, and entirely theirs. Dishwasher safe.",
-    price: 250,
-    options: [],
-    cats: ['mugs']
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kadash Gifts | Never Miss a Moment</title>
+<meta name="description" content="Personalised gifts for every occasion: mugs, hampers, gift sets and more. Made to order in Johannesburg, delivered nationwide. Order easily on WhatsApp.">
+<!-- Open Graph: controls how the link looks when shared on WhatsApp / Instagram / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kadash Gifts | Never Miss a Moment">
+<meta property="og:description" content="Personalised gifts for every occasion, made to order and delivered nationwide. Order on WhatsApp.">
+<meta property="og:url" content="https://kylemurray782-bot.github.io/Kadashgifts/">
+<meta property="og:image" content="https://kylemurray782-bot.github.io/Kadashgifts/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #B8965A;
+    --gold-light: #D4B483;
+    --gold-pale: #F0E4CC;
+    --dark: #1A1714;
+    --charcoal: #2E2A26;
+    --cream: #FAF7F2;
+    --warm: #F3EDE3;
+    --sand: #E8DFCF;
+    --text: #2E2A26;
+    --text-muted: #8A7F72;
+    --white: #FFFFFF;
+    --border: #DDD5C4;
+    --wa: #25D366;
   }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--text); font-weight: 300; }
+
+  /* ANNOUNCEMENT BAR */
+  .announcement-bar {
+    background: var(--gold);
+    padding: 14px 1.5rem;
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--dark);
+    font-weight: 600;
+    position: relative;
+    z-index: 101;
+  }
+  .announcement-bar span { margin: 0 12px; }
+  .announcement-divider { opacity: 0.5; margin: 0 4px; }
+  .announce-google { color: var(--dark); text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 5px; }
+  .announce-top { display: inline-flex; align-items: center; gap: 8px; line-height: 1; }
+  .announce-stars { color: var(--dark); font-size: 17px; letter-spacing: 2px; }
+  .announce-rating { font-weight: 700; font-size: 17px; letter-spacing: 0; }
+  .announce-glogo { width: 18px; height: 18px; display: inline-block; flex-shrink: 0; }
+  .announce-on { font-size: 14px; font-weight: 600; }
+  .announce-copy { text-transform: none; font-size: 11.5px; letter-spacing: 0.3px; font-weight: 500; }
+  .announce-google:hover .announce-copy { text-decoration: underline; }
+
+  /* NAV */
+  nav { position: sticky; top: 0; z-index: 100; background: var(--dark); display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; height: 84px; border-bottom: 1px solid #2e2a26; }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo img { height: 76px; width: auto; object-fit: contain; }
+  .nav-logo-text { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 400; color: var(--gold-light); letter-spacing: 2px; display: none; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { color: #5C5650; text-decoration: none; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--gold-light); }
+  .nav-right { display: flex; align-items: center; gap: 16px; }
+  .cart-btn { position: relative; background: none; border: 1px solid var(--gold); color: var(--gold); width: 42px; height: 42px; border-radius: 2px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+  .cart-btn:hover { background: var(--gold); color: var(--dark); }
+  .cart-count { position: absolute; top: -7px; right: -7px; background: var(--gold); color: var(--dark); border-radius: 50%; min-width: 18px; height: 18px; padding: 0 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600; font-family: 'Jost', sans-serif; border: 1.5px solid var(--dark); }
+  .cart-count.empty { display: none; }
+  .cart-btn svg { width: 19px; height: 19px; }
+  .hamburger-btn { display: none; background: none; border: none; color: var(--gold-light); cursor: pointer; padding: 6px; margin-right: 4px; align-items: center; justify-content: center; }
+  .hamburger-btn svg { width: 24px; height: 24px; }
+  .hamburger-btn:hover { color: var(--gold); }
+
+  /* SLIDE-OUT DRAWER */
+  .drawer-overlay { position: fixed; inset: 0; background: rgba(26,23,20,0.5); opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; z-index: 200; }
+  .drawer-overlay.open { opacity: 1; visibility: visible; }
+  .drawer { position: fixed; top: 0; left: 0; height: 100%; width: 84%; max-width: 330px; background: var(--cream); transform: translateX(-100%); transition: transform 0.32s cubic-bezier(0.4,0,0.2,1); z-index: 201; overflow-y: auto; -webkit-overflow-scrolling: touch; box-shadow: 4px 0 30px rgba(26,23,20,0.25); }
+  .drawer.open { transform: translateX(0); }
+  .drawer-header { display: flex; align-items: center; justify-content: space-between; padding: 20px 22px; background: var(--dark); }
+  .drawer-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--gold-light); letter-spacing: 1px; }
+  .drawer-close { background: none; border: none; color: var(--gold-light); font-size: 20px; cursor: pointer; line-height: 1; padding: 4px; }
+  .drawer-section { padding: 18px 0 8px; border-bottom: 1px solid var(--border); }
+  .drawer-section:last-child { border-bottom: none; }
+  .drawer-section-title { font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #5C5650; padding: 0 22px 8px; }
+  .drawer-cat, .drawer-link { display: flex; align-items: center; justify-content: space-between; width: 100%; text-align: left; padding: 13px 22px; font-family: 'Jost', sans-serif; font-size: 15px; color: var(--text); text-decoration: none; background: none; border: none; cursor: pointer; transition: background 0.15s, color 0.15s; }
+  .drawer-cat:hover, .drawer-link:hover { background: var(--warm); color: var(--gold); }
+  .drawer-cat svg { width: 16px; height: 16px; color: var(--gold); flex-shrink: 0; }
+
+  /* HERO SLIDER — mobile-first (portrait base, desktop widens via min-width below) */
+  /* Height = viewport minus header, leaving ~70px so the trust bar peeks above the fold (scroll cue) */
+  .hero-slider { position: relative; width: 100%; height: calc(100vh - 214px); height: calc(100svh - 214px); min-height: 380px; max-height: 600px; overflow: hidden; background: var(--cream); }
+  .hero-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 0.6s ease; }
+  .hero-slide.active { opacity: 1; z-index: 1; }
+  .hero-slide picture { display: block; width: 100%; height: 100%; }
+  .hero-slide-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .hero-slide-content { position: absolute; left: 0; right: 0; bottom: 0; padding: 0 1.25rem 40px; text-align: center; z-index: 2; }
+  .hero-slide-text { position: absolute; left: 0; right: 0; top: 0; padding: 26px 1.25rem 46px; text-align: center; z-index: 2; background: linear-gradient(180deg, rgba(250,247,242,0.72) 0%, rgba(250,247,242,0.55) 40%, rgba(250,247,242,0.28) 72%, rgba(250,247,242,0) 100%); }
+  .hero-slide-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(22px, 5.6vw, 30px); font-weight: 600; color: #000; line-height: 1.12; letter-spacing: 0.5px; max-width: 92%; margin: 0 auto 9px; }
+  .hero-slide-subhead { font-family: 'Jost', sans-serif; font-size: clamp(12.5px, 3.4vw, 14px); color: #52341f; line-height: 1.5; max-width: 330px; margin: 0 auto; }
+  /* Card layout (slide 3) — grouped panel over the image */
+  .hero-card-wrap { position: absolute; inset: 0; z-index: 2; display: flex; align-items: flex-start; justify-content: center; padding: 22px 14px 0; }
+  .hero-card { background: rgba(250,247,242,0.58); backdrop-filter: blur(7px); -webkit-backdrop-filter: blur(7px); border: 1px solid rgba(255,255,255,0.45); border-radius: 6px; padding: 16px 18px 18px; text-align: center; max-width: 330px; width: 100%; box-shadow: 0 8px 30px rgba(26,23,20,0.22); }
+  .hero-card-kicker { font-family: 'Jost', sans-serif; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 7px; }
+  .hero-card-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(19px, 5vw, 24px); font-weight: 600; color: var(--dark); line-height: 1.16; letter-spacing: 0.3px; margin: 0 0 9px; }
+  .hero-card-subhead { font-family: 'Jost', sans-serif; font-size: 12.5px; color: #52341f; line-height: 1.5; margin: 0 0 14px; }
+  .hero-card .hero-slide-cta { display: inline-block; }
+  .hero-slide-cta { display: inline-block; background: var(--gold); color: var(--dark); padding: 15px 40px; letter-spacing: 2px; text-decoration: none; font-size: 12px; text-transform: uppercase; font-family: 'Jost', sans-serif; border-radius: 2px; transition: all 0.25s; }
+  .hero-slide-cta:hover { background: var(--gold-light); }
+  .hero-arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(26,23,20,0.45); border: 1px solid rgba(255,255,255,0.45); color: #fff; width: 34px; height: 34px; border-radius: 50%; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; transition: all 0.2s; z-index: 3; }
+  .hero-arrow:hover { background: rgba(26,23,20,0.7); }
+  .hero-arrow.prev { left: 10px; }
+  .hero-arrow.next { right: 10px; }
+  .hero-dots { position: absolute; bottom: 18px; left: 0; right: 0; display: flex; justify-content: center; gap: 8px; z-index: 3; }
+  .hero-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.4); border: none; cursor: pointer; transition: all 0.2s; padding: 0; }
+  .hero-dot.active { background: var(--gold); transform: scale(1.25); }
+  .drawer-help { padding: 16px 18px; border-bottom: 1px solid var(--border); }
+  .drawer-help-btn { display: flex; align-items: center; justify-content: center; gap: 9px; width: 100%; background: var(--gold); color: var(--dark); border: none; padding: 14px 16px; border-radius: 3px; font-family: 'Jost', sans-serif; font-size: 12.5px; letter-spacing: 1.2px; text-transform: uppercase; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+  .drawer-help-btn:hover { background: var(--gold-light); }
+  .drawer-help-btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+  /* SOCIAL PROOF STRIP */
+  .proof-section { padding: 44px 0 48px; background: var(--warm); border-bottom: 1px solid var(--border); overflow: hidden; }
+  .proof-heading { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; letter-spacing: 1px; text-align: center; color: var(--dark); margin-bottom: 28px; padding: 0 1.5rem; }
+  .proof-track-wrap { position: relative; }
+  .proof-arrow { position: absolute; top: 50%; transform: translateY(-50%); z-index: 3; width: 40px; height: 40px; border-radius: 50%; background: var(--white); border: 1px solid var(--border); color: var(--charcoal); font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(26,23,20,0.12); transition: all 0.2s; padding-bottom: 2px; }
+  .proof-arrow:hover { background: var(--gold); color: var(--white); border-color: var(--gold); }
+  .proof-arrow.prev { left: 6px; }
+  .proof-arrow.next { right: 6px; }
+  @media (max-width: 640px) { .proof-arrow { display: none; } }
+  .proof-track { display: flex; gap: 14px; padding: 0 1.5rem; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; cursor: grab; user-select: none; }
+  .proof-track::-webkit-scrollbar { display: none; }
+  .proof-track.grabbing { cursor: grabbing; }
+  .proof-card { flex: 0 0 200px; scroll-snap-align: start; border-radius: 6px; overflow: hidden; background: var(--white); box-shadow: 0 2px 12px rgba(26,23,20,0.08); position: relative; }
+  .proof-card img { width: 100%; aspect-ratio: 4/5; object-fit: contain; background: #FFFFFF; display: block; }
+  .proof-caption { font-family: 'Jost', sans-serif; font-size: 11.5px; letter-spacing: 0.5px; color: #5C5650; padding: 8px 12px 10px; text-align: center; }
+  .proof-imgwrap { position: relative; }
+  .proof-emoji { width: 100%; aspect-ratio: 4/5; background: var(--warm); display: flex; align-items: center; justify-content: center; font-size: 64px; }
+  .proof-badge { position: absolute; top: 10px; right: 10px; width: 27px; height: 27px; border-radius: 50%; background: var(--wa); display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.18); }
+  .proof-badge svg { width: 15px; height: 15px; }
+  .proof-stars { color: var(--gold); font-size: 12px; letter-spacing: 3px; text-align: center; padding: 10px 0 0; }
+  .proof-stars + .proof-caption { padding-top: 4px; }
+  @media (min-width: 600px) {
+    .proof-card { flex: 0 0 220px; }
+    .proof-heading { font-size: 26px; }
+  }
+
+  /* TRUST BAR */
+  .trust-bar { background: var(--cream); display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-bottom: 1px solid var(--border); }
+  .trust-item { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 6px; padding: 18px 14px; border-bottom: 1px solid var(--border); border-right: 1px solid var(--border); }
+  .trust-item:nth-child(even) { border-right: none; }
+  .trust-item:nth-last-child(-n+2) { border-bottom: none; }
+  .trust-icon { color: var(--gold); display: flex; align-items: center; justify-content: center; }
+  .trust-icon svg { width: 22px; height: 22px; }
+  .trust-text { color: var(--text); font-family: 'Jost', sans-serif; font-size: 12.5px; line-height: 1.35; letter-spacing: 0.3px; }
+  .trust-text strong { display: block; font-weight: 600; color: var(--charcoal); font-size: 13.5px; margin-bottom: 1px; }
+  .trust-google { text-decoration: none; transition: opacity 0.2s; }
+  .trust-google:hover { opacity: 0.82; }
+  .trust-stars { color: var(--gold-light); font-size: 15px; letter-spacing: 2px; line-height: 1; }
+  .trust-google-label { display: inline-flex; align-items: center; gap: 4px; }
+  .trust-google-g { font-weight: 700; font-family: 'Jost', sans-serif; }
+  .trust-google-g .g-blue { color: #4285F4; } .trust-google-g .g-red { color: #EA4335; }
+  .trust-google-g .g-yellow { color: #FBBC05; } .trust-google-g .g-green { color: #34A853; }
+
+  @media (min-width: 701px) {
+    .trust-bar { grid-template-columns: repeat(4, 1fr); }
+    .trust-item { border-bottom: none; padding: 22px 18px; flex-direction: row; gap: 11px; }
+    .trust-item:nth-child(even) { border-right: 1px solid var(--border); }
+    .trust-item:last-child { border-right: none; }
+    .trust-text { text-align: left; font-size: 13px; }
+    .trust-icon svg { width: 24px; height: 24px; }
+  }
+  /* Desktop widens the hero into a landscape band */
+  @media (min-width: 701px) {
+    .hero-slider { aspect-ratio: auto; height: clamp(440px, 56vh, 600px); max-height: none; }
+    .hero-slide-content { padding: 0 2rem 48px; }
+    .hero-slide-text { padding: 44px 2rem 60px; background: linear-gradient(180deg, rgba(250,247,242,0.82) 0%, rgba(250,247,242,0.45) 55%, rgba(250,247,242,0) 100%); }
+    .hero-slide-headline { font-size: clamp(36px, 5vw, 52px); max-width: 620px; margin-bottom: 14px; }
+    .hero-slide-subhead { font-size: 16px; max-width: 460px; }
+    .hero-card-wrap { align-items: center; justify-content: flex-start; padding: 0 0 0 6%; }
+    .hero-card { max-width: 400px; padding: 32px 32px 34px; text-align: left; background: rgba(250,247,242,0.62); }
+    .hero-card-kicker { margin-bottom: 12px; }
+    .hero-card-headline { font-size: clamp(30px, 3vw, 38px); margin-bottom: 14px; }
+    .hero-card-subhead { font-size: 15px; margin-bottom: 22px; }
+    .hero-arrow { width: 40px; height: 40px; font-size: 18px; }
+    .hero-arrow.prev { left: 20px; }
+    .hero-arrow.next { right: 20px; }
+    .hero-dots { bottom: 24px; }
+  }
+
+  /* SECTIONS */
+  .section { padding: 72px 2rem; max-width: 1120px; margin: 0 auto; }
+  .section-label { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 4vw, 42px); font-weight: 400; color: var(--dark); margin-bottom: 8px; line-height: 1.2; }
+  .section-sub { color: #5C5650; font-size: 14px; margin-bottom: 44px; letter-spacing: 0.3px; }
+
+  /* CATEGORY SLIDER */
+  .cat-slider-wrap { position: relative; }
+  .cat-group { margin-bottom: 32px; }
+  .cat-group:last-child { margin-bottom: 0; }
+  .cat-group-head { font-family: 'Jost', sans-serif; font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; padding-left: 2px; }
+  .cat-slider { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: 4px; }
+  .cat-slider::-webkit-scrollbar { display: none; }
+  .cat-slide { scroll-snap-align: start; flex: 0 0 auto; width: 210px; height: 280px; border-radius: 6px; overflow: hidden; position: relative; cursor: pointer; border: 1px solid var(--border); background: var(--warm); }
+  .cat-slide-img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.35s ease; }
+  .cat-slide:hover .cat-slide-img { transform: scale(1.05); }
+  .cat-slide-fallback { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(160deg, var(--warm), var(--sand)); color: var(--gold); }
+  .cat-slide-fallback svg { width: 56px; height: 56px; }
+  .cat-slide-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,23,20,0.82) 0%, rgba(26,23,20,0.25) 42%, rgba(26,23,20,0) 68%); }
+  .cat-slide-label { position: absolute; left: 0; right: 0; bottom: 0; padding: 18px; }
+  .cat-slide-name { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; color: #fff; line-height: 1.15; margin-bottom: 4px; }
+  .cat-slide-cta { font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold-light); display: flex; align-items: center; gap: 5px; }
+  .cat-arrow { position: absolute; top: 50%; transform: translateY(-50%); z-index: 3; width: 42px; height: 42px; border-radius: 50%; background: var(--white); border: 1px solid var(--border); color: var(--charcoal); font-size: 20px; cursor: pointer; display: none; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(26,23,20,0.12); transition: all 0.2s; }
+  .cat-arrow:hover { border-color: var(--gold); color: var(--gold); }
+  .cat-arrow.prev { left: -16px; }
+  .cat-arrow.next { right: -16px; }
+  @media (min-width: 701px) {
+    .cat-arrow { display: flex; }
+  }
+
+  /* FILTER BAR */
+  .filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
+  .filter-btn { border: 1px solid var(--border); background: var(--white); padding: 7px 16px; border-radius: 2px; font-size: 12px; cursor: pointer; font-family: 'Jost', sans-serif; color: #5C5650; transition: all 0.2s; letter-spacing: 0.5px; }
+  .filter-btn:hover { border-color: var(--gold); color: var(--gold); }
+  .filter-btn.active { background: var(--gold); border-color: var(--gold); color: var(--dark); }
+
+  /* PRODUCT GRID */
+  .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 24px; }
+  .product-card { background: var(--white); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; transition: all 0.22s; cursor: pointer; display: flex; flex-direction: column; }
+  .product-card:hover { box-shadow: 0 10px 32px rgba(0,0,0,0.08); transform: translateY(-3px); border-color: var(--gold); }
+  .product-img { width: 100%; aspect-ratio: 1/1; background: var(--warm); display: flex; align-items: center; justify-content: center; font-size: 52px; overflow: hidden; }
+  .product-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+  .img-placeholder { font-family: 'Cormorant Garamond', serif; font-size: 46px; color: var(--gold); opacity: 0.55; font-style: italic; }
+  .img-placeholder-sm { font-size: 24px; }
+  .product-card:hover .product-img img { transform: scale(1.04); }
+  .product-body { padding: 18px; flex: 1; display: flex; flex-direction: column; }
+  .product-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+  .product-tag { font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); background: var(--gold-pale); padding: 3px 8px; border-radius: 2px; }
+  .product-name { font-family: 'Cormorant Garamond', serif; font-size: 19px; margin-bottom: 6px; font-weight: 400; line-height: 1.3; }
+  .product-desc { font-size: 13.5px; color: #3D3830; margin-bottom: 18px; line-height: 1.65; }
+  .product-delivery { display: flex; align-items: center; gap: 7px; font-size: 11.5px; color: #6b7a5a; background: #f3f6ec; border: 1px solid #e3ead3; border-radius: 3px; padding: 7px 10px; margin-bottom: 16px; letter-spacing: 0.2px; margin-top: auto; }
+  .product-delivery svg { width: 15px; height: 15px; flex-shrink: 0; color: #8a9a6a; }
+  .product-delivery strong { font-weight: 500; color: #4a5638; white-space: nowrap; }
+  .product-footer { display: flex; align-items: center; justify-content: space-between; }
+  .product-price { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 400; color: var(--dark); }
+  .view-btn { background: var(--dark); color: var(--white); border: none; padding: 9px 18px; border-radius: 2px; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; font-family: 'Jost', sans-serif; transition: all 0.2s; }
+  .view-btn:hover { background: var(--gold); color: var(--dark); }
+
+  /* SHOW MORE */
+  .show-more-wrap { text-align: center; margin-top: 40px; }
+  .show-more-btn { border: 1px solid var(--gold); color: var(--gold); background: none; padding: 14px 40px; font-family: 'Jost', sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.25s; border-radius: 2px; }
+  .show-more-btn:hover { background: var(--gold); color: var(--dark); }
+  .show-more-count { font-size: 12px; color: #5C5650; margin-top: 12px; letter-spacing: 0.5px; }
+
+  /* PRODUCT MODAL */
+  .modal-overlay { position: fixed; inset: 0; background: rgba(10,8,6,0.75); z-index: 300; opacity: 0; pointer-events: none; transition: opacity 0.3s; backdrop-filter: blur(3px); }
+  .modal-overlay.open { opacity: 1; pointer-events: all; }
+  .modal { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -48%); z-index: 301; width: min(900px, 95vw); max-height: 90vh; background: var(--white); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; opacity: 0; transition: opacity 0.3s, transform 0.3s; }
+  .modal-overlay.open .modal { opacity: 1; transform: translate(-50%, -50%); }
+  .modal-inner { display: flex; flex: 1; overflow: hidden; }
+  .modal-gallery { width: 55%; background: var(--warm); position: relative; flex-shrink: 0; }
+  .modal-slides { width: 100%; height: 100%; min-height: 400px; }
+  .modal-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 0.35s; display: flex; align-items: center; justify-content: center; font-size: 80px; }
+  .modal-slide.active { opacity: 1; }
+  .modal-slide img { width: 100%; height: 100%; object-fit: cover; }
+  .modal-nav { position: absolute; bottom: 16px; left: 0; right: 0; display: flex; justify-content: center; gap: 8px; z-index: 2; }
+  .modal-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.4); border: none; cursor: pointer; transition: all 0.2s; padding: 0; }
+  .modal-dot.active { background: var(--white); transform: scale(1.2); }
+  .modal-arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: white; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; transition: all 0.2s; z-index: 2; }
+  .modal-arrow:hover { background: rgba(255,255,255,0.3); }
+  .modal-arrow.prev { left: 12px; }
+  .modal-arrow.next { right: 12px; }
+  .modal-arrow.hidden { display: none; }
+  .modal-info { flex: 1; padding: 32px; overflow-y: auto; display: flex; flex-direction: column; }
+  .modal-close { position: absolute; top: 14px; right: 16px; background: none; border: none; font-size: 22px; cursor: pointer; color: var(--text-muted); z-index: 10; line-height: 1; }
+  .modal-close:hover { color: var(--text); }
+  .modal-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; }
+  .modal-name { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 400; margin-bottom: 10px; line-height: 1.2; }
+  .modal-desc { font-family: 'Jost', sans-serif; font-size: 15px; font-weight: 300; color: #3D3830; line-height: 1.8; margin-bottom: 24px; }
+  .modal-options-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #5C5650; margin-bottom: 12px; display: block; }
+  .option-btn { width: 100%; text-align: left; background: var(--cream); border: 1px solid var(--border); border-radius: 3px; padding: 12px 16px; margin-bottom: 8px; cursor: pointer; font-family: 'Jost', sans-serif; transition: all 0.2s; display: flex; justify-content: space-between; align-items: center; }
+  .option-btn:hover { border-color: var(--gold); }
+  .option-btn.selected { border-color: var(--gold); background: #fdf9f2; }
+  .option-name { font-size: 14px; color: var(--text); }
+  .option-price { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--dark); }
+  .modal-price-single { font-family: 'Cormorant Garamond', serif; font-size: 28px; margin-bottom: 24px; }
+  .modal-buybar { position: sticky; bottom: 0; margin: auto -32px 0; padding: 14px 32px; display: flex; align-items: center; gap: 14px; background: var(--white); box-shadow: 0 -10px 16px -12px rgba(0,0,0,0.18); }
+  .buybar-total { font-family: 'Cormorant Garamond', serif; font-size: 26px; line-height: 1; color: var(--dark); white-space: nowrap; }
+  .buybar-total.muted { font-family: 'Jost', sans-serif; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: #5C5650; }
+  .modal-add-btn { flex: 1; background: var(--dark); color: var(--white); border: none; padding: 15px; border-radius: 2px; font-family: 'Jost', sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.2s; }
+  .modal-add-btn:hover { background: var(--gold); color: var(--dark); }
+  .modal-add-btn.added { background: var(--gold); color: var(--dark); }
+
+  /* ADD-ONS */
+  .addons-section { margin-bottom: 22px; background: #FBF6EC; border: 1px solid #EAD9B8; border-radius: 8px; padding: 16px 16px 8px; }
+  .addons-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 4px; display: block; }
+  .addons-sublabel { font-size: 12px; color: #5C5650; margin-bottom: 12px; display: block; }
+  .addon-btn { width: 100%; text-align: left; background: var(--white); border: 1px solid var(--border); border-radius: 3px; padding: 10px 14px; margin-bottom: 8px; cursor: pointer; font-family: 'Jost', sans-serif; transition: all 0.2s; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .addon-btn:hover { border-color: var(--gold); }
+  .addon-btn.selected { border-color: var(--gold); background: #fdf9f2; }
+  .addon-left { display: flex; align-items: center; gap: 10px; }
+  .addon-check { width: 16px; height: 16px; border: 1px solid var(--border); border-radius: 2px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 10px; background: var(--white); transition: all 0.2s; }
+  .addon-btn.selected .addon-check { background: var(--gold); border-color: var(--gold); color: var(--dark); }
+  .addon-name { font-size: 13px; color: var(--text); font-weight: 400; }
+  .addon-price { font-family: 'Cormorant Garamond', serif; font-size: 16px; color: var(--dark); white-space: nowrap; }
+  .cart-item-addons { font-size: 11px; color: #5C5650; margin-top: 2px; line-height: 1.5; }
+
+  /* GIFT HELPER MODAL */
+  .helper-modal-overlay { position: fixed; inset: 0; background: rgba(10,8,6,0.75); z-index: 400; opacity: 0; pointer-events: none; transition: opacity 0.3s; backdrop-filter: blur(3px); }
+  .helper-modal-overlay.open { opacity: 1; pointer-events: all; }
+  .helper-modal { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -48%); z-index: 401; width: min(560px, 95vw); max-height: 90vh; background: var(--dark); border-radius: 4px; overflow-y: auto; opacity: 0; transition: opacity 0.3s, transform 0.3s; padding: 48px 40px; }
+  .helper-modal-overlay.open .helper-modal { opacity: 1; transform: translate(-50%, -50%); }
+  .helper-modal-close { position: absolute; top: 16px; right: 20px; background: none; border: none; font-size: 22px; cursor: pointer; color: #5C5650; line-height: 1; }
+  .helper-modal-close:hover { color: var(--gold-light); }
+  .helper-modal .modal-section-label { color: var(--gold); font-size: 10px; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 10px; display: block; }
+  .helper-modal .modal-section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(26px, 4vw, 34px); font-weight: 400; color: var(--white); margin-bottom: 8px; line-height: 1.2; }
+  .helper-modal .helper-sub { color: #5C5650; font-size: 14px; margin-bottom: 28px; line-height: 1.7; }
+  .helper-form { display: flex; flex-direction: column; gap: 14px; }
+  .helper-field label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #5C5650; display: block; margin-bottom: 6px; }
+  .helper-field input, .helper-field select, .helper-field textarea { width: 100%; border: 1px solid #333; border-radius: 2px; padding: 12px 14px; font-family: 'Jost', sans-serif; font-size: 14px; background: #242018; outline: none; color: #ccc; transition: border-color 0.2s; }
+  .helper-field input:focus, .helper-field select:focus, .helper-field textarea:focus { border-color: var(--gold); }
+  .helper-field select option { background: #242018; }
+  .helper-field textarea { resize: vertical; min-height: 80px; }
+  .helper-btn { background: var(--wa); color: white; border: none; padding: 15px; border-radius: 2px; font-family: 'Jost', sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: opacity 0.2s; margin-top: 8px; width: 100%; }
+  .helper-btn:hover { opacity: 0.88; }
+
+  /* FAQ */
+  .faq-wrap { background: var(--white); padding: 72px 2rem; }
+  .faq-inner { max-width: 760px; margin: 0 auto; }
+  details.faq-item { border-bottom: 1px solid var(--border); padding: 18px 0; }
+  details.faq-item summary { cursor: pointer; font-size: 15px; color: var(--charcoal); letter-spacing: 0.3px; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+  details.faq-item summary::-webkit-details-marker { display: none; }
+  details.faq-item summary::after { content: '+'; color: var(--gold); font-size: 20px; font-weight: 300; flex-shrink: 0; }
+  details[open].faq-item summary::after { content: '−'; }
+  .faq-a { font-size: 13.5px; color: #3D3830; line-height: 1.8; padding-top: 10px; }
+
+  /* CART SIDEBAR */
+  .cart-overlay { position: fixed; inset: 0; background: rgba(10,8,6,0.6); z-index: 200; opacity: 0; pointer-events: none; transition: opacity 0.3s; backdrop-filter: blur(2px); }
+  .cart-overlay.open { opacity: 1; pointer-events: all; }
+  .cart-sidebar { position: fixed; right: 0; top: 0; bottom: 0; width: min(420px, 100vw); background: var(--cream); z-index: 201; transform: translateX(100%); transition: transform 0.3s ease; display: flex; flex-direction: column; border-left: 1px solid var(--border); }
+  .cart-sidebar.open { transform: translateX(0); }
+  .cart-header { padding: 22px 26px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; background: var(--white); }
+  .cart-header h3 { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; letter-spacing: 1px; }
+  .close-btn { background: none; border: none; font-size: 20px; cursor: pointer; color: var(--text-muted); padding: 4px; }
+  .cart-items { flex: 1; overflow-y: auto; padding: 16px 26px; }
+  .cart-empty { text-align: center; color: #5C5650; padding: 48px 0; font-size: 14px; letter-spacing: 0.5px; }
+  .cart-item { display: flex; gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--border); }
+  .cart-item-thumb { width: 56px; height: 56px; border-radius: 4px; overflow: hidden; background: var(--warm); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 24px; }
+  .cart-item-thumb img { width: 100%; height: 100%; object-fit: cover; }
+  .cart-item-info { flex: 1; }
+  .cart-item-name { font-size: 14px; font-weight: 400; margin-bottom: 2px; }
+  .cart-item-option { font-size: 11px; color: var(--gold); letter-spacing: 0.5px; margin-bottom: 2px; }
+  .cart-item-price { font-size: 12px; color: #5C5650; }
+  .cart-item-qty { display: flex; align-items: center; gap: 10px; margin-top: 8px; }
+  .qty-btn { background: var(--warm); border: 1px solid var(--border); width: 26px; height: 26px; border-radius: 2px; cursor: pointer; font-size: 15px; display: flex; align-items: center; justify-content: center; transition: background 0.15s; }
+  .qty-btn:hover { background: var(--sand); }
+  .qty-num { font-size: 14px; font-weight: 400; min-width: 16px; text-align: center; }
+  .remove-btn { background: none; border: none; color: var(--border); cursor: pointer; font-size: 16px; transition: color 0.2s; }
+  .remove-btn:hover { color: #c0392b; }
+  .cart-footer { padding: 20px 26px; border-top: 1px solid var(--border); background: var(--white); }
+  .cart-field { margin-bottom: 14px; }
+  .cart-field label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #5C5650; display: block; margin-bottom: 6px; }
+  .cart-field input { width: 100%; border: 1px solid var(--border); border-radius: 2px; padding: 10px 12px; font-family: 'Jost', sans-serif; font-size: 14px; background: var(--cream); outline: none; color: var(--text); transition: border-color 0.2s; }
+  .cart-field input:focus { border-color: var(--gold); }
+  .cart-field textarea { width: 100%; border: 1px solid var(--border); border-radius: 2px; padding: 10px 12px; font-family: 'Jost', sans-serif; font-size: 14px; background: var(--cream); outline: none; color: var(--text); transition: border-color 0.2s; resize: vertical; min-height: 56px; line-height: 1.5; }
+  .cart-field textarea:focus { border-color: var(--gold); }
+  .fulfil-group { display: flex; gap: 10px; }
+  .fulfil-btn { flex: 1; text-align: left; background: var(--cream); border: 1px solid var(--border); border-radius: 4px; padding: 11px 12px; cursor: pointer; font-family: 'Jost', sans-serif; transition: all 0.2s; }
+  .fulfil-btn:hover { border-color: var(--gold); }
+  .fulfil-btn.selected { border-color: var(--gold); background: #fdf9f2; }
+  .fulfil-name { display: block; font-size: 13px; color: var(--text); }
+  .fulfil-meta { display: block; font-size: 11.5px; color: #5C5650; margin-top: 3px; }
+  .fulfil-btn.selected .fulfil-meta { color: var(--gold); }
+  .pickup-note { font-size: 13px; color: #5C5650; background: var(--cream); border: 1px solid var(--border); border-radius: 3px; padding: 9px 12px; margin-bottom: 14px; line-height: 1.6; }
+  .pickup-note strong { color: var(--text); font-weight: 500; }
+  .cart-summary { margin: 18px 0 4px; padding-top: 16px; border-top: 1px solid var(--border); }
+  .cart-summary-row { display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #5C5650; margin-bottom: 8px; letter-spacing: 0.5px; }
+  .cart-summary-row .free-delivery { color: var(--wa); font-weight: 500; letter-spacing: 1px; text-transform: uppercase; font-size: 11px; }
+  .free-delivery-nudge { background: var(--gold-pale); color: #6b5526; border-radius: 2px; font-size: 12px; padding: 9px 12px; margin-bottom: 12px; text-align: center; letter-spacing: 0.3px; display: none; }
+  .cart-total { display: flex; justify-content: space-between; align-items: center; margin: 6px 0 16px; }
+  .cart-total-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #5C5650; }
+  .cart-total-amount { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; color: var(--dark); }
+  .wa-btn { width: 100%; background: var(--wa); color: white; border: none; padding: 15px; border-radius: 2px; font-family: 'Jost', sans-serif; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 500; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: opacity 0.2s; }
+  .wa-btn:hover { opacity: 0.88; }
+  .wa-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+
+  /* FLOATING WHATSAPP */
+  .wa-float { position: fixed; bottom: 28px; right: 28px; z-index: 500; background: var(--wa); color: white; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.4); cursor: pointer; transition: all 0.25s; text-decoration: none; }
+  .wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.5); }
+  .wa-float svg { width: 26px; height: 26px; }
+  .wa-float-tooltip { position: absolute; right: 68px; background: var(--dark); color: var(--white); font-size: 12px; letter-spacing: 0.5px; padding: 8px 14px; border-radius: 2px; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.2s; font-family: 'Jost', sans-serif; }
+  .wa-float:hover .wa-float-tooltip { opacity: 1; }
+
+  /* NEWSLETTER */
+  .newsletter { background: var(--warm); padding: 64px 2rem; text-align: center; border-top: 1px solid var(--border); }
+  .newsletter-inner { max-width: 520px; margin: 0 auto; }
+  .newsletter-label { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+  .newsletter-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(26px, 4vw, 36px); font-weight: 400; color: var(--dark); margin-bottom: 10px; line-height: 1.2; }
+  .newsletter-sub { color: #5C5650; font-size: 14px; line-height: 1.6; margin-bottom: 26px; }
+  .newsletter-form { display: flex; gap: 10px; }
+  .newsletter-input { flex: 1; border: 1px solid var(--border); border-radius: 2px; padding: 13px 16px; font-family: 'Jost', sans-serif; font-size: 14px; background: var(--white); outline: none; color: var(--text); transition: border-color 0.2s; }
+  .newsletter-input:focus { border-color: var(--gold); }
+  .newsletter-btn { background: var(--dark); color: var(--white); border: none; padding: 13px 28px; border-radius: 2px; font-family: 'Jost', sans-serif; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
+  .newsletter-btn:hover { background: var(--gold); color: var(--dark); }
+  .newsletter-thanks { display: none; color: var(--dark); font-size: 15px; font-family: 'Cormorant Garamond', serif; font-style: italic; padding: 8px 0; }
+  .newsletter-fineprint { font-size: 11px; color: #5C5650; margin-top: 14px; letter-spacing: 0.3px; }
+
+  /* FOOTER */
+  footer { background: var(--charcoal); color: #B5A893; padding: 48px 2rem 32px; text-align: center; }
+  .footer-logo-img { height: 52px; width: auto; display: block; margin: 0 auto 10px; }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--gold-light); letter-spacing: 3px; margin-bottom: 6px; }
+  .footer-tag { font-size: 12px; letter-spacing: 2px; color: #B5A893; margin-bottom: 28px; }
+  .footer-socials { display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 28px; }
+  .footer-socials a { width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(212,180,131,0.35); color: var(--gold-light); display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+  .footer-socials a:hover { background: var(--gold); border-color: var(--gold); color: var(--dark); }
+  .footer-socials a svg { width: 17px; height: 17px; }
+  .footer-divider { height: 1px; background: rgba(212,180,131,0.22); margin: 0 auto 24px; max-width: 200px; }
+  .footer-copy { font-size: 11px; letter-spacing: 0.5px; color: #9A8F82; }
+
+  .no-results { text-align: center; color: #5C5650; padding: 48px 0; grid-column: 1/-1; font-size: 14px; }
+
+  /* SEARCH */
+  .nav-icon-btn { background: none; border: none; color: var(--gold-light); cursor: pointer; width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; transition: color 0.2s; }
+  .nav-icon-btn:hover { color: var(--gold); }
+  .nav-icon-btn svg { width: 20px; height: 20px; }
+  .nav-icon-btn.active { color: var(--gold); }
+  .search-panel { position: sticky; top: 84px; z-index: 90; background: var(--white); max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; padding: 0; }
+  .search-panel.open { max-height: 90px; padding: 14px 0; border-bottom: 1px solid var(--border); }
+  .search-wrap { max-width: 1120px; margin: 0 auto; padding: 0 2rem; position: relative; }
+  .search-input-wrap { position: relative; }
+  .search-input { width: 100%; border: 1px solid var(--border); border-radius: 2px; padding: 12px 44px 12px 44px; font-family: 'Jost', sans-serif; font-size: 14px; background: var(--cream); outline: none; color: var(--text); transition: border-color 0.2s; }
+  .search-input:focus { border-color: var(--gold); }
+  .search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none; display: flex; }
+  .search-clear { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 18px; display: none; padding: 0; }
+  .search-results-label { font-size: 12px; color: #5C5650; margin-bottom: 20px; letter-spacing: 0.5px; display: none; }
+
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+    .hamburger-btn { display: flex; }
+    nav { padding: 0 1.5rem; position: relative; }
+    .nav-logo { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+    .nav-logo img { height: 70px; }
+    .modal-inner { flex-direction: column; }
+    .modal-gallery { width: 100%; height: 40vh; max-height: 320px; min-height: 0; }
+    .modal-slides { min-height: 0; }
+    .modal-info { padding: 20px; }
+    .modal-buybar { margin: auto -20px 0; padding: 12px 20px; }
+    .wa-float { bottom: 20px; right: 20px; width: 50px; height: 50px; }
+    .helper-modal { padding: 32px 24px; }
+    .announcement-bar { padding: 12px 1rem; }
+    .announce-stars, .announce-rating { font-size: 15px; }
+    .announce-on { font-size: 13px; }
+    .announce-glogo { width: 16px; height: 16px; }
+    .announce-copy { font-size: 10.5px; }
+    /* Two products per row on mobile, compact card */
+    .section { padding: 56px 1.25rem; }
+    .product-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .product-body { padding: 12px; }
+    .product-tags { margin-bottom: 8px; gap: 5px; }
+    .product-tag { font-size: 8px; padding: 2px 6px; }
+    .product-name { font-size: 15px; margin-bottom: 5px; line-height: 1.25; }
+    .product-desc { display: none; }
+    .product-delivery { font-size: 10px; padding: 6px 8px; margin-bottom: 12px; gap: 5px; }
+    .product-delivery svg { width: 12px; height: 12px; }
+    .product-footer { flex-direction: column; align-items: stretch; gap: 9px; }
+    .product-price { font-size: 18px; }
+    .view-btn { padding: 9px 10px; font-size: 10px; text-align: center; }
+    .newsletter-form { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR (content set by JS from CONFIG so promo + cutoff stay in sync) -->
+<div class="announcement-bar" id="announcementBar"></div>
+
+<!-- NAV -->
+<nav>
+  <button class="hamburger-btn" onclick="openDrawer()" aria-label="Open menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <a href="#" class="nav-logo">
+    <img src="logo.png" alt="Kadash Gifts" onerror="this.style.display='none'; document.querySelector('.nav-logo-text').style.display='block'">
+    <span class="nav-logo-text">Kadash</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#categories">Categories</a></li>
+    <li><a href="#products">All Gifts</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="nav-icon-btn" onclick="toggleSearch()" aria-label="Search" id="searchToggle">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    </button>
+    <button class="cart-btn" onclick="toggleCart()" aria-label="Open cart">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14l-1.2 10.5a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8L5 7z"/><path d="M9 7V5.5a3 3 0 0 1 6 0V7"/></svg>
+      <span class="cart-count empty" id="cartCount">0</span>
+    </button>
+  </div>
+</nav>
+
+<!-- EXPANDING SEARCH PANEL (drops under the nav) -->
+<div class="search-panel" id="searchPanel">
+  <div class="search-wrap">
+    <div class="search-input-wrap">
+      <span class="search-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+      <input type="text" class="search-input" id="searchInput" placeholder="Search gifts e.g. mug, hamper, keyring..." oninput="handleSearch(this.value)">
+      <button class="search-clear" id="searchClear" onclick="clearSearch()">✕</button>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE-OUT DRAWER -->
+<div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
+<aside class="drawer" id="drawer" aria-label="Menu">
+  <div class="drawer-header">
+    <span class="drawer-title">Menu</span>
+    <button class="drawer-close" onclick="closeDrawer()" aria-label="Close menu">✕</button>
+  </div>
+  <div class="drawer-help">
+    <button class="drawer-help-btn" onclick="closeDrawer(); openHelperModal();">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M9.2 9a2.8 2.8 0 0 1 5.4 1c0 1.8-2.6 2.2-2.6 4"/><line x1="12" y1="17.5" x2="12" y2="17.5"/></svg>
+      Need help choosing a gift?
+    </button>
+  </div>
+  <div class="drawer-section">
+    <div class="drawer-section-title">Shop by category</div>
+    <div id="drawerCategories"></div>
+  </div>
+  <div class="drawer-section">
+    <div class="drawer-section-title">Browse</div>
+    <a class="drawer-link" href="#products" onclick="closeDrawer()">All Gifts</a>
+    <a class="drawer-link" href="#faq" onclick="closeDrawer()">FAQ</a>
+  </div>
+</aside>
+
+<!-- HERO SLIDER -->
+<div class="hero-slider" id="heroSlider">
+  <div id="heroSlides"></div>
+  <button class="hero-arrow prev" onclick="heroNav(-1)">‹</button>
+  <button class="hero-arrow next" onclick="heroNav(1)">›</button>
+  <div class="hero-dots" id="heroDots"></div>
+</div>
+
+<!-- TRUST BAR -->
+<div class="trust-bar" id="trustBar"></div>
+
+<!-- SOCIAL PROOF STRIP -->
+<div id="proofSection"></div>
+
+<!-- CATEGORIES -->
+<div id="categories">
+  <div class="section">
+    <div class="section-label">Browse the collection</div>
+    <div class="section-title">A gift for every moment</div>
+    <p class="section-sub">Shop by occasion, recipient, or gift type. Swipe any row to explore.</p>
+    <div id="catGroups"></div>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<div id="products" style="background: var(--warm);">
+  <div class="section">
+    <div class="section-label">Our range</div>
+    <div class="section-title">All gifts</div>
+    <p class="section-sub">Click any product to view full details and options</p>
+    <div class="search-results-label" id="searchLabel"></div>
+    <div class="filter-bar" id="filterBar"></div>
+    <div class="product-grid" id="productGrid"></div>
+    <div class="show-more-wrap" id="showMoreWrap" style="display:none;">
+      <button class="show-more-btn" onclick="showMore()">Load more gifts</button>
+      <div class="show-more-count" id="showMoreCount"></div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq-wrap" id="faq">
+  <div class="faq-inner">
+    <div class="section-label">Good to know</div>
+    <div class="section-title" style="margin-bottom:32px;">Questions, answered</div>
+    <details class="faq-item">
+      <summary>How does ordering work?</summary>
+      <div class="faq-a">It's quick, and it all happens on WhatsApp, with no online card payments. Browse and add your gift to the cart, choosing any options and adding your personalisation notes. At checkout, your full order is sent straight to us on WhatsApp. We confirm the details and send a payment invoice, payable by EFT or SnapScan. Once payment reflects, your gift is printed, beautifully packed, and dispatched within 2–3 business days.</div>
+    </details>
+    <details class="faq-item">
+      <summary>How long will my order take?</summary>
+      <div class="faq-a">Every gift is made to order. Production takes 2–3 business days, plus courier delivery of 1–3 business days depending on your area. Ordering for a specific date? Mention it in your notes and we'll confirm timing on WhatsApp.</div>
+    </details>
+    <details class="faq-item">
+      <summary>What does delivery cost?</summary>
+      <div class="faq-a" id="faqDelivery"></div>
+    </details>
+    <details class="faq-item">
+      <summary>How does personalisation work?</summary>
+      <div class="faq-a">Add your names, dates, or message in the notes at checkout. We confirm the personalisation details with you on WhatsApp before anything is printed, so you know exactly what you're getting.</div>
+    </details>
+    <details class="faq-item">
+      <summary>How do I pay?</summary>
+      <div class="faq-a">No card details on the site. Your order is sent to us on WhatsApp, we confirm it and send an invoice payable by EFT or SnapScan. Production starts once payment reflects.</div>
+    </details>
+  </div>
+</div>
+
+<!-- NEWSLETTER -->
+<div class="newsletter">
+  <div class="newsletter-inner">
+    <div class="newsletter-label">Stay in touch</div>
+    <div class="newsletter-title">Be the first to know</div>
+    <p class="newsletter-sub">New gifts, seasonal drops, and the occasional special, straight to your inbox.</p>
+    <form id="newsletterForm" method="post" target="newsletterFrame" onsubmit="return handleNewsletter(event)">
+      <div class="newsletter-form">
+        <input type="email" id="newsletterEmail" class="newsletter-input" placeholder="Your email address" required>
+        <button type="submit" class="newsletter-btn">Join</button>
+      </div>
+    </form>
+    <div class="newsletter-thanks" id="newsletterThanks">Thank you. You're on the list.</div>
+    <p class="newsletter-fineprint">No spam, just good gifts. Unsubscribe anytime.</p>
+  </div>
+</div>
+<iframe name="newsletterFrame" style="display:none" title="newsletter"></iframe>
+
+<!-- FOOTER -->
+<footer>
+  <img src="logo-cropped.png" alt="Kadash Gifts" class="footer-logo-img" onerror="this.style.display='none'; document.getElementById('footerLogoText').style.display='block'">
+  <div class="footer-logo" id="footerLogoText" style="display:none">Kadash</div>
+  <div class="footer-tag">Never miss a moment</div>
+  <div class="footer-socials">
+    <a href="https://www.instagram.com/kadashgifts/" target="_blank" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+    </a>
+    <a href="https://www.tiktok.com/@kadashgifts" target="_blank" aria-label="TikTok">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.77 1.52V6.76a4.85 4.85 0 01-1-.07z"/></svg>
+    </a>
+    <a href="https://www.facebook.com/Kadash" target="_blank" aria-label="Facebook">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+    </a>
+    <a href="https://wa.me/27738383486" target="_blank" aria-label="WhatsApp">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+  </div>
+  <div class="footer-divider"></div>
+  <div class="footer-copy">© 2025 Kadash Gifts · Benoni, Johannesburg · All rights reserved</div>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a class="wa-float" id="waFloat" href="#" onclick="openWaFloat(event)" target="_blank" aria-label="Chat on WhatsApp">
+  <span class="wa-float-tooltip">Chat with us</span>
+  <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- PRODUCT MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="handleModalOverlayClick(event)">
+  <div class="modal" id="productModal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-inner">
+      <div class="modal-gallery">
+        <div class="modal-slides" id="modalSlides"></div>
+        <button class="modal-arrow prev" id="modalPrev" onclick="slideModal(-1)">‹</button>
+        <button class="modal-arrow next" id="modalNext" onclick="slideModal(1)">›</button>
+        <div class="modal-nav" id="modalDots"></div>
+      </div>
+      <div class="modal-info">
+        <div class="modal-tags" id="modalTags"></div>
+        <div class="modal-name" id="modalName"></div>
+        <div class="modal-desc" id="modalDesc"></div>
+        <div class="product-delivery" id="modalDelivery" style="margin-bottom:22px;"></div>
+        <div id="modalPricing"></div>
+        <div class="modal-buybar">
+          <div class="buybar-total" id="buybarTotal"></div>
+          <button class="modal-add-btn" id="modalAddBtn" onclick="addFromModal()">Add to cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- GIFT HELPER MODAL -->
+<div class="helper-modal-overlay" id="helperModalOverlay" onclick="handleHelperOverlayClick(event)">
+  <div class="helper-modal" id="helperModal">
+    <button class="helper-modal-close" onclick="closeHelperModal()">✕</button>
+    <span class="modal-section-label">Not sure what to get?</span>
+    <div class="modal-section-title">We'll find it for you</div>
+    <p class="helper-sub">Tell us who you're buying for and we'll personally recommend the perfect gift.</p>
+    <div class="helper-form">
+      <div class="helper-field">
+        <label>Who is the gift for?</label>
+        <input type="text" id="helperFor" placeholder="e.g. My Dad, my best friend, my wife...">
+      </div>
+      <div class="helper-field">
+        <label>What's the occasion?</label>
+        <select id="helperOccasion">
+          <option value="">Select an occasion</option>
+          <option>Birthday</option>
+          <option>Father's Day</option>
+          <option>Mother's Day</option>
+          <option>Anniversary</option>
+          <option>New Baby</option>
+          <option>Corporate</option>
+          <option>Christmas</option>
+          <option>Get Well Soon</option>
+          <option>Kids</option>
+          <option>Just because</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="helper-field">
+        <label>What's your budget?</label>
+        <select id="helperBudget">
+          <option value="">Select a budget</option>
+          <option>Under R200</option>
+          <option>R200 – R350</option>
+          <option>R350 – R500</option>
+          <option>R500 – R800</option>
+          <option>R800+</option>
+        </select>
+      </div>
+      <div class="helper-field">
+        <label>Tell us more (optional)</label>
+        <textarea id="helperNote" placeholder="e.g. He loves the outdoors, she's into skincare..."></textarea>
+      </div>
+      <div class="helper-field">
+        <label>Your name</label>
+        <input type="text" id="helperName" placeholder="e.g. Kyle">
+      </div>
+      <button class="helper-btn" onclick="sendHelperMessage()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Chat to us on WhatsApp
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- CART SIDEBAR -->
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <h3>Your cart</h3>
+    <button class="close-btn" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty">Your cart is empty</div>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-field">
+      <label>How would you like to receive it?</label>
+      <div class="fulfil-group">
+        <button type="button" class="fulfil-btn selected" id="fulfilDelivery" onclick="selectFulfilment('delivery')">
+          <span class="fulfil-name">Delivery</span>
+          <span class="fulfil-meta" id="fulfilDeliveryMeta">R150 · nationwide courier</span>
+        </button>
+        <button type="button" class="fulfil-btn" id="fulfilPickup" onclick="selectFulfilment('pickup')">
+          <span class="fulfil-name">Pickup</span>
+          <span class="fulfil-meta">Free · Benoni</span>
+        </button>
+      </div>
+    </div>
+    <div class="cart-field" id="addressField">
+      <label>Delivery address</label>
+      <textarea id="customerAddress" rows="2" placeholder="Street, suburb, city, postal code"></textarea>
+    </div>
+    <div class="pickup-note" id="pickupNote" style="display:none">Collect from <strong id="pickupAddr"></strong>. We'll confirm collection times with you on WhatsApp.</div>
+    <div class="cart-field"><label>Your name</label><input type="text" id="customerName" placeholder="e.g. Kyle Murray"></div>
+    <div class="cart-field"><label>WhatsApp number (optional)</label><input type="text" id="customerPhone" placeholder="e.g. 073 838 3486"></div>
+    <div class="cart-field"><label>Personalisation / notes</label><input type="text" id="customerNotes" placeholder="e.g. Print 'Happy Birthday Sarah'"></div>
+    <div class="free-delivery-nudge" id="freeDeliveryNudge"></div>
+    <div class="cart-summary">
+      <div class="cart-summary-row"><span>Subtotal</span><span id="cartSubtotal">R0</span></div>
+      <div class="cart-summary-row"><span id="cartDeliveryLabel">Delivery</span><span id="cartDelivery">R0</span></div>
+    </div>
+    <div class="cart-total">
+      <span class="cart-total-label">Total</span>
+      <span class="cart-total-amount" id="cartTotal">R0</span>
+    </div>
+    <button class="wa-btn" id="checkoutBtn" onclick="checkoutWhatsApp()" disabled>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Send order on WhatsApp
+    </button>
+  </div>
+</div>
+
+<script src="products.js"></script>
+<script>
+/* ═══════════════════════════════════════════════════════════════
+   CONFIG — the only block you should need to edit going forward.
+   ⚠ KYLE: confirm DELIVERY_FEE and FREE_DELIVERY_OVER
+   before deploying. Everything below reads from here.
+═══════════════════════════════════════════════════════════════ */
+const CONFIG = {
+  WA_NUMBER: '27738383486',
+  SITE_URL: 'https://kylemurray782-bot.github.io/Kadashgifts/',
+
+  DELIVERY_FEE: 150,         // flat nationwide courier rate (R)
+  FULFILMENT_DAYS: 4,        // business days, order to delivery (production + courier). Powers the "receive by" date on cards.
+  FREE_DELIVERY_OVER: 0,     // no free-delivery threshold (set a rand value here to enable one later)
+  PICKUP_ADDRESS: '1 Carina Ave, Morehill, Benoni, 1501',  // collection address (shown in cart + sent in order message)
+
+  GA4_ID: '',                // ← paste your GA4 Measurement ID (e.g. 'G-XXXXXXXXXX') to enable analytics. Blank = off.
+};
+
+const PAGE_SIZE = 8;
+let currentPage = 1;
+
+/* ─── Escape helper: keeps apostrophes/quotes in product names from breaking markup ─── */
+function esc(s) {
+  return String(s ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
+}
+
+const categories = [
+  { id:'best-sellers',     name:'Best Sellers',         group:'featured' },
+  { id:'gift-boxes',       name:'Gift Boxes & Hampers', group:'featured' },
+  { id:'celebrating-love', name:'Celebrating Love',     group:'occasion' },
+  { id:'christian-gifts',  name:'Christian Gifts',      group:'occasion' },
+  { id:'fathers-day',      name:"Father's Day",         group:'occasion' },
+  { id:'mothers-day',      name:"Mother's Day",         group:'occasion' },
+  { id:'new-baby',         name:'New Baby',             group:'occasion' },
+  { id:'school',           name:'Graduation & School',  group:'occasion' },
+  { id:'get-well-soon',    name:'Get Well Soon',        group:'occasion' },
+  { id:'for-her',          name:'For Her',              group:'recipient' },
+  { id:'for-him',          name:'For Him',              group:'recipient' },
+  { id:'kids',             name:'For Kids',             group:'recipient' },
+  { id:'mugs',             name:'Mugs & Bottles',       group:'type' },
+  { id:'home',             name:'Home & Living',        group:'type' },
+  { id:'corporate',        name:'Corporate & Events',   group:'business' },
 ];
+
+// Consistent single-stroke line icons (no emoji). currentColor inherits the tile colour.
+const ICON_ATTRS = 'viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"';
+const catIcons = {
+  'gift-boxes': `<rect x="3" y="8" width="18" height="12" rx="1"/><path d="M3 12h18"/><path d="M12 8v12"/><path d="M12 8C10.5 5 7.5 5 7.5 6.8 7.5 8 9.5 8 12 8z"/><path d="M12 8c1.5-3 4.5-3 4.5-1.2C16.5 8 14.5 8 12 8z"/>`,
+  'home': `<path d="M4 11l8-6 8 6"/><path d="M6 10v9h12v-9"/><path d="M10 19v-5h4v5"/>`,
+  'christian-gifts': `<path d="M10 2h4v5h5v4h-5v11h-4V11H5V7h5z"/>`,
+  'events': `<rect x="4.5" y="10" width="15" height="9.5" rx="1"/><rect x="3" y="7" width="18" height="3.5" rx="0.5"/><path d="M12 7v12.5"/><path d="M12 7C10.5 4 7.5 4 7.5 6S10 7 12 7z"/><path d="M12 7c1.5-3 4.5-3 4.5-1S14 7 12 7z"/>`,
+  'sport': `<path d="M7 4h10v3a5 5 0 0 1-10 0V4z"/><path d="M7 5H4.5v1A3.5 3.5 0 0 0 8 9.5"/><path d="M17 5h2.5v1A3.5 3.5 0 0 1 16 9.5"/><path d="M12 12v4"/><path d="M9.5 20h5l-.5-4h-4z"/>`,
+  'school': `<path d="M12 4 2 8.2l10 4.1 10-4.1L12 4z"/><path d="M6.5 10.8v3.2c0 1.2 2.5 2.4 5.5 2.4s5.5-1.2 5.5-2.4v-3.2"/><path d="M22 8.2v4.4"/>`,
+  'best-sellers': `<path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19.2l1-5.8L3.5 9.2l5.9-.9z"/>`,
+  'celebrating-love': `<path d="M12 20.5C12 20.5 3.5 15 3.5 8.9A4.4 4.4 0 0 1 12 6.5A4.4 4.4 0 0 1 20.5 8.9C20.5 15 12 20.5 12 20.5Z"/>`,
+  'for-her': `<rect x="3.5" y="9" width="17" height="11" rx="1"/><path d="M3.5 13h17M12 9v11"/><path d="M12 9C9.5 9 8 7.5 8 6a2 2 0 0 1 4 0 2 2 0 0 1 4 0c0 1.5-1.5 3-4 3z"/>`,
+  'for-him': `<rect x="3.5" y="9" width="17" height="11" rx="1"/><path d="M3.5 13h17M12 9v11M9 6l3 3 3-3"/>`,
+  'fathers-day':  `<path d="M10.5 3h3l-1 4 1.5 9-3 4.5-3-4.5L9.5 7z"/>`,
+  'mothers-day':  `<circle cx="12" cy="12" r="2"/><circle cx="12" cy="7" r="2.4"/><circle cx="12" cy="17" r="2.4"/><circle cx="7" cy="12" r="2.4"/><circle cx="17" cy="12" r="2.4"/>`,
+  'anniversary':  `<path d="M4 9l4-5h8l4 5-8 11z"/><path d="M4 9h16M9 4l-1.5 5L12 20M15 4l1.5 5L12 20"/>`,
+  'new-baby':     `<circle cx="9.5" cy="9.5" r="5"/><path d="M13 13l6.5 6.5M9.5 6.5v6M6.5 9.5h6"/>`,
+  'corporate':    `<rect x="3" y="7.5" width="18" height="12" rx="1.5"/><path d="M8.5 7.5V6a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v1.5M3 13h18"/>`,
+  'christmas':    `<path d="M12 3l4.5 6.5h-2.5l4 6H6l4-6H7.5z"/><path d="M10.5 15.5h3V21h-3z"/>`,
+  'get-well-soon':`<path d="M5 19c0-7.5 6-14 14-14 0 7.5-6 14-14 14z"/><path d="M5 19c4-4 8-8 12-11.5"/>`,
+  'kids':         `<ellipse cx="12" cy="9" rx="5" ry="6"/><path d="M12 15c0 1.5-1 1.8-1 3s1 1.5 1 3"/>`,
+  'mugs':         `<path d="M5 6.5h11v9a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3z"/><path d="M16 8.5h2a2 2 0 0 1 2 2v.5a2 2 0 0 1-2 2h-2"/>`,
+};
+function catIcon(id) {
+  return `<svg ${ICON_ATTRS}>${catIcons[id] || ''}</svg>`;
+}
+
+const addOns = [
+  { id: 'ferrero', name: 'Ferrero Rocher',       price: 50 },
+  { id: 'biltong', name: 'Beef Biltong',          price: 50 },
+  { id: 'cashews', name: 'Honey Glazed Cashews',  price: 50 },
+  { id: 'keyring', name: 'Personalised Key Ring', price: 90 },
+];
+
+const CART_STORAGE_KEY = 'kadash_cart_v1';
+
+let cart = [];
+let activeFilter = 'all';
+let modalProduct = null;
+let modalSlide = 0;
+let selectedOption = null;
+let selectedAddOns = [];
+let searchQuery = '';
+let fulfilment = 'delivery'; // 'delivery' (R150 courier) or 'pickup' (free, Benoni)
+
+/* ═══ CART PERSISTENCE ═══ */
+function saveCart() {
+  try { localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart)); } catch (e) { /* private browsing etc. — fail silently */ }
+}
+function loadCart() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(CART_STORAGE_KEY));
+    if (Array.isArray(saved)) cart = saved;
+  } catch (e) { cart = []; }
+}
+
+/* ═══ ANALYTICS (GA4) — no-ops until GA4_ID is set in CONFIG ═══ */
+function initAnalytics() {
+  if (!CONFIG.GA4_ID) return;
+  const s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=' + CONFIG.GA4_ID;
+  document.head.appendChild(s);
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function () { dataLayer.push(arguments); };
+  gtag('js', new Date());
+  gtag('config', CONFIG.GA4_ID);
+}
+function track(name, params) {
+  if (window.gtag) window.gtag('event', name, params || {});
+}
+
+/* ═══ DELIVERY ═══ */
+function cartSubtotal() {
+  return cart.reduce((s, i) => s + i.price * i.qty, 0);
+}
+function deliveryFee(subtotal) {
+  if (subtotal <= 0) return 0;
+  if (fulfilment === 'pickup') return 0;
+  if (CONFIG.FREE_DELIVERY_OVER > 0 && subtotal >= CONFIG.FREE_DELIVERY_OVER) return 0;
+  return CONFIG.DELIVERY_FEE;
+}
+
+function applyFulfilmentUI() {
+  const isPickup = fulfilment === 'pickup';
+  document.getElementById('fulfilDelivery').classList.toggle('selected', !isPickup);
+  document.getElementById('fulfilPickup').classList.toggle('selected', isPickup);
+  document.getElementById('addressField').style.display = isPickup ? 'none' : 'block';
+  document.getElementById('pickupNote').style.display = isPickup ? 'block' : 'none';
+  document.getElementById('cartDeliveryLabel').textContent = isPickup ? 'Pickup' : 'Delivery';
+}
+
+function selectFulfilment(mode) {
+  fulfilment = (mode === 'pickup') ? 'pickup' : 'delivery';
+  applyFulfilmentUI();
+  updateCart();
+}
+
+function renderFulfilment() {
+  document.getElementById('fulfilDeliveryMeta').textContent = `R${CONFIG.DELIVERY_FEE} · nationwide courier`;
+  document.getElementById('pickupAddr').textContent = CONFIG.PICKUP_ADDRESS;
+  applyFulfilmentUI();
+}
+
+
+/* ═══ ANNOUNCEMENT BAR + PROMO COPY (single source of truth: CONFIG) ═══ */
+// Rolling delivery estimate: today + FULFILMENT_DAYS business days, weekends skipped.
+// If ordered on a weekend, counting effectively starts from the next working day.
+function receiveByDate() {
+  const d = new Date();
+  let added = 0;
+  while (added < CONFIG.FULFILMENT_DAYS) {
+    d.setDate(d.getDate() + 1);
+    const day = d.getDay(); // 0 Sun, 6 Sat
+    if (day !== 0 && day !== 6) added++;
+  }
+  return d;
+}
+function receiveByLabel() {
+  const d = receiveByDate();
+  const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  return `${days[d.getDay()]} ${d.getDate()} ${months[d.getMonth()]}`;
+}
+
+function renderAnnouncementBar() {
+  const el = document.getElementById('announcementBar');
+  if (TRUST.showGoogle) {
+    const gLogo = `<svg class="announce-glogo" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>`;
+    el.innerHTML = `
+      <a class="announce-google" href="${esc(TRUST.googleUrl)}" target="_blank" rel="noopener">
+        <span class="announce-top">
+          <span class="announce-stars">★★★★★</span>
+          <span class="announce-rating">${esc(TRUST.rating)}</span>
+          ${gLogo}
+          <span class="announce-on">Google</span>
+        </span>
+        <span class="announce-copy">${esc(TRUST.tagline)}, read our reviews →</span>
+      </a>`;
+  } else {
+    el.innerHTML =
+      `<span>Free personalisation on every order</span>` +
+      `<span class="announcement-divider">|</span>` +
+      `<span>Delivery R${CONFIG.DELIVERY_FEE} nationwide</span>` +
+      `<span class="announcement-divider">|</span>` +
+      `<span>2–3 day turnaround</span>`;
+  }
+}
+function renderDeliveryCopy() {
+  const faqEl = document.getElementById('faqDelivery');
+  faqEl.textContent = CONFIG.FREE_DELIVERY_OVER > 0
+    ? `Delivery is R${CONFIG.DELIVERY_FEE} nationwide via courier, and free on orders over R${CONFIG.FREE_DELIVERY_OVER}.`
+    : `Delivery is R${CONFIG.DELIVERY_FEE} nationwide via courier.`;
+}
+
+/* ═══ SOCIAL PROOF STRIP ═══ */
+function scrollProof(dir) {
+  const t = document.getElementById('proofTrack');
+  if (t) t.scrollBy({ left: dir * (t.clientWidth * 0.85), behavior: 'smooth' });
+}
+function renderProof() {
+  const el = document.getElementById('proofSection');
+  if (!el || !SOCIAL_PROOF.show || !SOCIAL_PROOF.items.length) return;
+  const items = SOCIAL_PROOF.items.slice();
+  for (let i = items.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [items[i], items[j]] = [items[j], items[i]]; }
+  const cards = items.map(p => `
+    <div class="proof-card">
+      <div class="proof-imgwrap">
+        ${p.emoji ? `<div class="proof-emoji">${p.emoji}</div>` : `<img src="${esc(p.src)}" alt="${esc(p.alt||'')}" loading="lazy" onerror="this.closest('.proof-card').style.display='none'">`}
+        <span class="proof-badge" aria-label="Reviewed on WhatsApp"><svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span>
+      </div>
+      <div class="proof-stars">${'\u2605'.repeat(p.stars || 5)}</div>
+      ${p.caption ? `<div class="proof-caption">${esc(p.caption)}</div>` : ''}
+    </div>`).join('');
+  el.innerHTML = `
+    <section class="proof-section">
+      <div class="proof-heading">${esc(SOCIAL_PROOF.heading)}</div>
+      <div class="proof-track-wrap">
+        <button class="proof-arrow prev" onclick="scrollProof(-1)" aria-label="Previous reviews">‹</button>
+        <div class="proof-track" id="proofTrack">${cards}</div>
+        <button class="proof-arrow next" onclick="scrollProof(1)" aria-label="Next reviews">›</button>
+      </div>
+    </section>`;
+  initProofDrag();
+}
+
+function initProofDrag() {
+  const track = document.getElementById('proofTrack');
+  if (!track) return;
+  let isDown = false, startX = 0, scrollLeft = 0;
+  track.addEventListener('mousedown', e => { isDown = true; track.classList.add('grabbing'); startX = e.pageX - track.offsetLeft; scrollLeft = track.scrollLeft; });
+  track.addEventListener('mouseleave', () => { isDown = false; track.classList.remove('grabbing'); });
+  track.addEventListener('mouseup', () => { isDown = false; track.classList.remove('grabbing'); });
+  track.addEventListener('mousemove', e => { if (!isDown) return; e.preventDefault(); const x = e.pageX - track.offsetLeft; track.scrollLeft = scrollLeft - (x - startX) * 1.5; });
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   TRUST BAR — concrete proof, shown directly under the hero.
+   Everything here is hardcoded and updated by hand. No API.
+   The Google rating now shows in the TOP announcement bar; as
+   reviews grow, just change `rating` and `reviewCount` below.
+   showGoogle: true  → top bar shows the Google rating
+   showGoogle: false → top bar reverts to the delivery/turnaround line
+   ⚠ UPDATE THESE with your real numbers before going live:
+   ───────────────────────────────────────────────────────────── */
+const TRUST = {
+  delivered:    'Over 1 000',                       // ← your REAL two-year figure (e.g. 'Over 800', 'Over 1 200')
+  deliveredSub: 'gifts delivered',
+  since:        'Since 2023',                        // ← year you started
+  sinceSub:     'trusted & growing',
+
+  showGoogle:   true,                                // ← true shows the Google trust banner at the top; false reverts to the delivery line
+  rating:       '4.9',                               // ← your real Google star average
+  reviewCount:  '12',                                // ← update as reviews grow
+  tagline:      'Trusted by happy customers across South Africa',  // ← trust line shown in the top banner
+  googleUrl:    'https://www.google.com/search?q=Kadash+Gifts',  // ← paste your Google Business review link
+};
+
+/* ─────────────────────────────────────────────────────────────
+   SOCIAL PROOF STRIP — appears between the trust bar and categories.
+   Add your WhatsApp screenshot / unboxing images to images/proof/.
+   Each item: { src, alt, caption (optional) }
+   Set `heading` to whatever feels most Kadash.
+   Set `show: false` to hide the section until you have images ready.
+   ───────────────────────────────────────────────────────────── */
+const SOCIAL_PROOF = {
+  show:    true,   // ← PREVIEW MODE: emoji placeholders. Replace items with real screenshots in images/proof/ before launch.
+  heading: 'Real reactions, straight from WhatsApp',
+  items: [
+    { src: 'images/proof-1.jpg',  caption: 'Florezelle · Johannesburg', stars: 5 },
+    { src: 'images/proof-2.jpg',  caption: 'Thando · Johannesburg', stars: 5 },
+    { src: 'images/proof-3.jpg',  caption: 'Veronica · Johannesburg', stars: 5 },
+    { src: 'images/proof-4.jpg',  caption: 'Joyce · Mpumalanga', stars: 5 },
+    { src: 'images/proof-5.jpg',  caption: 'Dominique · Johannesburg', stars: 5 },
+    { src: 'images/proof-6.jpg',  caption: 'Nicky · Cape Town', stars: 5 },
+    { src: 'images/proof-7.jpg',  caption: 'Patricia · Uitenhage', stars: 5 },
+    { src: 'images/proof-8.jpg',  caption: 'Faith · Sunninghill', stars: 5 },
+    { src: 'images/proof-9.jpg',  caption: 'Verified customer · Benoni', stars: 5 },
+    { src: 'images/proof-10.jpg', caption: 'Verified customer · Durban', stars: 5 },
+    { src: 'images/proof-11.jpg', caption: 'Verified customer · Fourways', stars: 5 },
+  ],
+};
+
+/* ─────────────────────────────────────────────────────────────
+   MAILING LIST — emails go to your email provider (MailerLite,
+   Mailchimp, Brevo, etc). The form can't store emails by itself.
+   1. Make a free account + an embedded/signup form at your provider.
+   2. Paste that form's POST URL into `action` below.
+   3. Set `emailField` to the email field name your provider expects
+      (MailerLite: 'fields[email]'  ·  Mailchimp: usually 'EMAIL').
+   Until `action` is filled in, the box shows a thank-you but does
+   NOT capture emails — connect it before relying on it.
+   ───────────────────────────────────────────────────────────── */
+const NEWSLETTER = {
+  action:     '',        // ← paste your provider's form POST URL here
+  emailField: 'email',   // ← change to match your provider's email field name
+};
+
+function initNewsletter() {
+  const form = document.getElementById('newsletterForm');
+  const input = document.getElementById('newsletterEmail');
+  if (!form || !input) return;
+  if (NEWSLETTER.action) form.action = NEWSLETTER.action;
+  if (NEWSLETTER.emailField) input.name = NEWSLETTER.emailField;
+}
+
+function handleNewsletter(e) {
+  const input = document.getElementById('newsletterEmail');
+  const val = (input.value || '').trim();
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(val)) return false; // invalid email — let native validation handle it
+  track('newsletter_signup', {});
+  document.getElementById('newsletterForm').style.display = 'none';
+  document.getElementById('newsletterThanks').style.display = 'block';
+  // If connected, let the form POST to the hidden iframe (page stays put). If not, cancel the submit.
+  return !!NEWSLETTER.action;
+}
+
+
+function renderTrustBar() {
+  const el = document.getElementById('trustBar');
+  if (!el) return;
+
+  const truckIcon = `<span class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span>`;
+  const waIcon = `<span class="trust-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.5 15.3L2 22l4.8-1.5A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-2.8.9.9-2.8-.2-.3A8 8 0 1112 20zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.1-.3.2-.5.1a6.5 6.5 0 01-3.2-2.8c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.1-.3 0-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3a3 3 0 00-.9 2.2c0 1.3.9 2.5 1.1 2.7.1.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1 0-.1-.2-.2-.4-.3z"/></svg></span>`;
+
+  const penIcon = `<span class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg></span>`;
+
+  let html = `
+    <div class="trust-item">
+      ${penIcon}
+      <div class="trust-text"><strong>Free personalisation</strong>with every order</div>
+    </div>`;
+
+  html += `
+    <div class="trust-item">
+      ${truckIcon}
+      <div class="trust-text"><strong>Flat R${CONFIG.DELIVERY_FEE} delivery</strong>or free Benoni pickup</div>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v7a2 2 0 01-2 2H6a2 2 0 01-2-2v-7"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/></svg></span>
+      <div class="trust-text"><strong>${esc(TRUST.delivered)}</strong>${esc(TRUST.deliveredSub)}</div>
+    </div>
+    <div class="trust-item">
+      ${waIcon}
+      <div class="trust-text"><strong>Personal service</strong>easy, fast &amp; secure</div>
+    </div>`;
+
+  el.innerHTML = html;
+}
+
+/* ═══ HERO SLIDER ═══ */
+/* ─────────────────────────────────────────────────────────────
+   HERO SLIDES — your hero library lives in /images/heroes/
+   Each slide needs TWO crops of the same photo:
+     desktop → wide landscape (1920×900)
+     mobile  → tall portrait  (1080×1350)
+   To change a slide: either drop a new file with the same name
+   into the folder, OR point these filenames at a different file.
+   Add/remove a slide by adding/removing an entry in this list.
+   headline/subhead are optional — leave them out for image-only slides.
+   ───────────────────────────────────────────────────────────── */
+const HERO_SLIDES = [
+  {
+    desktop:  'images/heroes/slide-1-desktop.jpg',
+    mobile:   'images/heroes/slide-1-mobile.jpg',
+    alt:      'A complete personalised gift, ready to give',
+    headline: 'The whole gift. Sorted.',
+    subhead:  'Personalised, complete, and ready to give, so you look as thoughtful as you actually are.',
+    cta:      'Find their gift',
+    link:     '#products',
+  },
+  {
+    desktop:  'images/heroes/slide-2-desktop.jpg',
+    mobile:   'images/heroes/slide-2-mobile.jpg',
+    alt:      'Personalised new baby gifts',
+    headline: "Personalised Baby Gifts They'll Treasure Forever",
+    subhead:  "Create heartfelt, personalised gifts that celebrate life's newest and most precious arrivals.",
+    cta:      'Shop Now',
+    filter:   'new-baby',
+  },
+  {
+    desktop:  'images/heroes/slide-3-desktop.jpg',
+    mobile:   'images/heroes/slide-3-mobile.jpg',
+    alt:      'Personalised mug gift set, boxed',
+    layout:   'card',
+    headline: 'A Personalised Mug, Beautifully Boxed and Ready to Give',
+    subhead:  'Each set includes one custom mug, carefully packaged in a gift box and personalised just for them.',
+    kicker:   'Gift Sets',
+    cta:      'Shop mugs',
+    filter:   'mugs',
+  },
+];
+
+let heroIndex = 0;
+let heroTimer = null;
+
+function renderHeroSlides() {
+  const wrap = document.getElementById('heroSlides');
+  if (!wrap) return;
+  wrap.innerHTML = HERO_SLIDES.map((s, i) => {
+    const ctaInner = esc(s.cta || 'Shop Now');
+    const ctaAttrs = s.filter
+      ? `href="#products" onclick="filterByCategory('${esc(s.filter)}'); return false;"`
+      : `href="${esc(s.link || '#products')}"`;
+
+    const picture = `
+      <picture>
+        <source media="(max-width: 700px)" srcset="${esc(s.mobile)}">
+        <img class="hero-slide-img" src="${esc(s.desktop)}" alt="${esc(s.alt || 'Kadash gift')}" onerror="this.style.display='none'">
+      </picture>`;
+
+    // Card layout: kicker + headline + subhead + button grouped in one panel over the image
+    if (s.layout === 'card') {
+      return `
+      <div class="hero-slide ${i===0?'active':''}" data-index="${i}">
+        ${picture}
+        <div class="hero-card-wrap">
+          <div class="hero-card">
+            ${s.kicker ? `<div class="hero-card-kicker">${esc(s.kicker)}</div>` : ''}
+            ${s.headline ? `<h1 class="hero-card-headline">${esc(s.headline)}</h1>` : ''}
+            ${s.subhead ? `<p class="hero-card-subhead">${esc(s.subhead)}</p>` : ''}
+            <a class="hero-slide-cta" ${ctaAttrs}>${ctaInner}</a>
+          </div>
+        </div>
+      </div>`;
+    }
+
+    // Default layout: headline/subhead at top, button at bottom
+    const textBlock = s.headline ? `
+      <div class="hero-slide-text">
+        <h1 class="hero-slide-headline">${esc(s.headline)}</h1>
+        ${s.subhead ? `<p class="hero-slide-subhead">${esc(s.subhead)}</p>` : ''}
+      </div>` : '';
+    return `
+    <div class="hero-slide ${i===0?'active':''}" data-index="${i}">
+      ${picture}${textBlock}
+      <div class="hero-slide-content">
+        <a class="hero-slide-cta" ${ctaAttrs}>${ctaInner}</a>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function renderHeroDots() {
+  const slides = document.querySelectorAll('.hero-slide');
+  document.getElementById('heroDots').innerHTML =
+    Array.from(slides).map((_, i) => `<button class="hero-dot ${i===heroIndex?'active':''}" onclick="goToHeroSlide(${i})"></button>`).join('');
+}
+
+function goToHeroSlide(index) {
+  const slides = document.querySelectorAll('.hero-slide');
+  if (!slides.length) return;
+  slides[heroIndex].classList.remove('active');
+  heroIndex = (index + slides.length) % slides.length;
+  slides[heroIndex].classList.add('active');
+  renderHeroDots();
+}
+
+function heroNav(dir) {
+  goToHeroSlide(heroIndex + dir);
+}
+
+function startHeroAutoplay() {
+  stopHeroAutoplay();
+  heroTimer = setInterval(() => heroNav(1), 6000);
+}
+
+function stopHeroAutoplay() {
+  if (heroTimer) clearInterval(heroTimer);
+  heroTimer = null;
+}
+
+function initHeroSlider() {
+  const slider = document.getElementById('heroSlider');
+  if (!slider) return;
+  renderHeroSlides();
+  heroIndex = 0;
+  renderHeroDots();
+  startHeroAutoplay();
+  slider.addEventListener('mouseenter', stopHeroAutoplay);
+  slider.addEventListener('mouseleave', startHeroAutoplay);
+}
+
+/* ═══ GIFT HELPER MODAL ═══ */
+function openHelperModal() {
+  document.getElementById('helperModalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeHelperModal() {
+  document.getElementById('helperModalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function handleHelperOverlayClick(e) {
+  if (e.target === document.getElementById('helperModalOverlay')) closeHelperModal();
+}
+
+/* ═══ CATEGORIES + FILTERS ═══ */
+function renderCategories() {
+  const used = new Set();
+  const pickCover = (c) => {
+    if (c.cover) { used.add(c.cover); return c.cover; }
+    if (typeof products !== 'undefined' && Array.isArray(products)) {
+      const inCat = products.filter(p => p.cats && p.cats.includes(c.id) && p.images && p.images.length);
+      for (const p of inCat) { for (const img of p.images) { if (!used.has(img)) { used.add(img); return img; } } }
+      if (inCat.length) return inCat[0].images[0];
+    }
+    return null;
+  };
+  const arrow = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><polyline points="9 18 15 12 9 6"/></svg>`;
+  const tile = (c) => {
+    const cover = pickCover(c);
+    const media = cover
+      ? `<img class="cat-slide-img" src="${esc(cover)}" alt="${esc(c.name)}" loading="lazy">`
+      : `<div class="cat-slide-fallback">${catIcon(c.id)}</div>`;
+    return `
+    <div class="cat-slide" onclick="filterByCategory('${c.id}')">
+      ${media}
+      <div class="cat-slide-overlay"></div>
+      <div class="cat-slide-label">
+        <div class="cat-slide-name">${esc(c.name)}</div>
+        <div class="cat-slide-cta">Shop now ${arrow}</div>
+      </div>
+    </div>`;
+  };
+  const GROUPS = [
+    { key:'featured',  label:'' },
+    { key:'occasion',  label:'Shop by occasion' },
+    { key:'recipient', label:'Shop by recipient' },
+    { key:'type',      label:'Shop by type' },
+    { key:'business',  label:'For business' }
+  ];
+  const html = GROUPS.map(g => {
+    const cats = categories.filter(c => c.group === g.key);
+    if (!cats.length) return '';
+    const head = g.label ? `<div class="cat-group-head">${g.label}</div>` : '';
+    return `<div class="cat-group">${head}<div class="cat-slider">${cats.map(tile).join('')}</div></div>`;
+  }).join('');
+  document.getElementById('catGroups').innerHTML = html;
+}
+
+
+/* ═══ SLIDE-OUT DRAWER ═══ */
+function renderDrawerCategories() {
+  const el = document.getElementById('drawerCategories');
+  if (!el) return;
+  const chevron = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>`;
+  el.innerHTML = categories.map(c =>
+    `<button class="drawer-cat" onclick="drawerPickCategory('${c.id}')">${esc(c.name)} ${chevron}</button>`
+  ).join('');
+}
+function openDrawer() {
+  document.getElementById('drawerOverlay').classList.add('open');
+  document.getElementById('drawer').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeDrawer() {
+  document.getElementById('drawerOverlay').classList.remove('open');
+  document.getElementById('drawer').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function drawerPickCategory(id) {
+  closeDrawer();
+  filterByCategory(id);
+}
+
+function renderFilters() {
+  document.getElementById('filterBar').innerHTML =
+    [`<button class="filter-btn active" data-filter="all" onclick="filterProducts('all')">All</button>`]
+    .concat(categories.map(c =>
+      `<button class="filter-btn" data-filter="${c.id}" onclick="filterProducts('${c.id}')">${esc(c.name)}</button>`
+    )).join('');
+}
+
+function filterByCategory(id) {
+  document.getElementById('products').scrollIntoView({ behavior:'smooth' });
+  setTimeout(() => filterProducts(id), 420);
+}
+
+function filterProducts(filter) {
+  activeFilter = filter;
+  currentPage = 1;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b.dataset.filter === filter));
+  renderProducts();
+}
+
+// "All" view: interleave products across categories so the grid alternates
+// (men's, women's, baby, mug, corporate…) instead of showing each category in a clump.
+// Round-robins one product from each category group per pass. Computed once, then cached.
+let _mixedAll = null;
+function getMixedAll() {
+  if (_mixedAll) return _mixedAll;
+  if (typeof products === 'undefined' || !Array.isArray(products)) return [];
+  const shuffle = (arr) => {
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  };
+  const groups = {};
+  for (const p of products) {
+    const key = (p.cats && p.cats.find(c => c !== 'best-sellers')) || (p.cats && p.cats[0]) || 'other';
+    (groups[key] = groups[key] || []).push(p);
+  }
+  // Shuffle products within each group, and shuffle the group order → fresh mix each visit,
+  // round-robin keeps categories evenly interleaved (never clumped). Cached for this page load.
+  const lists = shuffle(Object.values(groups).map(l => shuffle(l.slice())));
+  const result = [];
+  for (let i = 0; ; i++) {
+    let addedAny = false;
+    for (const list of lists) {
+      if (i < list.length) { result.push(list[i]); addedAny = true; }
+    }
+    if (!addedAny) break;
+  }
+  _mixedAll = result;
+  return _mixedAll;
+}
+
+function getFiltered() {
+  let filtered = activeFilter === 'all' ? getMixedAll() : products.filter(p => p.cats.includes(activeFilter));
+  if (searchQuery) {
+    filtered = filtered.filter(p =>
+      p.name.toLowerCase().includes(searchQuery) ||
+      p.desc.toLowerCase().includes(searchQuery) ||
+      p.cats.some(c => { const cat = categories.find(x => x.id === c); return cat && cat.name.toLowerCase().includes(searchQuery); })
+    );
+  }
+  return filtered;
+}
+
+/* ═══ PRODUCT GRID ═══ */
+
+function renderProducts() {
+  const filtered = getFiltered();
+  const label = document.getElementById('searchLabel');
+  if (searchQuery) {
+    label.style.display = 'block';
+    label.textContent = filtered.length ? `Showing ${filtered.length} result${filtered.length===1?'':'s'} for "${searchQuery}"` : '';
+  } else {
+    label.style.display = 'none';
+  }
+  if (!filtered.length) {
+    document.getElementById('productGrid').innerHTML = '<div class="no-results">No products in this category yet. More coming soon.</div>';
+    document.getElementById('showMoreWrap').style.display = 'none';
+    return;
+  }
+  const visible = filtered.slice(0, currentPage * PAGE_SIZE);
+  const remaining = filtered.length - visible.length;
+  document.getElementById('productGrid').innerHTML = visible.map(p => {
+    const heroImg = p.images && p.images.length ? p.images[0] : null;
+    const displayPrice = p.options && p.options.length ? `From R${Math.min(...p.options.map(o=>o.price))}` : `R${p.price}`;
+    const tagNames = p.cats.slice(0,2).map(c => { const cat = categories.find(x=>x.id===c); return cat?`<span class="product-tag">${esc(cat.name)}</span>`:''; }).join('');
+    const inCart = cart.find(i => i.cartKey === `${p.id}-single`);
+    return `
+    <div class="product-card">
+      <div class="product-img" onclick="openModal(${p.id})" style="cursor:pointer;">
+        ${heroImg ? `<img src="${esc(heroImg)}" alt="${esc(p.name)}" loading="lazy">` : `<span class="img-placeholder">${esc((p.name||'K').trim().charAt(0).toUpperCase())}</span>`}
+      </div>
+      <div class="product-body">
+        <div class="product-tags" onclick="openModal(${p.id})" style="cursor:pointer;">${tagNames}</div>
+        <div class="product-name" onclick="openModal(${p.id})" style="cursor:pointer;">${esc(p.name)}</div>
+        <div class="product-desc" onclick="openModal(${p.id})" style="cursor:pointer;">${esc(p.desc)}</div>
+
+        <div class="product-delivery">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="7" width="13" height="9" rx="1"/><path d="M15.5 10h3l3 3v3h-6z"/><circle cx="6" cy="17.5" r="1.6"/><circle cx="17.5" cy="17.5" r="1.6"/></svg>
+          Order now, receive by <strong>${receiveByLabel()}</strong>
+        </div>
+        <div class="product-footer">
+          <div class="product-price">${displayPrice}</div>
+          <button class="view-btn ${inCart?'added':''}" onclick="quickAddToCart(${p.id})">
+            ${p.options && p.options.length ? 'View options' : (inCart ? '✓ Added' : 'Add to cart')}
+          </button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+  const showMoreWrap = document.getElementById('showMoreWrap');
+  if (remaining > 0) {
+    showMoreWrap.style.display = 'block';
+    document.getElementById('showMoreCount').textContent = `Showing ${visible.length} of ${filtered.length} gifts`;
+  } else {
+    showMoreWrap.style.display = 'none';
+  }
+}
+
+function showMore() {
+  currentPage++;
+  renderProducts();
+}
+
+function quickAddToCart(id) {
+  const product = products.find(p => p.id === id);
+  if (product.options && product.options.length) { openModal(id); return; }
+  const key = `${id}-single`;
+  const existing = cart.find(i => i.cartKey === key);
+  if (existing) { existing.qty++; }
+  else { cart.push({ ...product, cartKey: key, optionName: null, basePrice: product.price, addOns: [], qty: 1 }); }
+  track('add_to_cart', { item_id: String(id), item_name: product.name, value: product.price, currency: 'ZAR' });
+  updateCart(); renderProducts(); toggleCart(true);
+}
+
+/* ═══ PRODUCT MODAL + DEEP LINKS (#gift-ID) ═══ */
+function openModal(id) {
+  modalProduct = products.find(p => p.id === id);
+  if (!modalProduct) return;
+  modalSlide = 0; selectedOption = null; selectedAddOns = [];
+
+  history.replaceState(null, '', `#gift-${id}`); // shareable link to this product
+
+  const slides = modalProduct.images && modalProduct.images.length ? modalProduct.images : [null];
+  document.getElementById('modalSlides').innerHTML = slides.map((img, i) => `
+    <div class="modal-slide ${i===0?'active':''}" data-index="${i}">
+      ${img ? `<img src="${esc(img)}" alt="${esc(modalProduct.name)}" loading="lazy">` : `<span class="img-placeholder" style="font-size:72px">${esc((modalProduct.name||'K').trim().charAt(0).toUpperCase())}</span>`}
+    </div>`).join('');
+  document.getElementById('modalDots').innerHTML = slides.length > 1
+    ? slides.map((_, i) => `<button class="modal-dot ${i===0?'active':''}" onclick="goToSlide(${i})"></button>`).join('') : '';
+  document.getElementById('modalPrev').classList.toggle('hidden', slides.length <= 1);
+  document.getElementById('modalNext').classList.toggle('hidden', slides.length <= 1);
+
+  const tagNames = modalProduct.cats.map(c => { const cat = categories.find(x=>x.id===c); return cat?`<span class="product-tag">${esc(cat.name)}</span>`:''; }).join('');
+  document.getElementById('modalTags').innerHTML = tagNames;
+  document.getElementById('modalName').textContent = modalProduct.name;
+  document.getElementById('modalDesc').textContent = modalProduct.desc;
+
+  const mdEl = document.getElementById('modalDelivery');
+  if (mdEl) mdEl.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="7" width="13" height="9" rx="1"/><path d="M15.5 10h3l3 3v3h-6z"/><circle cx="6" cy="17.5" r="1.6"/><circle cx="17.5" cy="17.5" r="1.6"/></svg> Order now, receive by <strong>${receiveByLabel()}</strong> &middot; Nationwide courier`;
+
+  const addOnsHTML = `
+    <div class="addons-section">
+      <span class="addons-label">Build your gift box</span>
+      <span class="addons-sublabel">Add extras to make it even more special</span>
+      ${addOns.map(a => `
+        <button class="addon-btn" id="addon-${a.id}" onclick="toggleAddOn('${a.id}')">
+          <div class="addon-left"><div class="addon-check" id="addon-check-${a.id}"></div><span class="addon-name">${esc(a.name)}</span></div>
+          <span class="addon-price">+R${a.price}</span>
+        </button>`).join('')}
+    </div>`;
+
+  const pricingEl = document.getElementById('modalPricing');
+  if (modalProduct.options && modalProduct.options.length) {
+    pricingEl.innerHTML = `<span class="modal-options-label">Choose your option</span>
+      ${modalProduct.options.map((o,i) => `
+        <button class="option-btn" data-index="${i}" onclick="selectOption(${i})">
+          <span class="option-name">${esc(o.name)}</span><span class="option-price">R${o.price}</span>
+        </button>`).join('')}${addOnsHTML}`;
+  } else {
+    pricingEl.innerHTML = addOnsHTML;
+  }
+
+  const addBtn = document.getElementById('modalAddBtn');
+  const inCart = (modalProduct.options && modalProduct.options.length)
+    ? null
+    : cart.find(i => i.cartKey === `${modalProduct.id}-single`);
+  addBtn.textContent = inCart ? '✓ Added to cart' : 'Add to cart';
+  addBtn.className = 'modal-add-btn' + (inCart ? ' added' : '');
+  refreshBuybar();
+
+  track('view_item', { item_id: String(id), item_name: modalProduct.name });
+
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+  modalProduct = null; selectedOption = null; selectedAddOns = [];
+  history.replaceState(null, '', location.pathname + location.search);
+}
+
+function handleModalOverlayClick(e) {
+  if (e.target === document.getElementById('modalOverlay')) closeModal();
+}
+
+function handleDeepLink() {
+  if (location.hash.startsWith('#gift-')) {
+    const id = parseInt(location.hash.replace('#gift-', ''), 10);
+    if (!isNaN(id) && products.find(p => p.id === id)) openModal(id);
+  }
+}
+
+function currentBasePrice() {
+  if (modalProduct.options && modalProduct.options.length) {
+    return selectedOption === null ? null : modalProduct.options[selectedOption].price;
+  }
+  return modalProduct.price;
+}
+
+function refreshBuybar() {
+  const totalEl = document.getElementById('buybarTotal');
+  if (!totalEl || !modalProduct) return;
+  const base = currentBasePrice();
+  if (base === null) {
+    totalEl.textContent = 'Select an option';
+    totalEl.classList.add('muted');
+    return;
+  }
+  const addOnsTotal = addOns.filter(a => selectedAddOns.includes(a.id)).reduce((s,a) => s+a.price, 0);
+  totalEl.textContent = 'R' + (base + addOnsTotal);
+  totalEl.classList.remove('muted');
+}
+
+function toggleAddOn(id) {
+  const idx = selectedAddOns.indexOf(id);
+  if (idx > -1) { selectedAddOns.splice(idx, 1); } else { selectedAddOns.push(id); }
+  const btn = document.getElementById(`addon-${id}`);
+  const check = document.getElementById(`addon-check-${id}`);
+  const isSelected = selectedAddOns.includes(id);
+  btn.classList.toggle('selected', isSelected);
+  check.textContent = isSelected ? '✓' : '';
+  refreshBuybar();
+}
+
+function selectOption(index) {
+  selectedOption = index;
+  document.querySelectorAll('.option-btn').forEach((b,i) => b.classList.toggle('selected', i===index));
+  const addBtn = document.getElementById('modalAddBtn');
+  const opt = modalProduct.options[index];
+  const inCart = cart.find(i => i.cartKey === `${modalProduct.id}-opt${index}`);
+  addBtn.textContent = inCart ? '✓ Added to cart' : 'Add to cart';
+  addBtn.className = 'modal-add-btn' + (inCart ? ' added' : '');
+  refreshBuybar();
+  const slides = document.querySelectorAll('.modal-slide');
+  if (slides.length > index) goToSlide(index);
+}
+
+function slideModal(dir) {
+  const slides = document.querySelectorAll('.modal-slide');
+  slides[modalSlide].classList.remove('active');
+  modalSlide = (modalSlide + dir + slides.length) % slides.length;
+  slides[modalSlide].classList.add('active');
+  document.querySelectorAll('.modal-dot').forEach((d,i) => d.classList.toggle('active', i===modalSlide));
+}
+
+function goToSlide(index) {
+  const slides = document.querySelectorAll('.modal-slide');
+  slides[modalSlide].classList.remove('active');
+  modalSlide = index;
+  slides[modalSlide].classList.add('active');
+  document.querySelectorAll('.modal-dot').forEach((d,i) => d.classList.toggle('active', i===index));
+}
+
+function addFromModal() {
+  if (!modalProduct) return;
+  const chosenAddOns = addOns.filter(a => selectedAddOns.includes(a.id));
+  const addOnsTotal = chosenAddOns.reduce((s,a) => s+a.price, 0);
+  let addedPrice = 0;
+  if (modalProduct.options && modalProduct.options.length) {
+    if (selectedOption === null) { alert('Please choose an option first.'); return; }
+    const opt = modalProduct.options[selectedOption];
+    const key = `${modalProduct.id}-opt${selectedOption}`; // index-based key: safe in onclick attributes
+    const existing = cart.find(i => i.cartKey === key);
+    if (existing) { existing.qty++; }
+    else { cart.push({ ...modalProduct, cartKey: key, optionName: opt.name, price: opt.price + addOnsTotal, basePrice: opt.price, addOns: chosenAddOns, qty: 1 }); }
+    addedPrice = opt.price + addOnsTotal;
+  } else {
+    const key = `${modalProduct.id}-single`;
+    const existing = cart.find(i => i.cartKey === key);
+    if (existing) { existing.qty++; }
+    else { cart.push({ ...modalProduct, cartKey: key, optionName: null, price: modalProduct.price + addOnsTotal, basePrice: modalProduct.price, addOns: chosenAddOns, qty: 1 }); }
+    addedPrice = modalProduct.price + addOnsTotal;
+  }
+  track('add_to_cart', { item_id: String(modalProduct.id), item_name: modalProduct.name, value: addedPrice, currency: 'ZAR' });
+  updateCart(); renderProducts();
+  const addBtn = document.getElementById('modalAddBtn');
+  addBtn.textContent = '✓ Added to cart';
+  addBtn.className = 'modal-add-btn added';
+  setTimeout(() => { closeModal(); toggleCart(true); }, 600);
+}
+
+/* ═══ CART ═══ */
+function removeFromCart(cartKey) {
+  cart = cart.filter(i => i.cartKey !== cartKey);
+  updateCart(); renderProducts();
+}
+
+function changeQty(cartKey, delta) {
+  const item = cart.find(i => i.cartKey === cartKey);
+  if (!item) return;
+  item.qty += delta;
+  if (item.qty <= 0) { removeFromCart(cartKey); return; }
+  updateCart();
+}
+
+function updateCart() {
+  const count = cart.reduce((s,i) => s+i.qty, 0);
+  const subtotal = cartSubtotal();
+  const delivery = deliveryFee(subtotal);
+  const total = subtotal + delivery;
+
+  const countEl = document.getElementById('cartCount');
+  countEl.textContent = count;
+  countEl.classList.toggle('empty', count === 0);
+  document.getElementById('cartSubtotal').textContent = `R${subtotal}`;
+  document.getElementById('cartDelivery').innerHTML =
+    subtotal === 0 ? 'R0' : (delivery === 0 ? '<span class="free-delivery">Free</span>' : `R${delivery}`);
+  document.getElementById('cartTotal').textContent = `R${total}`;
+  document.getElementById('checkoutBtn').disabled = cart.length === 0;
+
+  // Free-delivery nudge: "you're RX away"
+  const nudge = document.getElementById('freeDeliveryNudge');
+  if (CONFIG.FREE_DELIVERY_OVER > 0 && subtotal > 0 && delivery > 0) {
+    nudge.style.display = 'block';
+    nudge.textContent = `Add R${CONFIG.FREE_DELIVERY_OVER - subtotal} more and delivery is on us`;
+  } else {
+    nudge.style.display = 'none';
+  }
+
+  const el = document.getElementById('cartItems');
+  if (!cart.length) {
+    el.innerHTML = '<div class="cart-empty">Your cart is empty</div>';
+    saveCart();
+    return;
+  }
+
+  let html = cart.map(i => {
+    const heroImg = i.images && i.images.length ? i.images[0] : null;
+    return `
+    <div class="cart-item">
+      <div class="cart-item-thumb">${heroImg ? `<img src="${esc(heroImg)}" alt="${esc(i.name)}">` : `<span class="img-placeholder img-placeholder-sm">${esc((i.name||'K').trim().charAt(0).toUpperCase())}</span>`}</div>
+      <div class="cart-item-info">
+        <div class="cart-item-name">${esc(i.name)}</div>
+        ${i.optionName ? `<div class="cart-item-option">${esc(i.optionName)}</div>` : ''}
+        ${i.addOns && i.addOns.length ? `<div class="cart-item-addons">+ ${i.addOns.map(a=>esc(a.name)).join(', ')}</div>` : ''}
+        <div class="cart-item-price">R${i.price} each</div>
+        <div class="cart-item-qty">
+          <button class="qty-btn" onclick="changeQty('${i.cartKey}',-1)">−</button>
+          <span class="qty-num">${i.qty}</span>
+          <button class="qty-btn" onclick="changeQty('${i.cartKey}',1)">+</button>
+        </div>
+      </div>
+      <button class="remove-btn" onclick="removeFromCart('${i.cartKey}')">✕</button>
+    </div>`;
+  }).join('');
+
+  el.innerHTML = html;
+  saveCart();
+}
+
+function toggleCart(forceOpen) {
+  const overlay = document.getElementById('cartOverlay');
+  const sidebar = document.getElementById('cartSidebar');
+  const isOpen = sidebar.classList.contains('open');
+  if (forceOpen === true || !isOpen) {
+    overlay.classList.add('open'); sidebar.classList.add('open');
+  } else {
+    overlay.classList.remove('open'); sidebar.classList.remove('open');
+  }
+}
+
+function openWaFloat(e) {
+  e.preventDefault();
+  const msg = `Hi Kadash Gifts! 👋 I'm browsing your store and would love some help finding the perfect gift. Could you assist me?`;
+  window.open(`https://wa.me/${CONFIG.WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
+/* ═══ CHECKOUT ═══ */
+function checkoutWhatsApp() {
+  const name  = document.getElementById('customerName').value.trim();
+  const phone = document.getElementById('customerPhone').value.trim();
+  const notes = document.getElementById('customerNotes').value.trim();
+  const address = document.getElementById('customerAddress').value.trim();
+  if (!name) { alert('Please enter your name before sending.'); return; }
+  if (fulfilment === 'delivery' && !address) { alert('Please enter your delivery address, or switch to Pickup.'); return; }
+
+  const subtotal = cartSubtotal();
+  const delivery = deliveryFee(subtotal);
+  const total = subtotal + delivery;
+
+  const lines = cart.map(i => {
+    let line = `  • ${i.name}${i.optionName?` (${i.optionName})`:''} x${i.qty} - R${i.price*i.qty}`;
+    if (i.addOns && i.addOns.length) line += `\n    Extras: ${i.addOns.map(a=>a.name).join(', ')}`;
+    return line;
+  }).join('\n');
+
+  const fulfilmentBlock = fulfilment === 'pickup'
+    ? `Collection: Pickup from ${CONFIG.PICKUP_ADDRESS} (FREE)`
+    : `Delivery: ${delivery === 0 ? 'FREE' : `R${delivery}`}\nDelivery address: ${address}`;
+
+  const msg = `Hi Kadash Gifts, I'd like to place an order:\n\n${lines}\n\nSubtotal: R${subtotal}\n${fulfilmentBlock}\nTotal: R${total}\n\nName: ${name}\nNumber: ${phone||'Not provided'}${notes?`\nNotes: ${notes}`:''}\n\nPlease confirm and send payment details. Thank you!`;
+
+  track('begin_checkout', { value: total, currency: 'ZAR', items_count: cart.length });
+
+  window.open(`https://wa.me/${CONFIG.WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
+/* ═══ SEARCH ═══ */
+function toggleSearch() {
+  const panel = document.getElementById('searchPanel');
+  const toggle = document.getElementById('searchToggle');
+  const isOpen = panel.classList.toggle('open');
+  toggle.classList.toggle('active', isOpen);
+  if (isOpen) {
+    setTimeout(() => document.getElementById('searchInput').focus(), 280);
+  }
+}
+
+function handleSearch(val) {
+  searchQuery = val.trim().toLowerCase();
+  currentPage = 1;
+  document.getElementById('searchClear').style.display = searchQuery ? 'block' : 'none';
+  renderProducts();
+  if (searchQuery.length >= 3) track('search', { search_term: searchQuery });
+  if (searchQuery) document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+}
+
+function clearSearch() {
+  document.getElementById('searchInput').value = '';
+  searchQuery = ''; currentPage = 1;
+  document.getElementById('searchClear').style.display = 'none';
+  renderProducts();
+}
+
+/* ═══ GIFT HELPER ═══ */
+function sendHelperMessage() {
+  const forWho   = document.getElementById('helperFor').value.trim();
+  const occasion = document.getElementById('helperOccasion').value;
+  const budget   = document.getElementById('helperBudget').value;
+  const note     = document.getElementById('helperNote').value.trim();
+  const name     = document.getElementById('helperName').value.trim();
+  if (!forWho) { alert('Please tell us who the gift is for.'); return; }
+  if (!name)   { alert('Please enter your name.'); return; }
+  const msg = `Hi Kadash Gifts, I need some help finding the perfect gift.\n\nWho it's for: ${forWho}\nOccasion: ${occasion || 'Not specified'}\nBudget: ${budget || 'Not specified'}${note ? `\nMore info: ${note}` : ''}\n\nMy name: ${name}\n\nCould you help me find something special? Thank you!`;
+  track('gift_helper_submit', { occasion: occasion || 'none' });
+  window.open('https://wa.me/' + CONFIG.WA_NUMBER + '?text=' + encodeURIComponent(msg), '_blank');
+}
+
+/* ═══ INIT ═══ */
+renderAnnouncementBar();
+renderDeliveryCopy();
+renderCategories();
+renderDrawerCategories();
+renderFilters();
+initHeroSlider();
+renderTrustBar();
+renderProof();
+loadCart();
+renderFulfilment();
+updateCart();
+renderProducts();
+handleDeepLink();
+initNewsletter();
+initAnalytics();
+</script>
+</body>
+</html>
