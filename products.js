@@ -140,7 +140,7 @@ const products = [
     name: 'Personalised Dad Socks',
     emoji: '🧦',
     images: ['images/dad_socks.jpg'],
-    desc: "His favourite scripture, his nickname, or a message only he'll understand, printed on the pair he'll actually wear.",
+    desc: "His favourite scripture, his nickname, or a message only he'll understand, sublimation-printed on soft polyester. Moisture-wicking and quick-drying, they pull sweat away two to three times faster than cotton, hard-wearing and colour-fast from the gym to everyday wear.",
     price: 150,
     options: [],
     cats: ['christian-gifts', 'fathers-day', 'for-him']
@@ -193,7 +193,7 @@ const products = [
     name: 'Personalised Keyring',
     emoji: '🔑',
     images: ['images/personalised_keyring.jpg'],
-    desc: 'Every time he reaches for his keys, he carries a piece of you. A simple, lasting personalised token.',
+    desc: "Every time he reaches for his keys, he carries a piece of you. A lightweight polymer keyring, sublimation-printed to resist cracking, scratching, and fading, so it lasts as long as the sentiment.",
     price: 90,
     options: [],
     cats: ['fathers-day', 'for-him']
@@ -203,7 +203,7 @@ const products = [
     name: 'The Cap & Crew Set',
     emoji: '🧢',
     images: ['images/cap_set.jpg'],
-    desc: 'Cap, keyring, coaster, and mug, a full lifestyle set for the man who moves with style. Everything personalised, nothing generic.',
+    desc: "A durable, flexible trucker cap with a keyring, coaster, and mug, a full lifestyle set for the man who moves with style. Everything personalised, nothing generic.",
     price: 580,
     options: [],
     cats: ['gift-boxes', 'fathers-day', 'for-him'],
@@ -224,7 +224,7 @@ const products = [
     name: 'The Her Time Set',
     emoji: '🍷',
     images: ['images/wine_tumbler.jpg'],
-    desc: 'For the woman who never stops, a wine tumbler, a notebook for her thoughts, and a 40oz tumbler to keep her going. All personalised, all hers.',
+    desc: "For the woman who never stops, a wine tumbler, a notebook for her thoughts, and a 1.2L tumbler to keep her going. All personalised, all hers.",
     price: 750,
     options: [],
     cats: ['gift-boxes', 'mothers-day', 'for-her']
@@ -379,7 +379,7 @@ const products = [
     name: 'The Bold & Blessed Set',
     emoji: '✨',
     images: ['images/sequin_notebook.jpg'],
-    desc: "For the woman who shines without apology. A sequin notebook and 40oz tumbler in a gift bag, because her faith is loud, her vision is clear, and she was never meant to blend in.",
+    desc: "For the woman who shines without apology. A sequin notebook and 1.2L tumbler in a gift bag, because her faith is loud, her vision is clear, and she was never meant to blend in.",
     price: 680,
     options: [],
     cats: ['gift-boxes', 'christian-gifts', 'mothers-day', 'for-her']
@@ -420,7 +420,7 @@ const products = [
       'images/company_tubler_1.jpg',
       'images/company_tubler_2.jpg'
     ],
-    desc: 'They carry it everywhere, to meetings, to the gym, through long days. A 40oz Stanley tumbler branded with your company logo. Useful enough to use daily. Quality enough to mean something.',
+    desc: "They carry it everywhere, to meetings, to the gym, through long days. A 1.2L Stanley tumbler branded with your company logo. Useful enough to use daily. Quality enough to mean something.",
     price: 450,
     options: [],
     cats: ['corporate']
@@ -559,7 +559,7 @@ const products = [
       'images/baby_feeding_cup_1.jpg',
       'images/baby_feeding_cup_2.jpg'
     ],
-    desc: 'Their name on the cup they reach for first. A personalised baby feeding cup, because even the smallest details of their earliest days deserve to be made just for them.',
+    desc: "Their name on the cup they reach for first. A 320ml stainless steel baby feeding cup, sublimation-printed and built to last, because even the smallest details of their earliest days deserve to be made just for them.",
     price: 250,
     options: [],
     cats: ['new-baby']
@@ -803,7 +803,7 @@ const products = [
       'images/40oz_tumbler_2.jpg',
       'images/kids_tubler.jpg'
     ],
-    desc: "A personalised 40oz tumbler that keeps up with the day. Their name, their colour, their cup, from the desk to the drive home.",
+    desc: "A 1.2L personalised tumbler that keeps up with the day. Sublimation-printed so the design won't peel or fade, their name, their colour, their cup, from the desk to the drive home.",
     price: 400,
     options: [],
     cats: ['kids', 'mugs']
@@ -966,7 +966,7 @@ const products = [
     name: 'The Keyring They Keep',
     emoji: '🔑',
     images: ['images/corporate_key_ring.jpg'],
-    desc: "Small, branded, and impossible to misplace. Your company's name in their pocket and in their hand, every time they reach for their keys.",
+    desc: "Small, branded, and impossible to misplace. A lightweight polymer keyring that resists cracking, scratching, and fading, your company's name in their pocket and in their hand, every time they reach for their keys.",
     price: 100,
     options: [],
     cats: ['corporate']
@@ -1259,7 +1259,7 @@ const products = [
     name: 'The School Keyring',
     emoji: '🔑',
     images: ['images/keyring_school.jpg'],
-    desc: "A small personalised keyring with a school-day feel, an easy, affordable keepsake for class gifts, party packs, or end-of-year thank-yous.",
+    desc: "A small personalised keyring in lightweight, hard-wearing polymer that resists cracking, scratching, and fading. An easy, affordable keepsake for class gifts, party packs, or end-of-year thank-yous.",
     price: 100,
     options: [],
     cats: ['school']
@@ -1432,7 +1432,7 @@ const products = [
     name: 'The Charm Keyring Favour',
     emoji: '🔑',
     images: ['images/packaging_charm_keyring.jpg'],
-    desc: "A personalised charm keyring in gift packaging. A small keepsake guests carry long after the event.",
+    desc: "A personalised charm keyring in lightweight, hard-wearing polymer, gift-packaged and ready to hand out. A small keepsake guests carry long after the event.",
     price: 150,
     options: [],
     cats: ['corporate']
@@ -1485,7 +1485,7 @@ const products = [
       'images/gift_bag_tumbler_events.jpg',
       'images/gift_bag_tumbler_events_2.jpg'
     ],
-    desc: "A personalised 40oz tumbler in a matching gift bag. A premium favour that guests carry everywhere, keeping your event in hand long after.",
+    desc: "A personalised 1.2L tumbler in a matching gift bag. A premium favour that guests carry everywhere, keeping your event in hand long after.",
     price: 450,
     options: [],
     cats: ['corporate']
@@ -1508,7 +1508,7 @@ const products = [
     name: 'The Kingdom Hoodie & Cap',
     emoji: '🧥',
     images: ['images/hoodie_cap.jpg'],
-    desc: "Wear your faith with ease. A personalised hoodie and matching cap for the man who carries the Kingdom into every room he walks.",
+    desc: "Wear your faith with ease. A personalised hoodie and matching trucker cap, durable and flexible, for the man who carries the Kingdom into every room he walks.",
     price: 500,
     options: [],
     cats: ['christian-gifts', 'fathers-day', 'for-him']
@@ -1518,7 +1518,7 @@ const products = [
     name: 'The Scripture Tumbler',
     emoji: '🥤',
     images: ['images/tumbler_scripture.jpg'],
-    desc: "A personalised 40oz tumbler in a scripture design. Keeps them going through the day with a word to hold onto, right there in their hands.",
+    desc: "A personalised 1.2L tumbler in a scripture design. Sublimation-printed for colour that lasts, it keeps them going through the day with a word to hold onto, right there in their hands.",
     price: 400,
     options: [],
     cats: ['christian-gifts']
@@ -1681,7 +1681,7 @@ const products = [
       'images/20oz_tumbler.jpg',
       'images/20oz_tumbler_2.jpg'
     ],
-    desc: "A personalised 20oz tumbler that keeps up with the day. Their name, their colour, from the desk to the drive home.",
+    desc: "A 590ml personalised tumbler that keeps up with the day. Sublimation-printed so it never peels or fades, their name, their colour, from the desk to the drive home.",
     price: 250,
     options: [],
     cats: ['mugs']
@@ -1691,7 +1691,7 @@ const products = [
     name: 'The Wine Tumbler',
     emoji: '🍷',
     images: ['images/wine_tumbler_design.jpg'],
-    desc: "A personalised wine tumbler for the pour that travels, from the patio to the picnic. Their name, no stem, no spills.",
+    desc: "A 355ml personalised wine tumbler for the pour that travels, from the patio to the picnic. Sublimation-printed so the design never peels, their name, no stem, no spills.",
     price: 200,
     options: [],
     cats: ['celebrating-love', 'for-her', 'mugs']
@@ -1701,7 +1701,7 @@ const products = [
     name: 'The Full-Print Wine Tumbler',
     emoji: '🍾',
     images: ['images/wine_tumbler_full_print.jpg'],
-    desc: "A personalised wine tumbler wrapped in a full-print design, bold from top to bottom. Their name on a tumbler that makes a statement.",
+    desc: "A 355ml personalised wine tumbler wrapped in a full-print, edge-to-edge design. Sublimation-printed for colour that stays vivid wash after wash, bold from top to bottom.",
     price: 250,
     options: [],
     cats: ['celebrating-love', 'for-her', 'mugs']
