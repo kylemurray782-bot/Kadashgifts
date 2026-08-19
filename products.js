@@ -130,7 +130,7 @@ const products = [
     name: 'Personalised Thermo Display Flask',
     emoji: '🌡️',
     images: ['images/flask_thermometer.jpg'],
-    desc: 'A personalised flask with a temperature display built into the lid, so their drink is always just right. Sleek, functional, and entirely theirs.',
+    desc: 'A personalised flask with a temperature display built into the lid, so their drink is always just right. Sleek, functional, and entirely theirs. Dishwasher safe.',
     price: 300,
     options: [],
     cats: ['fathers-day', 'for-him', 'mugs']
@@ -254,7 +254,7 @@ const products = [
     name: 'Personalised Sippy Cup',
     emoji: '🥤',
     images: ['images/sippy_cup.jpg'],
-    desc: 'Small gift, big feeling. A personalised bamboo-lid sippy cup carrying her name, because even the smallest things can say exactly the right thing.',
+    desc: 'Small gift, big feeling. A personalised bamboo-lid sippy cup carrying her name, because even the smallest things can say exactly the right thing. Dishwasher safe.',
     price: 160,
     options: [],
     cats: ['mothers-day', 'for-her']
@@ -414,13 +414,13 @@ const products = [
   },
   {
     id: 37,
-    name: 'The Branded Stanley',
+    name: 'The Branded Tumbler',
     emoji: '🥤',
     images: [
       'images/company_tubler_1.jpg',
       'images/company_tubler_2.jpg'
     ],
-    desc: "They carry it everywhere, to meetings, to the gym, through long days. A 1.2L Stanley tumbler branded with your company logo. Useful enough to use daily. Quality enough to mean something.",
+    desc: "They carry it everywhere, to meetings, to the gym, through long days. A 1.2L tumbler branded with your company logo. Useful enough to use daily. Quality enough to mean something. Dishwasher safe.",
     price: 450,
     options: [],
     cats: ['corporate']
@@ -433,7 +433,7 @@ const products = [
       'images/corporate_mug_1.jpg',
       'images/corporate_mug_2.jpg'
     ],
-    desc: 'Simple. Sharp. Unmistakably yours. A branded corporate mug presented in a matching gift box, the kind of detail that makes your company look like it cares, because it does.',
+    desc: 'Simple. Sharp. Unmistakably yours. A branded corporate mug presented in a matching gift box, the kind of detail that makes your company look like it cares, because it does. Dishwasher safe.',
     price: 120,
     options: [],
     cats: ['corporate']
@@ -502,7 +502,7 @@ const products = [
       'images/two_toned_mug_1.jpg',
       'images/two_toned_mug_2.jpg'
     ],
-    desc: 'The mug on every desk that starts every conversation. A personalised two-tone mug with matching spoon, branded with a name or logo, and impossible to mistake for anyone else\'s.',
+    desc: 'The mug on every desk that starts every conversation. A personalised two-tone mug with matching spoon, branded with a name or logo, and impossible to mistake for anyone else\'s. Dishwasher safe.',
     price: 130,
     options: [],
     cats: ['corporate']
@@ -559,7 +559,7 @@ const products = [
       'images/baby_feeding_cup_1.jpg',
       'images/baby_feeding_cup_2.jpg'
     ],
-    desc: "Their name on the cup they reach for first. A 320ml stainless steel baby feeding cup, sublimation-printed and built to last, because even the smallest details of their earliest days deserve to be made just for them.",
+    desc: "Their name on the cup they reach for first. A 320ml stainless steel baby feeding cup, sublimation-printed and built to last, because even the smallest details of their earliest days deserve to be made just for them. Dishwasher safe.",
     price: 250,
     options: [],
     cats: ['new-baby']
@@ -732,7 +732,7 @@ const products = [
       'images/kids_stainless_steel_bottle_2.jpg',
       'images/kids_sippy_bottle.jpg'
     ],
-    desc: "Their name on the bottle they carry everywhere. A personalised kids bottle, built for school bags, sports days, and every adventure in between.",
+    desc: "Their name on the bottle they carry everywhere. A personalised kids bottle, built for school bags, sports days, and every adventure in between. Dishwasher safe.",
     price: 200,
     options: [],
     cats: ['kids', 'mugs']
@@ -803,7 +803,7 @@ const products = [
       'images/40oz_tumbler_2.jpg',
       'images/kids_tubler.jpg'
     ],
-    desc: "A 1.2L personalised tumbler that keeps up with the day. Sublimation-printed so the design won't peel or fade, their name, their colour, their cup, from the desk to the drive home.",
+    desc: "A 1.2L personalised tumbler that keeps up with the day. Sublimation-printed so the design won't peel or fade, their name, their colour, their cup, from the desk to the drive home. Dishwasher safe.",
     price: 400,
     options: [],
     cats: ['kids', 'mugs']
@@ -856,7 +856,7 @@ const products = [
     name: 'The Wooden Handle Mug',
     emoji: '☕',
     images: ['images/mug_wooden_handle.jpg'],
-    desc: "Warm hands, warm heart. A personalised mug with a natural wooden handle, the kind of cup that makes every morning feel a little more intentional.",
+    desc: "Warm hands, warm heart. A personalised mug with a natural wooden handle, the kind of cup that makes every morning feel a little more intentional. Dishwasher safe.",
     price: 130,
     options: [],
     cats: ['mugs']
@@ -869,7 +869,7 @@ const products = [
       'images/plain_white_mug.jpg',
       'images/plain_white_mug_with_box.jpg'
     ],
-    desc: "Clean, classic, and entirely theirs. A personalised white mug, the one they reach for first, every single morning.",
+    desc: "Clean, classic, and entirely theirs. A personalised white mug, the one they reach for first, every single morning. Dishwasher safe.",
     price: 0,
     options: [
       { name: 'Without box', price: 100 },
@@ -882,7 +882,7 @@ const products = [
     name: 'The Black Frame Mug',
     emoji: '☕',
     images: ['images/black_frame_mug.jpg'],
-    desc: "Bold framing, personal touch. A personalised black frame mug that turns an everyday cup into a statement, presented in a gift box for the full experience.",
+    desc: "Bold framing, personal touch. A personalised black frame mug that turns an everyday cup into a statement, presented in a gift box for the full experience. Dishwasher safe.",
     price: 0,
     options: [
       { name: 'Without box', price: 130 },
@@ -895,7 +895,7 @@ const products = [
     name: 'The Spoon & Sip Mug',
     emoji: '🥄',
     images: ['images/mug_with_spoon.jpg'],
-    desc: "The matching set they didn't know they needed. A personalised mug with matching spoon, available in Green, Red, Navy, Blue, Yellow, Pink, Orange, and Purple. The perfect finishing touch for any desk or kitchen.",
+    desc: "The matching set they didn't know they needed. A personalised mug with matching spoon, available in Green, Red, Navy, Blue, Yellow, Pink, Orange, and Purple. The perfect finishing touch for any desk or kitchen. Dishwasher safe.",
     price: 0,
     options: [
       { name: 'Without box', price: 120 },
@@ -911,7 +911,7 @@ const products = [
       'images/two-toned-mug.jpg',
       'images/two_toned_mug_with_box.jpg'
     ],
-    desc: "Two colours, one name, zero chance of being mistaken for someone else's. A personalised two-tone mug available in Green, Red, Navy, Blue, Yellow, Pink, Orange, and Purple.",
+    desc: "Two colours, one name, zero chance of being mistaken for someone else's. A personalised two-tone mug available in Green, Red, Navy, Blue, Yellow, Pink, Orange, and Purple. Dishwasher safe.",
     price: 0,
     options: [
       { name: 'Without box', price: 110 },
@@ -927,7 +927,7 @@ const products = [
       'images/frosted_mug.jpg',
       'images/frosted_mug_with_box.jpg'
     ],
-    desc: "Soft finish, strong impression. A personalised frosted mug in Pink, Green, Yellow, Red, or Blue. The kind of gift that looks as good on the shelf as it does in their hands.",
+    desc: "Soft finish, strong impression. A personalised frosted mug in Pink, Green, Yellow, Red, or Blue. The kind of gift that looks as good on the shelf as it does in their hands. Dishwasher safe.",
     price: 0,
     options: [
       { name: 'Without box', price: 110 },
@@ -946,7 +946,7 @@ const products = [
       'images/corp_cuppacino_4.jpg',
       'images/cuppacino_mug.jpg'
     ],
-    desc: "The mug that belongs in a meeting room and a kitchen table. A personalised cappuccino-style mug. Branded or gifted, it always looks the part.",
+    desc: "The mug that belongs in a meeting room and a kitchen table. A personalised cappuccino-style mug. Branded or gifted, it always looks the part. Dishwasher safe.",
     price: 250,
     options: [],
     cats: ['mugs']
@@ -1016,7 +1016,7 @@ const products = [
     name: 'The Sports Day Bottle',
     emoji: '🏃',
     images: ['images/kids_sports_bottle.jpg'],
-    desc: "For the kid who never sits still. A personalised sports bottle built for practice, matches, and everything in between. Their name on every sip.",
+    desc: "For the kid who never sits still. A personalised sports bottle built for practice, matches, and everything in between. Their name on every sip. Dishwasher safe.",
     price: 200,
     options: [],
     cats: ['kids', 'mugs']
@@ -1239,7 +1239,7 @@ const products = [
     name: 'The Class Mug & Box',
     emoji: '☕',
     images: ['images/mug__mugbox_school.jpg'],
-    desc: "A personalised mug boxed and ready to gift, for a favourite teacher, a proud graduate, or a keepsake from the school year.",
+    desc: "A personalised mug boxed and ready to gift, for a favourite teacher, a proud graduate, or a keepsake from the school year. Dishwasher safe.",
     price: 120,
     options: [],
     cats: ['school']
@@ -1269,7 +1269,7 @@ const products = [
     name: 'The School Sippy Cup',
     emoji: '🥤',
     images: ['images/sippy_cup_school.jpg'],
-    desc: "A personalised sippy cup in a playful school design, perfect for creche, little graduates, and everything in between.",
+    desc: "A personalised sippy cup in a playful school design, perfect for creche, little graduates, and everything in between. Dishwasher safe.",
     price: 200,
     options: [],
     cats: ['school']
@@ -1279,7 +1279,7 @@ const products = [
     name: 'The School Water Bottle',
     emoji: '💧',
     images: ['images/water_bottles_school.jpg'],
-    desc: "A personalised water bottle made for the school day. Their name on the one they carry to class, to practice, and back.",
+    desc: "A personalised water bottle made for the school day. Their name on the one they carry to class, to practice, and back. Dishwasher safe.",
     price: 150,
     options: [],
     cats: ['school']
@@ -1362,7 +1362,7 @@ const products = [
     name: 'The Comrades Flask',
     emoji: '🥤',
     images: ['images/comrades_flask.jpg'],
-    desc: "A personalised flask for the Comrades runner. Keeps them going through the miles, and marks the achievement long after the finish.",
+    desc: "A personalised flask for the Comrades runner. Keeps them going through the miles, and marks the achievement long after the finish. Dishwasher safe.",
     price: 300,
     options: [],
     cats: ['for-him']
@@ -1442,7 +1442,7 @@ const products = [
     name: 'The Boxed Glass Bottle',
     emoji: '🍶',
     images: ['images/box_glass.jpg'],
-    desc: "A personalised glass bottle boxed and ready to give. A clean, useful favour for launches, weddings, and corporate days.",
+    desc: "A personalised glass bottle boxed and ready to give. A clean, useful favour for launches, weddings, and corporate days. Dishwasher safe.",
     price: 190,
     options: [],
     cats: ['corporate']
@@ -1518,7 +1518,7 @@ const products = [
     name: 'The Scripture Tumbler',
     emoji: '🥤',
     images: ['images/tumbler_scripture.jpg'],
-    desc: "A personalised 1.2L tumbler in a scripture design. Sublimation-printed for colour that lasts, it keeps them going through the day with a word to hold onto, right there in their hands.",
+    desc: "A personalised 1.2L tumbler in a scripture design. Sublimation-printed for colour that lasts, it keeps them going through the day with a word to hold onto, right there in their hands. Dishwasher safe.",
     price: 400,
     options: [],
     cats: ['christian-gifts']
@@ -1621,7 +1621,7 @@ const products = [
     name: 'The Frosted Glass',
     emoji: '🥂',
     images: ['images/frosted_glasses.jpg'],
-    desc: "A personalised frosted glass etched with their name or a message. Priced per glass, so build the set that suits your table.",
+    desc: "A personalised frosted glass etched with their name or a message. Priced per glass, so build the set that suits your table. Dishwasher safe.",
     price: 100,
     options: [],
     cats: ['home']
@@ -1631,7 +1631,7 @@ const products = [
     name: 'The Personalised Plate',
     emoji: '🍽️',
     images: ['images/personalised_plate.jpg'],
-    desc: "A personalised plate made with your own design, ready to bring to the table again and again. Priced per plate.",
+    desc: "A personalised plate made with your own design, ready to bring to the table again and again. Priced per plate. Dishwasher safe.",
     price: 100,
     options: [],
     cats: ['celebrating-love', 'home']
@@ -1645,7 +1645,7 @@ const products = [
       'images/double_walled_bottle_2.jpg',
       'images/double_walled_bottle_3.jpg'
     ],
-    desc: "A personalised double-walled bottle that keeps drinks hot or cold for hours. Priced per bottle, available in a range of colours.",
+    desc: "A personalised double-walled bottle that keeps drinks hot or cold for hours. Priced per bottle, available in a range of colours. Dishwasher safe.",
     price: 250,
     options: [],
     cats: ['mugs']
@@ -1655,7 +1655,7 @@ const products = [
     name: 'The Can Tumbler',
     emoji: '🥫',
     images: ['images/can_tumbler.jpg'],
-    desc: "A personalised can-style tumbler for the drink that travels with them. Sleek, insulated, and entirely theirs.",
+    desc: "A personalised can-style tumbler for the drink that travels with them. Sleek, insulated, and entirely theirs. Dishwasher safe.",
     price: 250,
     options: [],
     cats: ['mugs']
@@ -1668,7 +1668,7 @@ const products = [
       'images/travel_mug.jpg',
       'images/travel_mug_2.jpg'
     ],
-    desc: "A personalised travel mug built for the commute and the coffee run. Their name on the lid, ready for the road.",
+    desc: "A personalised travel mug built for the commute and the coffee run. Their name on the lid, ready for the road. Dishwasher safe.",
     price: 200,
     options: [],
     cats: ['mugs']
@@ -1681,7 +1681,7 @@ const products = [
       'images/20oz_tumbler.jpg',
       'images/20oz_tumbler_2.jpg'
     ],
-    desc: "A 590ml personalised tumbler that keeps up with the day. Sublimation-printed so it never peels or fades, their name, their colour, from the desk to the drive home.",
+    desc: "A 590ml personalised tumbler that keeps up with the day. Sublimation-printed so it never peels or fades, their name, their colour, from the desk to the drive home. Dishwasher safe.",
     price: 250,
     options: [],
     cats: ['mugs']
@@ -1691,7 +1691,7 @@ const products = [
     name: 'The Wine Tumbler',
     emoji: '🍷',
     images: ['images/wine_tumbler_design.jpg'],
-    desc: "A 355ml personalised wine tumbler for the pour that travels, from the patio to the picnic. Sublimation-printed so the design never peels, their name, no stem, no spills.",
+    desc: "A 355ml personalised wine tumbler for the pour that travels, from the patio to the picnic. Sublimation-printed so the design never peels, their name, no stem, no spills. Dishwasher safe.",
     price: 200,
     options: [],
     cats: ['celebrating-love', 'for-her', 'mugs']
@@ -1701,7 +1701,7 @@ const products = [
     name: 'The Full-Print Wine Tumbler',
     emoji: '🍾',
     images: ['images/wine_tumbler_full_print.jpg'],
-    desc: "A 355ml personalised wine tumbler wrapped in a full-print, edge-to-edge design. Sublimation-printed for colour that stays vivid wash after wash, bold from top to bottom.",
+    desc: "A 355ml personalised wine tumbler wrapped in a full-print, edge-to-edge design. Sublimation-printed for colour that stays vivid wash after wash, bold from top to bottom. Dishwasher safe.",
     price: 250,
     options: [],
     cats: ['celebrating-love', 'for-her', 'mugs']
@@ -1711,7 +1711,7 @@ const products = [
     name: 'The Sleek Tumbler',
     emoji: '🥤',
     images: ['images/sleek_tubler.jpg'],
-    desc: "A personalised sleek tumbler built for the day on the move. Slim, insulated, and entirely theirs.",
+    desc: "A personalised sleek tumbler built for the day on the move. Slim, insulated, and entirely theirs. Dishwasher safe.",
     price: 250,
     options: [],
     cats: ['mugs']
