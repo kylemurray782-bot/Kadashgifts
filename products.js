@@ -111,7 +111,7 @@ const products = [
     desc: 'His name on the apron, his tools in hand. The ultimate gift for the man who rules the fire.',
     price: 380,
     options: [],
-    cats: ['fathers-day', 'for-him'],
+    cats: ['best-sellers', 'fathers-day', 'for-him'],
     fathersDay: true
   },
   {
@@ -277,7 +277,7 @@ const products = [
     desc: 'Wrap her in every moment that matters. A personalised fleece blanket printed with photos, kids\'s drawings, or memories, 100x160cm of pure love.',
     price: 350,
     options: [],
-    cats: ['celebrating-love', 'mothers-day', 'for-her', 'home']
+    cats: ['best-sellers', 'celebrating-love', 'mothers-day', 'for-her', 'home']
   },
   {
     id: 25,
@@ -806,7 +806,7 @@ const products = [
     desc: "A 1.2L personalised tumbler that keeps up with the day. Sublimation-printed so the design won't peel or fade, their name, their colour, their cup, from the desk to the drive home. Dishwasher safe.",
     price: 400,
     options: [],
-    cats: ['kids', 'mugs']
+    cats: ['best-sellers', 'kids', 'mugs']
   },
   {
     id: 72,
@@ -933,7 +933,7 @@ const products = [
       { name: 'Without box', price: 110 },
       { name: 'With gift box', price: 120 }
     ],
-    cats: ['mugs']
+    cats: ['best-sellers', 'mugs']
   },
     {
     id: 82,
@@ -1059,7 +1059,7 @@ const products = [
     desc: "For the two who built a home together. A personalised ceramic clock, Mr & Mrs mugs, and a matching Mr & Mrs coaster, every piece marking the life you share.",
     price: 650,
     options: [],
-    cats: ['gift-boxes', 'celebrating-love']
+    cats: ['best-sellers', 'gift-boxes', 'celebrating-love']
   },
   {
     id: 94,
@@ -1694,7 +1694,7 @@ const products = [
     desc: "A 355ml personalised wine tumbler for the pour that travels, from the patio to the picnic. Sublimation-printed so the design never peels, their name, no stem, no spills. Dishwasher safe.",
     price: 200,
     options: [],
-    cats: ['celebrating-love', 'for-her', 'mugs']
+    cats: ['best-sellers', 'celebrating-love', 'for-her', 'mugs']
   },
   {
     id: 156,
