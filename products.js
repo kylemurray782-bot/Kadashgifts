@@ -1371,7 +1371,7 @@ const products = [
     id: 124,
     name: 'The Event Mug & Pen Set',
     emoji: '☕',
-    images: ['images/mug_pen_events.png'],
+    images: ['images/mug_pen_events.jpg'],
     desc: "A personalised mug and matching pen, boxed and ready to hand out. A smart, useful favour for conferences, launches, and celebrations.",
     price: 170,
     options: [],
