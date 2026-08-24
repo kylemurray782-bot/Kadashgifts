@@ -732,7 +732,7 @@ const products = [
       'images/kids_stainless_steel_bottle_2.jpg',
       'images/kids_sippy_bottle.jpg'
     ],
-    desc: "Their name on the bottle they carry everywhere. A personalised kids bottle, built for school bags, sports days, and every adventure in between. Dishwasher safe.",
+    desc: "Their name on the bottle they carry everywhere. A 400ml stainless steel kids bottle, built for school bags, sports days, and every adventure in between. Dishwasher safe.",
     price: 200,
     options: [],
     cats: ['kids', 'mugs']
@@ -1668,7 +1668,7 @@ const products = [
       'images/travel_mug.jpg',
       'images/travel_mug_2.jpg'
     ],
-    desc: "A personalised travel mug built for the commute and the coffee run. Their name on the lid, ready for the road. Dishwasher safe.",
+    desc: "A 400ml stainless steel travel mug, personalised and built for the commute and the coffee run. Their name on the lid, ready for the road. Dishwasher safe.",
     price: 200,
     options: [],
     cats: ['mugs']
