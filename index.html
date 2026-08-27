@@ -67,6 +67,8 @@
   .nav-right { display: flex; align-items: center; gap: 16px; }
   .cart-btn { position: relative; background: none; border: 1px solid var(--gold); color: var(--gold); width: 42px; height: 42px; border-radius: 2px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
   .cart-btn:hover { background: var(--gold); color: var(--dark); }
+  .cart-btn.has-items { animation: cartPulse 0.45s ease; box-shadow: 0 0 0 3px rgba(184,150,90,0.12); }
+  @keyframes cartPulse { 0% { transform: scale(1); } 45% { transform: scale(1.1); } 100% { transform: scale(1); } }
   .cart-count { position: absolute; top: -7px; right: -7px; background: var(--gold); color: var(--dark); border-radius: 50%; min-width: 18px; height: 18px; padding: 0 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600; font-family: 'Jost', sans-serif; border: 1.5px solid var(--dark); }
   .cart-count.empty { display: none; }
   .cart-btn svg { width: 19px; height: 19px; }
@@ -457,7 +459,7 @@
   .wa-float:hover .wa-float-tooltip { opacity: 1; }
 
   /* NEWSLETTER */
-  .newsletter { background: var(--warm); padding: 64px 2rem; text-align: center; border-top: 1px solid var(--border); }
+  .newsletter { display:none !important; background: var(--warm); padding: 64px 2rem; text-align: center; border-top: 1px solid var(--border); }
   .newsletter-inner { max-width: 520px; margin: 0 auto; }
   .newsletter-label { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
   .newsletter-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(26px, 4vw, 36px); font-weight: 400; color: var(--dark); margin-bottom: 10px; line-height: 1.2; }
@@ -1843,8 +1845,14 @@ function updateCart() {
   const total = subtotal + delivery;
 
   const countEl = document.getElementById('cartCount');
+  const cartBtn = document.querySelector('.cart-btn');
   countEl.textContent = count;
   countEl.classList.toggle('empty', count === 0);
+  if (cartBtn) {
+    cartBtn.classList.toggle('has-items', count > 0);
+    cartBtn.setAttribute('aria-label', count > 0 ? `Open cart (${count} item${count === 1 ? '' : 's'})` : 'Open cart');
+    cartBtn.title = count > 0 ? `View cart (${count} item${count === 1 ? '' : 's'})` : 'Open cart';
+  }
   document.getElementById('cartSubtotal').textContent = `R${subtotal}`;
   document.getElementById('cartDelivery').innerHTML =
     subtotal === 0 ? 'R0' : (delivery === 0 ? '<span class="free-delivery">Free</span>' : `R${delivery}`);
