@@ -208,7 +208,7 @@
   .cat-group-head { font-family: 'Jost', sans-serif; font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; padding-left: 2px; }
   .cat-slider { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: 4px; }
   .cat-slider::-webkit-scrollbar { display: none; }
-  .cat-slide { scroll-snap-align: start; flex: 0 0 auto; width: 210px; height: 280px; border-radius: 6px; overflow: hidden; position: relative; cursor: pointer; border: 1px solid var(--border); background: var(--warm); }
+  .cat-slide { scroll-snap-align: start; flex: 0 0 calc((100% - 42px) / 4); aspect-ratio: 3/4; border-radius: 6px; overflow: hidden; position: relative; cursor: pointer; border: 1px solid var(--border); background: var(--warm); }
   .cat-slide-img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.35s ease; }
   .cat-slide:hover .cat-slide-img { transform: scale(1.05); }
   .cat-slide-fallback { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(160deg, var(--warm), var(--sand)); color: var(--gold); }
@@ -474,6 +474,21 @@
     .view-btn { padding: 9px 10px; font-size: 10px; text-align: center; }
     .newsletter-form { flex-direction: column; }
   }
+
+  @media (max-width: 900px) { .cat-slide { flex: 0 0 calc((100% - 28px) / 3) !important; } }
+  @media (max-width: 640px) { .cat-slide { flex: 0 0 64vw !important; max-width: 300px; } }
+  .cat-slider-wrap .cat-arrow { display: flex; }
+  @media (max-width: 640px) { .cat-slider-wrap .cat-arrow { display: none; } }
+  .desk-nav { display: none; }
+  @media (min-width: 900px) {
+    .desk-nav { display: block; background: var(--cream); border-bottom: 1px solid var(--border); padding: 13px 1.5rem; }
+    .desk-nav-inner { max-width: 1120px; margin: 0 auto; }
+    .desk-nav-row { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px 28px; }
+    .desk-nav-row + .desk-nav-row { margin-top: 9px; }
+    .desk-nav-shop .desk-nav-link { color: #9A7B3F; }
+    .desk-nav-link { font-family: 'Jost', sans-serif; font-size: 13px; letter-spacing: 0.6px; color: var(--dark); cursor: pointer; text-decoration: none; transition: color 0.15s; white-space: nowrap; }
+    .desk-nav-link:hover { color: var(--gold); }
+  }
 </style>
 </head>
 <body>
@@ -541,7 +556,10 @@
   </div>
 </aside>
 
-<!-- HERO SLIDER -->
+<!-- DESKTOP CATEGORY NAV -->
+  <div id="deskNav" class="desk-nav"></div>
+
+  <!-- HERO SLIDER -->
 <div class="hero-slider" id="heroSlider">
   <div id="heroSlides"></div>
   <button class="hero-arrow prev" onclick="heroNav(-1)">‹</button>
@@ -560,7 +578,7 @@
   <div class="section">
     <div class="section-label">Browse the collection</div>
     <div class="section-title">A gift for every moment</div>
-    <p class="section-sub">Shop by occasion, recipient, or gift type. Swipe any row to explore.</p>
+    <p class="section-sub">Swipe through and find something they will love.</p>
     <div id="catGroups"></div>
   </div>
 </div>
@@ -814,21 +832,21 @@ function esc(s) {
 }
 
 const categories = [
-  { id:'best-sellers',     name:'Best Sellers',         group:'featured' },
-  { id:'gift-boxes',       name:'Gift Boxes & Hampers', group:'featured' },
-  { id:'celebrating-love', name:'Celebrating Love',     group:'occasion' },
-  { id:'christian-gifts',  name:'Christian Gifts',      group:'occasion' },
-  { id:'fathers-day',      name:"Father's Day",         group:'occasion' },
-  { id:'mothers-day',      name:"Mother's Day",         group:'occasion' },
+  { id:'best-sellers',     name:'Best Sellers',         group:'shop' },
+  { id:'gift-boxes',       name:'Gift Boxes & Hampers', group:'shop' },
+  { id:'for-her',          name:'For Her',              group:'shop' },
+  { id:'for-him',          name:'For Him',              group:'shop' },
+  { id:'kids',             name:'For Kids',             group:'shop' },
+  { id:'celebrating-love', name:'Love & Anniversary',   group:'occasion' },
   { id:'new-baby',         name:'New Baby',             group:'occasion' },
-  { id:'school',           name:'Graduation & School',  group:'occasion' },
+  { id:'corporate',        name:'Corporate & Events',   group:'occasion' },
+  { id:'christian-gifts',  name:'Christian Gifts',      group:'occasion' },
   { id:'get-well-soon',    name:'Get Well Soon',        group:'occasion' },
-  { id:'for-her',          name:'For Her',              group:'recipient' },
-  { id:'for-him',          name:'For Him',              group:'recipient' },
-  { id:'kids',             name:'For Kids',             group:'recipient' },
-  { id:'mugs',             name:'Mugs & Bottles',       group:'type' },
-  { id:'home',             name:'Home & Living',        group:'type' },
-  { id:'corporate',        name:'Corporate & Events',   group:'business' },
+  { id:'school',           name:'Graduation & School',  group:'occasion' },
+  { id:'mugs',             name:'Mugs & Bottles',       group:'shop' },
+  { id:'home',             name:'Home & Living',        group:'shop' },
+  { id:'fathers-day',      name:"Father's Day",         group:'occasion', active:false },
+  { id:'mothers-day',      name:"Mother's Day",         group:'occasion', active:false },
 ];
 
 // Consistent single-stroke line icons (no emoji). currentColor inherits the tile colour.
@@ -1289,6 +1307,18 @@ function handleHelperOverlayClick(e) {
 }
 
 /* ═══ CATEGORIES + FILTERS ═══ */
+function scrollCatRow(dir) {
+  const t = document.getElementById('catRow');
+  if (t) t.scrollBy({ left: dir * t.clientWidth * 0.9, behavior: 'smooth' });
+}
+function renderDeskNav() {
+  const el = document.getElementById('deskNav');
+  if (!el) return;
+  const active = categories.filter(c => c.active !== false);
+  const row = (grp) => active.filter(c => c.group === grp)
+    .map(c => `<a class="desk-nav-link" onclick="filterByCategory('${c.id}')">${esc(c.name)}</a>`).join('');
+  el.innerHTML = `<div class="desk-nav-inner"><div class="desk-nav-row">${row('occasion')}</div><div class="desk-nav-row desk-nav-shop">${row('shop')}</div></div>`;
+}
 function renderCategories() {
   const used = new Set();
   const pickCover = (c) => {
@@ -1300,7 +1330,6 @@ function renderCategories() {
     }
     return null;
   };
-  const arrow = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><polyline points="9 18 15 12 9 6"/></svg>`;
   const tile = (c) => {
     const cover = pickCover(c);
     const media = cover
@@ -1310,26 +1339,16 @@ function renderCategories() {
     <div class="cat-slide" onclick="filterByCategory('${c.id}')">
       ${media}
       <div class="cat-slide-overlay"></div>
-      <div class="cat-slide-label">
-        <div class="cat-slide-name">${esc(c.name)}</div>
-        <div class="cat-slide-cta">Shop now ${arrow}</div>
-      </div>
+      <div class="cat-slide-label"><div class="cat-slide-name">${esc(c.name)}</div></div>
     </div>`;
   };
-  const GROUPS = [
-    { key:'featured',  label:'' },
-    { key:'occasion',  label:'Shop by occasion' },
-    { key:'recipient', label:'Shop by recipient' },
-    { key:'type',      label:'Shop by type' },
-    { key:'business',  label:'For business' }
-  ];
-  const html = GROUPS.map(g => {
-    const cats = categories.filter(c => c.group === g.key);
-    if (!cats.length) return '';
-    const head = g.label ? `<div class="cat-group-head">${g.label}</div>` : '';
-    return `<div class="cat-group">${head}<div class="cat-slider">${cats.map(tile).join('')}</div></div>`;
-  }).join('');
-  document.getElementById('catGroups').innerHTML = html;
+  const active = categories.filter(c => c.active !== false);
+  document.getElementById('catGroups').innerHTML = `
+    <div class="cat-slider-wrap">
+      <button class="cat-arrow prev" onclick="scrollCatRow(-1)" aria-label="Previous">‹</button>
+      <div class="cat-slider" id="catRow">${active.map(tile).join('')}</div>
+      <button class="cat-arrow next" onclick="scrollCatRow(1)" aria-label="Next">›</button>
+    </div>`;
 }
 
 
@@ -1338,7 +1357,7 @@ function renderDrawerCategories() {
   const el = document.getElementById('drawerCategories');
   if (!el) return;
   const chevron = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>`;
-  el.innerHTML = categories.map(c =>
+  el.innerHTML = categories.filter(c => c.active !== false).map(c =>
     `<button class="drawer-cat" onclick="drawerPickCategory('${c.id}')">${esc(c.name)} ${chevron}</button>`
   ).join('');
 }
@@ -1824,6 +1843,7 @@ function sendHelperMessage() {
 renderAnnouncementBar();
 renderDeliveryCopy();
 renderCategories();
+renderDeskNav();
 renderDrawerCategories();
 renderFilters();
 initHeroSlider();
