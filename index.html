@@ -1975,7 +1975,7 @@ function getPackagingProducts() {
 function renderGiftReadyAttach() {
   const wrap = document.getElementById('giftReadyAttach');
   if (!wrap) return;
-  const packs = getPackagingProducts();
+  const packs = getPackagingProducts().filter(p => p.attachFeatured);
   const hasReal = cart.some(i => !((i.cats||[]).includes(PACKAGING_CAT)));
   const packInCart = cart.some(i => (i.cats||[]).includes(PACKAGING_CAT));
   // Only offer packaging once there's a real gift in the cart and no packaging added yet
