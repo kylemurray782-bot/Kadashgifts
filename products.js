@@ -1715,5 +1715,35 @@ const products = [
     price: 250,
     options: [],
     cats: ['mugs']
+  },
+  {
+    id: 158,
+    name: 'The Signature Gift Box',
+    emoji: '🎁',
+    images: ['images/gift-box-signature.jpg'],
+    desc: "You chose the perfect gift. Now hand it over like one. A personalised gift box finished with a printed ribbon and their name on the lid, so the moment lands before they have even seen what is inside. Sized to fit almost anything you are giving.",
+    price: 0,
+    options: [
+      { name: 'Small (fits a mug or keepsake)', price: 70 },
+      { name: 'Medium (fits most gifts)', price: 90 },
+      { name: 'Large (fits a bundle)', price: 120 },
+      { name: 'Extra Large (fits a full hamper)', price: 150 }
+    ],
+    cats: ['gift-packaging']
+  },
+  {
+    id: 159,
+    name: 'The Signature Gift Bag',
+    emoji: '🛍️',
+    images: ['images/gift-bag-signature.jpg'],
+    desc: "For the gift you are handing over in person. A personalised gift bag printed with their name, ready to carry and ready to give. No wrapping, no fuss. They lift the tissue and there it is.",
+    price: 0,
+    options: [
+      { name: 'A6 (small)', price: 25 },
+      { name: 'A5 (medium)', price: 35 },
+      { name: 'A4 (large)', price: 55 },
+      { name: 'A3 (extra large)', price: 75 }
+    ],
+    cats: ['gift-packaging']
   }
 ];
