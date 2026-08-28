@@ -403,6 +403,35 @@
   .qty-num { font-size: 14px; font-weight: 400; min-width: 16px; text-align: center; }
   .remove-btn { background: none; border: none; color: var(--border); cursor: pointer; font-size: 16px; transition: color 0.2s; }
   .remove-btn:hover { color: #c0392b; }
+  /* GIFT-READY ATTACH (packaging upsell in cart) */
+  .gift-ready-attach { margin: 4px 26px 0; }
+  .gift-ready-attach.hidden { display: none; }
+  .gr-trigger { width: 100%; display: flex; align-items: center; gap: 12px; background: linear-gradient(180deg,#fdf9f2,#faf5ea); border: 1px solid var(--gold); border-radius: 6px; padding: 12px 14px; cursor: pointer; text-align: left; font-family: 'Jost', sans-serif; transition: box-shadow 0.2s; }
+  .gr-trigger:hover { box-shadow: 0 4px 16px rgba(184,150,90,0.16); }
+  .gr-trigger-thumb { width: 40px; height: 40px; border-radius: 5px; background: var(--gold-pale); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+  .gr-trigger-text { flex: 1; min-width: 0; }
+  .gr-trigger-title { font-size: 13px; font-weight: 500; color: #3A342D; letter-spacing: 0.2px; }
+  .gr-trigger-sub { font-size: 11.5px; color: #7A6F60; margin-top: 1px; }
+  .gr-trigger-chev { color: var(--gold); font-size: 15px; transition: transform 0.25s; flex-shrink: 0; }
+  .gift-ready-attach.open .gr-trigger-chev { transform: rotate(180deg); }
+  .gr-panel { display: none; border: 1px solid var(--border); border-top: none; border-radius: 0 0 6px 6px; padding: 14px; background: var(--white); margin-top: -3px; }
+  .gift-ready-attach.open .gr-panel { display: block; }
+  .gift-ready-attach.open .gr-trigger { border-radius: 6px 6px 0 0; }
+  .gr-panel-lead { font-size: 12.5px; color: #5C5348; line-height: 1.55; margin-bottom: 12px; }
+  .gr-opt { width: 100%; display: flex; align-items: center; gap: 10px; background: var(--cream); border: 1px solid var(--border); border-radius: 4px; padding: 10px 12px; margin-bottom: 7px; cursor: pointer; font-family: 'Jost', sans-serif; text-align: left; transition: border-color 0.15s, background 0.15s; }
+  .gr-opt:hover { border-color: var(--gold); background: #fdf9f2; }
+  .gr-opt.recommended { border-color: var(--gold); background: #fdf9f2; }
+  .gr-opt-body { flex: 1; min-width: 0; }
+  .gr-opt-name { font-size: 12.5px; color: #3A342D; font-weight: 500; }
+  .gr-opt-meta { font-size: 11px; color: #8A7F72; margin-top: 1px; }
+  .gr-opt-price { font-family: 'Cormorant Garamond', serif; font-size: 17px; color: var(--dark); white-space: nowrap; }
+  .gr-opt-add { font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--dark); background: var(--gold-pale); border-radius: 2px; padding: 4px 9px; white-space: nowrap; }
+  .gr-tag { display: inline-block; font-size: 8.5px; letter-spacing: 1px; text-transform: uppercase; background: var(--gold); color: var(--dark); border-radius: 2px; padding: 2px 6px; margin-left: 7px; vertical-align: middle; }
+  .gr-more-btn { background: none; border: none; color: var(--gold); font-family: 'Jost', sans-serif; font-size: 11.5px; letter-spacing: 0.3px; cursor: pointer; padding: 4px 0; text-decoration: underline; }
+  .gr-more-list { display: none; margin-top: 8px; }
+  .gr-more-list.open { display: block; }
+  .gr-group-label { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #9A8F80; margin: 10px 0 6px; }
+  .gr-reassure { font-size: 11px; color: #8A7F72; line-height: 1.5; margin-top: 10px; font-style: italic; }
   .cart-footer { padding: 20px 26px; border-top: 1px solid var(--border); background: var(--white); }
   .cart-field { margin-bottom: 14px; }
   .cart-field label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #5C5650; display: block; margin-bottom: 6px; }
@@ -869,6 +898,7 @@
   <div class="cart-items" id="cartItems">
     <div class="cart-empty">Your cart is empty</div>
   </div>
+  <div class="gift-ready-attach hidden" id="giftReadyAttach"></div>
   <div class="cart-details">
     <div class="cart-field">
       <label>How would you like to receive it?</label>
@@ -940,6 +970,7 @@ function esc(s) {
 const categories = [
   { id:'best-sellers',     name:'Best Sellers',         group:'shop' },
   { id:'gift-boxes',       name:'Gift Boxes & Hampers', group:'shop' },
+  { id:'gift-packaging',   name:'Gift Packaging',       group:'shop' },
   { id:'for-her',          name:'For Her',              group:'shop' },
   { id:'for-him',          name:'For Him',              group:'shop' },
   { id:'kids',             name:'For Kids',             group:'shop' },
@@ -960,6 +991,7 @@ const ICON_ATTRS = 'viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke
 const catIcons = {
   'gift-boxes': `<rect x="3" y="8" width="18" height="12" rx="1"/><path d="M3 12h18"/><path d="M12 8v12"/><path d="M12 8C10.5 5 7.5 5 7.5 6.8 7.5 8 9.5 8 12 8z"/><path d="M12 8c1.5-3 4.5-3 4.5-1.2C16.5 8 14.5 8 12 8z"/>`,
   'home': `<path d="M4 11l8-6 8 6"/><path d="M6 10v9h12v-9"/><path d="M10 19v-5h4v5"/>`,
+  'gift-packaging': `<path d="M6 8h12l-1 12H7z"/><path d="M9 8V6.2a3 3 0 0 1 6 0V8"/><path d="M9.5 12h5"/>`,
   'christian-gifts': `<path d="M10 2h4v5h5v4h-5v11h-4V11H5V7h5z"/>`,
   'events': `<rect x="4.5" y="10" width="15" height="9.5" rx="1"/><rect x="3" y="7" width="18" height="3.5" rx="0.5"/><path d="M12 7v12.5"/><path d="M12 7C10.5 4 7.5 4 7.5 6S10 7 12 7z"/><path d="M12 7c1.5-3 4.5-3 4.5-1S14 7 12 7z"/>`,
   'sport': `<path d="M7 4h10v3a5 5 0 0 1-10 0V4z"/><path d="M7 5H4.5v1A3.5 3.5 0 0 0 8 9.5"/><path d="M17 5h2.5v1A3.5 3.5 0 0 1 16 9.5"/><path d="M12 12v4"/><path d="M9.5 20h5l-.5-4h-4z"/>`,
@@ -1889,6 +1921,8 @@ function updateCart() {
   document.getElementById('cartTotal').textContent = `R${total}`;
   document.getElementById('checkoutBtn').disabled = cart.length === 0;
 
+  renderGiftReadyAttach();
+
   // Free-delivery nudge: "you're RX away"
   const nudge = document.getElementById('freeDeliveryNudge');
   if (CONFIG.FREE_DELIVERY_OVER > 0 && subtotal > 0 && delivery > 0) {
@@ -1927,6 +1961,92 @@ function updateCart() {
 
   el.innerHTML = html;
   saveCart();
+}
+
+/* ═══ GIFT-READY ATTACH (packaging upsell) ═══ */
+const PACKAGING_CAT = 'gift-packaging';
+let giftReadyOpen = false;
+let giftReadyMoreOpen = false;
+
+function getPackagingProducts() {
+  return products.filter(p => (p.cats||[]).includes(PACKAGING_CAT));
+}
+
+function renderGiftReadyAttach() {
+  const wrap = document.getElementById('giftReadyAttach');
+  if (!wrap) return;
+  const packs = getPackagingProducts();
+  const hasReal = cart.some(i => !((i.cats||[]).includes(PACKAGING_CAT)));
+  const packInCart = cart.some(i => (i.cats||[]).includes(PACKAGING_CAT));
+  // Only offer packaging once there's a real gift in the cart and no packaging added yet
+  if (!packs.length || !hasReal || packInCart) {
+    wrap.className = 'gift-ready-attach hidden';
+    wrap.innerHTML = '';
+    giftReadyOpen = false; giftReadyMoreOpen = false;
+    return;
+  }
+  const box = packs.find(p => /box/i.test(p.name)) || packs[0];
+  const recIdx = box.options.length >= 2 ? 1 : 0;
+  const recOpt = box.options[recIdx];
+
+  const optRow = (p, i, opt, recommended) => `
+    <button class="gr-opt${recommended ? ' recommended' : ''}" onclick="addPackaging(${p.id}, ${i})">
+      <div class="gr-opt-body">
+        <div class="gr-opt-name">${esc(p.name)}${recommended ? '<span class="gr-tag">Most popular</span>' : ''}</div>
+        <div class="gr-opt-meta">${esc(opt.name)}</div>
+      </div>
+      <span class="gr-opt-price">R${opt.price}</span>
+      <span class="gr-opt-add">Add</span>
+    </button>`;
+
+  const moreGroups = packs.map(p => {
+    const rows = p.options
+      .map((opt, i) => ({ opt, i }))
+      .filter(({ i }) => !(p.id === box.id && i === recIdx))
+      .map(({ opt, i }) => optRow(p, i, opt, false)).join('');
+    return `<div class="gr-group-label">${esc(p.name)}</div>${rows}`;
+  }).join('');
+
+  wrap.className = 'gift-ready-attach' + (giftReadyOpen ? ' open' : '');
+  wrap.innerHTML = `
+    <button class="gr-trigger" onclick="toggleGiftReady()">
+      <span class="gr-trigger-thumb">🎁</span>
+      <span class="gr-trigger-text">
+        <span class="gr-trigger-title">Make it gift-ready</span>
+        <span class="gr-trigger-sub">Hand it over with their name on it</span>
+      </span>
+      <span class="gr-trigger-chev">▾</span>
+    </button>
+    <div class="gr-panel">
+      <div class="gr-panel-lead">You are handing this over in person. Don't hand it over in the shop packaging. Add a personalised box or bag with their name on it, so the moment lands before they have even opened it.</div>
+      ${optRow(box, recIdx, recOpt, true)}
+      <button class="gr-more-btn" onclick="toggleGiftReadyMore()">${giftReadyMoreOpen ? 'Hide other sizes' : 'Other sizes or a gift bag'}</button>
+      <div class="gr-more-list${giftReadyMoreOpen ? ' open' : ''}">${moreGroups}</div>
+      <div class="gr-reassure">Not sure on size? Add it and we'll match it to your gift when we confirm on WhatsApp.</div>
+    </div>`;
+}
+
+function toggleGiftReady() {
+  giftReadyOpen = !giftReadyOpen;
+  renderGiftReadyAttach();
+}
+function toggleGiftReadyMore() {
+  giftReadyMoreOpen = !giftReadyMoreOpen;
+  renderGiftReadyAttach();
+}
+
+function addPackaging(prodId, optIdx) {
+  const p = products.find(x => x.id === prodId);
+  if (!p || !p.options[optIdx]) return;
+  const opt = p.options[optIdx];
+  const key = `${p.id}-${opt.name}`;
+  const existing = cart.find(i => i.cartKey === key);
+  if (existing) { existing.qty++; }
+  else { cart.push({ ...p, cartKey: key, optionName: opt.name, price: opt.price, basePrice: opt.price, addOns: [], qty: 1 }); }
+  giftReadyOpen = false; giftReadyMoreOpen = false;
+  track('add_packaging', { item_id: p.id, item_name: p.name, option: opt.name, value: opt.price, currency: 'ZAR' });
+  updateCart();
+  bumpCart();
 }
 
 function toggleCart(forceOpen) {
