@@ -430,24 +430,26 @@
   .wa-btn:hover { opacity: 0.88; }
   .wa-btn:disabled { opacity: 0.35; cursor: not-allowed; }
 
-  /* CART UX: keep both the items and checkout details visible. */
-  .cart-sidebar { background: var(--white); }
-  .cart-items { min-height: 0; }
-  .cart-footer { max-height: 52vh; overflow-y: auto; color: #3F3932; }
-  .cart-footer .cart-field label,
-  .cart-footer .cart-summary-row,
-  .cart-footer .cart-total-label { color: #3F3932; }
-  .cart-footer .fulfil-meta,
-  .cart-footer .pickup-note,
-  .cart-footer .free-delivery-nudge { color: #4B443B; }
-  .cart-footer .cart-total-amount { color: var(--dark); }
-  .cart-footer input::placeholder,
-  .cart-footer textarea::placeholder { color: #746B61; opacity: 1; }
+  /* CART UX v2: single scroll — items visible first, only checkout pinned */
+  .cart-sidebar { background: var(--white); display: flex; flex-direction: column; }
+  .cart-scroll { flex: 1 1 auto; overflow-y: auto; min-height: 0; }
+  .cart-items { flex: none; overflow: visible; padding: 16px 26px 4px; }
+  .cart-details { padding: 6px 26px 18px; }
+  .cart-checkout { flex-shrink: 0; padding: 16px 26px 20px; border-top: 1px solid var(--border); background: var(--white); }
+  .cart-item-name { color: var(--dark); }
+  .cart-item-price { color: #453E35; }
+  .cart-details .cart-field label { color: #2E2A26; }
+  .cart-summary-row, .cart-total-label { color: #3A342D; }
+  .cart-details .fulfil-meta, .pickup-note, .free-delivery-nudge { color: #453E35; }
+  .cart-details input::placeholder, .cart-details textarea::placeholder { color: #6B6258; opacity: 1; }
+  .cart-btn.bump { animation: cartBump 0.4s ease; }
+  @keyframes cartBump { 0%,100% { transform: scale(1); } 30% { transform: scale(1.18); } }
   @media (max-width: 640px) {
     .cart-sidebar { width: 100vw; }
-    .cart-items { flex: 0 0 43vh; max-height: 43vh; padding: 12px 18px; }
-    .cart-footer { flex: 1 1 auto; max-height: none; min-height: 0; overflow-y: auto; padding: 16px 18px 22px; }
-    .cart-header { padding: 18px 18px; }
+    .cart-header { padding: 18px; }
+    .cart-items { padding: 14px 18px 4px; }
+    .cart-details { padding: 6px 18px 16px; }
+    .cart-checkout { padding: 14px 18px 20px; }
     .cart-item { padding: 14px 0; }
   }
 
@@ -863,10 +865,11 @@
     <h3>Your cart</h3>
     <button class="close-btn" onclick="toggleCart()">✕</button>
   </div>
+  <div class="cart-scroll">
   <div class="cart-items" id="cartItems">
     <div class="cart-empty">Your cart is empty</div>
   </div>
-  <div class="cart-footer">
+  <div class="cart-details">
     <div class="cart-field">
       <label>How would you like to receive it?</label>
       <div class="fulfil-group">
@@ -893,6 +896,9 @@
       <div class="cart-summary-row"><span>Subtotal</span><span id="cartSubtotal">R0</span></div>
       <div class="cart-summary-row"><span id="cartDeliveryLabel">Delivery</span><span id="cartDelivery">R0</span></div>
     </div>
+    </div>
+    </div>
+    <div class="cart-checkout">
     <div class="cart-total">
       <span class="cart-total-label">Total</span>
       <span class="cart-total-amount" id="cartTotal">R0</span>
@@ -1672,7 +1678,7 @@ function quickAddToCart(id) {
   if (existing) { existing.qty++; }
   else { cart.push({ ...product, cartKey: key, optionName: null, basePrice: product.price, addOns: [], qty: 1 }); }
   track('add_to_cart', { item_id: String(id), item_name: product.name, value: product.price, currency: 'ZAR' });
-  updateCart(); renderProducts(); toggleCart(true);
+  updateCart(); renderProducts(); bumpCart();
 }
 
 /* ═══ PRODUCT MODAL + DEEP LINKS (#gift-ID) ═══ */
@@ -1837,7 +1843,7 @@ function addFromModal() {
     addedPrice = modalProduct.price + addOnsTotal;
   }
   track('add_to_cart', { item_id: String(modalProduct.id), item_name: modalProduct.name, value: addedPrice, currency: 'ZAR' });
-  updateCart(); renderProducts();
+  updateCart(); renderProducts(); bumpCart();
   const addBtn = document.getElementById('modalAddBtn');
   addBtn.textContent = '✓ Added to cart';
   addBtn.className = 'modal-add-btn added';
@@ -1858,6 +1864,10 @@ function changeQty(cartKey, delta) {
   updateCart();
 }
 
+function bumpCart() {
+  const b = document.querySelector('.cart-btn');
+  if (b) { b.classList.remove('bump'); void b.offsetWidth; b.classList.add('bump'); }
+}
 function updateCart() {
   const count = cart.reduce((s,i) => s+i.qty, 0);
   const subtotal = cartSubtotal();
