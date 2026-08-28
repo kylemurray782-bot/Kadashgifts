@@ -1721,8 +1721,9 @@ const products = [
     name: 'The Signature Gift Box',
     emoji: '🎁',
     images: ['images/gift-box-signature.jpg'],
-    desc: "You chose the perfect gift. Now hand it over like one. A personalised gift box finished with a printed ribbon and their name on the lid, so the moment lands before they have even seen what is inside. Sized to fit almost anything you are giving.",
+    desc: "You chose the perfect gift. Now hand it over like one. A personalised gift box with their name printed on the ribbon and the lid, so the moment lands before they have even seen what is inside. Sized to fit almost anything you are giving.",
     price: 0,
+    attachFeatured: true,
     options: [
       { name: 'Small (fits a mug or keepsake)', price: 70 },
       { name: 'Medium (fits most gifts)', price: 90 },
@@ -1738,11 +1739,27 @@ const products = [
     images: ['images/gift-bag-signature.jpg'],
     desc: "For the gift you are handing over in person. A personalised gift bag printed with their name, ready to carry and ready to give. No wrapping, no fuss. They lift the tissue and there it is.",
     price: 0,
+    attachFeatured: true,
     options: [
       { name: 'A6 (small)', price: 25 },
       { name: 'A5 (medium)', price: 35 },
       { name: 'A4 (large)', price: 55 },
       { name: 'A3 (extra large)', price: 75 }
+    ],
+    cats: ['gift-packaging']
+  },
+  {
+    id: 160,
+    name: 'The Keepsake Gift Box',
+    emoji: '🎀',
+    images: ['images/gift-box-keepsake.jpg'],
+    desc: "A premium gift box with their name on the lid, in your choice of gold, silver, white or black. One generous size that fits gifts up to 35 x 20 x 10cm. Pick the colour that suits them and hand it over ready.",
+    price: 0,
+    options: [
+      { name: 'Gold', price: 55 },
+      { name: 'Silver', price: 55 },
+      { name: 'White', price: 55 },
+      { name: 'Black', price: 55 }
     ],
     cats: ['gift-packaging']
   }
