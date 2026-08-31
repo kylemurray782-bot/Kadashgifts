@@ -1170,7 +1170,7 @@ const products = [
       'images/pen_bottle_notebook_2.jpg'
     ],
     desc: "Everything the working day asks for, all personalised. A pen, bottle, lunch bag, and notebook, a complete corporate set that puts your brand to work every day.",
-    price: 700,
+    price: 750,
     options: [],
     cats: ['corporate']
   },
@@ -1762,5 +1762,25 @@ const products = [
       { name: 'Black', price: 55 }
     ],
     cats: ['gift-packaging']
+  },
+  {
+    id: 161,
+    name: 'The Branded Picnic Blanket',
+    emoji: '🧺',
+    images: ['images/picnic_blanket_1.jpg', 'images/picnic_blanket_2.jpg'],
+    desc: "Personalised and branded for your days in the sun. A soft, padded fleece picnic blanket with a foam centre for real comfort and a water-resistant backing that keeps grass and sand off the underside. Shake it out, fold it into a compact carry, and the handle with its PU protector does the rest. Generously sized at 170 x 130cm in RPET fleece and cotton canvas.",
+    price: 450,
+    options: [],
+    cats: ['corporate', 'celebrating-love', 'for-her', 'for-him', 'home']
+  },
+  {
+    id: 162,
+    name: 'The Appreciation Set',
+    emoji: '👜',
+    images: ['images/totebag_set.jpg'],
+    desc: "A set that says thank you properly. A personalised tote bag, travel mug, notebook, and face cloth, four everyday things they will actually reach for, each one carrying your message of appreciation.",
+    price: 580,
+    options: [],
+    cats: ['corporate', 'gift-boxes', 'for-her', 'for-him']
   }
 ];
