@@ -957,6 +957,7 @@ const CONFIG = {
   PICKUP_ADDRESS: '1 Carina Ave, Morehill, Benoni, 1501',  // collection address (shown in cart + sent in order message)
 
   GA4_ID: 'G-0HRP39X7QR',    // ← paste your GA4 Measurement ID (e.g. 'G-XXXXXXXXXX') to enable analytics. Blank = off.
+  PIXEL_ID: '2265847137601497', // ← Meta Pixel / Dataset ID for Facebook & Instagram ads. Blank = off.
 };
 
 const PAGE_SIZE = 8;
@@ -1055,8 +1056,45 @@ function initAnalytics() {
   gtag('js', new Date());
   gtag('config', CONFIG.GA4_ID);
 }
+/* ═══ META PIXEL. No-ops until PIXEL_ID is set in CONFIG ═══ */
+function initPixel() {
+  if (!CONFIG.PIXEL_ID) return;
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', CONFIG.PIXEL_ID);
+  fbq('track', 'PageView');
+}
+
+/* Maps our GA4-style events to Meta standard events for ads + retargeting */
+const META_EVENT_MAP = {
+  add_to_cart: 'AddToCart',
+  add_packaging: 'AddToCart',
+  view_item: 'ViewContent',
+  begin_checkout: 'InitiateCheckout',
+  search: 'Search',
+  newsletter_signup: 'Lead'
+};
+function fireMetaEvent(name, params) {
+  if (!window.fbq) return;
+  const ev = META_EVENT_MAP[name];
+  const mp = {};
+  if (params.item_id != null) { mp.content_ids = [String(params.item_id)]; mp.content_type = 'product'; }
+  if (params.item_name) mp.content_name = params.item_name;
+  if (params.value != null) mp.value = params.value;
+  if (params.currency) mp.currency = params.currency;
+  if (params.items_count != null) mp.num_items = params.items_count;
+  if (params.search_term) mp.search_string = params.search_term;
+  if (ev) fbq('track', ev, mp);
+  else fbq('trackCustom', name, params);
+}
+
 function track(name, params) {
-  if (window.gtag) window.gtag('event', name, params || {});
+  params = params || {};
+  if (window.gtag) window.gtag('event', name, params);
+  fireMetaEvent(name, params);
 }
 
 /* ═══ DELIVERY ═══ */
@@ -2155,6 +2193,7 @@ renderProducts();
 handleDeepLink();
 initNewsletter();
 initAnalytics();
+initPixel();
 </script>
 </body>
 </html>
