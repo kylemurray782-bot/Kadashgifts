@@ -1549,7 +1549,8 @@ const products = [
     emoji: '👜',
     images: [
       'images/bible_bag.jpg',
-      'images/bible_bag_2.jpg'
+      'images/bible_bag_2.jpg',
+      'images/the_bible_bag.jpg'
     ],
     desc: "A personalised bag made to carry the Word. Room for their Bible, notebook, and pen, with their name on the outside.",
     price: 350,
