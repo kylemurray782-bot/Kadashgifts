@@ -1783,5 +1783,95 @@ const products = [
     price: 580,
     options: [],
     cats: ['corporate', 'gift-boxes', 'for-her', 'for-him']
+  },
+  {
+    id: 163,
+    name: 'The Personalised Face Cloth',
+    emoji: '🧼',
+    images: ['images/face_cloth.jpg'],
+    desc: "A soft personalised face cloth with their name printed on it. A small, everyday touch that turns an ordinary item into theirs. Lovely on its own or added to a set.",
+    price: 70,
+    options: [],
+    cats: ['home']
+  },
+  {
+    id: 164,
+    name: 'The Friendship Set',
+    emoji: '🎁',
+    images: ['images/friend_appreciation.jpg'],
+    desc: "A thank you for the friend who always shows up. A personalised reusable shopper bag, a personalised glass bottle, and a personalised stylus pen, all carrying her name.",
+    price: 300,
+    options: [],
+    cats: ['for-her', 'gift-boxes']
+  },
+  {
+    id: 165,
+    name: 'The Branded USB',
+    emoji: '💾',
+    images: ['images/branded_usb.jpg'],
+    desc: "A branded 32GB dual-connector USB drive that plugs into both phones and laptops. Printed with your logo, it is the corporate handout that stays on a desk instead of in a drawer.",
+    price: 160,
+    options: [],
+    cats: ['corporate']
+  },
+  {
+    id: 166,
+    name: 'The Branded Glass Bottle',
+    emoji: '🍶',
+    images: ['images/glass_bottle.jpg', 'images/glass_bottle_2.jpg'],
+    desc: "A branded glass water bottle for launches, events, and everyday corporate wear. Your logo printed clean on the glass. Practical, reusable, and actually kept.",
+    price: 160,
+    options: [],
+    cats: ['corporate']
+  },
+  {
+    id: 167,
+    name: 'The Branded Corporate Set',
+    emoji: '💼',
+    images: ['images/branded_glass_bottle_set.jpg'],
+    desc: "A full branded set for events and welcoming new starters. A branded glass bottle, notebook, pen, lighter, and reusable shopper bag, all carrying your logo in one considered package.",
+    price: 390,
+    options: [],
+    cats: ['corporate', 'gift-boxes']
+  },
+  {
+    id: 168,
+    name: 'The Personalised Puzzle',
+    emoji: '🧩',
+    images: ['images/personalised_puzzle.jpg'],
+    desc: "Their favourite photo turned into a puzzle. A gift that plays first and frames beautifully after. Personalised with the image of your choice.",
+    price: 150,
+    options: [],
+    cats: ['kids']
+  },
+  {
+    id: 169,
+    name: 'The Desk Bloom Set',
+    emoji: '🪴',
+    images: ['images/desk_plant.jpg', 'images/desk_plant_2.jpg'],
+    desc: "A desk they will actually enjoy sitting at. A personalised desk plant, a personalised mug, a personalised notebook and pen, and a box of Ferrero Rocher. Warm enough for a friend, smart enough for the office.",
+    price: 550,
+    options: [],
+    cats: ['corporate', 'for-her', 'gift-boxes']
+  },
+  {
+    id: 170,
+    name: 'The Coffee Break Set',
+    emoji: '☕',
+    images: ['images/corporate_pen_mug.jpg', 'images/corporate_pen_mug_2.jpg'],
+    desc: "The set for the one who runs on coffee and good stationery. A personalised mug, a personalised notebook and pen, and chocolate to go with the first cup. Personal enough to gift, tidy enough for the boardroom.",
+    price: 350,
+    options: [],
+    cats: ['corporate', 'for-her', 'gift-boxes']
+  },
+  {
+    id: 171,
+    name: 'The Personalised Phone Cover',
+    emoji: '📱',
+    images: ['images/phone_cover.jpg'],
+    desc: "Their phone, made theirs. A personalised phone cover printed with a name, photo, or design of your choosing. The gift they hold a hundred times a day.",
+    price: 200,
+    options: [],
+    cats: ['for-her', 'for-him']
   }
 ];
