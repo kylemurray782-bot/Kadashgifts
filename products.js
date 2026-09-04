@@ -1027,7 +1027,7 @@ const products = [
     emoji: '✏️',
     images: ['images/pencil_case_pen.jpg'],
     desc: "Back-to-school, sorted. A personalised pencil case and matching pen, their name on the desk essentials they'll reach for every day.",
-    price: 180,
+    price: 250,
     options: [],
     cats: ['kids']
   },
@@ -1313,7 +1313,7 @@ const products = [
     emoji: '🖊️',
     images: ['images/pen_pencil_case_school.jpg'],
     desc: "A personalised pencil case and matching pen in a school design. Their name on the desk essentials they reach for every day.",
-    price: 180,
+    price: 250,
     options: [],
     cats: ['school']
   },
@@ -1873,5 +1873,15 @@ const products = [
     price: 200,
     options: [],
     cats: ['for-her', 'for-him']
+  },
+  {
+    id: 172,
+    name: 'The Personalised 2027 Diary',
+    emoji: '📔',
+    images: ['images/diaries_2027.jpg'],
+    desc: "A 2027 diary with their name on the cover. Personalised for the year ahead, whether it lands on a desk, in a handbag, or in a school bag. Order in single copies or in bulk for the whole team.",
+    price: 250,
+    options: [],
+    cats: ['corporate', 'for-her', 'for-him', 'school']
   }
 ];
