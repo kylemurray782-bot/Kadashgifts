@@ -1883,5 +1883,15 @@ const products = [
     price: 250,
     options: [],
     cats: ['corporate', 'for-her', 'for-him', 'school']
+  },
+  {
+    id: 173,
+    name: 'The Branded Altitude Verve Power Bank',
+    emoji: '🔋',
+    images: ['images/branded_powerbank.jpg'],
+    desc: "A 5 000mAh power bank with built-in cables, so there is nothing extra to carry and nothing to forget. Pocket-friendly at 10.5 x 6.8 x 1.6 cm, with a digital display and Type-C, USB-A, and Lightning outputs covering every device on the table. Branded with your logo and packaged in a natural kraft gift box, ready to hand out at the next event or onboard the next hire.",
+    price: 250,
+    options: [],
+    cats: ['corporate']
   }
 ];
