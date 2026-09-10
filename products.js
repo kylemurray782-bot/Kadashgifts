@@ -1893,5 +1893,45 @@ const products = [
     price: 250,
     options: [],
     cats: ['corporate']
+  },
+  {
+    id: 174,
+    name: 'The Branded Selfie Ring Light',
+    emoji: '🔆',
+    images: ['images/selfie_light.jpg', 'images/selfie_light_2.jpg'],
+    desc: "A clip-on ring light built for the moments that need better lighting than the room provides, calls, content, and quick photos on the go. Branded with your logo, it turns a desk or a laptop lid into a proper setup in seconds.",
+    price: 150,
+    options: [],
+    cats: ['corporate']
+  },
+  {
+    id: 175,
+    name: 'The Branded Wireless Charger',
+    emoji: '🔌',
+    images: ['images/branded_wireless_charger.jpg'],
+    desc: "A 15W wireless charger that clears the desk of cables and gets phones topped up fast. Branded with your logo, it is the kind of gift that earns a permanent spot on someone's desk, which means your name does too.",
+    price: 220,
+    options: [],
+    cats: ['corporate']
+  },
+  {
+    id: 176,
+    name: 'The Branded Wireless Earbuds',
+    emoji: '🎧',
+    images: ['images/branded_earphones.jpg'],
+    desc: "True wireless earbuds in a durable ABS shell, built for calls, commutes, and everything in between. Branded with your logo on the case, they go everywhere the person who owns them goes.",
+    price: 230,
+    options: [],
+    cats: ['corporate']
+  },
+  {
+    id: 177,
+    name: 'The Branded 3-in-1 Wireless Charging Station',
+    emoji: '🔋',
+    images: ['images/3in1_wireless_charger_branded.jpg', 'images/3in1_wireless_charger_branded_2.jpg'],
+    desc: "One charging station for phone, smartwatch, and AirPods, so three cables become none. Branded with your logo, it is a desk centrepiece that keeps every device charged and your name in view all day.",
+    price: 350,
+    options: [],
+    cats: ['corporate']
   }
 ];
