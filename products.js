@@ -977,7 +977,7 @@ const products = [
     emoji: '🖊️',
     images: ['images/branded_pen.jpg'],
     desc: 'The pen that ends up in every meeting and on every signature. Branded with your logo, understated, useful, and always within reach.',
-    price: 80,
+    price: 90,
     options: [],
     cats: ['corporate']
   },
@@ -1463,7 +1463,7 @@ const products = [
     emoji: '🖊️',
     images: ['images/packaging_pen_events.jpg'],
     desc: "A personalised pen that doubles as a phone stand, packaged and ready to give. A clever little favour guests will actually use at their desk.",
-    price: 65,
+    price: 75,
     options: [],
     cats: ['corporate']
   },
@@ -1890,7 +1890,7 @@ const products = [
     emoji: '🔋',
     images: ['images/branded_powerbank.jpg'],
     desc: "A 5 000mAh power bank with built-in cables, so there is nothing extra to carry and nothing to forget. Pocket-friendly at 10.5 x 6.8 x 1.6 cm, with a digital display and Type-C, USB-A, and Lightning outputs covering every device on the table. Branded with your logo and packaged in a natural kraft gift box, ready to hand out at the next event or onboard the next hire.",
-    price: 250,
+    price: 300,
     options: [],
     cats: ['corporate']
   },
