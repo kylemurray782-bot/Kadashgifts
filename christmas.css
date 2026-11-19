@@ -666,3 +666,17 @@ body.christmas .proof-arrow { border-color: var(--border); color: var(--charcoal
   body.christmas .proof-card::before,
   body.christmas .proof-card::after { animation: none; opacity: .85; }
 }
+
+/* Keep a glimpse of the next section visible to invite scrolling. */
+body.christmas #heroSlider {
+  height: clamp(340px, calc(100svh - 205px), 540px);
+  min-height: 340px;
+  max-height: 540px;
+}
+@media (max-width: 700px) {
+  body.christmas #heroSlider {
+    height: clamp(350px, calc(100svh - 190px), 520px);
+    min-height: 350px;
+    max-height: 520px;
+  }
+}
