@@ -100,7 +100,7 @@ const products = [
     desc: 'A personalised toolbox set, built for the man who fixes everything.',
     price: 500,
     options: [],
-    cats: ['gift-boxes', 'fathers-day', 'for-him', 'christmas'],
+    cats: ['gift-boxes', 'fathers-day', 'for-him'],
     fathersDay: true
   },
   {
@@ -227,7 +227,7 @@ const products = [
     desc: "For the woman who never stops, a wine tumbler, a notebook for her thoughts, and a 1.2L tumbler to keep her going. All personalised, all hers.",
     price: 750,
     options: [],
-    cats: ['gift-boxes', 'mothers-day', 'for-her', 'christmas']
+    cats: ['gift-boxes', 'mothers-day', 'for-her']
   },
   {
     id: 20,
@@ -302,7 +302,7 @@ const products = [
     desc: 'Tell her to put her feet up, literally. Personalised slippers, a mug made for her, and Ferrero Rocher chocolates. For the woman who has earned every second of rest.',
     price: 450,
     options: [],
-    cats: ['best-sellers', 'gift-boxes', 'mothers-day', 'for-her', 'christmas']
+    cats: ['best-sellers', 'gift-boxes', 'mothers-day', 'for-her']
   },
   {
     id: 27,
@@ -332,7 +332,7 @@ const products = [
     desc: 'A personalised notebook, tumbler, mug, sweets, and chocolates, all in one gift. Because sometimes the best gift is everything she wouldn\'t buy for herself.',
     price: 650,
     options: [],
-    cats: ['gift-boxes', 'mothers-day', 'for-her', 'christmas']
+    cats: ['gift-boxes', 'mothers-day', 'for-her']
   },
   {
     id: 30,
@@ -362,7 +362,7 @@ const products = [
     desc: "A personalised notebook and tumbler paired with sweets and chocolates, boxed and ready to give. No overthinking, just everything she loves in one place.",
     price: 550,
     options: [],
-    cats: ['gift-boxes', 'mothers-day', 'for-her', 'christmas']
+    cats: ['gift-boxes', 'mothers-day', 'for-her']
   },
   {
     id: 33,
@@ -1099,7 +1099,7 @@ const products = [
     desc: "When you want to say it loudly. A gift bag loaded with balloons, fresh flowers, Kit Kat and Ferrero Rocher, finished with a personalised keyring, the whole celebration in one.",
     price: 750,
     options: [],
-    cats: ['gift-boxes', 'celebrating-love', 'christmas']
+    cats: ['gift-boxes', 'celebrating-love']
   },
   {
     id: 98,
@@ -1335,7 +1335,7 @@ const products = [
     desc: "For the runner who conquered the ultimate. A personalised T-shirt, cap, mug, keyring, and coaster, celebrating the medal, the miles, and everything it took to earn them.",
     price: 640,
     options: [],
-    cats: ['gift-boxes', 'for-him', 'christmas']
+    cats: ['gift-boxes', 'for-him']
   },
   {
     id: 121,
