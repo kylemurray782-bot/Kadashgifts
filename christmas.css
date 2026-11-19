@@ -609,60 +609,60 @@ body.christmas .xmas-countdown-clock small {
   body.christmas .xmas-countdown { padding: 24px 12px; gap: 16px; }
 }
 
-/* Christmas review gallery: subtle festive framing, no overlays on reviews. */
+
+/* Christmas review cards: the same delicate twinkling lights as the nav. */
 body.christmas .proof-section {
-  position: relative;
-  isolation: isolate;
-  padding: 62px 0 58px;
-  background: linear-gradient(180deg, #fff9f6 0%, #fdf0ee 100%);
-  border-top: 1px solid #eedbd6;
-  border-bottom: 1px solid #ead6d0;
+  padding: 44px 0 48px;
+  background: var(--warm);
+  border-bottom: 1px solid var(--border);
 }
-body.christmas .proof-section::before,
-body.christmas .proof-section::after {
-  position: absolute;
-  top: 8px;
-  z-index: 0;
-  pointer-events: none;
-  font-size: clamp(28px, 4vw, 48px);
-  filter: drop-shadow(0 4px 5px rgba(89,42,40,.12));
-}
-body.christmas .proof-section::before { content: "🌿🎄"; left: clamp(12px, 4vw, 65px); transform: rotate(-12deg); }
-body.christmas .proof-section::after { content: "🎄🌿"; right: clamp(12px, 4vw, 65px); transform: rotate(12deg); }
 body.christmas .proof-heading {
-  position: relative;
-  z-index: 1;
-  color: #74283b;
-  font-size: clamp(25px, 3vw, 35px);
-  margin-bottom: 32px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: var(--dark);
+  margin-bottom: 28px;
+  padding: 0 1.5rem;
 }
-body.christmas .proof-heading::before {
-  content: "✦  ✧  ✦";
-  display: block;
-  margin-bottom: 9px;
-  font: 15px 'Jost', sans-serif;
-  letter-spacing: 8px;
-  color: #bc9760;
-}
-body.christmas .proof-heading::after {
-  content: "";
-  display: block;
-  width: 74px;
-  height: 1px;
-  margin: 14px auto 0;
-  background: linear-gradient(90deg, transparent, #c39a65, transparent);
-}
-body.christmas .proof-track-wrap { position: relative; z-index: 1; }
+body.christmas .proof-heading::before,
+body.christmas .proof-heading::after,
+body.christmas .proof-section::before,
+body.christmas .proof-section::after { content: none; }
 body.christmas .proof-card {
-  border: 1px solid rgba(189,151,119,.24);
-  box-shadow: 0 6px 20px rgba(95,49,55,.09);
+  overflow: visible;
+  border: 1px solid rgba(212,180,131,.3);
+  border-radius: 6px;
+  box-shadow: 0 2px 12px rgba(26,23,20,.08);
 }
-body.christmas .proof-arrow { border-color: #e7c7ca; color: #74283b; }
-@media(max-width:700px) {
-  body.christmas .proof-section { padding: 48px 0 44px; }
-  body.christmas .proof-section::before,
-  body.christmas .proof-section::after { top: 12px; font-size: 24px; }
-  body.christmas .proof-section::before { left: 9px; }
-  body.christmas .proof-section::after { right: 9px; }
-  body.christmas .proof-heading { padding: 0 56px; font-size: 25px; }
+body.christmas .proof-card::before,
+body.christmas .proof-card::after {
+  content: "";
+  position: absolute;
+  left: 3px;
+  right: 3px;
+  top: -9px;
+  height: 16px;
+  z-index: 2;
+  pointer-events: none;
+  background-repeat: repeat-x;
+  background-size: 64px 16px;
+}
+body.christmas .proof-card::before {
+  background-image:
+    radial-gradient(circle at 8px 8px, #F7DE9A 0 3px, rgba(247,222,154,.35) 3.5px, transparent 7px),
+    radial-gradient(circle at 40px 8px, #FFF1D2 0 3px, rgba(255,241,210,.3) 3.5px, transparent 7px);
+  animation: xmasTwinkle 2.6s ease-in-out infinite alternate;
+}
+body.christmas .proof-card::after {
+  background-image:
+    radial-gradient(circle at 24px 8px, #E2666C 0 3px, rgba(226,102,108,.35) 3.5px, transparent 7px),
+    radial-gradient(circle at 56px 8px, #F7DE9A 0 3px, rgba(247,222,154,.35) 3.5px, transparent 7px);
+  animation: xmasTwinkle 2.6s ease-in-out -1.3s infinite alternate;
+}
+body.christmas .proof-card .proof-imgwrap { border-radius: 6px 6px 0 0; overflow: hidden; }
+body.christmas .proof-arrow { border-color: var(--border); color: var(--charcoal); }
+@media (prefers-reduced-motion: reduce) {
+  body.christmas .proof-card::before,
+  body.christmas .proof-card::after { animation: none; opacity: .85; }
 }
