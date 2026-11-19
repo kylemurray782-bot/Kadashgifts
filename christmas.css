@@ -440,3 +440,65 @@ body.christmas #heroSlides .xmas-hero-inner > * { margin-inline: auto; }
 body.christmas #heroSlides .xmas-hero-title,
 body.christmas #heroSlides .xmas-hero-sub,
 body.christmas #heroSlides .xmas-hero-eyebrow { text-align: center !important; }
+
+/* Approved pink Christmas product hero: artwork stays fixed, copy is native HTML. */
+body.christmas #heroSlides .xmas-hero-slide {
+  display: block !important;
+  background-color: #f8dce4;
+  background-position: center center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat;
+  text-align: center !important;
+}
+body.christmas #heroSlides .xmas-hero-slide.has-photo::before { display: none !important; }
+body.christmas #heroSlides .xmas-hero-slide::after { display: none; }
+body.christmas #heroSlides .xmas-hero-inner {
+  position: absolute;
+  top: 11%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(52%, 710px);
+  max-width: none;
+  padding: 12px 16px;
+  margin: 0 !important;
+  text-align: center !important;
+  z-index: 3;
+}
+body.christmas #heroSlides .xmas-hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(29px, 3.7vw, 56px);
+  font-weight: 600;
+  line-height: 1.05;
+  color: #24191d;
+  text-shadow: 0 1px 12px rgba(255,245,248,.65);
+  margin: 0 auto 9px;
+}
+body.christmas #heroSlides .xmas-hero-sub {
+  font-size: clamp(12px, 1.3vw, 16px);
+  line-height: 1.35;
+  color: #35262c;
+  max-width: 45ch;
+  margin: 0 auto 16px;
+}
+body.christmas #heroSlides .xmas-hero-inner .hero-slide-cta {
+  display: inline-block;
+  background: #8b263e;
+  color: white;
+  padding: 12px 24px;
+  font-size: 11px;
+  letter-spacing: 1.2px;
+  border-radius: 3px;
+}
+body.christmas #heroSlides .xmas-hero-inner .hero-slide-cta:hover { background: #641b2d; }
+@media (max-width:700px) {
+  body.christmas #heroSlides .xmas-hero-slide { background-position: center bottom !important; }
+  body.christmas #heroSlides .xmas-hero-inner {
+    top: 4%;
+    left: 50%;
+    width: 94%;
+    padding: 8px 10px;
+  }
+  body.christmas #heroSlides .xmas-hero-title { font-size: clamp(27px, 7.5vw, 40px); }
+  body.christmas #heroSlides .xmas-hero-sub { font-size: 12px; margin-bottom: 12px; }
+  body.christmas #heroSlides .xmas-hero-inner .hero-slide-cta { padding: 10px 18px; }
+}
