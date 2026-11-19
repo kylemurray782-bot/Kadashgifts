@@ -55,51 +55,6 @@
   }
   function waLink() { return "https://wa.me/" + XMAS.waNumber + "?text=" + encodeURIComponent(waMessage()); }
 
-  /* ═══ CHRISTMAS ORDER COUNTDOWN ═══ */
-  function addCountdown() {
-    var anchor = document.getElementById("trustBar");
-    if (!anchor || !anchor.parentNode) { return; }
-    var section = document.createElement("section");
-    section.className = "xmas-countdown";
-    section.setAttribute("aria-label", "Christmas order deadline countdown");
-    section.innerHTML =
-      '<div class="xmas-countdown-copy">' +
-      '<span class="xmas-countdown-eyebrow">The Christmas countdown</span>' +
-      '<h2>Make their Christmas personal</h2>' +
-      '<p>Time remaining to place your Christmas order by ' + escHtml(XMAS.orderByLabel) + '.</p>' +
-      '</div>' +
-      '<div class="xmas-countdown-clock" role="timer" aria-label="Time left to order">' +
-      '<span><strong data-unit="days">00</strong><small>Days</small></span>' +
-      '<span><strong data-unit="hours">00</strong><small>Hours</small></span>' +
-      '<span><strong data-unit="minutes">00</strong><small>Mins</small></span>' +
-      '<span><strong data-unit="seconds">00</strong><small>Secs</small></span>' +
-      '</div>';
-    anchor.parentNode.insertBefore(section, anchor);
-    var deadline = endOfDay(XMAS.orderBy).getTime();
-    function update() {
-      var remaining = Math.max(0, deadline - Date.now());
-      var total = Math.floor(remaining / 1000);
-      var values = {
-        days: Math.floor(total / 86400),
-        hours: Math.floor((total % 86400) / 3600),
-        minutes: Math.floor((total % 3600) / 60),
-        seconds: total % 60
-      };
-      Object.keys(values).forEach(function (unit) {
-        var node = section.querySelector('[data-unit="' + unit + '"]');
-        if (node) { node.textContent = String(values[unit]).padStart(2, "0"); }
-      });
-      if (remaining === 0) {
-        section.querySelector(".xmas-countdown-copy p").textContent =
-          "The Christmas order deadline has passed. Explore our other personalised gifts.";
-        if (timer) { clearInterval(timer); }
-      }
-    }
-    var timer = null;
-    update();
-    if (Date.now() < deadline) { timer = setInterval(update, 1000); }
-  }
-
   /* Pre-fill existing WhatsApp links and the gift helper with a Christmas message */
   function wireWhatsApp() {
     var links = document.querySelectorAll('a[href^="https://wa.me/"]');
@@ -395,48 +350,6 @@
     tryHeroPhoto(s);
   }
 
-  /* ═══ CHRISTMAS STRIP (products straight under the hero) ═══ */
-  function addStrip() {
-    var anchor = document.getElementById("trustBar");
-    if (!anchor || !anchor.parentNode) { return; }
-    var cards = "";
-    for (var i = 0; i < XMAS.stripIds.length; i++) {
-      var p = findProduct(XMAS.stripIds[i]);
-      if (!p || !p.images || !p.images.length) { continue; }
-      var price = (p.options && p.options.length)
-        ? "From R" + Math.min.apply(null, p.options.map(function (o) { return o.price; }))
-        : "R" + p.price;
-      cards +=
-        '<button type="button" class="xmas-card" data-id="' + p.id + '">' +
-        '<img src="' + escHtml(p.images[0]) + '" alt="' + escHtml(p.name) + '" loading="lazy">' +
-        '<span class="xmas-card-body"><span class="xmas-card-name">' + escHtml(p.name) + "</span>" +
-        '<span class="xmas-card-price">' + price + "</span></span></button>";
-    }
-    if (!cards) { return; }
-    var sec = document.createElement("section");
-    sec.className = "xmas-strip";
-    sec.setAttribute("aria-label", "Christmas gifts");
-    sec.innerHTML =
-      '<div class="xmas-strip-head"><h2 class="xmas-strip-title">Christmas gifts with their name on</h2>' +
-      '<p class="xmas-strip-sub">Order by ' + escHtml(XMAS.orderByLabel) + ". Delivered nationwide.</p></div>" +
-      '<div class="xmas-strip-track">' + cards + "</div>" +
-      '<div class="xmas-strip-more"><button type="button" class="xmas-btn xmas-btn-primary" data-more="1">See all Christmas gifts</button></div>';
-    anchor.parentNode.insertBefore(sec, anchor);
-    sec.addEventListener("click", function (e) {
-      var card = e.target.closest ? e.target.closest(".xmas-card") : null;
-      if (card) {
-        var id = parseInt(card.getAttribute("data-id"), 10);
-        trk("christmas_strip_item", { item_id: String(id) });
-        if (typeof openModal === "function") { openModal(id); }
-        return;
-      }
-      if (e.target.closest && e.target.closest("[data-more]")) {
-        trk("christmas_strip_more", {});
-        if (typeof filterByCategory === "function") { filterByCategory("christmas"); }
-      }
-    });
-  }
-
   /* ═══ RIBBONS ON CHRISTMAS PRODUCT CARDS ═══ */
   function decorateCards() {
     var cards = document.querySelectorAll("#productGrid .product-card");
@@ -479,7 +392,7 @@
   /* ═══ START ═══ */
   function init() {
     document.body.classList.add("christmas");
-    if (ordersOpen) { addHeroSlide(); addStrip(); addCountdown(); }
+    if (ordersOpen) { addHeroSlide(); }
     wireWhatsApp();
     patchRender();
     hideInactiveFilters();
