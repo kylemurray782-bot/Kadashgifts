@@ -63,28 +63,6 @@ body.christmas .drawer-cat[onclick*="'christmas'"] { color: var(--xmas-burgundy)
 }
 body.xmas-gate-open .xmas-snow { z-index: 1001; }
 
-/* ─── Sleigh ─── */
-.xmas-sleigh {
-  position: fixed;
-  top: 12vh;
-  left: 0;
-  width: 240px;
-  color: var(--gold);
-  opacity: 0;
-  pointer-events: none;
-  z-index: 150;
-  will-change: transform;
-  filter: drop-shadow(0 2px 5px rgba(26, 23, 20, 0.35));
-}
-.xmas-sleigh svg { display: block; width: 100%; height: auto; animation: xmasBob 1.5s ease-in-out infinite; }
-@keyframes xmasBob {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
-}
-@media (max-width: 640px) {
-  .xmas-sleigh { width: 160px; }
-}
-
 /* ─── Entry screen ─── */
 body.xmas-gate-open { overflow: hidden; }
 .xmas-gate {
@@ -167,11 +145,10 @@ body.xmas-gate-open { overflow: hidden; }
 .xmas-music[aria-pressed="true"] .xmas-ico-off,
 .xmas-music[aria-pressed="false"] .xmas-ico-on { display: none; }
 
-/* ─── Reduced motion: no snow, no sleigh, no fades ─── */
+/* ─── Reduced motion: no snow or animated fades ─── */
 @media (prefers-reduced-motion: reduce) {
-  .xmas-snow, .xmas-sleigh { display: none !important; }
+  .xmas-snow { display: none !important; }
   .xmas-gate { transition: none; }
-  .xmas-sleigh svg { animation: none; }
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -270,9 +247,9 @@ body.xmas-gate-open { overflow: hidden; }
 
 /* ─── Christmas product strip ─── */
 .xmas-strip {
-  background: var(--xmas-burgundy-deep);
-  border-bottom: 1px solid var(--gold);
-  padding: 40px 0 36px;
+  background: var(--cream);
+  border-bottom: 1px solid var(--border);
+  padding: 44px 0 40px;
 }
 .xmas-strip-head { text-align: center; padding: 0 1.5rem; margin-bottom: 24px; }
 .xmas-strip-title {
@@ -282,7 +259,7 @@ body.xmas-gate-open { overflow: hidden; }
   line-height: 1.15;
   color: var(--gold-light);
 }
-.xmas-strip-sub { margin-top: 8px; font-family: 'Jost', sans-serif; font-size: 14px; color: var(--gold-pale); }
+.xmas-strip-sub { margin-top: 8px; font-family: 'Jost', sans-serif; font-size: 14px; color: var(--text-muted); }
 .xmas-strip-track {
   display: flex;
   gap: 14px;
@@ -380,3 +357,7 @@ body.christmas .product-img { position: relative; }
   body.christmas nav::before,
   body.christmas nav::after { animation: none; }
 }
+
+/* Christmas shopping: keep category navigation accessible in the menu,
+   but remove the desktop category strip so the festive hero leads. */
+body.christmas .desk-nav { display: none !important; }
