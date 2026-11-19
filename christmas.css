@@ -795,3 +795,23 @@ body.christmas #heroSlider {
 @media (max-width: 380px) {
   body.christmas #heroSlides .xmas-hero-inner { padding: 15px 16px 22px !important; }
 }
+
+/* Final mobile polish: slightly tighter hero and calmer headline. */
+@media (max-width: 700px) {
+  body.christmas #heroSlides .xmas-hero-inner {
+    padding-bottom: 17px !important;
+  }
+  body.christmas #heroSlides .xmas-hero-title {
+    font-size: clamp(27px, 7.1vw, 34px);
+    max-width: 355px;
+    line-height: 1.1;
+  }
+}
+@media (max-width: 380px) {
+  body.christmas #heroSlides .xmas-hero-inner {
+    padding-bottom: 15px !important;
+  }
+  body.christmas #heroSlides .xmas-hero-title {
+    font-size: 27px;
+  }
+}
