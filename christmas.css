@@ -173,3 +173,210 @@ body.xmas-gate-open { overflow: hidden; }
   .xmas-gate { transition: none; }
   .xmas-sleigh svg { animation: none; }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   ROUND 2: hero, product strip, lights, ribbons
+═══════════════════════════════════════════════════════════════ */
+
+/* ─── Christmas hero slide ─── */
+.xmas-hero-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-align: center;
+  background-color: var(--xmas-burgundy);
+  background-image: radial-gradient(ellipse at 50% 18%, #86283a 0%, var(--xmas-burgundy) 46%, var(--xmas-burgundy-deep) 100%);
+  background-size: cover;
+  background-position: center;
+}
+.xmas-hero-slide.has-photo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(52, 22, 28, 0.78) 0%, rgba(52, 22, 28, 0.5) 55%, rgba(52, 22, 28, 0.7) 100%);
+}
+.xmas-hero-slide::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 14px;
+  z-index: 2;
+  pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 40' preserveAspectRatio='none'%3E%3Cpath d='M0 40V24C70 8 130 6 210 18s160 14 260 0 180-16 280-2 180 14 260 2 140-10 190 2V40z' fill='%23FAF7F2'/%3E%3C/svg%3E") bottom / 100% 100% no-repeat;
+}
+.xmas-hero-inner {
+  position: relative;
+  z-index: 3;
+  max-width: 640px;
+  padding: 96px 1.25rem 56px;
+}
+.xmas-hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: clamp(40px, 11vw, 74px);
+  line-height: 1.02;
+  letter-spacing: 0.5px;
+  color: var(--cream);
+  margin-bottom: 16px;
+}
+.xmas-hero-sub {
+  max-width: 34ch;
+  margin: 0 auto;
+  font-family: 'Jost', sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--gold-pale);
+}
+.xmas-hero-deadline {
+  display: table;
+  margin: 18px auto 24px;
+  padding: 6px 16px;
+  border: 1px solid var(--gold-light);
+  border-radius: 2px;
+  font-family: 'Jost', sans-serif;
+  font-size: 13px;
+  letter-spacing: 1.2px;
+  color: var(--gold-light);
+}
+.xmas-baubles {
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  width: 92px;
+  pointer-events: none;
+}
+.xmas-baubles.left { left: 0; }
+.xmas-baubles.right { right: 0; transform: scaleX(-1); }
+.xmas-baubles svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  transform-origin: 50% 0;
+  animation: xmasSway 5s ease-in-out infinite alternate;
+}
+.xmas-baubles.right svg { animation-delay: -2.5s; }
+@keyframes xmasSway {
+  from { transform: rotate(-2.5deg); }
+  to { transform: rotate(2.5deg); }
+}
+@media (min-width: 701px) {
+  .xmas-baubles { width: 190px; }
+  .xmas-hero-inner { padding: 70px 2rem 60px; }
+  .xmas-hero-sub { font-size: 17px; max-width: 40ch; }
+}
+
+/* ─── Christmas product strip ─── */
+.xmas-strip {
+  background: var(--xmas-burgundy-deep);
+  border-bottom: 1px solid var(--gold);
+  padding: 40px 0 36px;
+}
+.xmas-strip-head { text-align: center; padding: 0 1.5rem; margin-bottom: 24px; }
+.xmas-strip-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: clamp(28px, 5vw, 40px);
+  line-height: 1.15;
+  color: var(--gold-light);
+}
+.xmas-strip-sub { margin-top: 8px; font-family: 'Jost', sans-serif; font-size: 14px; color: var(--gold-pale); }
+.xmas-strip-track {
+  display: flex;
+  gap: 14px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 4px 1.5rem 10px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.xmas-strip-track::-webkit-scrollbar { display: none; }
+.xmas-card {
+  flex: 0 0 60vw;
+  max-width: 230px;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  text-align: left;
+  font-family: 'Jost', sans-serif;
+  background: var(--cream);
+  border: 1px solid rgba(212, 180, 131, 0.55);
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  scroll-snap-align: start;
+  transition: transform 0.2s, border-color 0.2s;
+}
+.xmas-card:hover { transform: translateY(-3px); border-color: var(--gold-light); }
+.xmas-card:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 3px; }
+.xmas-card img { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; background: var(--warm); }
+.xmas-card-body { display: flex; flex-direction: column; gap: 4px; padding: 12px 14px 14px; }
+.xmas-card-name { font-family: 'Cormorant Garamond', serif; font-size: 18px; line-height: 1.25; color: var(--dark); }
+.xmas-card-price { font-size: 13px; font-weight: 500; color: var(--dark); }
+.xmas-strip-more { text-align: center; margin-top: 22px; padding: 0 1.5rem; }
+.xmas-strip-more .xmas-btn { margin-bottom: 0; }
+@media (min-width: 701px) {
+  .xmas-card { flex-basis: 210px; }
+  .xmas-strip-track { justify-content: center; flex-wrap: wrap; overflow: visible; }
+}
+
+/* ─── String of lights along the nav ─── */
+body.christmas nav::before,
+body.christmas nav::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -8px;
+  height: 16px;
+  z-index: 2;
+  pointer-events: none;
+  background-repeat: no-repeat, repeat-x, repeat-x;
+  background-size: 100% 1px, 64px 16px, 64px 16px;
+}
+body.christmas nav::before {
+  background-image:
+    linear-gradient(rgba(212, 180, 131, 0.5), rgba(212, 180, 131, 0.5)),
+    radial-gradient(circle at 8px 8px, #F7DE9A 0 3px, rgba(247, 222, 154, 0.35) 3.5px, transparent 7px),
+    radial-gradient(circle at 40px 8px, #FFF1D2 0 3px, rgba(255, 241, 210, 0.3) 3.5px, transparent 7px);
+  animation: xmasTwinkle 2.6s ease-in-out infinite alternate;
+}
+body.christmas nav::after {
+  background-image:
+    linear-gradient(transparent, transparent),
+    radial-gradient(circle at 24px 8px, #E2666C 0 3px, rgba(226, 102, 108, 0.35) 3.5px, transparent 7px),
+    radial-gradient(circle at 56px 8px, #F7DE9A 0 3px, rgba(247, 222, 154, 0.35) 3.5px, transparent 7px);
+  animation: xmasTwinkle 2.6s ease-in-out -1.3s infinite alternate;
+}
+@keyframes xmasTwinkle {
+  from { opacity: 0.45; }
+  to { opacity: 1; }
+}
+
+/* ─── Ribbon on Christmas product cards ─── */
+body.christmas .product-img { position: relative; }
+.xmas-ribbon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  padding: 4px 9px;
+  background: var(--xmas-burgundy);
+  border: 1px solid var(--gold);
+  border-radius: 2px;
+  color: var(--gold-pale);
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .xmas-baubles svg,
+  body.christmas nav::before,
+  body.christmas nav::after { animation: none; }
+}
