@@ -78,7 +78,7 @@ const products = [
     desc: 'Personalised Bible, notebook, mug, and pen, every piece carrying his name.',
     price: 600,
     options: [],
-    cats: ['gift-boxes', 'christian-gifts', 'fathers-day', 'for-him'],
+    cats: ['gift-boxes', 'christian-gifts', 'fathers-day', 'for-him', 'christmas'],
     fathersDay: true
   },
   {
@@ -89,7 +89,7 @@ const products = [
     desc: "Personalised mug, mug box, and flask with matching gift bag, all printed in his favourite team's colours.",
     price: 450,
     options: [],
-    cats: ['gift-boxes', 'fathers-day', 'for-him'],
+    cats: ['gift-boxes', 'fathers-day', 'for-him', 'christmas'],
     fathersDay: true
   },
   {
@@ -100,7 +100,7 @@ const products = [
     desc: 'A personalised toolbox set, built for the man who fixes everything.',
     price: 500,
     options: [],
-    cats: ['gift-boxes', 'fathers-day', 'for-him'],
+    cats: ['gift-boxes', 'fathers-day', 'for-him', 'christmas'],
     fathersDay: true
   },
   {
@@ -133,7 +133,7 @@ const products = [
     desc: 'A personalised flask with a temperature display built into the lid, so their drink is always just right. Sleek, functional, and entirely theirs. Dishwasher safe.',
     price: 300,
     options: [],
-    cats: ['fathers-day', 'for-him', 'mugs']
+    cats: ['fathers-day', 'for-him', 'mugs', 'christmas']
   },
   {
     id: 11,
@@ -206,7 +206,7 @@ const products = [
     desc: "A durable, flexible trucker cap with a keyring, coaster, and mug, a full lifestyle set for the man who moves with style. Everything personalised, nothing generic.",
     price: 580,
     options: [],
-    cats: ['gift-boxes', 'fathers-day', 'for-him'],
+    cats: ['gift-boxes', 'fathers-day', 'for-him', 'christmas'],
     fathersDay: true
   },
   {
@@ -227,7 +227,7 @@ const products = [
     desc: "For the woman who never stops, a wine tumbler, a notebook for her thoughts, and a 1.2L tumbler to keep her going. All personalised, all hers.",
     price: 750,
     options: [],
-    cats: ['gift-boxes', 'mothers-day', 'for-her']
+    cats: ['gift-boxes', 'mothers-day', 'for-her', 'christmas']
   },
   {
     id: 20,
@@ -302,7 +302,7 @@ const products = [
     desc: 'Tell her to put her feet up, literally. Personalised slippers, a mug made for her, and Ferrero Rocher chocolates. For the woman who has earned every second of rest.',
     price: 450,
     options: [],
-    cats: ['best-sellers', 'gift-boxes', 'mothers-day', 'for-her']
+    cats: ['best-sellers', 'gift-boxes', 'mothers-day', 'for-her', 'christmas']
   },
   {
     id: 27,
@@ -312,7 +312,7 @@ const products = [
     desc: 'Fresh flowers, a personalised sippy cup, latte sachets, non-alcoholic champagne, dark chocolate, and a keyring. When you want her to feel everything at once.',
     price: 1050,
     options: [],
-    cats: ['gift-boxes', 'mothers-day', 'for-her']
+    cats: ['gift-boxes', 'mothers-day', 'for-her', 'christmas']
   },
   {
     id: 28,
@@ -332,7 +332,7 @@ const products = [
     desc: 'A personalised notebook, tumbler, mug, sweets, and chocolates, all in one gift. Because sometimes the best gift is everything she wouldn\'t buy for herself.',
     price: 650,
     options: [],
-    cats: ['gift-boxes', 'mothers-day', 'for-her']
+    cats: ['gift-boxes', 'mothers-day', 'for-her', 'christmas']
   },
   {
     id: 30,
@@ -352,7 +352,7 @@ const products = [
     desc: 'Planner, notebook, bamboo sippy cup, door hanger, mat, and pencil case, all personalised. For the woman who runs everything and deserves to look good doing it.',
     price: 600,
     options: [],
-    cats: ['gift-boxes', 'mothers-day', 'for-her']
+    cats: ['gift-boxes', 'mothers-day', 'for-her', 'christmas']
   },
   {
     id: 32,
@@ -362,7 +362,7 @@ const products = [
     desc: "A personalised notebook and tumbler paired with sweets and chocolates, boxed and ready to give. No overthinking, just everything she loves in one place.",
     price: 550,
     options: [],
-    cats: ['gift-boxes', 'mothers-day', 'for-her']
+    cats: ['gift-boxes', 'mothers-day', 'for-her', 'christmas']
   },
   {
     id: 33,
@@ -382,7 +382,7 @@ const products = [
     desc: "For the woman who shines without apology. A sequin notebook and 1.2L tumbler in a gift bag, because her faith is loud, her vision is clear, and she was never meant to blend in.",
     price: 680,
     options: [],
-    cats: ['gift-boxes', 'christian-gifts', 'mothers-day', 'for-her']
+    cats: ['gift-boxes', 'christian-gifts', 'mothers-day', 'for-her', 'christmas']
   },
   {
     id: 35,
@@ -469,7 +469,7 @@ const products = [
     desc: 'For the man who shows up every day and rarely hears thank you. A branded notebook, tumbler, chocolates, and sweets, packaged to say what words often don\'t. Recognition, done properly.',
     price: 550,
     options: [],
-    cats: ['gift-boxes', 'corporate']
+    cats: ['gift-boxes', 'corporate', 'christmas']
   },
   {
     id: 42,
@@ -479,7 +479,7 @@ const products = [
     desc: 'She brings beauty to everything she touches, her workspace should be no different. A branded tumbler, sequin mousepad, makeup bag, and notebook. For the woman who works hard and looks good doing it.',
     price: 780,
     options: [],
-    cats: ['gift-boxes', 'for-her', 'corporate']
+    cats: ['gift-boxes', 'for-her', 'corporate', 'christmas']
   },
   {
     id: 43,
@@ -492,7 +492,7 @@ const products = [
     desc: 'Everything he needs, monogrammed and ready. A personalised lunch bag, leather notebook, tumbler, stylus pen, and power bank, built for the executive who moves fast and never compromises on detail.',
     price: 750,
     options: [],
-    cats: ['gift-boxes', 'corporate']
+    cats: ['gift-boxes', 'corporate', 'christmas']
   },
   {
     id: 44,
@@ -735,7 +735,7 @@ const products = [
     desc: "Their name on the bottle they carry everywhere. A 400ml stainless steel kids bottle, built for school bags, sports days, and every adventure in between. Dishwasher safe.",
     price: 200,
     options: [],
-    cats: ['kids', 'mugs']
+    cats: ['kids', 'mugs', 'christmas']
   },
   {
     id: 64,
@@ -782,7 +782,7 @@ const products = [
     desc: "A personalised backpack, puzzle, bottle, and gift bag: everything a child needs, wrapped up and ready to give. For the kid who deserves a gift that actually gets used.",
     price: 600,
     options: [],
-    cats: ['gift-boxes', 'kids']
+    cats: ['gift-boxes', 'kids', 'christmas']
   },
   {
     id: 69,
@@ -792,7 +792,7 @@ const products = [
     desc: "Lunch bag, bottle, and lunchbox, all personalised, all in one. For the child who deserves to open their bag and find something made just for them, every single day.",
     price: 530,
     options: [],
-    cats: ['gift-boxes', 'kids']
+    cats: ['gift-boxes', 'kids', 'christmas']
   },
     {
     id: 71,
@@ -806,7 +806,7 @@ const products = [
     desc: "A 1.2L personalised tumbler that keeps up with the day. Sublimation-printed so the design won't peel or fade, their name, their colour, their cup, from the desk to the drive home. Dishwasher safe.",
     price: 400,
     options: [],
-    cats: ['best-sellers', 'kids', 'mugs']
+    cats: ['best-sellers', 'kids', 'mugs', 'christmas']
   },
   {
     id: 72,
@@ -819,7 +819,7 @@ const products = [
     desc: "Two colours, one name, zero excuses for losing it. A personalised two-tone stainless steel bottle, the one they'll actually want to carry.",
     price: 250,
     options: [],
-    cats: ['kids', 'mugs']
+    cats: ['kids', 'mugs', 'christmas']
   },
   {
     id: 73,
@@ -859,7 +859,7 @@ const products = [
     desc: "Warm hands, warm heart. A personalised mug with a natural wooden handle, the kind of cup that makes every morning feel a little more intentional. Dishwasher safe.",
     price: 130,
     options: [],
-    cats: ['mugs']
+    cats: ['mugs', 'christmas']
   },
   {
     id: 77,
@@ -875,7 +875,7 @@ const products = [
       { name: 'Without box', price: 100 },
       { name: 'With gift box', price: 120 }
     ],
-    cats: ['best-sellers', 'mugs']
+    cats: ['best-sellers', 'mugs', 'christmas']
   },
   {
     id: 78,
@@ -888,7 +888,7 @@ const products = [
       { name: 'Without box', price: 130 },
       { name: 'With gift box', price: 150 }
     ],
-    cats: ['mugs']
+    cats: ['mugs', 'christmas']
   },
   {
     id: 79,
@@ -901,7 +901,7 @@ const products = [
       { name: 'Without box', price: 120 },
       { name: 'With gift box', price: 140 }
     ],
-    cats: ['mugs']
+    cats: ['mugs', 'christmas']
   },
   {
     id: 80,
@@ -917,7 +917,7 @@ const products = [
       { name: 'Without box', price: 110 },
       { name: 'With gift box', price: 130 }
     ],
-    cats: ['mugs']
+    cats: ['mugs', 'christmas']
   },
   {
     id: 81,
@@ -933,7 +933,7 @@ const products = [
       { name: 'Without box', price: 110 },
       { name: 'With gift box', price: 120 }
     ],
-    cats: ['best-sellers', 'mugs']
+    cats: ['best-sellers', 'mugs', 'christmas']
   },
     {
     id: 82,
@@ -949,7 +949,7 @@ const products = [
     desc: "The mug that belongs in a meeting room and a kitchen table. A personalised cappuccino-style mug. Branded or gifted, it always looks the part. Dishwasher safe.",
     price: 250,
     options: [],
-    cats: ['mugs']
+    cats: ['mugs', 'christmas']
   },
   {
     id: 83,
@@ -1019,7 +1019,7 @@ const products = [
     desc: "For the kid who never sits still. A personalised sports bottle built for practice, matches, and everything in between. Their name on every sip. Dishwasher safe.",
     price: 200,
     options: [],
-    cats: ['kids', 'mugs']
+    cats: ['kids', 'mugs', 'christmas']
   },
   {
     id: 90,
@@ -1059,7 +1059,7 @@ const products = [
     desc: "For the two who built a home together. A personalised ceramic clock, Mr & Mrs mugs, and a matching Mr & Mrs coaster, every piece marking the life you share.",
     price: 650,
     options: [],
-    cats: ['best-sellers', 'gift-boxes', 'celebrating-love']
+    cats: ['best-sellers', 'gift-boxes', 'celebrating-love', 'christmas']
   },
   {
     id: 94,
@@ -1089,7 +1089,7 @@ const products = [
     desc: "For the couple who share everything, including the bathroom. A personalised Mr & Mrs towel set, his and hers, each carrying their name.",
     price: 500,
     options: [],
-    cats: ['gift-boxes', 'celebrating-love']
+    cats: ['gift-boxes', 'celebrating-love', 'christmas']
   },
   {
     id: 97,
@@ -1099,7 +1099,7 @@ const products = [
     desc: "When you want to say it loudly. A gift bag loaded with balloons, fresh flowers, Kit Kat and Ferrero Rocher, finished with a personalised keyring, the whole celebration in one.",
     price: 750,
     options: [],
-    cats: ['gift-boxes', 'celebrating-love']
+    cats: ['gift-boxes', 'celebrating-love', 'christmas']
   },
   {
     id: 98,
@@ -1119,7 +1119,7 @@ const products = [
     desc: "Because you fell for them piece by piece. A personalised puzzle with wine, a candle, Ferrero Rocher, and a heart chocolate, a slow, sweet celebration of the two of you.",
     price: 600,
     options: [],
-    cats: ['gift-boxes', 'celebrating-love']
+    cats: ['gift-boxes', 'celebrating-love', 'christmas']
   },
   {
     id: 100,
@@ -1129,7 +1129,7 @@ const products = [
     desc: "For the couple who host with heart. A personalised platter board, personalised mugs, personalised coasters, and a personalised gift bag. Set the table and let love do the rest.",
     price: 700,
     options: [],
-    cats: ['gift-boxes', 'celebrating-love']
+    cats: ['gift-boxes', 'celebrating-love', 'christmas']
   },
   {
     id: 101,
@@ -1149,7 +1149,7 @@ const products = [
     desc: "Everything, all at once. A personalised cushion, personalised mugs, personalised coasters, a personalised ceramic clock, and a gift box to hold it all, the fullest way to say how much they mean to you.",
     price: 800,
     options: [],
-    cats: ['gift-boxes', 'celebrating-love']
+    cats: ['gift-boxes', 'celebrating-love', 'christmas']
   },
   {
     id: 103,
@@ -1335,7 +1335,7 @@ const products = [
     desc: "For the runner who conquered the ultimate. A personalised T-shirt, cap, mug, keyring, and coaster, celebrating the medal, the miles, and everything it took to earn them.",
     price: 640,
     options: [],
-    cats: ['gift-boxes', 'for-him']
+    cats: ['gift-boxes', 'for-him', 'christmas']
   },
   {
     id: 121,
@@ -1355,7 +1355,7 @@ const products = [
     desc: "Everything the athlete needs to train and travel. A personalised bag, towel, and bottle, their name on the kit that goes the distance with them.",
     price: 1000,
     options: [],
-    cats: ['gift-boxes', 'for-him']
+    cats: ['gift-boxes', 'for-him', 'christmas']
   },
   {
     id: 123,
@@ -1375,7 +1375,7 @@ const products = [
     desc: "A personalised mug and matching pen, boxed and ready to hand out. A smart, useful favour for conferences, launches, and celebrations.",
     price: 170,
     options: [],
-    cats: ['gift-boxes', 'corporate']
+    cats: ['gift-boxes', 'corporate', 'christmas']
   },
   {
     id: 125,
@@ -1385,7 +1385,7 @@ const products = [
     desc: "Everything a guest needs to take notes and take part. A personalised mousepad, notebook, pen, and flask, the complete set for conferences, workshops, and corporate events.",
     price: 630,
     options: [],
-    cats: ['gift-boxes', 'corporate']
+    cats: ['gift-boxes', 'corporate', 'christmas']
   },
   {
     id: 126,
@@ -1475,7 +1475,7 @@ const products = [
     desc: "A personalised notebook and pen in a gift box. A polished favour for delegates, guests, and teams.",
     price: 200,
     options: [],
-    cats: ['gift-boxes', 'corporate']
+    cats: ['gift-boxes', 'corporate', 'christmas']
   },
   {
     id: 135,
@@ -1501,7 +1501,7 @@ const products = [
     desc: "For the mornings spent in the Word. A personalised Bible, notebook, and pen, made for prayer, reflection, and the quiet time that shapes everything else.",
     price: 550,
     options: [],
-    cats: ['gift-boxes', 'christian-gifts']
+    cats: ['gift-boxes', 'christian-gifts', 'christmas']
   },
   {
     id: 137,
@@ -1531,7 +1531,7 @@ const products = [
     desc: "Faith that goes everywhere they go. A personalised Bible bag, iPhone cover, and flask, so the Word travels with them from the pew to the everyday.",
     price: 700,
     options: [],
-    cats: ['gift-boxes', 'christian-gifts']
+    cats: ['gift-boxes', 'christian-gifts', 'christmas']
   },
   {
     id: 140,
@@ -1541,7 +1541,7 @@ const products = [
     desc: "The everyday tools for a life of faith. A personalised notebook, keyring, pen, and flask, ready for sermons, study, and everything in between.",
     price: 500,
     options: [],
-    cats: ['gift-boxes', 'christian-gifts']
+    cats: ['gift-boxes', 'christian-gifts', 'christmas']
   },
   {
     id: 141,
@@ -1565,7 +1565,7 @@ const products = [
     desc: "For faith on the move. A personalised Bible bag and travel mug, ready for early services, small groups, and the commute in between.",
     price: 500,
     options: [],
-    cats: ['gift-boxes', 'christian-gifts']
+    cats: ['gift-boxes', 'christian-gifts', 'christmas']
   },
   {
     id: 143,
@@ -1575,7 +1575,7 @@ const products = [
     desc: "Everything for a life rooted in the Word. A personalised Bible bag, keyring, mug, coaster, notebook, and Bible, the full set for the person who lives their faith out loud.",
     price: 1050,
     options: [],
-    cats: ['gift-boxes', 'christian-gifts']
+    cats: ['gift-boxes', 'christian-gifts', 'christmas']
   },
   {
     id: 144,
@@ -1585,7 +1585,7 @@ const products = [
     desc: "For every step of the journey. A personalised Bible, notebook, pen, socks, and keyring, a complete set for the one walking their faith daily.",
     price: 750,
     options: [],
-    cats: ['gift-boxes', 'christian-gifts']
+    cats: ['gift-boxes', 'christian-gifts', 'christmas']
   },
   {
     id: 145,
@@ -1595,7 +1595,7 @@ const products = [
     desc: "For the woman whose faith shines. A personalised sequin cushion and matching sequin notebook in a gift bag, bold, bright, and unapologetically hers.",
     price: 480,
     options: [],
-    cats: ['gift-boxes', 'christian-gifts']
+    cats: ['gift-boxes', 'christian-gifts', 'christmas']
   },
   {
     id: 146,
@@ -1649,7 +1649,7 @@ const products = [
     desc: "A personalised double-walled bottle that keeps drinks hot or cold for hours. Priced per bottle, available in a range of colours. Dishwasher safe.",
     price: 250,
     options: [],
-    cats: ['mugs']
+    cats: ['mugs', 'christmas']
   },
   {
     id: 152,
@@ -1659,7 +1659,7 @@ const products = [
     desc: "A personalised can-style tumbler for the drink that travels with them. Sleek, insulated, and entirely theirs. Dishwasher safe.",
     price: 250,
     options: [],
-    cats: ['mugs']
+    cats: ['mugs', 'christmas']
   },
   {
     id: 153,
@@ -1672,7 +1672,7 @@ const products = [
     desc: "A 400ml stainless steel travel mug, personalised and built for the commute and the coffee run. Their name on the lid, ready for the road. Dishwasher safe.",
     price: 200,
     options: [],
-    cats: ['mugs']
+    cats: ['mugs', 'christmas']
   },
   {
     id: 154,
@@ -1685,7 +1685,7 @@ const products = [
     desc: "A 590ml personalised tumbler that keeps up with the day. Sublimation-printed so it never peels or fades, their name, their colour, from the desk to the drive home. Dishwasher safe.",
     price: 250,
     options: [],
-    cats: ['mugs']
+    cats: ['mugs', 'christmas']
   },
   {
     id: 155,
@@ -1695,7 +1695,7 @@ const products = [
     desc: "A 355ml personalised wine tumbler for the pour that travels, from the patio to the picnic. Sublimation-printed so the design never peels, their name, no stem, no spills. Dishwasher safe.",
     price: 200,
     options: [],
-    cats: ['best-sellers', 'celebrating-love', 'for-her', 'mugs']
+    cats: ['best-sellers', 'celebrating-love', 'for-her', 'mugs', 'christmas']
   },
   {
     id: 156,
@@ -1705,7 +1705,7 @@ const products = [
     desc: "A 355ml personalised wine tumbler wrapped in a full-print, edge-to-edge design. Sublimation-printed for colour that stays vivid wash after wash, bold from top to bottom. Dishwasher safe.",
     price: 250,
     options: [],
-    cats: ['celebrating-love', 'for-her', 'mugs']
+    cats: ['celebrating-love', 'for-her', 'mugs', 'christmas']
   },
   {
     id: 157,
@@ -1715,7 +1715,7 @@ const products = [
     desc: "A personalised sleek tumbler built for the day on the move. Slim, insulated, and entirely theirs. Dishwasher safe.",
     price: 250,
     options: [],
-    cats: ['mugs']
+    cats: ['mugs', 'christmas']
   },
   {
     id: 158,
@@ -1782,7 +1782,7 @@ const products = [
     desc: "A set that says thank you properly. A personalised tote bag, travel mug, notebook, and face cloth, four everyday things they will actually reach for, each one carrying your message of appreciation.",
     price: 580,
     options: [],
-    cats: ['corporate', 'gift-boxes', 'for-her', 'for-him']
+    cats: ['corporate', 'gift-boxes', 'for-her', 'for-him', 'christmas']
   },
   {
     id: 163,
@@ -1802,7 +1802,7 @@ const products = [
     desc: "A thank you for the friend who always shows up. A personalised reusable shopper bag, a personalised glass bottle, and a personalised stylus pen, all carrying her name.",
     price: 300,
     options: [],
-    cats: ['for-her', 'gift-boxes']
+    cats: ['for-her', 'gift-boxes', 'christmas']
   },
   {
     id: 165,
@@ -1832,7 +1832,7 @@ const products = [
     desc: "A full branded set for events and welcoming new starters. A branded glass bottle, notebook, pen, lighter, and reusable shopper bag, all carrying your logo in one considered package.",
     price: 390,
     options: [],
-    cats: ['corporate', 'gift-boxes']
+    cats: ['corporate', 'gift-boxes', 'christmas']
   },
   {
     id: 168,
@@ -1852,7 +1852,7 @@ const products = [
     desc: "A desk they will actually enjoy sitting at. A personalised desk plant, a personalised mug, a personalised notebook and pen, and a box of Ferrero Rocher. Warm enough for a friend, smart enough for the office.",
     price: 550,
     options: [],
-    cats: ['corporate', 'for-her', 'gift-boxes']
+    cats: ['corporate', 'for-her', 'gift-boxes', 'christmas']
   },
   {
     id: 170,
@@ -1862,7 +1862,7 @@ const products = [
     desc: "The set for the one who runs on coffee and good stationery. A personalised mug, a personalised notebook and pen, and chocolate to go with the first cup. Personal enough to gift, tidy enough for the boardroom.",
     price: 350,
     options: [],
-    cats: ['corporate', 'for-her', 'gift-boxes']
+    cats: ['corporate', 'for-her', 'gift-boxes', 'christmas']
   },
   {
     id: 171,
