@@ -601,6 +601,7 @@
     .desk-nav-link:hover { color: var(--gold); }
   }
 </style>
+<link rel="stylesheet" href="christmas.css">
 </head>
 <body>
 
@@ -969,6 +970,7 @@ function esc(s) {
 }
 
 const categories = [
+  { id:'christmas',       name:'Christmas Gifts',      group:'occasion', active: new Date() <= new Date(2026, 11, 25, 23, 59, 59) },
   { id:'best-sellers',     name:'Best Sellers',         group:'shop' },
   { id:'gift-boxes',       name:'Gift Boxes & Hampers', group:'shop' },
   { id:'gift-packaging',   name:'Gift Packaging',       group:'shop' },
@@ -2195,5 +2197,6 @@ initNewsletter();
 initAnalytics();
 initPixel();
 </script>
+<script src="christmas.js" defer></script>
 </body>
 </html>
