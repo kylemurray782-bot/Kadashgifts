@@ -102,7 +102,7 @@
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     // Welcome snowfall is fuller; shopping snowfall stays gentle.
     var inWelcome = document.body.classList.contains('xmas-gate-open');
-    var target = inWelcome ? (W < 700 ? 48 : 90) : (W < 700 ? 12 : 24);
+    var target = inWelcome ? (W < 700 ? 60 : 110) : (W < 700 ? 22 : 42);
     while (flakes.length < target) { flakes.push(makeFlake(true)); }
     if (flakes.length > target) { flakes.length = target; }
   }
