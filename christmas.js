@@ -111,7 +111,7 @@
   var canvas = null, ctx = null, flakes = [], raf = 0, lastTs = 0, W = 0, H = 0, dpr = 1;
 
   function makeFlake(randomY) {
-    var r = 1.6 + Math.random() * 3.2;
+    var r = 0.65 + Math.random() * 1.2;
     return {
       x: Math.random() * W,
       y: randomY ? Math.random() * H : -10,
@@ -121,7 +121,7 @@
       sp: 0.01 + Math.random() * 0.02,
       sw: 0.15 + Math.random() * 0.3,
       kind: Math.random() < 0.65 ? 0 : 1,
-      a: 0.7 + Math.random() * 0.3
+      a: 0.38 + Math.random() * 0.32
     };
   }
   function sizeSnow() {
@@ -148,10 +148,6 @@
       f.x += Math.sin(f.ph) * f.sw * dt;
       if (f.y > H + 10) { f.y = -10; f.x = Math.random() * W; }
       if (f.x > W + 10) { f.x = -10; } else if (f.x < -10) { f.x = W + 10; }
-      ctx.fillStyle = "rgba(255,255,255,0.1)";
-      ctx.beginPath();
-      ctx.arc(f.x, f.y, f.r * 2, 0, 6.2832);
-      ctx.fill();
       ctx.beginPath();
       ctx.arc(f.x, f.y, f.r, 0, 6.2832);
       if (f.kind === 0) {
@@ -160,8 +156,8 @@
       } else {
         ctx.fillStyle = "rgba(255,255,255," + f.a + ")";
         ctx.fill();
-        ctx.lineWidth = 0.7;
-        ctx.strokeStyle = "rgba(184,150,90,0.8)";
+        ctx.lineWidth = 0.4;
+        ctx.strokeStyle = "rgba(184,150,90,0.35)";
         ctx.stroke();
       }
     }
