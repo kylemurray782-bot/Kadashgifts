@@ -601,7 +601,7 @@
     .desk-nav-link:hover { color: var(--gold); }
   }
 </style>
-<link rel="stylesheet" href="christmas.css?v=20261119-center2">
+<link rel="stylesheet" href="christmas.css?v=20261119-static">
 </head>
 <body>
 
@@ -1514,6 +1514,8 @@ function heroNav(dir) {
 
 function startHeroAutoplay() {
   stopHeroAutoplay();
+  // Keep the Christmas hero stationary while the seasonal theme is active.
+  if (document.body.classList.contains('christmas')) return;
   heroTimer = setInterval(() => heroNav(1), 6000);
 }
 
