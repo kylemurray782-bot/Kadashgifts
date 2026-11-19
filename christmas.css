@@ -747,3 +747,51 @@ body.christmas #heroSlider {
   body.christmas #heroSlides .xmas-hero-title { font-size: 29px; }
   body.christmas #heroSlides .xmas-hero-sub { font-size: 12px; margin-bottom: 14px; }
 }
+
+/* Mobile hero refinement: remove the empty gap between artwork and native copy. */
+@media (max-width: 700px) {
+  body.christmas #heroSlider {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: hidden;
+  }
+  body.christmas #heroSlides {
+    height: auto !important;
+    position: relative;
+  }
+  body.christmas #heroSlides .xmas-hero-slide {
+    position: relative !important;
+    inset: auto !important;
+    height: auto !important;
+    min-height: 0 !important;
+    opacity: 1 !important;
+    background-position: center top !important;
+    background-size: 100% auto !important;
+    background-repeat: no-repeat !important;
+    padding-top: 38%;
+  }
+  body.christmas #heroSlides .xmas-hero-inner {
+    position: relative !important;
+    top: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    padding: 18px 20px 25px !important;
+    background: #f8dce4;
+  }
+  body.christmas #heroSlides .xmas-hero-title {
+    max-width: 350px;
+    font-size: clamp(29px, 7.6vw, 37px);
+    margin-bottom: 8px;
+  }
+  body.christmas #heroSlides .xmas-hero-sub {
+    max-width: 310px;
+    margin-bottom: 16px;
+  }
+}
+@media (max-width: 380px) {
+  body.christmas #heroSlides .xmas-hero-inner { padding: 15px 16px 22px !important; }
+}
