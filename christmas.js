@@ -17,15 +17,11 @@
 
     orderBy: [2026, 12, 18],   // last day for Christmas orders (inclusive)
     orderByLabel: "18 December",
-    themeEnds: [2026, 12, 25], // snow, music and sleigh stop after this day (inclusive)
+    themeEnds: [2026, 12, 25], // snow and music stop after this day (inclusive)
 
     musicSrc: "audio/christmas.mp3",
     musicCredit: "",           // e.g. "Music: Title by Artist, CC BY 4.0". Leave empty if no credit is required.
     musicVolume: 0.35,
-
-    sleighFirstDelayMs: 7000,  // first flight, after the visitor is in
-    sleighEveryMs: 45000,      // then once every 45 seconds
-    sleighCrossMs: 15000,      // time to cross the screen
 
     waNumber: "27738383486",
 
@@ -134,7 +130,9 @@
     canvas.width = Math.round(W * dpr);
     canvas.height = Math.round(H * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    var target = W < 700 ? 48 : 90;
+    // Welcome snowfall is fuller; shopping snowfall stays gentle.
+    var inWelcome = document.body.classList.contains('xmas-gate-open');
+    var target = inWelcome ? (W < 700 ? 48 : 90) : (W < 700 ? 12 : 24);
     while (flakes.length < target) { flakes.push(makeFlake(true)); }
     if (flakes.length > target) { flakes.length = target; }
   }
@@ -182,54 +180,6 @@
     var rt = 0;
     window.addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(sizeSnow, 200); });
     startSnowLoop();
-  }
-
-  /* ═══ SLEIGH ═══ */
-  var sleighEl = null, sleighStarted = false;
-
-  function sleighSVG() {
-    return '<svg viewBox="0 0 360 130" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
-      '<path d="M36 54 C28 34 48 20 66 28 C80 34 82 48 78 54 Z" fill="currentColor" stroke="none"/>' +
-      '<path d="M52 30 C50 24 56 20 60 24" stroke-width="2.5"/>' +
-      '<path d="M22 54 L114 54 C121 54 124 59 122 66 C117 86 98 92 78 92 L50 92 C34 92 26 80 22 54 Z" fill="currentColor" stroke="none"/>' +
-      '<path d="M22 54 C12 50 8 40 14 33" stroke-width="3.5"/>' +
-      '<path d="M14 106 C44 111 104 111 132 100 C141 96 145 88 140 81" stroke-width="3.5"/>' +
-      '<path d="M50 92 L48 106 M102 90 L104 103" stroke-width="3"/>' +
-      '<path d="M130 66 C160 74 190 70 214 62" stroke-width="1.6"/>' +
-      '<path d="M205 58 C205 45 226 40 252 42 C276 40 293 46 293 58 C293 70 277 75 252 75 C226 75 205 71 205 58 Z" fill="currentColor" stroke="none"/>' +
-      '<path d="M280 48 C288 40 294 30 300 24 C306 18 316 16 324 20 C332 23 337 29 338 34 C335 38 327 38 321 36 C313 38 308 46 303 56 Z" fill="currentColor" stroke="none"/>' +
-      '<path d="M306 19 C300 8 292 1 285 3 M301 10 C296 13 290 11 288 7 M313 17 C318 6 326 0 333 2 M318 9 C324 10 329 8 331 4" stroke-width="3"/>' +
-      '<path d="M284 68 L305 82 L320 79" stroke-width="5"/>' +
-      '<path d="M274 71 L290 90 L282 104" stroke-width="5"/>' +
-      '<path d="M222 69 L206 86 L190 89" stroke-width="5"/>' +
-      '<path d="M234 72 L228 92 L214 104" stroke-width="5"/>' +
-      '<path d="M206 54 L196 48" stroke-width="4"/>' +
-      '<circle cx="337" cy="33" r="3.8" fill="#9E2A2F" stroke="none"/>' +
-      '<path d="M6 70 l3 -7 l3 7 l7 3 l-7 3 l-3 7 l-3 -7 l-7 -3 z" fill="#D4B483" stroke="none"/>' +
-      "</svg>";
-  }
-
-  function flySleigh() {
-    if (document.hidden || !sleighEl || !sleighEl.animate) { return; }
-    var w = sleighEl.offsetWidth || 240;
-    sleighEl.style.top = (9 + Math.random() * 13).toFixed(1) + "vh";
-    sleighEl.animate([
-      { transform: "translate3d(" + (-w - 20) + "px,0,0)", opacity: 1 },
-      { transform: "translate3d(" + (window.innerWidth + 20) + "px,0,0)", opacity: 1 }
-    ], { duration: XMAS.sleighCrossMs, easing: "linear" });
-  }
-  function scheduleSleigh() {
-    if (reduced || sleighStarted) { return; }
-    sleighStarted = true;
-    sleighEl = document.createElement("div");
-    sleighEl.className = "xmas-sleigh";
-    sleighEl.setAttribute("aria-hidden", "true");
-    sleighEl.innerHTML = sleighSVG();
-    document.body.appendChild(sleighEl);
-    setTimeout(function () {
-      flySleigh();
-      setInterval(flySleigh, XMAS.sleighEveryMs);
-    }, XMAS.sleighFirstDelayMs);
   }
 
   /* ═══ MUSIC ═══ */
@@ -347,12 +297,12 @@
       document.removeEventListener("keydown", onKey, true);
       lsSet(GATE_KEY, "1");
       document.body.classList.remove("xmas-gate-open");
+      if (ctx) { sizeSnow(); }
       g.classList.remove("in");
       g.classList.add("out");
       setTimeout(function () { if (g.parentNode) { g.parentNode.removeChild(g); } }, 600);
       if (withMusic) { playMusic(); } // runs inside the tap, which is what lets the browser allow audio
       trk("christmas_gate_enter", { music: withMusic ? "on" : "off" });
-      scheduleSleigh();
     }
     function onKey(e) {
       if (e.key === "Escape") { enter(false); return; }
@@ -548,7 +498,6 @@
       musicAvailable = ok;
       if (ok) { addMusicButton(); addCredit(); }
       if (shouldShowGate()) { showGate(); }
-      else { scheduleSleigh(); }
     });
   }
 
