@@ -516,3 +516,36 @@ body.christmas #heroSlides .xmas-hero-inner {
     top: 23% !important;
   }
 }
+
+/* Final hero polish: keep the text in the clear pink space above the gifts. */
+@media (min-width: 701px) {
+  body.christmas #heroSlider {
+    height: clamp(480px, 48vw, 610px);
+    max-height: 610px;
+  }
+  body.christmas #heroSlides .xmas-hero-inner {
+    top: 8% !important;
+    left: 55%;
+    width: min(43%, 580px);
+    padding: 8px 10px;
+  }
+  body.christmas #heroSlides .xmas-hero-title {
+    font-size: clamp(30px, 3.1vw, 45px);
+    line-height: 1.08;
+    margin-bottom: 8px;
+  }
+  body.christmas #heroSlides .xmas-hero-sub {
+    font-size: clamp(12px, 1.05vw, 14px);
+    margin-bottom: 12px;
+  }
+}
+@media (max-width: 700px) {
+  body.christmas #heroSlides .xmas-hero-inner {
+    top: 5% !important;
+    width: min(94%, 430px);
+  }
+  body.christmas #heroSlides .xmas-hero-title {
+    font-size: clamp(26px, 7vw, 36px);
+    margin-bottom: 7px;
+  }
+}
