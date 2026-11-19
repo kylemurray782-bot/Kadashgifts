@@ -502,3 +502,17 @@ body.christmas #heroSlides .xmas-hero-inner .hero-slide-cta:hover { background: 
   body.christmas #heroSlides .xmas-hero-sub { font-size: 12px; margin-bottom: 12px; }
   body.christmas #heroSlides .xmas-hero-inner .hero-slide-cta { padding: 10px 18px; }
 }
+
+/* Christmas 2026: single hero and lower-positioned native copy */
+body.christmas #heroDots,
+body.christmas #heroSlider .hero-arrow,
+body.christmas #heroSlider .hero-prev,
+body.christmas #heroSlider .hero-next { display: none !important; }
+body.christmas #heroSlides .xmas-hero-inner {
+  top: 28% !important;
+}
+@media (max-width:700px) {
+  body.christmas #heroSlides .xmas-hero-inner {
+    top: 23% !important;
+  }
+}
