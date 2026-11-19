@@ -549,3 +549,62 @@ body.christmas #heroSlides .xmas-hero-inner {
     margin-bottom: 7px;
   }
 }
+
+/* Compact Christmas countdown beneath the hero, not another top banner. */
+body.christmas .xmas-countdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px 48px;
+  padding: 28px clamp(18px, 5vw, 72px);
+  background: #fff4f3;
+  border-bottom: 1px solid #e8d7d4;
+  text-align: center;
+}
+body.christmas .xmas-countdown-copy h2 {
+  margin: 4px 0;
+  color: #6b1e2a;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 500;
+}
+body.christmas .xmas-countdown-eyebrow {
+  font: 600 10px 'Jost', sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #a26b58;
+}
+body.christmas .xmas-countdown-copy p {
+  margin: 0;
+  color: #5e5151;
+  font: 13px 'Jost', sans-serif;
+}
+body.christmas .xmas-countdown-clock {
+  display: flex;
+  justify-content: center;
+  gap: clamp(7px, 1.4vw, 14px);
+  font-variant-numeric: tabular-nums;
+}
+body.christmas .xmas-countdown-clock > span {
+  display: flex;
+  flex-direction: column;
+  min-width: clamp(53px, 6vw, 74px);
+  padding: 9px 7px;
+  border: 1px solid #e9cbd0;
+  border-radius: 5px;
+  background: white;
+}
+body.christmas .xmas-countdown-clock strong {
+  font: 600 clamp(23px, 3vw, 32px) 'Jost', sans-serif;
+  color: #86283a;
+}
+body.christmas .xmas-countdown-clock small {
+  font: 10px 'Jost', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #76656a;
+}
+@media(max-width:700px) {
+  body.christmas .xmas-countdown { padding: 24px 12px; gap: 16px; }
+}
