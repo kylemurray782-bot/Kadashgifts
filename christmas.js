@@ -27,7 +27,14 @@
     sleighEveryMs: 45000,      // then once every 45 seconds
     sleighCrossMs: 15000,      // time to cross the screen
 
-    waNumber: "27738383486"
+    waNumber: "27738383486",
+
+    heroHeadline: "Make Christmas Personal.",
+    // Optional hero photo: upload these two files and the slide uses them behind the text.
+    // Until they exist, the slide is burgundy with ornaments and snow.
+    heroImage: { desktop: "images/heroes/christmas-desktop.jpg", mobile: "images/heroes/christmas-mobile.jpg" },
+    // Products shown in the Christmas strip under the hero (product IDs from products.js)
+    stripIds: [93, 5, 42, 17, 71, 100, 155, 41, 162, 6]
   };
 
   var GATE_KEY = "kadash-xmas-2026-gate";
@@ -108,7 +115,7 @@
   var canvas = null, ctx = null, flakes = [], raf = 0, lastTs = 0, W = 0, H = 0, dpr = 1;
 
   function makeFlake(randomY) {
-    var r = 1.3 + Math.random() * 2.4;
+    var r = 1.6 + Math.random() * 3.2;
     return {
       x: Math.random() * W,
       y: randomY ? Math.random() * H : -10,
@@ -118,7 +125,7 @@
       sp: 0.01 + Math.random() * 0.02,
       sw: 0.15 + Math.random() * 0.3,
       kind: Math.random() < 0.65 ? 0 : 1,
-      a: 0.55 + Math.random() * 0.35
+      a: 0.7 + Math.random() * 0.3
     };
   }
   function sizeSnow() {
@@ -127,7 +134,7 @@
     canvas.width = Math.round(W * dpr);
     canvas.height = Math.round(H * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    var target = W < 700 ? 36 : 70;
+    var target = W < 700 ? 48 : 90;
     while (flakes.length < target) { flakes.push(makeFlake(true)); }
     if (flakes.length > target) { flakes.length = target; }
   }
@@ -143,6 +150,10 @@
       f.x += Math.sin(f.ph) * f.sw * dt;
       if (f.y > H + 10) { f.y = -10; f.x = Math.random() * W; }
       if (f.x > W + 10) { f.x = -10; } else if (f.x < -10) { f.x = W + 10; }
+      ctx.fillStyle = "rgba(255,255,255,0.1)";
+      ctx.beginPath();
+      ctx.arc(f.x, f.y, f.r * 2, 0, 6.2832);
+      ctx.fill();
       ctx.beginPath();
       ctx.arc(f.x, f.y, f.r, 0, 6.2832);
       if (f.kind === 0) {
@@ -152,7 +163,7 @@
         ctx.fillStyle = "rgba(255,255,255," + f.a + ")";
         ctx.fill();
         ctx.lineWidth = 0.7;
-        ctx.strokeStyle = "rgba(184,150,90,0.55)";
+        ctx.strokeStyle = "rgba(184,150,90,0.8)";
         ctx.stroke();
       }
     }
@@ -358,11 +369,165 @@
     });
   }
 
+  /* ═══ CHRISTMAS HERO SLIDE ═══ */
+  function escHtml(v) {
+    return String(v == null ? "" : v).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+  function findProduct(id) {
+    if (typeof products === "undefined" || !products.length) { return null; }
+    for (var i = 0; i < products.length; i++) { if (products[i].id === id) { return products[i]; } }
+    return null;
+  }
+
+  function baublesSVG() {
+    return '<svg viewBox="0 0 140 150" aria-hidden="true">' +
+      '<path d="M30 0V52M80 0V30M112 0V78" stroke="#D4B483" stroke-width="1.2" fill="none"/>' +
+      '<rect x="25" y="49" width="10" height="6" rx="1.5" fill="#D4B483"/>' +
+      '<circle cx="30" cy="73" r="19" fill="#B8965A"/>' +
+      '<path d="M19 66a14 14 0 0 1 10-8" stroke="#F0E4CC" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.7"/>' +
+      '<rect x="75" y="27" width="10" height="6" rx="1.5" fill="#D4B483"/>' +
+      '<circle cx="80" cy="50" r="17" fill="#F0E4CC"/>' +
+      '<path d="M63.5 46h33M63.5 54h33" stroke="#B8965A" stroke-width="2.5" fill="none"/>' +
+      '<rect x="107" y="75" width="10" height="6" rx="1.5" fill="#D4B483"/>' +
+      '<circle cx="112" cy="102" r="22" fill="#9E2A2F"/>' +
+      '<path d="M98 94a17 17 0 0 1 12-10" stroke="#F0E4CC" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.6"/>' +
+      "</svg>";
+  }
+
+  function tryHeroPhoto(el) {
+    var src = window.innerWidth <= 700 ? XMAS.heroImage.mobile : XMAS.heroImage.desktop;
+    var im = new Image();
+    im.onload = function () {
+      el.style.backgroundImage = 'url("' + src + '")';
+      el.classList.add("has-photo");
+    };
+    im.src = src;
+  }
+
+  function addHeroSlide() {
+    var wrap = document.getElementById("heroSlides");
+    if (!wrap || typeof renderHeroDots !== "function") { return; }
+    var s = document.createElement("div");
+    s.className = "hero-slide xmas-hero-slide active";
+    s.innerHTML =
+      '<div class="xmas-baubles left">' + baublesSVG() + "</div>" +
+      '<div class="xmas-baubles right">' + baublesSVG() + "</div>" +
+      '<div class="xmas-hero-inner">' +
+      '<h2 class="xmas-hero-title">' + escHtml(XMAS.heroHeadline) + "</h2>" +
+      '<p class="xmas-hero-sub">Personalised Christmas gifts, made with their name on and delivered nationwide.</p>' +
+      '<div class="xmas-hero-deadline">Order by ' + escHtml(XMAS.orderByLabel) + "</div>" +
+      '<a class="hero-slide-cta" href="#products">Shop Christmas gifts</a>' +
+      "</div>";
+
+    var existing = wrap.querySelectorAll(".hero-slide");
+    var firstOld = existing.length ? existing[0] : null;
+    for (var i = 0; i < existing.length; i++) { existing[i].classList.remove("active"); }
+    // The original first slide moves to the back, so Christmas leads
+    if (firstOld) { wrap.appendChild(firstOld); }
+    wrap.insertBefore(s, wrap.firstChild);
+    heroIndex = 0;
+    renderHeroDots();
+
+    s.querySelector("a").addEventListener("click", function (e) {
+      e.preventDefault();
+      trk("christmas_hero_shop", {});
+      if (typeof filterByCategory === "function") { filterByCategory("christmas"); }
+    });
+    tryHeroPhoto(s);
+  }
+
+  /* ═══ CHRISTMAS STRIP (products straight under the hero) ═══ */
+  function addStrip() {
+    var anchor = document.getElementById("trustBar");
+    if (!anchor || !anchor.parentNode) { return; }
+    var cards = "";
+    for (var i = 0; i < XMAS.stripIds.length; i++) {
+      var p = findProduct(XMAS.stripIds[i]);
+      if (!p || !p.images || !p.images.length) { continue; }
+      var price = (p.options && p.options.length)
+        ? "From R" + Math.min.apply(null, p.options.map(function (o) { return o.price; }))
+        : "R" + p.price;
+      cards +=
+        '<button type="button" class="xmas-card" data-id="' + p.id + '">' +
+        '<img src="' + escHtml(p.images[0]) + '" alt="' + escHtml(p.name) + '" loading="lazy">' +
+        '<span class="xmas-card-body"><span class="xmas-card-name">' + escHtml(p.name) + "</span>" +
+        '<span class="xmas-card-price">' + price + "</span></span></button>";
+    }
+    if (!cards) { return; }
+    var sec = document.createElement("section");
+    sec.className = "xmas-strip";
+    sec.setAttribute("aria-label", "Christmas gifts");
+    sec.innerHTML =
+      '<div class="xmas-strip-head"><h2 class="xmas-strip-title">Christmas gifts with their name on</h2>' +
+      '<p class="xmas-strip-sub">Order by ' + escHtml(XMAS.orderByLabel) + ". Delivered nationwide.</p></div>" +
+      '<div class="xmas-strip-track">' + cards + "</div>" +
+      '<div class="xmas-strip-more"><button type="button" class="xmas-btn xmas-btn-primary" data-more="1">See all Christmas gifts</button></div>';
+    anchor.parentNode.insertBefore(sec, anchor);
+    sec.addEventListener("click", function (e) {
+      var card = e.target.closest ? e.target.closest(".xmas-card") : null;
+      if (card) {
+        var id = parseInt(card.getAttribute("data-id"), 10);
+        trk("christmas_strip_item", { item_id: String(id) });
+        if (typeof openModal === "function") { openModal(id); }
+        return;
+      }
+      if (e.target.closest && e.target.closest("[data-more]")) {
+        trk("christmas_strip_more", {});
+        if (typeof filterByCategory === "function") { filterByCategory("christmas"); }
+      }
+    });
+  }
+
+  /* ═══ RIBBONS ON CHRISTMAS PRODUCT CARDS ═══ */
+  function decorateCards() {
+    var cards = document.querySelectorAll("#productGrid .product-card");
+    for (var i = 0; i < cards.length; i++) {
+      var box = cards[i].querySelector(".product-img");
+      if (!box || box.querySelector(".xmas-ribbon")) { continue; }
+      var m = /openModal\((\d+)\)/.exec(box.getAttribute("onclick") || "");
+      if (!m) { continue; }
+      var p = findProduct(parseInt(m[1], 10));
+      if (p && p.cats && p.cats.indexOf("christmas") > -1) {
+        var r = document.createElement("span");
+        r.className = "xmas-ribbon";
+        r.textContent = "Christmas gift";
+        box.appendChild(r);
+      }
+    }
+  }
+  function patchRender() {
+    if (typeof window.renderProducts !== "function") { return; }
+    var orig = window.renderProducts;
+    window.renderProducts = function () {
+      var out = orig.apply(this, arguments);
+      decorateCards();
+      return out;
+    };
+    decorateCards();
+  }
+
+  /* Hide filter chips for seasons that are switched off (Father's Day, Mother's Day) */
+  function hideInactiveFilters() {
+    if (typeof categories === "undefined") { return; }
+    var off = {};
+    for (var i = 0; i < categories.length; i++) { if (categories[i].active === false) { off[categories[i].id] = true; } }
+    var chips = document.querySelectorAll("#filterBar .filter-btn");
+    for (var k = 0; k < chips.length; k++) {
+      if (off[chips[k].getAttribute("data-filter")]) { chips[k].style.display = "none"; }
+    }
+  }
+
   /* ═══ START ═══ */
   function init() {
     document.body.classList.add("christmas");
-    if (ordersOpen) { addBanner(); }
+    if (ordersOpen) { addBanner(); addHeroSlide(); addStrip(); }
     wireWhatsApp();
+    patchRender();
+    hideInactiveFilters();
+    var catTitle = document.querySelector("#categories .section-title");
+    if (catTitle) { catTitle.textContent = "A gift for every Christmas moment"; }
     if (!reduced) { startSnow(); }
 
     document.addEventListener("visibilitychange", function () {
