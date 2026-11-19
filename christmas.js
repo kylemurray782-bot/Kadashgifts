@@ -55,34 +55,49 @@
   }
   function waLink() { return "https://wa.me/" + XMAS.waNumber + "?text=" + encodeURIComponent(waMessage()); }
 
-  /* ═══ BANNER ═══ */
-  function addBanner() {
-    var bar = document.getElementById("announcementBar");
-    var b = document.createElement("div");
-    b.className = "xmas-banner";
-    b.setAttribute("role", "region");
-    b.setAttribute("aria-label", "Christmas ordering");
-    b.innerHTML =
-      '<span class="xmas-banner-text">Order by <strong>' + XMAS.orderByLabel + "</strong> for Christmas delivery</span>" +
-      '<span class="xmas-banner-actions">' +
-      '<a class="xmas-banner-link" href="#products" data-xmas="shop">Shop Christmas gifts</a>' +
-      '<a class="xmas-banner-cta" href="' + waLink() + '" target="_blank" rel="noopener" data-xmas="wa">Order on WhatsApp</a>' +
-      "</span>";
-    if (bar && bar.parentNode) { bar.parentNode.insertBefore(b, bar.nextSibling); }
-    else { document.body.insertBefore(b, document.body.firstChild); }
-
-    b.addEventListener("click", function (e) {
-      var t = e.target.closest ? e.target.closest("[data-xmas]") : null;
-      if (!t) { return; }
-      if (t.getAttribute("data-xmas") === "shop") {
-        e.preventDefault();
-        trk("christmas_banner_shop", {});
-        if (typeof filterByCategory === "function") { filterByCategory("christmas"); }
-        else { window.location.hash = "products"; }
-      } else {
-        trk("christmas_banner_whatsapp", {});
+  /* ═══ CHRISTMAS ORDER COUNTDOWN ═══ */
+  function addCountdown() {
+    var anchor = document.getElementById("trustBar");
+    if (!anchor || !anchor.parentNode) { return; }
+    var section = document.createElement("section");
+    section.className = "xmas-countdown";
+    section.setAttribute("aria-label", "Christmas order deadline countdown");
+    section.innerHTML =
+      '<div class="xmas-countdown-copy">' +
+      '<span class="xmas-countdown-eyebrow">The Christmas countdown</span>' +
+      '<h2>Make their Christmas personal</h2>' +
+      '<p>Time remaining to place your Christmas order by ' + escHtml(XMAS.orderByLabel) + '.</p>' +
+      '</div>' +
+      '<div class="xmas-countdown-clock" role="timer" aria-label="Time left to order">' +
+      '<span><strong data-unit="days">00</strong><small>Days</small></span>' +
+      '<span><strong data-unit="hours">00</strong><small>Hours</small></span>' +
+      '<span><strong data-unit="minutes">00</strong><small>Mins</small></span>' +
+      '<span><strong data-unit="seconds">00</strong><small>Secs</small></span>' +
+      '</div>';
+    anchor.parentNode.insertBefore(section, anchor);
+    var deadline = endOfDay(XMAS.orderBy).getTime();
+    function update() {
+      var remaining = Math.max(0, deadline - Date.now());
+      var total = Math.floor(remaining / 1000);
+      var values = {
+        days: Math.floor(total / 86400),
+        hours: Math.floor((total % 86400) / 3600),
+        minutes: Math.floor((total % 3600) / 60),
+        seconds: total % 60
+      };
+      Object.keys(values).forEach(function (unit) {
+        var node = section.querySelector('[data-unit="' + unit + '"]');
+        if (node) { node.textContent = String(values[unit]).padStart(2, "0"); }
+      });
+      if (remaining === 0) {
+        section.querySelector(".xmas-countdown-copy p").textContent =
+          "The Christmas order deadline has passed. Explore our other personalised gifts.";
+        if (timer) { clearInterval(timer); }
       }
-    });
+    }
+    var timer = null;
+    update();
+    if (Date.now() < deadline) { timer = setInterval(update, 1000); }
   }
 
   /* Pre-fill existing WhatsApp links and the gift helper with a Christmas message */
@@ -464,7 +479,7 @@
   /* ═══ START ═══ */
   function init() {
     document.body.classList.add("christmas");
-    if (ordersOpen) { addBanner(); addHeroSlide(); addStrip(); }
+    if (ordersOpen) { addHeroSlide(); addStrip(); addCountdown(); }
     wireWhatsApp();
     patchRender();
     hideInactiveFilters();
