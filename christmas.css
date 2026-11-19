@@ -361,3 +361,63 @@ body.christmas .product-img { position: relative; }
 /* Christmas shopping: keep category navigation accessible in the menu,
    but remove the desktop category strip so the festive hero leads. */
 body.christmas .desk-nav { display: none !important; }
+
+/* Luxury & Warm Christmas hero refinements */
+body.christmas .xmas-hero-slide {
+  justify-content: flex-start;
+  text-align: left;
+  background-image: radial-gradient(ellipse at 75% 30%, #8c3041 0%, #621b2b 44%, #34161c 100%);
+}
+body.christmas .xmas-hero-slide.has-photo {
+  background-position: center center;
+}
+body.christmas .xmas-hero-slide.has-photo::before {
+  background: linear-gradient(90deg, rgba(37,12,20,.88) 0%, rgba(49,15,25,.73) 38%, rgba(49,15,25,.1) 78%);
+}
+body.christmas .xmas-hero-inner {
+  width: min(100%, 670px);
+  margin: 0;
+  padding: 58px 7% 64px;
+  text-align: left;
+}
+body.christmas .xmas-hero-eyebrow {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--gold-light);
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+}
+body.christmas .xmas-hero-title {
+  color: #fff5e7;
+  font-size: clamp(43px, 5.5vw, 76px);
+  font-weight: 400;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+body.christmas .xmas-hero-sub {
+  margin: 0;
+  color: #f0e4cc;
+}
+body.christmas .xmas-hero-deadline {
+  margin: 18px 0 24px;
+  background: rgba(52,22,28,.38);
+}
+body.christmas .xmas-hero-inner .hero-slide-cta {
+  background: linear-gradient(135deg,#e8cf9b,#b8965a);
+  color: #261714;
+  font-weight: 600;
+}
+body.christmas .xmas-hero-inner .hero-slide-cta:hover { background: #f0e4cc; }
+body.christmas .xmas-hero-slide.has-photo .xmas-baubles { opacity: .2; }
+@media (max-width:700px) {
+  body.christmas .xmas-hero-slide { justify-content: center; text-align: center; }
+  body.christmas .xmas-hero-slide.has-photo { background-position: 68% center; }
+  body.christmas .xmas-hero-slide.has-photo::before {
+    background: linear-gradient(180deg,rgba(39,12,21,.82),rgba(39,12,21,.64) 62%,rgba(39,12,21,.8));
+  }
+  body.christmas .xmas-hero-inner { padding: 60px 22px 64px; text-align: center; }
+  body.christmas .xmas-hero-sub { margin: 0 auto; }
+  body.christmas .xmas-hero-deadline { margin: 18px auto 24px; }
+}
