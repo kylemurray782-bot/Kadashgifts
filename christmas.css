@@ -680,3 +680,70 @@ body.christmas #heroSlider {
     max-height: 520px;
   }
 }
+
+/* Mobile-first Christmas hero: image-first composition and a native content panel. */
+@media (max-width: 700px) {
+  body.christmas #heroSlider {
+    height: clamp(455px, calc(100svh - 200px), 610px);
+    min-height: 455px;
+    max-height: 610px;
+    background: #f8dce4;
+  }
+  body.christmas #heroSlides .xmas-hero-slide,
+  body.christmas #heroSlides .xmas-hero-slide.has-photo {
+    background-color: #f8dce4;
+    background-position: center top !important;
+    background-size: 100% auto !important;
+    background-repeat: no-repeat !important;
+  }
+  body.christmas #heroSlides .xmas-hero-inner {
+    box-sizing: border-box;
+    position: absolute;
+    top: auto !important;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: none;
+    width: 100%;
+    max-width: none;
+    padding: 32px 22px 24px;
+    margin: 0 !important;
+    background: linear-gradient(to bottom, rgba(248,220,228,0), rgba(248,220,228,.96) 22%, #f8dce4 48%);
+    text-align: center !important;
+  }
+  body.christmas #heroSlides .xmas-hero-title {
+    max-width: 330px;
+    margin: 0 auto 8px;
+    font-size: clamp(30px, 8vw, 39px);
+    line-height: 1.06;
+    letter-spacing: -.4px;
+    text-wrap: balance;
+  }
+  body.christmas #heroSlides .xmas-hero-sub {
+    max-width: 290px;
+    margin: 0 auto 17px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  body.christmas #heroSlides .xmas-hero-inner .hero-slide-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 13px 24px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.1px;
+    border-radius: 4px;
+    touch-action: manipulation;
+  }
+}
+@media (max-width: 380px) {
+  body.christmas #heroSlider {
+    height: clamp(435px, calc(100svh - 175px), 560px);
+    min-height: 435px;
+  }
+  body.christmas #heroSlides .xmas-hero-inner { padding: 29px 16px 19px; }
+  body.christmas #heroSlides .xmas-hero-title { font-size: 29px; }
+  body.christmas #heroSlides .xmas-hero-sub { font-size: 12px; margin-bottom: 14px; }
+}
