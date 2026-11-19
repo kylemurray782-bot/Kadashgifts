@@ -419,3 +419,24 @@ body.christmas .xmas-hero-slide.has-photo .xmas-baubles { opacity: .28; }
   body.christmas .xmas-hero-inner { padding: 58px 22px 64px; }
   body.christmas .xmas-hero-title { font-size: clamp(40px, 10vw, 56px); }
 }
+
+/* Center the complete Christmas content group within the visible hero. */
+body.christmas #heroSlides .hero-slide.xmas-hero-slide {
+  display: grid !important;
+  place-items: center !important;
+  text-align: center !important;
+}
+body.christmas #heroSlides .xmas-hero-inner {
+  box-sizing: border-box;
+  position: relative;
+  z-index: 3;
+  width: min(100%, 760px);
+  max-width: 760px;
+  margin-inline: auto !important;
+  padding-inline: clamp(20px, 5vw, 50px);
+  text-align: center !important;
+}
+body.christmas #heroSlides .xmas-hero-inner > * { margin-inline: auto; }
+body.christmas #heroSlides .xmas-hero-title,
+body.christmas #heroSlides .xmas-hero-sub,
+body.christmas #heroSlides .xmas-hero-eyebrow { text-align: center !important; }
