@@ -368,13 +368,12 @@
       '<a class="hero-slide-cta" href="#products">Shop Christmas gifts</a>' +
       "</div>";
 
-    var existing = wrap.querySelectorAll(".hero-slide");
-    var firstOld = existing.length ? existing[0] : null;
-    for (var i = 0; i < existing.length; i++) { existing[i].classList.remove("active"); }
-    // The original first slide moves to the back, so Christmas leads
-    if (firstOld) { wrap.appendChild(firstOld); }
-    wrap.insertBefore(s, wrap.firstChild);
+    // Keep only the Christmas hero in the slider while the seasonal theme is active.
+    // The original HERO_SLIDES data remains intact for after Christmas.
+    while (wrap.firstChild) { wrap.removeChild(wrap.firstChild); }
+    wrap.appendChild(s);
     heroIndex = 0;
+    if (typeof stopHeroAutoplay === "function") { stopHeroAutoplay(); }
     renderHeroDots();
 
     s.querySelector("a").addEventListener("click", function (e) {
