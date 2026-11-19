@@ -608,3 +608,61 @@ body.christmas .xmas-countdown-clock small {
 @media(max-width:700px) {
   body.christmas .xmas-countdown { padding: 24px 12px; gap: 16px; }
 }
+
+/* Christmas review gallery: subtle festive framing, no overlays on reviews. */
+body.christmas .proof-section {
+  position: relative;
+  isolation: isolate;
+  padding: 62px 0 58px;
+  background: linear-gradient(180deg, #fff9f6 0%, #fdf0ee 100%);
+  border-top: 1px solid #eedbd6;
+  border-bottom: 1px solid #ead6d0;
+}
+body.christmas .proof-section::before,
+body.christmas .proof-section::after {
+  position: absolute;
+  top: 8px;
+  z-index: 0;
+  pointer-events: none;
+  font-size: clamp(28px, 4vw, 48px);
+  filter: drop-shadow(0 4px 5px rgba(89,42,40,.12));
+}
+body.christmas .proof-section::before { content: "🌿🎄"; left: clamp(12px, 4vw, 65px); transform: rotate(-12deg); }
+body.christmas .proof-section::after { content: "🎄🌿"; right: clamp(12px, 4vw, 65px); transform: rotate(12deg); }
+body.christmas .proof-heading {
+  position: relative;
+  z-index: 1;
+  color: #74283b;
+  font-size: clamp(25px, 3vw, 35px);
+  margin-bottom: 32px;
+}
+body.christmas .proof-heading::before {
+  content: "✦  ✧  ✦";
+  display: block;
+  margin-bottom: 9px;
+  font: 15px 'Jost', sans-serif;
+  letter-spacing: 8px;
+  color: #bc9760;
+}
+body.christmas .proof-heading::after {
+  content: "";
+  display: block;
+  width: 74px;
+  height: 1px;
+  margin: 14px auto 0;
+  background: linear-gradient(90deg, transparent, #c39a65, transparent);
+}
+body.christmas .proof-track-wrap { position: relative; z-index: 1; }
+body.christmas .proof-card {
+  border: 1px solid rgba(189,151,119,.24);
+  box-shadow: 0 6px 20px rgba(95,49,55,.09);
+}
+body.christmas .proof-arrow { border-color: #e7c7ca; color: #74283b; }
+@media(max-width:700px) {
+  body.christmas .proof-section { padding: 48px 0 44px; }
+  body.christmas .proof-section::before,
+  body.christmas .proof-section::after { top: 12px; font-size: 24px; }
+  body.christmas .proof-section::before { left: 9px; }
+  body.christmas .proof-section::after { right: 9px; }
+  body.christmas .proof-heading { padding: 0 56px; font-size: 25px; }
+}
