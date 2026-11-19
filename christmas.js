@@ -362,12 +362,9 @@
     var s = document.createElement("div");
     s.className = "hero-slide xmas-hero-slide active";
     s.innerHTML =
-      '<div class="xmas-baubles left">' + baublesSVG() + "</div>" +
-      '<div class="xmas-baubles right">' + baublesSVG() + "</div>" +
-      '<div class="xmas-hero-inner"><span class="xmas-hero-eyebrow">A season of meaningful giving</span>' +
+      '<div class="xmas-hero-inner">' +
       '<h2 class="xmas-hero-title">' + escHtml(XMAS.heroHeadline) + "</h2>" +
       '<p class="xmas-hero-sub">Thoughtful, personalised gifts for the people who matter most.</p>' +
-      '<div class="xmas-hero-deadline">Order by ' + escHtml(XMAS.orderByLabel) + "</div>" +
       '<a class="hero-slide-cta" href="#products">Shop Christmas gifts</a>' +
       "</div>";
 
