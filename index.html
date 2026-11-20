@@ -970,7 +970,7 @@ function esc(s) {
 }
 
 const categories = [
-  { id:'christmas',       name:'Christmas Gifts',      group:'occasion', active: new Date() <= new Date(2026, 11, 25, 23, 59, 59) },
+  { id:'christmas',       name:'Christmas Gifts',      group:'occasion', cover:'images/christmas_gift_hamper.jpg', active: new Date() <= new Date(2026, 11, 25, 23, 59, 59) },
   { id:'best-sellers',     name:'Best Sellers',         group:'shop' },
   { id:'gift-boxes',       name:'Gift Boxes & Hampers', group:'shop' },
   { id:'gift-packaging',   name:'Gift Packaging',       group:'shop' },
@@ -1679,6 +1679,13 @@ function getMixedAll() {
 
 function getFiltered() {
   let filtered = activeFilter === 'all' ? getMixedAll() : products.filter(p => p.cats.includes(activeFilter));
+  if (activeFilter === 'christmas') {
+    // Feature the newly added seasonal collection before older Christmas-tagged gifts.
+    filtered = filtered.slice().sort((a, b) => {
+      const featured = p => p.id >= 178 && p.id <= 186 ? 0 : 1;
+      return featured(a) - featured(b);
+    });
+  }
   if (searchQuery) {
     filtered = filtered.filter(p =>
       p.name.toLowerCase().includes(searchQuery) ||
