@@ -1933,5 +1933,96 @@ const products = [
     price: 350,
     options: [],
     cats: ['corporate']
+  },
+  {
+    id: 178,
+    name: "Personalised Christmas Mug & Gift Box",
+    emoji: "🎄",
+    images: ["images/christmas_mug.jpg"],
+    desc: "A festive personalised Christmas mug presented with a mug box. R120 each, or R100 per mug for orders of 10 or more.",
+    price: 120,
+    options: [],
+    cats: ["christmas","mugs"],
+    bulkPricing: {"minQty":10,"unitPrice":100}
+  },
+  {
+    id: 179,
+    name: "Christmas Keepsake Keyring",
+    emoji: "🎄",
+    images: ["images/christmas_keyring.jpg"],
+    desc: "An elegant personalised keyring, made especially for someone you love.",
+    price: 130,
+    options: [],
+    cats: ["christmas"]
+  },
+  {
+    id: 180,
+    name: "Personalised Christmas Stockings",
+    emoji: "🎄",
+    images: ["images/christmas_stocking_1.jpg","images/christmas_stocking_2.jpg","images/christmas_stocking_3.jpg","images/christmas_stocking_4.jpg"],
+    desc: "Personalised Christmas stockings in three sizes for festive surprises.",
+    price: 75,
+    options: [{"name":"Medium","price":75},{"name":"Large","price":85},{"name":"Extra Large","price":150}],
+    cats: ["christmas","home"]
+  },
+  {
+    id: 181,
+    name: "Personalised Drawstring Christmas Stocking",
+    emoji: "🎄",
+    images: ["images/christmas_stockings_drawstrings.jpg"],
+    desc: "A personalised Christmas stocking with a convenient drawstring closure.",
+    price: 150,
+    options: [],
+    cats: ["christmas"]
+  },
+  {
+    id: 182,
+    name: "Christmas Kitchen Gift Duo",
+    emoji: "🎄",
+    images: ["images/christmas_oven_mittens_mug.jpg"],
+    desc: "A personalised Christmas oven mitten and mug, paired as a thoughtful festive gift.",
+    price: 250,
+    options: [],
+    cats: ["christmas","home","mugs"]
+  },
+  {
+    id: 183,
+    name: "Personalised Christmas Dining Cushions",
+    emoji: "🎄",
+    images: ["images/christmas_pillows.jpg"],
+    desc: "Personalised Christmas cushions to bring a festive touch to your dining room. One for R150 or two for R250.",
+    price: 150,
+    options: [{"name":"One cushion","price":150},{"name":"Set of two cushions","price":250}],
+    cats: ["christmas","home"]
+  },
+  {
+    id: 184,
+    name: "Personalised Christmas Photo Bauble",
+    emoji: "🎄",
+    images: ["images/christmas_balls.jpg"],
+    desc: "A personalised Christmas photo bauble to celebrate a favourite memory on your tree.",
+    price: 100,
+    options: [],
+    cats: ["christmas","home"]
+  },
+  {
+    id: 185,
+    name: "Personalised Christmas Photo Ornament",
+    emoji: "🎄",
+    images: ["images/christmas_ornament.jpg"],
+    desc: "A Christmas ornament personalised with a cherished photo, made to treasure.",
+    price: 80,
+    options: [],
+    cats: ["christmas","home"]
+  },
+  {
+    id: 186,
+    name: "Christmas Blessings Personalised Gift Box",
+    emoji: "🎄",
+    images: ["images/christmas_gift_hamper.jpg"],
+    desc: "Includes a personalised Santa hat, personalised Christmas mug, Christmas candy cane, Christmas scripture cookie and personalised Christmas angel ornament.",
+    price: 350,
+    options: [],
+    cats: ["christmas","gift-boxes","christian-gifts"]
   }
 ];
