@@ -1100,8 +1100,13 @@ function track(name, params) {
 }
 
 /* ═══ DELIVERY ═══ */
+function effectiveUnitPrice(item) {
+  const bulk = item.bulkPricing;
+  if (bulk && item.qty >= bulk.minQty) return bulk.unitPrice + (item.price - (item.basePrice ?? item.price));
+  return item.price;
+}
 function cartSubtotal() {
-  return cart.reduce((s, i) => s + i.price * i.qty, 0);
+  return cart.reduce((s, i) => s + effectiveUnitPrice(i) * i.qty, 0);
 }
 function deliveryFee(subtotal) {
   if (subtotal <= 0) return 0;
@@ -1990,7 +1995,7 @@ function updateCart() {
         <div class="cart-item-name">${esc(i.name)}</div>
         ${i.optionName ? `<div class="cart-item-option">${esc(i.optionName)}</div>` : ''}
         ${i.addOns && i.addOns.length ? `<div class="cart-item-addons">+ ${i.addOns.map(a=>esc(a.name)).join(', ')}</div>` : ''}
-        <div class="cart-item-price">R${i.price} each</div>
+        <div class="cart-item-price">R${effectiveUnitPrice(i)} each${i.bulkPricing && i.qty >= i.bulkPricing.minQty ? ' · Bulk price applied' : ''}</div>
         <div class="cart-item-qty">
           <button class="qty-btn" onclick="changeQty('${i.cartKey}',-1)">−</button>
           <span class="qty-num">${i.qty}</span>
@@ -2122,7 +2127,7 @@ function checkoutWhatsApp() {
   const total = subtotal + delivery;
 
   const lines = cart.map(i => {
-    let line = `  • ${i.name}${i.optionName?` (${i.optionName})`:''} x${i.qty} - R${i.price*i.qty}`;
+    let line = `  • ${i.name}${i.optionName?` (${i.optionName})`:''} x${i.qty} - R${effectiveUnitPrice(i)*i.qty}`;
     if (i.addOns && i.addOns.length) line += `\n    Extras: ${i.addOns.map(a=>a.name).join(', ')}`;
     return line;
   }).join('\n');
